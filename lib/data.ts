@@ -1,5 +1,5 @@
 import { productReviews, editorialCollections } from './products';
-import { demoMode, hasSupabase } from './config';
+import { hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
 export async function getReviews(): Promise<Review[]> {

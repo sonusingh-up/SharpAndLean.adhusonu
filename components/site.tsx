@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ArrowUpRight, Plus, ArrowRight } from 'lucide-react';
-import { demoMode } from '@/lib/config';
 import { AuthControls } from '@/components/auth-controls';
 export function Logo() {
   return (

@@ -1,15 +1,14 @@
 // Run against a development/preview server with no Supabase credentials.
 const origin = process.env.TEST_ORIGIN || 'http://localhost:3000';
+// Fixed routes only. Review, guide and comparison URLs are discovered from the
+// sitemap below, so this list cannot drift when content slugs change.
 const paths = [
   '/',
   '/fat-burners',
   '/nootropics',
   '/wellness',
-  '/fat-burners/daily-balance-review',
   '/best',
-  '/best/sample-shortlist',
   '/compare',
-  '/compare/daily-balance-vs-metabolic-support',
   '/author/sumita-bhatti',
   '/about',
   '/contact',
@@ -22,7 +21,6 @@ const paths = [
   '/admin',
   '/admin/reviews',
   '/admin/reviews/new',
-  '/admin/reviews/sample-1',
   '/admin/best-lists/new',
   '/admin/comparisons/new',
   '/admin/articles/new',
@@ -33,13 +31,33 @@ const paths = [
   '/robots.txt',
   '/sitemap.xml',
 ];
+// Without Clerk keys the proxy answers every auth route with 503 instead of a
+// sign-in redirect, so detect which of the two states the server is running in.
+const authRoute = (path) => path.startsWith('/admin') || path === '/sign-in' || path === '/sign-up';
+const authConfigured = (await fetch(origin + '/sign-in', { redirect: 'manual' })).status !== 503;
+
+const sitemap = await (await fetch(origin + '/sitemap.xml')).text();
+const contentPaths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+  (match) => new URL(match[1]).pathname,
+);
+if (!contentPaths.length)
+  throw new Error('The sitemap listed no pages. Is NEXT_PUBLIC_DEMO_MODE set to true?');
+const allPaths = [...new Set([...paths, ...contentPaths])];
+
 const results = [];
-for (let start = 0; start < paths.length; start += 4) {
+for (let start = 0; start < allPaths.length; start += 4) {
   results.push(
     ...(await Promise.all(
-      paths.slice(start, start + 4).map(async (path) => {
+      allPaths.slice(start, start + 4).map(async (path) => {
         const response = await fetch(origin + path, { redirect: 'manual' });
         const text = await response.text();
+        if (!authConfigured && authRoute(path)) {
+          if (response.status !== 503)
+            throw new Error(
+              `${path}: auth routes must report 503 when Clerk is unconfigured (${response.status})`,
+            );
+          return path;
+        }
         if (path.startsWith('/admin')) {
           if (
             ![302, 303, 307, 308].includes(response.status) ||
@@ -68,7 +86,11 @@ if (newsletter.status !== 503) throw new Error('Unconfigured newsletter must ret
 const revalidate = await fetch(origin + '/api/revalidate', { method: 'POST' });
 if (revalidate.status !== 401) throw new Error('Unprotected revalidation');
 const robots = await (await fetch(origin + '/robots.txt')).text();
-if (!robots.includes('Disallow: /')) throw new Error('Preview must block indexing');
+// Matches the editorial desk being blocked, or the whole site in demo mode.
+if (!/^Disallow: \/(admin)?$/m.test(robots) || !robots.includes('Sitemap:'))
+  throw new Error('robots.txt must block the editorial desk and declare the sitemap');
 console.log(
-  `${results.length} routes checked, including protected CMS redirects; 404, preview form failure, revalidation auth and robots checks passed.`,
+  `${results.length} routes checked, including ${
+    authConfigured ? 'protected CMS redirects' : 'unavailable auth routes'
+  }; 404, preview form failure, revalidation auth and robots checks passed.`,
 );
