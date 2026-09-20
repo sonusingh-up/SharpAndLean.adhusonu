@@ -12,7 +12,7 @@ import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
 export function AffiliateButton({ review }: { review: Review }) {
   if (!review.affiliate_url || !safeUrl(review.affiliate_url))
-    return <p className="muted">A verified purchase link has not been added.</p>;
+    return <a className="text-link" href="#sources-and-shopping">Sources and shopping options</a>;
   return (
     <div className="affiliate-block">
       <p>Affiliate link: we may earn a commission at no extra cost to you.</p>
@@ -61,14 +61,14 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <SectionLabel>{category.name} / A closer look</SectionLabel>
             <h1 className="page-title">
               {r.title}
-              {!r.title.toLowerCase().includes('review') ? ' review' : ''}
+              {r.id.startsWith('editorial-product-') ? ' — label overview' : !r.title.toLowerCase().includes('review') ? ' review' : ''}
             </h1>
             <p className="page-intro">{r.summary}</p>
             <div className="byline">
               <Link href="/author/sumita-bhatti">
                 {r.is_sample
                   ? 'Editorial layout preview'
-                  : `By ${author?.name || 'SharpAndLean editorial team'}`}
+                  : `By ${r.id.startsWith('editorial-product-') ? 'SharpAndLean editorial team' : author?.name || 'SharpAndLean editorial team'}`}
               </Link>
               <span>
                 {r.is_sample
@@ -237,7 +237,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           </section>
         )}
       </article>
-      {!r.is_sample && (
+      {!r.is_sample && !r.id.startsWith('editorial-product-') && (
         <>
           <JsonLd
             data={{

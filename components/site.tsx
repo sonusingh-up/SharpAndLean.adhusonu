@@ -98,7 +98,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <Header />
       <main id="main">{children}</main>
       <Footer />
-      {demoMode && <div className="preview-label">PREVIEW · Sample content</div>}
     </div>
   );
 }

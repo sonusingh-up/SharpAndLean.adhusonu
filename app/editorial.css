@@ -1,0 +1,32 @@
+/* Reading layouts shared by author, guide, review and information pages. */
+.page-section .reading-section { max-width: 780px; margin: 48px auto 0; padding-top: 32px; border-top: 1px solid var(--line); }
+.page-section .reading-section > h2,
+.info-page .prose h2,
+.collection-body .prose h2,
+.review-body .prose h2 { font-family: var(--font-dm),sans-serif; font-weight: 700; font-size: clamp(25px,2.4vw,32px); line-height: 1.3; letter-spacing: -.025em; margin: 0 0 20px; }
+.page-section .reading-section > p,
+.page-section .reading-section > ul,
+.page-section .reading-section > ol { font-size: 17px; line-height: 1.85; color: #343a36; margin: 0 0 22px; max-width: 72ch; }
+.page-section .reading-section > ul { list-style: disc; padding-left: 24px; }
+.page-section .reading-section > ol { list-style: decimal; padding-left: 24px; }
+.page-section .reading-section li { padding-left: 5px; margin-bottom: 12px; }
+.page-section .reading-section .page-intro { font-size: 18px; line-height: 1.8; }
+.info-page > .prose,.collection-body > .prose { max-width: 780px; margin-inline: auto; }
+.prose { font-size: 17px; line-height: 1.85; color: #343a36; }
+.prose p { margin-top: 0; margin-bottom: 24px; }
+.prose h2:not(:first-child) { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }
+.prose h3 { font-family: var(--font-dm),sans-serif; font-weight: 650; font-size: 22px; line-height: 1.4; margin: 28px 0 14px; letter-spacing: -.015em; }
+.prose a { color: #28583d; text-decoration: underline; text-underline-offset: 3px; }
+.faq-list { border-top: 1px solid var(--line); margin-top: 24px; }
+.faq-list details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+.faq-list summary { font-family: var(--font-dm),sans-serif; font-size: 18px; line-height: 1.5; font-weight: 600; cursor: pointer; }
+.faq-list details p { font-size: 16px; line-height: 1.8; color: #444b45; margin: 16px 0 4px; max-width: 70ch; }
+.author-hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); }
+.author-hero .page-intro { max-width: 58ch; line-height: 1.8; }
+.reading-section .expertise { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+.home-frame .review-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+@media(max-width:760px) {
+  .page-section .reading-section { margin-top: 32px; padding-top: 24px; }
+  .page-section .reading-section > p,.page-section .reading-section > ul,.prose { font-size:16px; line-height:1.8; }
+  .home-frame .review-grid { grid-template-columns: 1fr; }
+}

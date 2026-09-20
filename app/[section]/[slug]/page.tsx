@@ -217,9 +217,9 @@ export default async function DetailPage({
             </div>
           </section>
           <section className="reading-section">
-            <h2>{demoMode ? 'Preview the review format' : 'Reviews by Sumita'}</h2>
+            <h2>Product label overviews</h2>
             <Catalog
-              reviews={demoMode ? all : all.filter((r) => r.author_id === stored?.id)}
+              reviews={all}
               paginated
             />
           </section>

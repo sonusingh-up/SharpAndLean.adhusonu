@@ -193,7 +193,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
                   {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
                 </a>
               ) : (
-                <p>Our contact email will be listed here before launch.</p>
+                <p>Use Sumita’s LinkedIn profile below for professional enquiries. Please do not send private medical information.</p>
               )}
               <p>
                 For a correction, include the page URL, the passage in question and a primary

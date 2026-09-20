@@ -18,7 +18,6 @@ import { Header, Footer, SectionLabel, ButtonLink } from '@/components/site';
 import { ReviewCard } from '@/components/review-card';
 import { Newsletter } from '@/components/newsletter';
 import { getReviews } from '@/lib/data';
-import { demoMode } from '@/lib/config';
 import { pageMeta, JsonLd } from '@/components/seo';
 import { siteUrl } from '@/lib/config';
 export const revalidate = 3600;
@@ -58,21 +57,21 @@ export default async function Home() {
               <span>
                 Meet Sumita
                 <br />
-                Our expert reviewer
+                Clinical nutritionist
               </span>
             </Link>
           </div>
           <div className="hero-copy">
             <h1>
-              Honest reviews.
+              Know your supplements.
               <br />
-              Built on <span>real science.</span>
+              Start with <span>the label.</span>
               <sup>
                 <Plus size={28} strokeWidth={1.3} />
               </sup>
             </h1>
             <div className="hero-actions">
-              <ButtonLink href="#reviews">Explore reviews</ButtonLink>
+              <ButtonLink href="#reviews">Explore products</ButtonLink>
               <p>
                 Less noise. More know-how.
                 <br />A thoughtful look at the supplements
@@ -117,43 +116,6 @@ export default async function Home() {
             </a>
           </div>
         </section>
-        <section className="section reading-section home-editorial">
-          <SectionLabel>Why we are here</SectionLabel>
-          <h2>Supplement advice should survive a look at the label.</h2>
-          <p className="page-intro">
-            SharpAndLean began with a frustration Sumita Bhatti has seen repeatedly across more
-            than 15 years in clinical nutrition: confident promises are easy to print, while the
-            details needed to judge them are buried. A familiar ingredient may appear at an
-            undisclosed dose. A study may test a different extract. “Third-party tested” may arrive
-            without a laboratory, batch number or result. We built this site to slow that process
-            down and make the reasoning visible.
-          </p>
-          <p>
-            We are not here to turn every bottle into a winner or every uncertain finding into a
-            scare story. We are here to ask useful questions, cite the source and tell you when the
-            answer is still incomplete.
-          </p>
-        </section>
-        <section className="section reading-section home-editorial">
-          <SectionLabel>How we review</SectionLabel>
-          <h2>Three checks before a verdict.</h2>
-          <p>
-            First, we transcribe the current label: serving size, ingredient forms, exact doses,
-            stimulant sources, allergens and proprietary blends. Second, we compare those details
-            with relevant human research. Evidence for an ingredient is not automatically evidence
-            for the finished formula. Third, we check the practical claims around the product,
-            including batch testing, price, refund terms and who should avoid it.
-          </p>
-          <p>
-            A common red flag is simple. A brand cites a trial using a defined daily amount, then
-            sells a multi-ingredient blend whose entire serving weighs less than that studied dose.
-            The citation may be real, but it cannot do the work the sales page asks it to do. We
-            call out that mismatch instead of repeating “clinically studied.”
-          </p>
-          <Link className="text-link" href="/about">
-            Read the complete editorial standard <ArrowUpRight size={16} />
-          </Link>
-        </section>
         <section className="section categories-section" id="categories">
           <div className="center-heading">
             <SectionLabel>Find your focus</SectionLabel>
@@ -173,7 +135,6 @@ export default async function Home() {
                   <ArrowUpRight size={18} />
                 </span>
               </div>
-              <p>Stimulants, fibres and plant extracts examined by dose, mechanism and safety—not by the size of the promise.</p>
             </Link>
             <Link className="bento-card bento-brain" href="/nootropics">
               <Brain size={47} strokeWidth={1} />
@@ -181,7 +142,6 @@ export default async function Home() {
                 <h3>Nootropics</h3>
                 <ArrowUpRight size={18} />
               </div>
-              <p>Focus and memory formulas separated into what improves alertness, what has limited evidence and what remains marketing.</p>
             </Link>
             <Link className="bento-card bento-wellness" href="/wellness">
               <Leaf size={47} strokeWidth={1} />
@@ -189,7 +149,6 @@ export default async function Home() {
                 <h3>Wellness</h3>
                 <ArrowUpRight size={18} />
               </div>
-              <p>Everyday nutrients, probiotics and blends reviewed around a defined need rather than a vague promise to optimise everything.</p>
             </Link>
             <Link className="bento-card bento-compare" href="/compare">
               <Scale size={30} strokeWidth={1} />
@@ -216,7 +175,7 @@ export default async function Home() {
                   <ArrowUpRight size={18} />
                 </span>
               </div>
-              <p>Best-of guides, with the why behind every pick.</p>
+              <p>Practical guides to building your own shortlist.</p>
             </Link>
           </div>
         </section>
@@ -233,7 +192,7 @@ export default async function Home() {
             <p>
               Beyond the front-of-pack promises.
               <br />
-              Ingredients, evidence and the full picture.
+              Manufacturer sources and clear label overviews.
             </p>
           </div>
           {reviews.length ? (
@@ -326,7 +285,6 @@ export default async function Home() {
         </section>
       </main>
       <Footer />
-      {demoMode && <div className="preview-label">PREVIEW · Sample content</div>}
     </div>
   );
 }

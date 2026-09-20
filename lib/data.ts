@@ -1,10 +1,9 @@
-import { sampleReviews } from './sample';
+import { productReviews, editorialCollections } from './products';
 import { demoMode, hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
 export async function getReviews(): Promise<Review[]> {
-  if (demoMode) return sampleReviews;
-  if (!hasSupabase) return [];
+  if (!hasSupabase) return productReviews;
   const { data, error } = await publicClient()
     .from('reviews')
     .select('*, categories(slug), ingredients:review_ingredients(*), faqs:review_faqs(*)')
@@ -26,39 +25,7 @@ export async function getReviews(): Promise<Review[]> {
   );
 }
 export async function getCollections(kind: Collection['kind']): Promise<Collection[]> {
-  if (demoMode) {
-    if (kind === 'articles') return [];
-    return [
-      {
-        id: `sample-${kind}`,
-        kind,
-        title:
-          kind === 'best_lists'
-            ? 'A preview of our shortlist format'
-            : 'Daily Balance vs Metabolic Support',
-        slug: kind === 'best_lists' ? 'sample-shortlist' : 'daily-balance-vs-metabolic-support',
-        summary:
-          'A sample layout using fictional products. These are not recommendations or rankings.',
-        body: '<h2>How we approach this guide</h2><p>Published guides will explain the evidence and criteria behind every comparison. This preview contains fictional products and no clinical recommendations.</p>',
-        is_published: false,
-        seo_title: '',
-        seo_desc: '',
-        updated_at: '2026-09-19',
-        published_at: null,
-        items: sampleReviews
-          .slice(0, 3)
-          .map((r, i) => ({
-            review_id: r.id,
-            rank: i + 1,
-            why_it_made_the_list: 'Sample placement for layout demonstration only.',
-          })),
-        faqs: sampleReviews[0].faqs,
-        product_a_id: 'sample-1',
-        product_b_id: 'sample-4',
-      },
-    ];
-  }
-  if (!hasSupabase) return [];
+  if (!hasSupabase) return editorialCollections.filter((row) => row.kind === kind);
   const select =
     kind === 'best_lists' ? '*, items:best_list_items(*), faqs:best_list_faqs(*)' : '*';
   const { data, error } = await publicClient()

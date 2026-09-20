@@ -4,6 +4,7 @@ import { DM_Sans, Syne } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { demoMode, siteUrl } from '@/lib/config';
 import './globals.css';
+import './editorial.css';
 const dm = DM_Sans({ subsets: ['latin'], variable: '--font-dm' });
 const syne = Syne({
   subsets: ['latin'],
