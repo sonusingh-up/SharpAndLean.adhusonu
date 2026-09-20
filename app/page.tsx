@@ -23,7 +23,7 @@ import { siteUrl } from '@/lib/config';
 export const revalidate = 3600;
 export const metadata = pageMeta(
   'Know what goes in.',
-  'Thoughtful supplement reviews for weight management, cognitive health and everyday wellness.',
+  'We read the Supplement Facts panel — serving sizes, disclosed doses, hidden proprietary blends — and say what the evidence actually supports. Fat burners, nootropics and everyday wellness.',
   '/',
 );
 export default async function Home() {
@@ -48,7 +48,7 @@ export default async function Home() {
         <JsonLd data={{ '@type': 'WebSite', name: 'SharpAndLean', url: siteUrl }} />
         <section className="hero-content">
           <div className="hero-kicker">
-            <SectionLabel>Good questions. Better choices.</SectionLabel>
+            <SectionLabel>Read the panel, not the promise.</SectionLabel>
             <Link href="/author/sumita-bhatti" className="mission">
               <span className="initial-avatar">
                 <Image src="/images/sumita.jpg" alt="Sumita Bhatti" width={48} height={48} />
@@ -73,9 +73,10 @@ export default async function Home() {
             <div className="hero-actions">
               <ButtonLink href="#reviews">Explore products</ButtonLink>
               <p>
-                Less noise. More know-how.
-                <br />A thoughtful look at the supplements
-                <br className="desktop-break" /> you bring into your everyday.
+                The front of the bottle is marketing.
+                <br />
+                The Supplement Facts panel is the
+                <br className="desktop-break" /> product. We read the panel.
               </p>
             </div>
           </div>
@@ -85,14 +86,14 @@ export default async function Home() {
               <ScanLine size={22} strokeWidth={1} />
             </div>
             <h3>
-              What’s really
+              Is the dose
               <br />
-              in your routine?
+              even on there?
             </h3>
             <p>
-              Start with the label.
+              A proprietary blend lists
               <br />
-              We’ll help with the rest.
+              ingredients but hides amounts.
             </p>
             <Link href="/about">
               Our review approach{' '}
@@ -103,13 +104,13 @@ export default async function Home() {
           </aside>
           <div className="hero-bottom">
             <span>
-              <ShieldCheck size={16} /> Evidence comes first
+              <ShieldCheck size={16} /> Doses checked against the research
             </span>
             <span>
-              <Microscope size={16} /> Every ingredient matters
+              <Microscope size={16} /> Proprietary blends called out
             </span>
             <span>
-              <CircleHelp size={16} /> Transparency, always
+              <CircleHelp size={16} /> Every paid link disclosed
             </span>
             <a href="#categories" className="scroll-link">
               A little more below <ArrowDown size={14} />
@@ -118,12 +119,16 @@ export default async function Home() {
         </section>
         <section className="section categories-section" id="categories">
           <div className="center-heading">
-            <SectionLabel>Find your focus</SectionLabel>
+            <SectionLabel>Three categories, one method</SectionLabel>
             <h2>
-              Your wellbeing.
-              <br />A clearer starting point.
+              Different shelves.
+              <br />
+              The same questions.
             </h2>
-            <p>Explore the questions that matter to you.</p>
+            <p>
+              Whether it is a fat burner, a focus formula or a daily vitamin, the checks do not
+              change: what is in it, how much, and does the research use that amount.
+            </p>
           </div>
           <div className="bento">
             <Link className="bento-card bento-fat" href="/fat-burners">
@@ -160,11 +165,11 @@ export default async function Home() {
             <div className="bento-text">
               <Plus size={22} strokeWidth={1} />
               <p>
-                Not another miracle promise.
+                No product here is sold as
                 <br />
-                Just the information you need
+                a cure. Supplements are not
                 <br />
-                to make your own call.
+                approved by the FDA before sale.
               </p>
             </div>
             <Link className="bento-card bento-best" href="/best">
@@ -179,6 +184,53 @@ export default async function Home() {
             </Link>
           </div>
         </section>
+        <section className="section method-section" id="method">
+          <div className="section-heading">
+            <div>
+              <SectionLabel>How to read a Supplement Facts panel</SectionLabel>
+              <h2>
+                Four checks,
+                <br />
+                before you buy.
+              </h2>
+            </div>
+            <p>
+              The same four questions decide most of it. You can run them yourself, in a shop, in
+              about a minute.
+            </p>
+          </div>
+          <ol className="method-list">
+            {[
+              [
+                'Serving size',
+                'Check how many capsules make one serving, and how many servings are in the tub. A bottle of 120 capsules at four per serving is thirty days, not a hundred and twenty — and that changes the real price per day.',
+              ],
+              [
+                'Disclosed amounts',
+                'Every active ingredient should show its own amount. If several sit under one “proprietary blend” total, you know the order they appear in and nothing else. Dose is usually the entire question.',
+              ],
+              [
+                'Total stimulants',
+                'Add up caffeine from every source on the panel — guarana, yerba mate, green tea extract and plain caffeine all count. Then add your coffee. The total is what your body responds to, not the number on the front.',
+              ],
+              [
+                'Testing claims',
+                'A meaningful test result names the laboratory, the batch and the date. “Made in an FDA-registered facility” is not a test, and it is not FDA approval of anything.',
+              ],
+            ].map(([title, text], index) => (
+              <li key={title}>
+                <span className="method-step">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="method-foot">
+            Dietary supplements are regulated under DSHEA and are not approved by the FDA for safety
+            or effectiveness before they go on sale.{' '}
+            <Link href="/medical-disclaimer">What that means for you</Link>.
+          </p>
+        </section>
         <section className="section" id="reviews">
           <div className="section-heading">
             <div>
@@ -190,9 +242,8 @@ export default async function Home() {
               </h2>
             </div>
             <p>
-              Beyond the front-of-pack promises.
-              <br />
-              Manufacturer sources and clear label overviews.
+              Each overview is built from the manufacturer’s own published label and directions,
+              with the source linked so you can check it yourself.
             </p>
           </div>
           {reviews.length ? (
@@ -212,22 +263,21 @@ export default async function Home() {
             <div>
               <SectionLabel>The Sharp & Lean standard</SectionLabel>
               <h2>
-                Trust is in
+                What we check.
                 <br />
-                the details.
+                And what we won’t.
               </h2>
             </div>
             <p>
-              Good advice should come with context.
-              <br />
-              Here’s what goes into ours.
+              An assessment is only worth reading if you can see how it was reached — and what would
+              have changed it.
             </p>
           </div>
           <div className="trust-grid">
             <div className="trust-image">
               <Image
-                src="/images/hero.png"
-                alt="Soft light through an abstract glass structure"
+                src="/images/trust-panel.webp"
+                alt="Soft daylight casting a leaf shadow across a warm plaster wall"
                 fill
                 sizes="(max-width: 700px) 90vw, 45vw"
               />
@@ -246,18 +296,23 @@ export default async function Home() {
               {[
                 [
                   '01',
-                  'Evidence before enthusiasm',
-                  'We look at the ingredients, the doses and the quality of the research. When evidence is limited, that belongs in the review too.',
+                  'The dose has to match the study',
+                  'An ingredient with good evidence at 400 mg tells you nothing about a capsule containing 40 mg. We compare the amount on the panel with the amount that was actually tested, and say when they do not line up.',
                 ],
                 [
                   '02',
-                  'A person behind every review',
-                  'Our editorial process makes the author, review date and reasoning visible, so you can understand how an assessment was reached.',
+                  'A weak study is not a strong claim',
+                  'A systematic review carries more weight than one small trial, and a trial carries more weight than a cell experiment. Where the research is thin, preliminary or done in a different population, the overview says so rather than rounding up.',
                 ],
                 [
                   '03',
-                  'Our links, clearly disclosed',
-                  'Some links may earn us a commission. We explain this at the point where you need to know, alongside the purchase link.',
+                  'What stops a product cold',
+                  'An undisclosed proprietary blend where dose is the whole question. A stimulant total you cannot add up. Disease-treatment language. A testing claim with no batch, no laboratory and no date. Any of these caps an assessment regardless of how good the marketing is.',
+                ],
+                [
+                  '04',
+                  'Every paid link is marked',
+                  'Some purchase links earn a commission. That is disclosed beside the button, at the top of the page and in the footer — never only in the small print. It buys no placement, no score and no advance sight of what we wrote.',
                 ],
               ].map(([n, title, text], i) => (
                 <details key={n} open={i === 0}>
@@ -274,12 +329,16 @@ export default async function Home() {
         </section>
         <section className="section newsletter-section" id="newsletter">
           <div>
-            <SectionLabel>A thoughtful addition to your inbox</SectionLabel>
+            <SectionLabel>Occasional, not relentless</SectionLabel>
             <h2>
-              A little less guesswork.
-              <br />A little more clarity.
+              When a label
+              <br />
+              changes, you’ll know.
             </h2>
-            <p>New reviews and fresh perspectives. No miracle promises.</p>
+            <p>
+              New label overviews, reformulations worth knowing about, and corrections when we get
+              something wrong. Unsubscribe in one click.
+            </p>
           </div>
           <Newsletter />
         </section>

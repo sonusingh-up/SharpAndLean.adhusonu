@@ -44,7 +44,7 @@ export const reviewSchema = z
     pros: z.array(text.min(1).max(1000)).max(30),
     cons: z.array(text.min(1).max(1000)).max(30),
     affiliate_url: url,
-    affiliate_network: z.enum(['', 'Clickbank', 'Awin', 'Gurumedia']),
+    affiliate_network: z.enum(['', 'Amazon', 'Clickbank', 'Awin', 'Gurumedia']),
     product_price: text.max(100),
     price_amount: z.number().nonnegative().nullable(),
     currency: z.string().regex(/^[A-Z]{3}$/),

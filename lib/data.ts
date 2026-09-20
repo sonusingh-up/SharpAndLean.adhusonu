@@ -1,9 +1,23 @@
-import { productReviews, editorialCollections } from './products';
+import { productReviews, productAsins, editorialCollections } from './products';
 import { hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
+import { amazonLink, amazonSearchLink, hasAmazonTag } from './amazon';
 export async function getReviews(): Promise<Review[]> {
-  if (!hasSupabase) return productReviews;
+  // With no partner tag configured the affiliate slot stays empty rather than
+  // showing an untagged commercial link.
+  if (!hasSupabase)
+    return productReviews.map((review) => {
+      if (!hasAmazonTag) return review;
+      const asin = productAsins[review.slug];
+      return {
+        ...review,
+        // A verified ASIN gives a direct listing; otherwise fall back to a
+        // tagged search so the link still works and still earns.
+        affiliate_url: asin ? amazonLink(asin) : amazonSearchLink(review.product_name),
+        affiliate_network: 'Amazon',
+      };
+    });
   const { data, error } = await publicClient()
     .from('reviews')
     .select('*, categories(slug), ingredients:review_ingredients(*), faqs:review_faqs(*)')

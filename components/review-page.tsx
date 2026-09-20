@@ -27,7 +27,10 @@ export function AffiliateButton({
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
       >
-        Visit official website <ArrowUpRight size={16} />
+        {review.affiliate_network === 'Amazon'
+          ? 'Search this product on Amazon'
+          : 'Visit official website'}{' '}
+        <ArrowUpRight size={16} />
       </a>
     </div>
   );

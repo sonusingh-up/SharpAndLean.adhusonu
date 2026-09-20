@@ -99,15 +99,43 @@ svg {
   white-space: nowrap;
   min-height: 36px;
 }
-.auth-controls button {
-  font-size: 12px;
-  font-weight: 500;
+/* Signed out there is nothing to show, so avoid leaving a flex gap in the bar. */
+.auth-controls:empty {
+  display: none;
 }
-.auth-sign-up {
+/* Sign in / sign up live in the dropdown menu. */
+.menu-auth {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.menu-auth button {
+  width: 100%;
+  padding: 11px 14px;
   border-radius: 999px;
-  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+.menu-auth .auth-sign-in {
+  border: 1px solid #14141426;
+  background: #fff;
+}
+.menu-auth .auth-sign-in:hover {
+  background: var(--chip-bg);
+  border-color: #14141440;
+}
+.menu-auth .auth-sign-up {
   background: #263b2c;
-  color: white;
+  color: #fff;
+}
+.menu-auth .auth-sign-up:hover {
+  background: #1c2d21;
 }
 .auth-page {
   min-height: 100dvh;
@@ -121,20 +149,6 @@ svg {
 @media (max-width: 1100px) {
   .nav-right .nav-about {
     display: none;
-  }
-}
-@media (max-width: 640px) {
-  .navbar:has(.auth-controls) {
-    flex-wrap: wrap;
-    height: auto;
-    min-height: 108px;
-    gap: 12px;
-    padding-top: 18px;
-    padding-bottom: 14px;
-  }
-  .navbar .nav-right {
-    width: 100%;
-    justify-content: space-between;
   }
 }
 .navbar {
@@ -196,6 +210,182 @@ svg {
   display: flex;
   gap: 6px;
   align-items: center;
+}
+/* Search: the toggle mirrors the menu button so the pair reads as one control set. */
+.search-toggle {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid #14141426;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #141414;
+  background: #ffffff54;
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+.search-toggle:hover {
+  background: #fff;
+  border-color: #14141440;
+}
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: #14141452;
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  padding: 90px 20px 40px;
+  animation: search-fade 0.16s ease both;
+}
+.search-panel {
+  width: min(620px, 100%);
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 24px 70px #0000002e;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  animation: search-rise 0.2s ease both;
+}
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 18px;
+  border-bottom: 1px solid var(--line);
+  color: #7c8a72;
+  flex: none;
+}
+.search-field input {
+  flex: 1;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  color: var(--ink);
+  min-width: 0;
+}
+.search-field input::placeholder {
+  color: #9aa192;
+}
+.search-field input::-webkit-search-cancel-button {
+  display: none;
+}
+/* The field is the focus surface, so show the ring on the row rather than
+   boxing the bare input with the global outline. */
+.search-field:focus-within {
+  outline: 2px solid #507954;
+  outline-offset: -2px;
+}
+.search-field input:focus-visible {
+  outline: none;
+}
+.search-field > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #7c8a72;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+.search-field > button:hover {
+  background: var(--chip-bg);
+}
+.search-results {
+  overflow-y: auto;
+  padding: 8px;
+  display: grid;
+  gap: 2px;
+}
+.search-note {
+  padding: 22px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+.search-hit {
+  display: grid;
+  gap: 4px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.14s ease;
+}
+.search-hit.is-active {
+  background: var(--chip-bg);
+}
+.search-hit-kind {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a9280;
+}
+.search-hit-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.search-hit-summary {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.search-foot {
+  display: flex;
+  gap: 18px;
+  padding: 11px 18px;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  color: #8a9280;
+  flex: none;
+}
+.search-foot span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+@keyframes search-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes search-rise {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 640px) {
+  .search-overlay {
+    padding: 60px 12px 20px;
+  }
+  .search-foot {
+    display: none;
+  }
 }
 .menu {
   position: relative;
@@ -516,7 +706,17 @@ summary::-webkit-details-marker {
 }
 .bento-fat {
   grid-row: span 2;
-  background: #e5eadf;
+  background-color: #e5eadf;
+  background-image:
+    linear-gradient(175deg, #e5eadfba 0%, #e5eadfd2 52%, #e5eadff5 100%),
+    url('/images/card-fat.webp');
+  background-size: cover;
+  background-position: center 62%;
+}
+.bento-fat:hover {
+  background-image:
+    linear-gradient(175deg, #e5eadf9e 0%, #e5eadfc0 52%, #e5eadff0 100%),
+    url('/images/card-fat.webp');
 }
 .bento-number {
   font-size: 10px;
@@ -561,7 +761,17 @@ summary::-webkit-details-marker {
   grid-row: 1 / span 2;
   justify-content: flex-end;
   gap: 24px;
-  background: #eceeeb;
+  background-color: #eceeeb;
+  background-image:
+    linear-gradient(185deg, #eceeebb8 0%, #eceeebd0 45%, #eceeebf7 100%),
+    url('/images/card-best.webp');
+  background-size: cover;
+  background-position: center 30%;
+}
+.bento-best:hover {
+  background-image:
+    linear-gradient(185deg, #eceeeb9c 0%, #eceeebbe 45%, #eceeebf2 100%),
+    url('/images/card-best.webp');
 }
 .bento-best > svg {
   margin-bottom: auto;
@@ -729,6 +939,73 @@ summary::-webkit-details-marker {
   letter-spacing: 0.14em;
   line-height: 1.8;
 }
+/* Four-check method list on the home page. */
+.method-section {
+  border-top: 1px solid var(--line);
+}
+.method-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 46px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.method-list li {
+  background: var(--frame-bg);
+  padding: 30px 26px 34px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  transition: background 0.22s ease;
+}
+.method-list li:hover {
+  background: #f6f7f2;
+}
+.method-step {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: #8a9280;
+}
+.method-list h3 {
+  font-size: 19px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.method-list p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #68705f;
+}
+.method-foot {
+  margin-top: 26px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 640px;
+}
+.method-foot a {
+  color: #3f5840;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 1100px) {
+  .method-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .method-list {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+  .method-list li {
+    padding: 24px 20px 26px;
+  }
+}
 .trust-accordions details {
   border-bottom: 1px solid var(--line);
   padding: 24px 0;
@@ -779,18 +1056,26 @@ summary::-webkit-details-marker {
 }
 .email-row {
   display: flex;
-  border-bottom: 1px solid #bcc1b5;
+  align-items: center;
+  border-bottom: 1px solid #c3c9ba;
   padding-bottom: 10px;
   gap: 10px;
+  transition: border-color 0.2s ease;
+}
+.email-row:focus-within {
+  border-color: var(--accent-sage);
 }
 .email-row input {
   border: 0;
   background: none;
   flex: 1;
-  padding: 10px 0;
+  padding: 11px 2px;
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   outline-offset: 0;
+}
+.email-row input::placeholder {
+  color: #9aa192;
 }
 .email-row .button {
   font-size: 12px;
@@ -799,15 +1084,20 @@ summary::-webkit-details-marker {
 .consent {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
-  font-size: 10px;
-  line-height: 1.5;
-  margin-top: 14px;
-  color: #767b71;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 16px;
+  color: #626a5c;
+  cursor: pointer;
 }
 .consent input {
-  margin-top: 2px;
+  flex: none;
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
   accent-color: #637757;
+  cursor: pointer;
 }
 .form-message {
   font-size: 13px !important;
@@ -987,16 +1277,82 @@ summary::-webkit-details-marker {
 }
 .faq-list details {
   border-bottom: 1px solid var(--line);
-  padding: 20px 0;
+}
+.faq-list details:first-child {
+  border-top: 1px solid var(--line);
 }
 .faq-list summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 21px 0;
   font-weight: 500;
+  font-size: 15px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
   cursor: pointer;
+  list-style: none;
+  transition: color 0.2s ease;
+}
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+/* The indicator is a drawn plus that rotates into a cross when open, matching
+   the rotate-on-open treatment used by .trust-accordions. */
+.faq-list summary::after {
+  content: '';
+  flex: none;
+  margin-left: auto;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #dadfd1;
+  border-radius: 50%;
+  color: #7c8a72;
+  background-image:
+    linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+  background-size:
+    9px 1px,
+    1px 9px;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  transition:
+    transform 0.25s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.faq-list summary:hover {
+  color: #3f5840;
+}
+.faq-list summary:hover::after {
+  border-color: var(--accent-sage);
+  background-color: #eef3e9;
+}
+.faq-list details[open] summary {
+  color: #2f4a32;
+}
+.faq-list details[open] summary::after {
+  transform: rotate(45deg);
+  border-color: var(--accent-sage);
+  background-color: #eef3e9;
 }
 .faq-list p {
-  padding-top: 12px;
+  padding: 2px 44px 23px 0;
   color: #68705f;
   line-height: 1.8;
+  font-size: 14px;
+}
+.faq-list details[open] p {
+  animation: faq-reveal 0.28s ease both;
+}
+@keyframes faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 .field {
   display: flex;
@@ -1446,13 +1802,30 @@ summary::-webkit-details-marker {
   .newsletter-section .eyebrow {
     font-size: 8px;
   }
+  /* Side by side, the field is too narrow at phone widths and the placeholder
+     collides with the button, so stack them and keep the rule under the input. */
+  .email-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .email-row input {
+    border-bottom: 1px solid #c3c9ba;
+    transition: border-color 0.2s ease;
+  }
+  .email-row:focus-within input {
+    border-bottom-color: var(--accent-sage);
+  }
   .email-row .button {
     font-size: 11px;
-    padding: 12px 16px;
+    padding: 13px 16px;
     gap: 10px;
+    justify-content: center;
   }
   .consent {
-    font-size: 11px;
+    font-size: 12px;
   }
   .footer {
     padding: 35px 22px 20px;
@@ -1607,8 +1980,24 @@ summary::-webkit-details-marker {
 .contact-grid h2 {
   font-size: 28px;
 }
+.contact-grid .faq-list {
+  margin-bottom: 46px;
+}
+.contact-grid h2 + p {
+  margin-top: 11px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #68705f;
+}
 .contact-grid .newsletter-form {
-  margin-top: 25px;
+  margin-top: 22px;
+  background: #f3f5ee;
+  border: 1px solid #e3e8da;
+  border-radius: 20px;
+  padding: 24px 26px 26px;
+}
+.contact-grid .newsletter-form .email-row {
+  border-bottom-color: #cfd6c4;
 }
 .info-page {
   max-width: 970px;
