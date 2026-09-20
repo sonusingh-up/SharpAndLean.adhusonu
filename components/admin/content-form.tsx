@@ -545,7 +545,7 @@ export function ContentForm({
                     value={str('affiliate_network')}
                     onChange={(e) => update('affiliate_network', e.target.value)}
                   >
-                    {['', 'Clickbank', 'Awin', 'Gurumedia'].map((n) => (
+                    {['', 'Amazon', 'Clickbank', 'Awin', 'Gurumedia'].map((n) => (
                       <option value={n} key={n}>
                         {n || 'Choose network'}
                       </option>

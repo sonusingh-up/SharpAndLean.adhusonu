@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, Plus, ArrowRight } from 'lucide-react';
-import { AuthControls } from '@/components/auth-controls';
+import { AuthControls, AuthMenuControls } from '@/components/auth-controls';
+import { SiteSearch } from '@/components/site-search';
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="SharpAndLean home">
@@ -28,6 +29,7 @@ export function Header({ hero = false }: { hero?: boolean }) {
         <Link className="nav-about" href="/about">
           Our approach <ArrowUpRight size={14} />
         </Link>
+        <SiteSearch />
         <details className="menu">
           <summary aria-label="Open navigation menu">
             <span />
@@ -42,6 +44,7 @@ export function Header({ hero = false }: { hero?: boolean }) {
             <Link href="/about">Our approach</Link>
             <Link href="/author/sumita-bhatti">Meet Sumita</Link>
             <Link href="/contact">Contact</Link>
+            <AuthMenuControls />
           </nav>
         </details>
       </div>
