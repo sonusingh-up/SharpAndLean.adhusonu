@@ -8,13 +8,13 @@ A Next.js App Router website, built from the supplied SharpAndLean specification
 2. For a fresh checkout, copy `.env.example` to `.env.local` without overwriting existing settings. Run `clerk auth login`, then `clerk init --app app_3JY9Qx4pndFSTZ79iihCIxe0gEN --no-skills` to obtain development keys securely. This workspace is already linked.
 3. Run `npm run dev` and open `http://localhost:3000`. Use this hostname consistently for Clerk sessions.
 
-Without Supabase configuration the site shows clearly marked fictional sample reviews. They have no clinical claims, scores, affiliate links or review structured data. Sample mode is excluded from indexing. The admin preview is read-only. No newsletter or community submission reports success without actually being stored.
+Without Supabase configuration the site serves the built-in manufacturer-label overviews in `lib/products.ts`. These are sourced from published product pages rather than hands-on testing, so they carry no score, no affiliate link and no review structured data, and each one says so on the page. Setting `NEXT_PUBLIC_DEMO_MODE=true` additionally blocks indexing, empties the sitemap and marks every page `noindex, nofollow`. The admin preview is read-only. No newsletter or community submission reports success without actually being stored.
 
 ## Connect the existing Supabase project
 
 The supplied Supabase project is `https://exukqewuvsioxkghhqoj.supabase.co`. Review and run `supabase/migrations/001_initial.sql`, followed by `002_clerk_auth.sql`, in a new schema/project. They create tables, row-level access policies, transactional publishing functions, storage policies, Clerk editor membership, and durable form rate limits. Do not run blindly over conflicting existing tables.
 
-Set the Supabase URL, public anon key, server-only service-role key and a random revalidation secret in `.env.local` and the Vercel environment. Never expose the service-role key or revalidation secret in browser code. Set `NEXT_PUBLIC_DEMO_MODE=false` and the canonical `NEXT_PUBLIC_SITE_URL=https://sharpandlean.com` for launch.
+Set the Supabase URL, public anon key, server-only service-role key and a random revalidation secret in `.env.local` and the Vercel environment. Never expose the service-role key or revalidation secret in browser code. Leave `NEXT_PUBLIC_DEMO_MODE` unset (or `false`) and set the canonical `NEXT_PUBLIC_SITE_URL=https://sharpandlean.com` for launch.
 
 To enable Sentry performance tracing, set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` in the local and Vercel environments. Browser navigation, Node.js requests and Edge requests are traced at 10% by default; adjust `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` and `SENTRY_TRACES_SAMPLE_RATE` as needed. Set the server-only `SENTRY_ORG`, `SENTRY_PROJECT` and `SENTRY_AUTH_TOKEN` variables in Vercel to upload production source maps.
 
@@ -36,13 +36,13 @@ Import this directory as a Next.js project, set the environment variables and ru
 
 ## Checks
 
-`npm run typecheck`, `npm test`, and `npm run build` validate the application. `node tests/smoke.mjs` checks the running local preview when Supabase is not configured. The database test uses an isolated PostgreSQL runtime to check the migration, editor restrictions, draft visibility, transactional rollback, list visibility and rate limits without touching an external project. Database-backed end-to-end checks still require the actual Supabase environment and an approved test editor. After connection, test login, create draft, publish, unpublish, image upload and moderation with the real project.
+`npm run typecheck`, `npm test`, and `npm run build` validate the application. `node tests/smoke.mjs` checks a running local preview; it discovers review and guide URLs from the sitemap rather than hard-coding slugs, and adapts to whether Clerk keys are present. The database test uses an isolated PostgreSQL runtime to check the migration, editor restrictions, draft visibility, transactional rollback, list visibility and rate limits without touching an external project. Database-backed end-to-end checks still require the actual Supabase environment and an approved test editor. After connection, test login, create draft, publish, unpublish, image upload and moderation with the real project.
 
 ## Verified in this build
 
 - Production compilation, TypeScript and prerendering passed.
 - Seven local tests passed, including the PostgreSQL permission and publication workflow.
-- Thirty-one routes checked after Clerk integration: public pages load, anonymous CMS access redirects to sign-in, unknown pages return 404, unauthorized revalidation returns 401, and the unconfigured newsletter returns an honest 503.
+- Thirty-two routes checked, with review and guide URLs taken from the sitemap: public pages load, unknown pages return 404, unauthorized revalidation returns 401, and the unconfigured newsletter returns an honest 503. With Clerk keys present, anonymous CMS access redirects to sign-in; without them every auth route reports an honest 503.
 - Browser checks covered desktop and mobile layouts, the mobile menu, category sorting, review anchor navigation, FAQ expansion, automatic slugs, rich-text typing and ingredient/FAQ rows.
 - Dependency audit reported zero vulnerabilities after updating Tiptap to 3.31.3.
 

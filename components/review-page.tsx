@@ -10,9 +10,14 @@ import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
-export function AffiliateButton({ review }: { review: Review }) {
-  if (!review.affiliate_url || !safeUrl(review.affiliate_url))
-    return <a className="text-link" href="#sources-and-shopping">Sources and shopping options</a>;
+export function AffiliateButton({
+  review,
+  fallback = null,
+}: {
+  review: Review;
+  fallback?: React.ReactNode;
+}) {
+  if (!review.affiliate_url || !safeUrl(review.affiliate_url)) return fallback;
   return (
     <div className="affiliate-block">
       <p>Affiliate link: we may earn a commission at no extra cost to you.</p>
@@ -33,6 +38,16 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
     .filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
     .slice(0, 3);
   const { toc } = articleContent(r.body);
+  // Body headings are anchored with a positional suffix, so resolve the sources
+  // section from the generated table of contents rather than guessing its id.
+  const sources = toc.find((t) => /sources|shopping|where to buy/i.test(t.title));
+  const sourcesLink = sources ? (
+    <a className="text-link" href={`#${sources.id}`}>
+      Sources and shopping options
+    </a>
+  ) : (
+    <p className="muted">No purchase link has been published for this product yet.</p>
+  );
   const [author, community] = await Promise.all([getAuthor(), getCommunity(r.id)]);
   return (
     <SiteShell>
@@ -61,7 +76,11 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <SectionLabel>{category.name} / A closer look</SectionLabel>
             <h1 className="page-title">
               {r.title}
-              {r.id.startsWith('editorial-product-') ? ' — label overview' : !r.title.toLowerCase().includes('review') ? ' review' : ''}
+              {r.id.startsWith('editorial-product-')
+                ? ' — label overview'
+                : !r.title.toLowerCase().includes('review')
+                  ? ' review'
+                  : ''}
             </h1>
             <p className="page-intro">{r.summary}</p>
             <div className="byline">
@@ -98,7 +117,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                   <dd>{r.money_back_guarantee || 'Not verified'}</dd>
                 </div>
               </dl>
-              <AffiliateButton review={r} />
+              <AffiliateButton review={r} fallback={sourcesLink} />
             </div>
             <nav className="toc" aria-label="Table of contents">
               <h4>In this review</h4>
@@ -198,7 +217,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             </section>
             <section id="where-to-buy">
               <h2>Where to buy</h2>
-              <AffiliateButton review={r} />
+              <AffiliateButton review={r} fallback={sourcesLink} />
             </section>
             <section id="faqs">
               <h2>Your questions, answered.</h2>
