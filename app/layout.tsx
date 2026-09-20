@@ -1,4 +1,4 @@
-import { ClerkProvider } from '@clerk/nextjs';
+import { AuthProvider } from '@/components/auth-provider';
 import type { Metadata } from 'next';
 import { DM_Sans, Syne } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
@@ -23,21 +23,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${dm.variable} ${syne.variable}`}>
-        <ClerkProvider
-          appearance={{
-            variables: {
-              colorPrimary: '#263b2c',
-              borderRadius: '1rem',
-              fontFamily: 'var(--font-dm), sans-serif',
-            },
-          }}
-        >
+        <AuthProvider>
           <a href="#main" className="skip-link">
             Skip to content
           </a>
           {children}
           {process.env.VERCEL && <Analytics />}
-        </ClerkProvider>
+        </AuthProvider>
       </body>
     </html>
   );

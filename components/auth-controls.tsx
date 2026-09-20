@@ -1,6 +1,7 @@
 'use client';
 import { Show, SignInButton, SignUpButton, SignOutButton, UserButton } from '@clerk/nextjs';
 export function AuthControls() {
+  if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) return null;
   return (
     <div className="auth-controls">
       <Show when="signed-out">
