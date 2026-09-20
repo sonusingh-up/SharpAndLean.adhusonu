@@ -16,6 +16,8 @@ The supplied Supabase project is `https://exukqewuvsioxkghhqoj.supabase.co`. Rev
 
 Set the Supabase URL, public anon key, server-only service-role key and a random revalidation secret in `.env.local` and the Vercel environment. Never expose the service-role key or revalidation secret in browser code. Set `NEXT_PUBLIC_DEMO_MODE=false` and the canonical `NEXT_PUBLIC_SITE_URL=https://sharpandlean.com` for launch.
 
+To enable Sentry performance tracing, set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` in the local and Vercel environments. Browser navigation, Node.js requests and Edge requests are traced at 10% by default; adjust `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` and `SENTRY_TRACES_SAMPLE_RATE` as needed. Set the server-only `SENTRY_ORG`, `SENTRY_PROJECT` and `SENTRY_AUTH_TOKEN` variables in Vercel to upload production source maps.
+
 Enable Clerk's native Supabase integration: add `role: "authenticated"` to Clerk session token claims and register the Clerk frontend domain in Supabase's Third-Party Auth settings. The server and browser clients pass Clerk session tokens through Supabase's `accessToken` callback. Do not use the deprecated Supabase JWT template integration.
 
 Create your test account using the site's **Sign up** button. To grant editorial access, add the approved account's Clerk user ID to `public.clerk_admin_users(clerk_user_id)` through the SQL editor. Public signup does not grant editor access. `002_clerk_auth.sql` preserves any existing Supabase editor records without converting or deleting them. Pages, server actions, database policies and storage policies enforce access; the allowlist cannot be edited by ordinary users or editors.
