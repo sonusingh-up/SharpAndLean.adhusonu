@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Psyllium: what the research found</title>
+  <desc id="desc">Ingredient research, not NOW product testing. Constipation: conditional guideline recommendation. LDL cholesterol: pooled reduction 0.33 mmol/L in 28 trials; 95% confidence interval minus 0.38 to minus 0.27. Weight loss: mixed findings across reviews.</desc>
+  <rect width="1200" height="720" rx="24" fill="#f3f5ed"/>
+  <g font-family="Arial, sans-serif" fill="#20281e">
+    <text x="52" y="60" font-size="16" letter-spacing="3" fill="#59694b">SHARP &amp; LEAN / EVIDENCE NOTES</text>
+    <text x="52" y="124" font-size="42" font-weight="700">Psyllium: what the research found</text>
+    <text x="52" y="166" font-size="21" fill="#59694b">Published ingredient studies. Not a test of NOW’s finished product.</text>
+    <rect x="52" y="214" width="1096" height="126" rx="16" fill="white"/>
+    <text x="80" y="255" font-size="22" font-weight="700">REGULARITY</text>
+    <text x="80" y="295" font-size="17" fill="#59694b">AGA–ACG guideline, 2023</text>
+    <text x="420" y="258" font-size="26" font-weight="700">Conditional support for fibre</text>
+    <text x="420" y="299" font-size="20">Psyllium appears effective; evidence is limited.</text>
+    <rect x="52" y="354" width="1096" height="126" rx="16" fill="white"/>
+    <text x="80" y="395" font-size="22" font-weight="700">LDL CHOLESTEROL</text>
+    <text x="80" y="435" font-size="17" fill="#59694b">28 trials · 1,924 participants</text>
+    <text x="420" y="398" font-size="30" font-weight="700">−0.33 mmol/L pooled difference</text>
+    <text x="420" y="439" font-size="19">95% CI: −0.38 to −0.27 · Median dose: ~10.2 g/day</text>
+    <rect x="52" y="494" width="1096" height="126" rx="16" fill="white"/>
+    <text x="80" y="535" font-size="22" font-weight="700">BODY WEIGHT</text>
+    <text x="80" y="575" font-size="17" fill="#59694b">Different reviews, different trials</text>
+    <text x="420" y="538" font-size="26" font-weight="700">Mixed findings</text>
+    <text x="420" y="579" font-size="20">No guaranteed weight-loss outcome for this product.</text>
+    <text x="52" y="664" font-size="17" fill="#59694b">Sources: AGA–ACG 2023; Jovanovski et al. 2018; weight reviews PMID 30880409 / PMC10389520.</text>
+    <text x="52" y="694" font-size="17" fill="#59694b">Study doses are context, not dosing instructions. Individual results vary.</text>
+  </g>
+</svg>

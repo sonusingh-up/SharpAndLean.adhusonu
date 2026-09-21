@@ -39,6 +39,7 @@ export type Review = {
   who_avoid: string;
   score_breakdown: Record<string, number>;
   brand?: string;
+  result_image?: { src: string; alt: string; caption: string };
   asin?: string;
   is_sample?: boolean;
   /**
