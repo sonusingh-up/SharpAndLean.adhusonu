@@ -68,6 +68,12 @@ export type IngredientPage = {
   grade: EvidenceGrade;
   /** 60–100 words. Written to stand alone as a complete answer. */
   quickAnswer: string;
+  /**
+   * The handful of numbers a reader should leave with even if they read
+   * nothing else. Rendered as a panel directly under the quick answer, so
+   * keep it to four to six rows and put the figure in `value`.
+   */
+  atAGlance?: { label: string; value: string; note?: string }[];
   whatIsIt: string;
   mechanism: string;
   claims: ClaimEvidence[];
@@ -619,6 +625,164 @@ export const ingredients: IngredientPage[] = [
       'Omega-3 is where I most often see someone doing everything right and still missing. They have read that fish oil is good for the heart, they buy a reputable 1,000 mg product, they take one a day — and they are getting perhaps 300 mg of EPA and DHA against a therapeutic target seven times higher, for a benefit that the largest trial in a healthy population did not find anyway. The honest summary is narrow: strong for triglycerides at clinical doses, real but product-specific for one high-risk group, and unconvincing as general insurance. Eating fish remains the easier version of this.',
     related: ['vitamin-d3', 'psyllium-husk'],
     history: [{ date: '2026-09-21', note: 'First published with per-claim evidence grades.' }],
+    updated: '2026-09-21',
+  },
+  {
+    slug: 'pink-himalayan-salt',
+    name: 'Pink Himalayan salt',
+    aliases: [
+      'pink himalayan salt',
+      'himalayan pink salt',
+      'himalayan salt',
+      'pink salt',
+      'sodium (from pink himalayan salt)',
+      'pink himalayan sea salt',
+    ],
+    category: 'Mineral salt',
+    grade: 'F',
+    quickAnswer:
+      'Pink Himalayan salt is rock salt mined in Pakistan, and it is 96 to 99 per cent sodium chloride — chemically the same substance as table salt. The trace minerals that give it its colour are real but nutritionally negligible. A 2020 analysis of 31 samples calculated that you would need roughly 30 g a day, about six teaspoons, before those minerals made a meaningful contribution, which would push sodium intake 592 per cent above the recommended limit. In a supplement it is a flavour and mixing agent, not an active ingredient.',
+    atAGlance: [
+      {
+        label: 'What it actually is',
+        value: '96–99% sodium chloride',
+        note: 'The same compound as table salt. The remaining 1–4% is trace minerals, mostly iron oxide, which is what makes it pink.',
+      },
+      {
+        label: 'Typical supplement serving',
+        value: '40–60 mg sodium',
+        note: 'Around 2% of the 2,300 mg Daily Value — a rounding error against the 3,400 mg the average American already eats.',
+      },
+      {
+        label: 'To get useful minerals',
+        value: '~30 g per day',
+        note: 'About six teaspoons. That much salt carries 592% of the recommended sodium intake, so the minerals arrive with a dose that outweighs them.',
+      },
+      {
+        label: 'Iodine content',
+        value: 'None added',
+        note: 'Unlike iodized table salt. Swapping one for the other removes a deliberate public-health fortification and replaces it with nothing.',
+      },
+      {
+        label: 'Sodium per gram vs table salt',
+        value: 'Effectively identical',
+        note: 'Coarse crystals mean less sodium per teaspoon by volume. That is a measuring artefact, not a property of the salt.',
+      },
+      {
+        label: 'Why it is in your supplement',
+        value: 'Taste and texture',
+        note: 'It sharpens flavour and helps powders dissolve. That is a legitimate job — it is just not a nutritional one.',
+      },
+    ],
+    whatIsIt:
+      'Pink Himalayan salt is halite — rock salt — mined almost entirely at Khewra in Pakistan’s Salt Range, a formation that sits south of the Himalayas rather than in them. The deposit is ancient, laid down by an inland sea several hundred million years ago, and the salt is cut from the rock rather than evaporated from seawater. Chemically it is sodium chloride at somewhere between 96 and 99 per cent by weight, with the balance made up of trace minerals. Iron oxide is the one that matters visually: it is the reason the crystals run from pale pink to deep red. Marketing frequently claims 84 trace minerals, a figure that is technically arguable if you count every element detectable by mass spectrometry down to parts per billion, and misleading in every sense that would matter to a person eating it. Not all pink salt comes from Pakistan either — the 2020 Australian analysis included samples originating in Peru and elsewhere, and found their mineral profiles differed.',
+    mechanism:
+      'Sodium is a genuinely essential nutrient, and nothing on this page disputes that. It is the principal cation in extracellular fluid, and the body uses it to hold fluid volume steady, to conduct nerve impulses and to contract muscle. Too little causes hyponatraemia, which is dangerous; too much, sustained over years, raises blood pressure by drawing water into the bloodstream and increasing blood volume, which is the mechanism behind sodium’s association with cardiovascular disease. All of that is true of sodium from any source. The relevant point for this page is that sodium chloride dissociates into sodium and chloride ions in solution regardless of what colour the crystal was, so pink salt does exactly what white salt does, at the same molar quantity. The trace minerals travel alongside but do not change that behaviour, and they are present in quantities several orders of magnitude below the amounts at which any of them are physiologically active.',
+    claims: [
+      {
+        claim: 'For trace mineral nutrition',
+        grade: 'F',
+        body: 'This is the central marketing claim and the evidence runs directly against it. A 2020 analysis in Foods measured 25 minerals across 31 pink salt samples against an iodized white salt control. Pink salt did contain more calcium, magnesium, potassium and iron — the claim is not fabricated. The problem is the arithmetic. The authors calculated that over 30 g of pink salt per day, roughly six teaspoons, would be needed before those minerals made any meaningful contribution to nutrient intake, and that consuming that much would exceed recommended sodium intake by 592 per cent. Their conclusion was that any nutritional advantage is counteracted by the sodium arriving with it. At the 40 to 60 mg of sodium a supplement serving typically contributes, the mineral quantities are smaller still by a factor of several hundred.',
+        refs: ['foods-pink-salt'],
+      },
+      {
+        claim: 'As a lower-sodium alternative to table salt',
+        grade: 'F',
+        body: 'Gram for gram, pink salt and table salt deliver essentially the same amount of sodium, because both are almost entirely sodium chloride. The widespread belief that pink salt is lower in sodium comes from a measuring artefact: coarse crystals pack less densely, so a teaspoon of flaked pink salt weighs less than a teaspoon of fine table salt and therefore carries less sodium. Grind it finer and the difference disappears. Anyone salting by weight, or reading a Supplement Facts panel that states sodium in milligrams, gets no reduction whatsoever. Nutrition labels quantify sodium, not salt crystals, which is why the panel is the thing to read.',
+        refs: ['fda-sodium'],
+      },
+      {
+        claim: 'For electrolyte replacement',
+        grade: 'D',
+        body: 'The underlying idea has merit in the right setting. Sodium is the electrolyte lost in the largest quantity in sweat, and replacing it matters during prolonged endurance exercise or heavy heat exposure, where sweat losses can run to several hundred milligrams of sodium per litre. The grade is low because of dose, not because of principle. A supplement contributing 40 to 60 mg of sodium is not meaningful electrolyte replacement for anyone, and for a sedentary person eating a typical diet already well above the recommended limit, additional sodium is not a deficit being corrected. The claim earns D rather than F because the mechanism is real and the ingredient is the right one — it is the amount and the context that fail.',
+      },
+      {
+        claim: 'For hydration, detoxification or pH balance',
+        grade: 'F',
+        body: 'These claims have no support and, in the case of pH, no coherent mechanism. Blood pH is held within a narrow range by the respiratory and renal systems, and no dietary salt shifts it; a substance that did would be a medical emergency rather than a wellness product. Detoxification is not a defined physiological process that salt participates in. The hydration claim borrows credibility from the genuine role of sodium in fluid balance, but that role is already being filled many times over by an average intake of 3,400 mg a day. Adding a further 49 mg does not hydrate anyone.',
+        refs: ['fda-sodium'],
+      },
+      {
+        claim: 'As a source of iodine',
+        grade: 'F',
+        body: 'Pink salt is not iodized, and this is the one respect in which substituting it for table salt makes a measurable difference — in the wrong direction. Salt iodization is a deliberate public-health fortification credited with largely eliminating iodine deficiency disorders in countries that adopted it. Specialty salts, pink salt included, are generally sold uniodized, so a household that replaces its iodized table salt with pink salt and does not eat much dairy, seafood or egg has quietly removed a fortification without replacing it. Iodine requirements rise in pregnancy, which is when this matters most. This is not an argument against pink salt at the dinner table so much as an argument for knowing what the swap involves.',
+        refs: ['ods-iodine'],
+      },
+    ],
+    dosage:
+      'There is no supplemental dose of pink salt to target, because the problem in developed countries is excess rather than deficiency. The reference points worth holding: the National Academies set an Adequate Intake of 1,500 mg of sodium per day for adults and, in 2019, introduced a Chronic Disease Risk Reduction intake of 2,300 mg — the level above which reducing intake is expected to lower chronic disease risk. The FDA Daily Value used on nutrition labels is the same 2,300 mg. Average intake in the United States is about 3,400 mg per day. Against those numbers, a supplement serving contributing 40 to 60 mg of sodium is approximately 2 per cent of the Daily Value, which is neither a benefit nor, on its own, a problem.',
+    dosageGap:
+      'The usual gap on this site is a product containing less of an active than the research used. Pink salt inverts it: the amount is disclosed honestly and is trivially small, while the implication drawn from its presence is large. A Supplement Facts panel listing 49 mg of sodium from pink Himalayan salt is accurate and unremarkable; the packaging language about mineral-rich ancient salt is doing work the 49 mg cannot support. The practical check is to read the sodium line in milligrams and ignore the adjectives — and then to remember that more than 70 per cent of dietary sodium arrives from packaged and prepared foods rather than from anything you add or any supplement you take.',
+    safety:
+      'At the quantities found in supplements, pink salt raises no specific safety concern: 49 mg of sodium is a fraction of what a slice of bread contributes. The genuine considerations are about salt in the diet as a whole, and about contamination. Sustained high sodium intake raises blood pressure, and hypertension is a leading modifiable risk factor for heart attack, stroke and kidney disease, so anyone advised to restrict sodium — for hypertension, heart failure or chronic kidney disease — should count supplement sodium alongside everything else rather than treating it as exempt. On contamination, the 2020 Foods analysis is worth knowing about: pink salt samples contained substantially more aluminium than the white salt control, and one sample of Peruvian origin contained 2.59 mg/kg of lead, above the Food Standards Australia New Zealand maximum of 2 mg/kg and roughly 130 times the control. That was one sample of 31 and should not be read as a general finding about pink salt, but it does mean unrefined mined salt is not automatically purer than refined salt, which is often the implication. Finally, the absence of added iodine is a real consideration for anyone whose diet is low in dairy, seafood and eggs, and particularly during pregnancy.',
+    faqs: [
+      {
+        question: 'Is pink Himalayan salt healthier than table salt?',
+        answer:
+          'No. It is 96 to 99 per cent sodium chloride, the same compound as table salt, and it delivers the same sodium per gram. It does contain more trace minerals, but a 2020 analysis found you would need about 30 g a day — six teaspoons — before those minerals mattered nutritionally, at which point sodium intake would be 592 per cent above the recommended limit. Table salt also carries added iodine, which pink salt does not.',
+      },
+      {
+        question: 'Does pink Himalayan salt contain less sodium?',
+        answer:
+          'Not by weight. The confusion comes from crystal size: coarse pink salt packs less densely, so a teaspoon of it weighs less and therefore holds less sodium than a teaspoon of fine table salt. That is a property of the grind, not the salt. Any label stating sodium in milligrams has already removed the illusion.',
+      },
+      {
+        question: 'What are the 84 trace minerals in pink Himalayan salt?',
+        answer:
+          'The figure counts every element detectable in a sensitive mass-spectrometry scan, including some present at parts per billion and some, like aluminium and lead, that nobody would market as a benefit. The minerals consistently found in measurable amounts are calcium, magnesium, potassium and iron. Their quantities are several orders of magnitude below the level at which any of them do anything.',
+      },
+      {
+        question: 'Why is pink Himalayan salt in my fibre supplement?',
+        answer:
+          'For taste and mixing. Salt sharpens flavour and helps a powder dissolve evenly, which matters a great deal in a psyllium drink that is otherwise unpleasant. That is a legitimate formulation reason. It becomes a problem only when the packaging presents a flavouring agent as a nutritional feature.',
+      },
+      {
+        question: 'Does pink Himalayan salt really come from the Himalayas?',
+        answer:
+          'Not quite. Almost all of it is mined at Khewra in Pakistan’s Salt Range, a distinct geological formation lying south of the Himalayan range. Some salt sold as pink salt originates elsewhere entirely, including Peru, and the 2020 analysis found mineral profiles varied by origin.',
+      },
+      {
+        question: 'Should I worry about lead in pink Himalayan salt?',
+        answer:
+          'Not on the basis of the supplement amounts discussed here. It is worth knowing that one Peruvian sample of the 31 analysed in 2020 exceeded the Australian maximum contaminant level for lead, and that pink salt averaged far more aluminium than refined white salt. One sample is not a general finding, but it does undercut the assumption that unrefined mined salt is inherently cleaner than refined salt.',
+      },
+      {
+        question: 'Do I need to count supplement sodium if I am on a low-sodium diet?',
+        answer:
+          'Yes, in the sense that everything counts — though 49 mg is small enough that it will rarely be the deciding factor. If you have been advised to restrict sodium for blood pressure, heart failure or kidney disease, the useful habit is reading the sodium line on every panel rather than assuming supplements are exempt. A dietitian or pharmacist can help you set a realistic daily total.',
+      },
+    ],
+    references: [
+      {
+        id: 'foods-pink-salt',
+        text: 'Fayet-Moore F, Wibisono C, Carr P, et al. An Analysis of the Mineral Composition of Pink Salt Available in Australia. Foods. 2020;9(10):1490 — 31 pink salt samples and an iodized white salt control; source of the 30 g per day, 592 per cent sodium, aluminium and lead findings cited on this page.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7603209/',
+      },
+      {
+        id: 'fda-sodium',
+        text: 'US Food and Drug Administration. Sodium in Your Diet — the 2,300 mg Daily Value, the 3,400 mg average American intake, the share of sodium coming from packaged and prepared foods, and the blood pressure mechanism.',
+        url: 'https://www.fda.gov/food/nutrition-education-resources-materials/sodium-your-diet',
+      },
+      {
+        id: 'nasem-sodium',
+        text: 'National Academies of Sciences, Engineering, and Medicine. Dietary Reference Intakes for Sodium and Potassium, 2019 — the 1,500 mg Adequate Intake and the 2,300 mg Chronic Disease Risk Reduction intake.',
+        url: 'https://www.nationalacademies.org/news/sodium-and-potassium-dietary-reference-intake-values-updated-in-new-report',
+      },
+      {
+        id: 'ods-iodine',
+        text: 'NIH Office of Dietary Supplements. Iodine — Fact Sheet for Consumers, covering iodized salt as a dietary iodine source and requirements in pregnancy.',
+        url: 'https://ods.od.nih.gov/factsheets/Iodine-Consumer/',
+      },
+    ],
+    editorNote:
+      'I have no objection to pink salt. It is pleasant, it looks good on a table, and in a fibre powder it does a real job making the drink tolerable. What I object to is the inference people are invited to draw from it — that a salt with visible minerals in it is a nutritional ingredient rather than a seasoning. The 2020 Australian analysis settled that question in the most useful way possible, by doing the arithmetic rather than arguing about it: six teaspoons a day before the minerals matter, at almost six times the sodium you should be eating. The part I would actually raise in clinic is the iodine, because it is the one change that has a measurable direction. If a household has moved entirely to pink or sea salt and does not eat much dairy, seafood or egg, that is worth a conversation — especially in pregnancy.',
+    related: ['psyllium-husk', 'glucomannan'],
+    history: [
+      {
+        date: '2026-09-21',
+        note: 'First published with per-claim evidence grades. Mineral, sodium, aluminium and lead figures taken from the 2020 Foods analysis of 31 pink salt samples; intake reference values from the FDA and the 2019 National Academies DRI report.',
+      },
+    ],
     updated: '2026-09-21',
   },
 ];

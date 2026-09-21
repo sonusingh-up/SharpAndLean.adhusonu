@@ -93,6 +93,22 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
             <EvidenceBadge grade={ing.grade} size="lg" />
           </div>
           <QuickAnswer>{ing.quickAnswer}</QuickAnswer>
+          {ing.atAGlance?.length ? (
+            <section className="at-a-glance" aria-labelledby="at-a-glance-heading">
+              <h2 id="at-a-glance-heading">At a glance</h2>
+              <dl>
+                {ing.atAGlance.map((row) => (
+                  <div key={row.label}>
+                    <dt>{row.label}</dt>
+                    <dd>
+                      <strong>{row.value}</strong>
+                      {row.note ? <span>{row.note}</span> : null}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          ) : null}
         </header>
 
         <TableOfContents items={toc} />
