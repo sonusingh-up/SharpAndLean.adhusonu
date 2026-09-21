@@ -38,6 +38,8 @@ export type Review = {
   who_for: string;
   who_avoid: string;
   score_breakdown: Record<string, number>;
+  brand?: string;
+  asin?: string;
   is_sample?: boolean;
   /**
    * Figures observed on a retailer listing on a given date. Namespaced because

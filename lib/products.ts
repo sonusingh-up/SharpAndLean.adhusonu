@@ -286,7 +286,11 @@ const products = [
   },
   {
     name: 'ColonBroom Psyllium Fiber Powder',
-    slug: 'colonbroom-psyllium-fiber-powder',
+    slug: 'colonbroom-review-2026',
+    brand: 'ColonBroom',
+    seoTitle: 'ColonBroom Review 2026: Psyllium at a Premium',
+    seoDescription:
+      'ColonBroom is psyllium husk at about 19 cents a gram — roughly six times plain psyllium. What the label shows, what a serving costs, and who it suits.',
     asin: 'B0DT1F2XYV',
     listing: '50 servings, tropical fruits',
     published: '2026-09-21T00:00:00Z',
@@ -356,6 +360,11 @@ const products = [
       },
     ],
     faqs: [
+      {
+        question: 'Is ColonBroom worth it?',
+        answer:
+          'It depends on what you are buying. The active ingredient is psyllium husk, which genuinely works for regularity and cholesterol, so the product is not ineffective. But at roughly 19 cents per gram of psyllium against about 3 cents for plain psyllium powder, you are paying close to six times the price for flavouring, portioning and brand. If those things are what get you to take fibre daily, that may be money well spent. If you would take plain psyllium anyway, it is not.',
+      },
       {
         question: 'What is actually in ColonBroom?',
         answer:
@@ -436,9 +445,11 @@ export const productReviews: Review[] = products.map((p, index) => ({
   money_back_guarantee: 'Check seller return policy',
   featured_image_url: 'image' in p && p.image ? p.image : '',
   marketplace: 'marketplace' in p ? p.marketplace : undefined,
+  asin: 'asin' in p && p.asin ? p.asin : '',
   og_image_url: '',
-  seo_title: p.name + ' — Label Overview',
-  seo_desc: p.summary,
+  seo_title: 'seoTitle' in p && p.seoTitle ? p.seoTitle : p.name + ' — Label Overview',
+  seo_desc: 'seoDescription' in p && p.seoDescription ? p.seoDescription : p.summary,
+  brand: 'brand' in p && p.brand ? p.brand : '',
   is_published: true,
   published_at: 'published' in p && p.published ? p.published : '2026-09-20T00:00:00Z',
   updated_at: 'updated' in p && p.updated ? p.updated : '2026-09-20T00:00:00Z',

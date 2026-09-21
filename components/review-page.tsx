@@ -498,6 +498,8 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 : {}),
               url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
               ...(r.featured_image_url ? { image: r.featured_image_url } : {}),
+              ...(r.brand ? { brand: { '@type': 'Brand', name: r.brand } } : {}),
+              ...(r.asin ? { sku: r.asin, productID: `asin:${r.asin}` } : {}),
               ...(r.ingredients.length
                 ? {
                     additionalProperty: r.ingredients.map((i) => ({
@@ -505,6 +507,25 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                       name: i.name,
                       value: i.dose,
                     })),
+                  }
+                : {}),
+              // Priced from the retailer listing on a known date. priceValidUntil
+              // bounds it so a stale figure expires rather than being asserted
+              // indefinitely. No aggregateRating: the rating is the retailer's,
+              // not ours, and marking it up would misstate who collected it.
+              ...(market && r.affiliate_url
+                ? {
+                    offers: {
+                      '@type': 'Offer',
+                      price: market.price,
+                      priceCurrency: market.currency,
+                      url: r.affiliate_url,
+                      availability: 'https://schema.org/InStock',
+                      priceValidUntil: new Date(new Date(market.checkedAt).getTime() + 30 * 864e5)
+                        .toISOString()
+                        .slice(0, 10),
+                      seller: { '@type': 'Organization', name: market.source },
+                    },
                   }
                 : {}),
             }}
