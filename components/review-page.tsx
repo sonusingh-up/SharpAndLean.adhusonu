@@ -7,6 +7,8 @@ import { RichText } from './rich-text';
 import { ReviewCard } from './review-card';
 import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
 import { authorProfile, teamProfile } from '@/lib/author';
+import { findIngredientByName } from '@/lib/ingredients';
+import { TrustBar } from './evidence';
 import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
@@ -147,16 +149,36 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <section id="ingredients">
               <h2>Ingredient analysis</h2>
               {r.ingredients.length ? (
-                r.ingredients.map((ingredient, i) => (
-                  <div className="ingredient" key={i}>
-                    <div>
-                      <h3>{ingredient.name}</h3>
-                      <span className="tag">{ingredient.evidence_rating} evidence</span>
+                r.ingredients.map((ingredient, i) => {
+                  // Link the panel row to its reference page where one exists.
+                  // This is the backbone that connects commercial pages to the
+                  // evidence pages in both directions.
+                  const ref = findIngredientByName(ingredient.name);
+                  return (
+                    <div className="ingredient" key={i}>
+                      <div>
+                        <h3>
+                          {ref ? (
+                            <Link href={`/ingredients/${ref.slug}`}>{ingredient.name}</Link>
+                          ) : (
+                            ingredient.name
+                          )}
+                        </h3>
+                        <span className="tag">{ingredient.evidence_rating} evidence</span>
+                      </div>
+                      <strong>{ingredient.dose}</strong>
+                      <p>{ingredient.note}</p>
+                      {ref && (
+                        <Link
+                          className="text-link ingredient-ref-link"
+                          href={`/ingredients/${ref.slug}`}
+                        >
+                          Full evidence on {ref.name} <ArrowUpRight size={13} />
+                        </Link>
+                      )}
                     </div>
-                    <strong>{ingredient.dose}</strong>
-                    <p>{ingredient.note}</p>
-                  </div>
-                ))
+                  );
+                })
               ) : (
                 <p className="muted">
                   Ingredient doses, research sources and evidence assessments will appear here once
@@ -265,6 +287,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             </div>
           </section>
         )}
+        <TrustBar published={all.length} years={15} />
       </article>
       {/* Label overviews carry no score and are explicitly not reviews, so they
           get Product and FAQ schema but never Review schema. */}

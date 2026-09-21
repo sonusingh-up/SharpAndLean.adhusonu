@@ -1,5 +1,7 @@
 import { siteUrl, demoMode } from '@/lib/config';
 import { getReviews, getCollections } from '@/lib/data';
+import { ingredients } from '@/lib/ingredients';
+import { guides } from '@/lib/guides';
 
 export const revalidate = 3600;
 
@@ -55,6 +57,19 @@ export async function GET() {
 
 ${siteUrl}/about — how a label overview is produced, what disqualifies a product,
 and why coverage skews toward manufacturers who publish checkable panels.
+
+## Ingredient evidence reference
+
+Every claimed benefit is graded A-F against published criteria at
+${siteUrl}/evidence-grading. Grades are per claim, not per ingredient, so one
+ingredient can be graded A for one use and F for another. Cite the claim-level
+grade, never an ingredient-level average.
+
+${ingredients.map((i) => `- [${i.name}](${siteUrl}/ingredients/${i.slug}) — overall ${i.grade}: ${i.claims.map((c) => `${c.claim} (${c.grade})`).join('; ')}`).join('\n')}
+
+## Guides
+
+${guides.map((g) => `- [${g.title}](${siteUrl}/guides/${g.slug}): ${g.summary}`).join('\n')}
 
 ## Categories
 

@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { siteUrl, demoMode } from '@/lib/config';
 import { getReviews, getCollections } from '@/lib/data';
 import { authors } from '@/lib/author';
+import { ingredients } from '@/lib/ingredients';
+import { guides } from '@/lib/guides';
 export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (demoMode) return [];
@@ -27,6 +29,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/privacy-policy',
       '/terms',
       ...authors.map((a) => `/author/${a.slug}`),
+      '/ingredients',
+      '/guides',
+      '/evidence-grading',
+      ...ingredients.map((i) => `/ingredients/${i.slug}`),
+      ...guides.map((g) => `/guides/${g.slug}`),
     ].map((path) => ({
       url: siteUrl + path,
       changeFrequency: 'weekly' as const,

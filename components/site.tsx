@@ -40,6 +40,8 @@ export function Header({ hero = false }: { hero?: boolean }) {
             <Link href="/fat-burners">Fat Burners</Link>
             <Link href="/nootropics">Nootropics</Link>
             <Link href="/wellness">Wellness</Link>
+            <Link href="/ingredients">Ingredients</Link>
+            <Link href="/guides">Guides</Link>
             <Link href="/best">Best-of lists</Link>
             <Link href="/compare">Comparisons</Link>
             <Link href="/about">Our approach</Link>
@@ -66,6 +68,8 @@ export function Footer() {
         <div className="footer-links">
           <div>
             <span>EXPLORE</span>
+            <Link href="/ingredients">Ingredients</Link>
+            <Link href="/guides">Guides</Link>
             <Link href="/fat-burners">Fat Burners</Link>
             <Link href="/nootropics">Nootropics</Link>
             <Link href="/wellness">Wellness</Link>
