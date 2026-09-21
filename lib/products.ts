@@ -1,9 +1,12 @@
 import type { Review, Collection } from './types';
+import { colonbroomBody } from './colonbroom-article';
+import { nowPsylliumArticle } from './now-psyllium-article';
 
 const products = [
   {
     name: 'NOW Psyllium Husk Powder',
     slug: 'now-psyllium-husk-powder',
+    image: 'https://www.nowfoods.com/sites/default/files/2026-09/5975_v9.png',
     asin: 'B007729DSE',
     listing: '12 oz powder',
     category: 'fat-burners' as const,
@@ -116,6 +119,7 @@ const products = [
   {
     name: 'NOW Glucomannan 575 mg',
     slug: 'now-glucomannan-575-mg',
+    image: 'https://www.nowfoods.com/sites/default/files/2024-08/6512_v7.png',
     asin: 'B000MGWI02',
     listing: '180 veg capsules',
     category: 'fat-burners' as const,
@@ -290,7 +294,7 @@ const products = [
     brand: 'ColonBroom',
     seoTitle: 'ColonBroom Review 2026: Psyllium at a Premium',
     seoDescription:
-      'ColonBroom is psyllium husk at about 19 cents a gram — roughly six times plain psyllium. What the label shows, what a serving costs, and who it suits.',
+      'A closer look at ColonBroom: psyllium research, reported ingredients, cost per serving, precautions and alternatives. Find out what to check before buying.',
     asin: 'B0DT1F2XYV',
     listing: '50 servings, tropical fruits',
     published: '2026-09-21T00:00:00Z',
@@ -308,112 +312,124 @@ const products = [
     },
     category: 'fat-burners' as const,
     summary:
-      'A flavoured psyllium husk powder sold for weight management at roughly six times the price per gram of plain psyllium — and the brand does not publish its Supplement Facts panel in readable text.',
+      'ColonBroom puts a familiar fibre ingredient into a flavoured daily drink. We look at what psyllium can do, what a serving costs, and the label details to check before you buy.',
     source: 'https://colonbroom.com/',
     sourceNote:
-      'We could not find a Supplement Facts panel in readable text anywhere on the brand’s own site, and the Amazon listing shows it only as an image. The per-serving figure below is therefore taken from Forbes Health rather than from the manufacturer, and is cited as such.',
+      'The reported ingredient amounts come from the existing editorial record and have not been independently confirmed for this exact tropical-fruits variant in this update.',
     facts:
-      'A one-scoop serving is reported to contain 3.6 g of psyllium husk powder, alongside 49 mg of sodium from pink Himalayan salt, natural flavour, citric acid, rebaudioside A from stevia, fruit and vegetable juice powder and organic rice hulls. The Amazon listing is 9.9 oz — roughly 280 g — for 50 servings at $34.97 at the time of checking. That works out at about 70 cents a serving, or roughly 19 cents per gram of psyllium husk once the flavourings are set aside.',
+      'The product record reports 3.6 g of psyllium husk per serving. Confirm the current panel for the tropical-fruits variant before relying on that amount. The saved $34.97 price for 50 servings works out at about $0.70 per serving; it is a dated snapshot, not a live quote.',
     caution:
-      'Psyllium swells rapidly in liquid and has caused choking and oesophageal obstruction when taken with too little. Take it with a full glass of water, drink it promptly, and never immediately before lying down. Avoid it entirely with swallowing difficulty or a history of bowel obstruction. Because it slows absorption, separate it from medicines by at least two hours — this matters particularly for thyroid medication, lithium, carbamazepine and glucose-lowering drugs. Bloating and cramping are common in the first weeks.',
+      'People with difficulty swallowing, intestinal blockage or unexplained rectal bleeding should get medical advice before using psyllium. Follow the current label for preparation and ask a pharmacist about medicine interactions. Breathing or swallowing difficulty after a serving needs urgent help.',
     takeaway:
-      'Work out the cost per gram of psyllium rather than per tub, and check the serving against the 7 to 10 g used in the research before deciding whether one scoop is doing the job you bought it for.',
+      'Compare the current label and cost per serving with plain psyllium. Research doses provide context, but are not instructions to increase your intake.',
     whoFor:
-      'Someone who wants flavoured, pre-measured psyllium and is willing to pay a premium for convenience, having already understood that the active ingredient is available plain for a fraction of the price.',
+      'An adult who wants a flavoured fibre drink, has checked that psyllium is appropriate for them, and finds the price reasonable for a routine they can maintain. The appeal is convenience; the review does not establish an advantage over other psyllium products.',
     pros: [
-      'The active ingredient is psyllium husk, which has genuinely strong evidence for regularity and cholesterol',
-      'Flavoured and stevia-sweetened, which makes a famously unpleasant ingredient easier to take daily',
-      'Pre-measured scoops remove the guesswork that puts people off bulk psyllium powder',
-      'Single active ingredient — there is no proprietary blend hiding what you are taking',
+      'Psyllium has published research supporting its use for constipation and cholesterol, although that is not proof of this formula’s results',
+      'A flavoured format may appeal to people who dislike plain fibre powder; we have not taste-tested it',
+      'The 50-serving listing makes the basic cost-per-serving calculation straightforward',
     ],
     cons: [
-      'No Supplement Facts panel published in readable text on the brand’s own site, so the serving figure cannot be verified at source',
-      'About 19 cents per gram of psyllium against roughly 3 cents for plain psyllium powder — close to six times the price',
-      'A 3.6 g scoop is around half the 7 to 10 g daily amount used in the cholesterol research',
-      'Marketed for weight management, where the evidence for psyllium is limited rather than strong',
-      'Manufactured by Gut Health UAB in Lithuania and distributed by Karma Processing Inc in Delaware, with no manufacturing detail on the packaging',
+      'The reported ingredient amounts have not been confirmed for this exact variant in this update',
+      'The saved price and customer rating may differ from the current Amazon listing',
+      'Weight-loss research gives mixed results and does not establish an outcome for this product',
+      'No batch-specific independent testing document was verified for this review',
     ],
     ingredients: [
       {
         name: 'Psyllium husk powder',
         dose: '3.6 g per serving (reported)',
         evidence_rating: 'strong' as const,
-        note: 'The only active ingredient, and a genuinely well-supported one — psyllium carries an FDA-authorised health claim for soluble fibre and coronary heart disease. The caveat is amount: research on cholesterol generally uses 7 to 10 g daily, so a single 3.6 g scoop sits at roughly half that. The evidence for weight loss specifically is much weaker than the marketing around this product implies.',
+        note: 'The main fibre ingredient. The evidence label here concerns psyllium generally, especially its use for regularity; it is not a rating of ColonBroom or its weight-loss claims. The reported 3.6 g amount needs confirmation against the current product panel.',
       },
       {
         name: 'Sodium (from pink Himalayan salt)',
-        dose: '49 mg per serving',
+        dose: '49 mg per serving (reported)',
         evidence_rating: 'none' as const,
-        note: 'Present for taste and mixing rather than as an active. Pink Himalayan salt is chemically salt; the colour does not confer a benefit over any other sodium source.',
+        note: 'Recorded as part of the earlier ingredient information. Confirm both its presence and amount on the exact variant you buy. It is not the basis of the psyllium findings discussed in this review.',
       },
       {
         name: 'Rebaudioside A (stevia leaf extract)',
         dose: 'Not disclosed',
         evidence_rating: 'none' as const,
-        note: 'A sweetener. Its job is palatability, which is not a trivial thing for a psyllium product, but it is not a functional ingredient and no amount is disclosed.',
+        note: 'A sweetener in the previously recorded formula. Sweetness may affect whether you enjoy the drink, but we have not tested its taste. Confirm the current ingredient list if you prefer to avoid particular sweeteners.',
       },
       {
         name: 'Fruit and vegetable juice powder',
         dose: 'Not disclosed',
         evidence_rating: 'none' as const,
-        note: 'Used for colour and flavour. At an undisclosed amount in a 5.6 g scoop it cannot be contributing meaningful nutrition, and it should not be read as a serving of produce.',
+        note: 'Listed in the earlier product record without a quantity. Its presence alone does not establish a meaningful vitamin or mineral contribution. Check the current nutrition panel rather than inferring a benefit from the ingredient name.',
       },
     ],
     faqs: [
       {
         question: 'Is ColonBroom worth it?',
         answer:
-          'It depends on what you are buying. The active ingredient is psyllium husk, which genuinely works for regularity and cholesterol, so the product is not ineffective. But at roughly 19 cents per gram of psyllium against about 3 cents for plain psyllium powder, you are paying close to six times the price for flavouring, portioning and brand. If those things are what get you to take fibre daily, that may be money well spent. If you would take plain psyllium anyway, it is not.',
+          'It may be worth considering if you want a flavoured fibre drink and like the cost per serving. We have not established that it works better than plain psyllium. Compare current labels and checkout prices before paying extra for convenience, especially if you already use an unflavoured powder comfortably.',
       },
       {
         question: 'What is actually in ColonBroom?',
         answer:
-          'Psyllium husk powder, reported at 3.6 g per serving, plus salt, natural flavour, citric acid, stevia extract, fruit and vegetable juice powder and rice hulls. The active ingredient is psyllium; everything else is there to make it taste and mix better.',
+          'Psyllium husk is the main ingredient discussed here. The earlier record also lists salt, flavouring, citric acid, stevia extract, juice powder and rice hulls. That record has not been independently matched to the current tropical-fruits panel, so check the seller’s clear label image for the exact formula and quantities.',
       },
       {
         question: 'Is ColonBroom just psyllium husk?',
         answer:
-          'Functionally, yes. It is flavoured, sweetened, pre-portioned psyllium. That is not a criticism of whether it works — psyllium works — but it does mean the comparison worth making is against plain psyllium powder rather than against other branded gut products.',
+          'It is a flavoured psyllium product, rather than pure psyllium alone. That makes plain psyllium a useful starting point for comparison, but you still need to match ingredient amounts and preparation instructions. Other ColonBroom products may contain different formulas.',
       },
       {
-        question: 'Why is it more expensive than plain psyllium?',
+        question: 'How should I compare the price with plain psyllium?',
         answer:
-          'You are paying for flavouring, portioning and brand. At $34.97 for 50 servings of 3.6 g, a gram of psyllium works out around 19 cents. A 12 oz tub of plain psyllium husk powder is about 3 cents a gram. Whether convenience is worth roughly six times the price is a reasonable thing to decide for yourself, but it should be a decision rather than an accident.',
+          'Start with the final price divided by labelled servings. If both labels clearly state the psyllium amount, also compare cost per gram of psyllium. Avoid comparing total flavoured-powder weight with pure husk weight. Our saved ColonBroom price works out at about $0.70 per serving, but check the current listing before deciding.',
       },
       {
         question: 'Does ColonBroom cause weight loss?',
         answer:
-          'The evidence for psyllium as a weight-loss agent is limited. It can make meals more filling, which may reduce how much you eat, but it does not change metabolism or fat storage. Our psyllium evidence page grades weight loss at C while grading cholesterol and regularity at A.',
+          'We cannot predict weight loss from this product. Psyllium research has produced different results depending on the studies included, dose and duration. Those ingredient studies do not demonstrate a specific result for this ColonBroom formula. Buy it only with realistic expectations about what the evidence actually shows.',
       },
       {
         question: 'Is one scoop enough?',
         answer:
-          'For regularity, possibly. For the cholesterol benefit, the research generally uses 7 to 10 g of psyllium daily, and a 3.6 g scoop is about half. Two scoops would reach the studied range, which also doubles the cost per day.',
+          'There is no universal answer based on the scoop alone. It depends on the current label, why you are taking fibre and your individual needs. Follow the package directions and get advice if you are treating a health problem. Do not increase servings just to match a dose mentioned in a research paper.',
       },
       {
-        question: 'Why can I not find the Supplement Facts panel?',
+        question: 'What if the listing does not show a readable label?',
         answer:
-          'We could not either. There is no ingredients page on the brand site that we could locate, and the Amazon listing shows the panel only as an image rather than as text. That is why the serving figure on this page is attributed to Forbes Health rather than to the manufacturer.',
+          'Ask the seller or manufacturer for a clear panel showing the exact flavour and package size. The absence of a readable panel in our research is not proof that none exists. Until the match is clear, treat older ingredient figures, including the reported 3.6 g amount here, as provisional.',
       },
     ],
     references: [
       {
-        id: 'forbes-colonbroom',
-        text: 'Forbes Health. ColonBroom Review — the source of the 3.6 g per serving figure and the ingredient list used on this page, as the manufacturer does not publish a readable panel.',
-        url: 'https://www.forbes.com/health/supplements/colon-broom-review/',
+        id: 'medline-psyllium-cb',
+        text: 'MedlinePlus. Psyllium: preparation, precautions and medicine interactions.',
+        url: 'https://medlineplus.gov/druginfo/meds/a601104.html',
       },
       {
-        id: 'fda-psyllium-cb',
-        text: 'US Food and Drug Administration. Health claim: soluble fiber from certain foods and risk of coronary heart disease, 21 CFR 101.81.',
-        url: 'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81',
+        id: 'constipation-trial-cb',
+        text: 'McRorie et al. (1998). Randomised comparison of psyllium and docusate in chronic constipation.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/9663731/',
       },
       {
-        id: 'ods-weightloss-cb',
-        text: 'NIH Office of Dietary Supplements. Dietary Supplements for Weight Loss — Fact Sheet for Consumers.',
-        url: 'https://ods.od.nih.gov/factsheets/WeightLoss-Consumer/',
+        id: 'lipids-review-cb',
+        text: 'Jovanovski et al. (2018). Meta-analysis of 28 trials of psyllium and blood lipids.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30239559/',
+      },
+      {
+        id: 'weight-review-cb',
+        text: 'Systematic review of psyllium supplementation and body weight: no significant overall effect.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30880409/',
+      },
+      {
+        id: 'weight-review-2023-cb',
+        text: '2023 review and meta-analysis of psyllium for weight loss using narrower study-selection criteria.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10389520/',
       },
     ],
     history: [
+      {
+        date: '2026-09-21',
+        note: 'Expanded the editorial review with research links, cost calculations and shopping comparisons. Removed the unsupported six-times price claim and blanket medication-spacing advice. No new hands-on test or price verification was performed.',
+      },
       {
         date: '2026-09-21',
         note: 'First published. Price and serving count checked against the Amazon listing on this date; the per-serving psyllium figure attributed to Forbes Health because no readable manufacturer panel could be found.',
@@ -431,7 +447,7 @@ export const productReviews: Review[] = products.map((p, index) => ({
   score: null,
   verdict: 'Manufacturer-label overview',
   summary: p.summary,
-  body: `<h2>What this page covers</h2><p>This is a source-based product overview, not a hands-on test or a clinical endorsement. No effectiveness score has been assigned.</p><h2>Read the label</h2><p>${p.facts}</p><h2>Before use</h2><p>${p.caution}</p><h2>What to compare</h2><p>${p.takeaway}</p><h2>Sources and shopping</h2><p><a href="${p.source}" target="_blank" rel="noopener noreferrer">Manufacturer product information</a>${'sourceNote' in p && p.sourceNote ? ` — ${p.sourceNote}` : ' — the label figures above are taken from this page.'}</p><p>The commercial link on this page points to the ${p.listing} listing, checked against the manufacturer label above. Other pack sizes and strengths exist, so confirm the seller, strength and package size on arrival. Prices and stock change and are not quoted here.</p>`,
+  body: p.slug === 'colonbroom-review-2026' ? colonbroomBody : `<h2>What this page covers</h2><p>This is a source-based product overview, not a hands-on test or a clinical endorsement. No effectiveness score has been assigned.</p><h2>Read the label</h2><p>${p.facts}</p><h2>Before use</h2><p>${p.caution}</p><h2>What to compare</h2><p>${p.takeaway}</p><h2>Sources and shopping</h2><p><a href="${p.source}" target="_blank" rel="noopener noreferrer">Manufacturer product information</a>${'sourceNote' in p && p.sourceNote ? ` — ${p.sourceNote}` : ' — the label figures above are taken from this page.'}</p><p>The commercial link on this page points to the ${p.listing} listing, checked against the manufacturer label above. Other pack sizes and strengths exist, so confirm the seller, strength and package size on arrival. Prices and stock change and are not quoted here.</p>`,
   pros: p.pros,
   cons: p.cons,
   ingredients: p.ingredients,
@@ -478,6 +494,7 @@ export const productReviews: Review[] = products.map((p, index) => ({
             note: 'Ingredient rows linked to their evidence pages; commercial link changed from a keyword search to the verified listing.',
           },
         ],
+  ...(p.slug === 'now-psyllium-husk-powder' ? nowPsylliumArticle : {}),
 }));
 
 export const productAsins: Record<string, string> = Object.fromEntries(

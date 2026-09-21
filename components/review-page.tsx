@@ -17,6 +17,7 @@ import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
+import { amazonLink, amazonSearchLink } from '@/lib/amazon';
 export function AffiliateButton({
   review,
   fallback = null,
@@ -181,7 +182,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                   src={r.featured_image_url}
                   alt={r.product_name || r.title}
                   fill
-                  sizes="320px"
+                  sizes="(max-width: 900px) 420px, 320px"
                 />
               ) : (
                 <>
@@ -189,14 +190,6 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                   <HeroIcon strokeWidth={1} size={62} />
                 </>
               )}
-              <div className="score-ring">
-                <strong>{r.score === null ? '—' : r.score.toFixed(1)}</strong>
-                {/* Labelled OUR SCORE so it reads as distinct from the
-                    marketplace rating shown directly beneath it. */}
-                <span title={r.score === null ? 'No score assigned by SharpAndLean' : undefined}>
-                  OUR SCORE
-                </span>
-              </div>
             </div>
             <div className="featured-product-body">
               <span className="featured-product-label">At a glance</span>
@@ -233,10 +226,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 </div>
               )}
 
-              <dl>
+              <dl className="glance-facts">
                 {keyFigure && (
                   <div>
-                    <dt>Key figure</dt>
+                    <dt>{headline?.name || 'Key ingredient'}</dt>
                     <dd>{keyFigure}</dd>
                   </div>
                 )}
@@ -256,9 +249,18 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 </div>
               </dl>
 
-              <a className="button featured-product-cta" href="#where-to-buy">
-                Where to buy <ArrowUpRight size={15} />
-              </a>
+              {r.asin ? (
+                <>
+                  <a className="button featured-product-cta" href={amazonLink(r.asin)} target="_blank" rel="sponsored nofollow noopener noreferrer">
+                    View on Amazon <ArrowUpRight size={15} />
+                  </a>
+                  <p className="glance-affiliate">Affiliate link · We may earn a commission.</p>
+                </>
+              ) : (
+                <a className="button featured-product-cta" href="#where-to-buy">
+                  Where to buy <ArrowUpRight size={15} />
+                </a>
+              )}
 
               {market && (
                 /* Somebody else's figures, dated, so a stale price is visibly
@@ -309,6 +311,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           </aside>
           <div className="review-body">
             <RichText html={r.body} />
+            {r.result_image && (
+              <figure className="research-result-figure">
+                <Image src={r.result_image.src} alt={r.result_image.alt} width={1200} height={720} sizes="(max-width: 900px) 90vw, 900px" style={{ width: '100%', height: 'auto' }} />
+                <figcaption>{r.result_image.caption}</figcaption>
+              </figure>
+            )}
             <section id="ingredients">
               <h2>Ingredient analysis</h2>
               {r.ingredients.length ? (
@@ -394,18 +402,40 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 ))}
               </section>
             )}
-            <section>
-              <h2>How does it compare?</h2>
+            <section id="compare" aria-labelledby="compare-heading">
+              <h2 id="compare-heading">How does it compare?</h2>
               {related.length ? (
-                <ul>
-                  {related.map((v) => (
-                    <li key={v.id}>
-                      <Link className="text-link" href={`/${v.category_slug}/${v.slug}`}>
-                        {v.title} <ArrowUpRight size={14} />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <>
+                  <p className="comparison-intro">A closer look at the alternatives. Compare the ingredients and serving sizes, then explore the full review.</p>
+                  <div className="comparison-grid">
+                    {related.map((v) => {
+                      const name = v.product_name || v.title;
+                      const ingredient = v.ingredients.find((item) => item.evidence_rating !== 'none');
+                      return (
+                        <article className="comparison-card" key={v.id}>
+                          <Link className="comparison-image" href={`/${v.category_slug}/${v.slug}`} aria-label={`Read review of ${name}`}>
+                            {v.featured_image_url ? (
+                              <Image src={v.featured_image_url} alt={name} fill sizes="(max-width: 700px) 80vw, 400px" />
+                            ) : (
+                              <span className="comparison-placeholder"><HeroIcon size={48} strokeWidth={1} />Product overview</span>
+                            )}
+                          </Link>
+                          <div className="comparison-content">
+                            <span className="comparison-eyebrow">An alternative to consider</span>
+                            <h3>{name}</h3>
+                            <p>{v.summary}</p>
+                            {ingredient && <div className="comparison-dose"><span>Per serving</span><strong>{ingredient.dose}</strong></div>}
+                            <div className="comparison-actions">
+                              <a className="button" href={v.asin ? amazonLink(v.asin) : amazonSearchLink(name)} target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label={`Buy ${name} on Amazon`}>Buy on Amazon <ArrowUpRight size={15} /></a>
+                              <Link className="text-link" href={`/${v.category_slug}/${v.slug}`} aria-label={`Read review of ${name}`}>Read review <ArrowUpRight size={15} /></Link>
+                            </div>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                  <p className="comparison-disclosure">Affiliate links: we may earn a commission at no extra cost to you. Check Amazon for current prices and availability.</p>
+                </>
               ) : (
                 <p className="muted">Related reviews will appear as this category grows.</p>
               )}
