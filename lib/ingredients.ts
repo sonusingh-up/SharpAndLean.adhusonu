@@ -785,6 +785,293 @@ export const ingredients: IngredientPage[] = [
     ],
     updated: '2026-09-21',
   },
+  {
+    slug: 'rebaudioside-a',
+    name: 'Rebaudioside A (stevia)',
+    aliases: [
+      'rebaudioside a',
+      'rebaudioside',
+      'reb a',
+      'stevia leaf extract',
+      'steviol glycosides',
+      'stevia rebaudiana',
+      'stevia',
+    ],
+    category: 'Sweetener',
+    grade: 'D',
+    quickAnswer:
+      'Rebaudioside A is one of several sweet molecules — steviol glycosides — purified from the leaves of Stevia rebaudiana. It is 200 to 400 times sweeter than sugar, adds no calories and does not raise blood glucose, and it is genuinely good at those things. What the evidence does not support is the reason it usually appears on a weight-management label: the WHO reviewed non-sugar sweeteners in 2023 and advised against using them for weight control. The phrase "leaf extract" also oversells it — the FDA permits the purified glycoside, not the leaf.',
+    atAGlance: [
+      {
+        label: 'Sweetness',
+        value: '200–400× sugar',
+        note: 'Which is why the amount used is measured in milligrams, and why it is almost never disclosed on a panel.',
+      },
+      {
+        label: 'Calories and blood glucose',
+        value: 'Neither',
+        note: 'Steviol glycosides are not metabolised for energy and do not raise blood glucose. This part of the pitch is accurate.',
+      },
+      {
+        label: 'What is actually permitted',
+        value: '≥95% pure glycosides',
+        note: 'The FDA does not permit whole stevia leaf or crude extracts in food, and blocks their import for that use. "Leaf extract" is an industrial purification.',
+      },
+      {
+        label: 'Acceptable daily intake',
+        value: '4 mg/kg body weight',
+        note: 'Expressed as steviol equivalents — about 280 mg a day for a 70 kg adult. EFSA reviewed this again in 2024 and declined to raise it.',
+      },
+      {
+        label: 'For weight control',
+        value: 'WHO advises against',
+        note: 'A 2023 conditional recommendation covering all non-sugar sweeteners, stevia included, after a review found no long-term benefit for body fat.',
+      },
+      {
+        label: 'Why it is in your supplement',
+        value: 'Palatability',
+        note: 'It makes an unpleasant powder drinkable. That is a real job, and it is not a nutritional one.',
+      },
+    ],
+    whatIsIt:
+      'Stevia rebaudiana is a South American shrub whose leaves contain a family of intensely sweet compounds called steviol glycosides. Rebaudioside A is the one most commonly isolated, usually alongside smaller amounts of stevioside, rebaudioside D and rebaudioside M. The important distinction, and the one the marketing works hardest to blur, is between the leaf and the molecule. What reaches a supplement is the product of extraction, filtration and crystallisation, ending at a powder that is at minimum 95 per cent steviol glycosides. The FDA has raised no objection to GRAS conclusions for those high-purity preparations, but it has been explicit that whole stevia leaf and crude stevia extracts are not GRAS, and their import for use as sweeteners is not permitted. A label reading "stevia leaf extract" therefore describes the origin of a purified compound, not a botanical preparation — which is the opposite of the impression the words create.',
+    mechanism:
+      'Steviol glycosides bind the sweet taste receptor on the tongue, the same T1R2/T1R3 heterodimer that sucrose activates, but far more tightly, which is the entire basis of the several-hundred-fold sweetness. At higher concentrations they also engage bitter receptors, which is why stevia carries the liquorice-like aftertaste that formulators spend so much effort masking. Metabolically the molecule behaves quite differently from sugar: the glycosides pass through the small intestine largely intact, are hydrolysed by colonic bacteria to the steviol backbone, absorbed, conjugated in the liver and excreted in urine. Nothing in that path yields usable energy, which is why the ingredient is non-caloric, and nothing in it involves insulin, which is why it does not raise blood glucose. Whether the same colonic step has meaningful effects on the gut microbiome is an open question rather than a settled harm.',
+    claims: [
+      {
+        claim: 'For sweetness without sugar or calories',
+        grade: 'A',
+        body: 'This is the claim the ingredient actually delivers on, and it is closer to a physical property than a health effect. Steviol glycosides are 200 to 400 times sweeter than sucrose by weight, contribute no usable energy, and are permitted for this use by regulators in the US, EU and elsewhere following repeated safety evaluations. If the question is whether a sweetener can replace sugar in a formulation without adding calories, the answer is yes and it is not seriously disputed.',
+        refs: ['fda-sweeteners'],
+      },
+      {
+        claim: 'For weight control',
+        grade: 'D',
+        body: 'The WHO issued a guideline in 2023 recommending against the use of non-sugar sweeteners — naming stevia and stevia derivatives explicitly — to control body weight or reduce the risk of noncommunicable disease. Its systematic review found no long-term benefit for body fat in adults or children, and raised the possibility of undesirable long-term associations with type 2 diabetes, cardiovascular disease and mortality. The grade is D rather than F because the picture genuinely contradicts itself: short-term trials where a sweetener displaces sugar do tend to show small reductions in weight, while longer observational data point the other way. WHO classed its own recommendation as conditional for exactly this reason, noting the observed links may be confounded by who chooses to use these products and how.',
+        refs: ['who-nss'],
+      },
+      {
+        claim: 'For blood glucose and use in diabetes',
+        grade: 'B',
+        body: 'Steviol glycosides are not metabolised to glucose and do not provoke an insulin response, so substituting them for sugar lowers the glycaemic load of whatever they are sweetening. This is the one area the WHO guideline deliberately carved out: its recommendation does not apply to people who already have diabetes and use these sweeteners to manage blood sugar. The grade sits at B rather than A because the benefit is a consequence of removing sugar rather than an effect of stevia itself, and because the long-term outcome data in this population are thinner than the mechanism suggests.',
+        refs: ['who-nss'],
+      },
+      {
+        claim: 'Because it is natural, being derived from a leaf',
+        grade: 'F',
+        body: 'This is a framing rather than a testable benefit, and on the facts it does not survive. The permitted ingredient is at least 95 per cent purified steviol glycosides; the leaf itself and crude extracts of it are not GRAS in the United States and cannot be imported for use as sweeteners, because the FDA considers the toxicological data on them insufficient. So the regulator has permitted the industrially purified molecule and declined to permit the botanical the marketing evokes. That is not an argument that Reb A is unsafe — the evidence supports the opposite — but "natural because it comes from a plant" is precisely backwards as a description of why it is allowed in your drink.',
+        refs: ['fda-sweeteners'],
+      },
+    ],
+    dosage:
+      'There is no beneficial dose of a sweetener to target, only a ceiling not to cross. JECFA set an acceptable daily intake of 0 to 4 mg per kilogram of body weight per day, expressed as steviol equivalents, and EFSA reviewed the question again in 2024 — rejecting an industry request to raise the figure to 6 or 16 mg/kg on the grounds of insufficient justification. For a 70 kg adult the ADI works out at roughly 280 mg of steviol equivalents daily. Because the compound is several hundred times sweeter than sugar, the quantities needed to sweeten a drink are measured in tens of milligrams, so ordinary use sits comfortably below that ceiling. An ADI is a conservative lifetime-exposure threshold built with a hundred-fold safety factor, not a line beyond which harm begins.',
+    dosageGap:
+      'The gap here is disclosure rather than quantity. Steviol glycosides are almost always listed among the other ingredients with no amount attached, because at these weights they are a flavouring rather than a nutrient and no regulation compels a figure. That is defensible for what the ingredient does — but it means a reader cannot reconstruct their intake against the ADI from the panel, and it means a product can lean on the word stevia in its marketing while declining to say how much is in it. If you want to know, the honest answer is that nobody outside the manufacturer does.',
+    safety:
+      'High-purity steviol glycosides have been through repeated regulatory evaluation and come out the other side: the FDA has not objected to GRAS conclusions for preparations of at least 95 per cent purity, and the JECFA acceptable daily intake has held at 4 mg/kg body weight as steviol equivalents through successive reviews, most recently EFSA in 2024. At the amounts used in food and supplements, no consistent pattern of harm has been established. Two caveats are worth stating plainly. The first is that the colonic bacteria which cleave steviol glycosides are themselves being acted on, and the longer-term consequences for the gut microbiome are an open research question rather than a resolved one. The second is the WHO signal: observational data associate long-term non-sugar sweetener use with type 2 diabetes, cardiovascular disease and mortality, and while WHO itself flagged confounding as a likely explanation and graded the recommendation conditional, it did not dismiss the finding. Whole stevia leaf and crude extracts are a separate matter and are not permitted in US food at all. Tolerance is generally good; the most common complaint is the bitter or liquorice-like aftertaste, which is a palatability issue rather than a safety one.',
+    faqs: [
+      {
+        question: 'Is stevia safe?',
+        answer:
+          'The purified form used in food has a good safety record and has cleared repeated regulatory review. The FDA has raised no objection to GRAS conclusions for steviol glycosides of at least 95 per cent purity, and the acceptable daily intake has stayed at 4 mg per kilogram of body weight as steviol equivalents, with EFSA declining in 2024 to raise it. Whole stevia leaf and crude extracts are a different product and are not permitted in US food.',
+      },
+      {
+        question: 'Does stevia help you lose weight?',
+        answer:
+          'The WHO advised against using non-sugar sweeteners, stevia included, for weight control in 2023, after a review found no long-term benefit for body fat. Replacing sugar with a sweetener can reduce calories in the short term, and trials show small effects, but longer-term data do not show the benefit persisting. WHO graded its recommendation conditional because the evidence genuinely conflicts.',
+      },
+      {
+        question: 'Does stevia raise blood sugar or insulin?',
+        answer:
+          'No. Steviol glycosides are not broken down into glucose and do not trigger an insulin response. WHO specifically excluded people with existing diabetes from its recommendation against non-sugar sweeteners, on the basis that managing blood sugar is a different question from managing weight.',
+      },
+      {
+        question: 'Is stevia leaf extract natural?',
+        answer:
+          'Less than the phrase suggests. What is permitted in food is at least 95 per cent purified steviol glycosides, produced by extraction and crystallisation. The whole leaf and crude extracts — the things most people picture — are not GRAS in the United States and cannot be imported for use as sweeteners. The purified molecule is the version regulators have judged safe.',
+      },
+      {
+        question: 'How much stevia is too much?',
+        answer:
+          'The acceptable daily intake is 4 mg per kilogram of body weight per day as steviol equivalents, roughly 280 mg for a 70 kg adult. Because the compound is 200 to 400 times sweeter than sugar, normal use falls well below that. An ADI already includes a hundred-fold safety margin, so exceeding it occasionally is not the same as being harmed.',
+      },
+      {
+        question: 'Why does stevia have an aftertaste?',
+        answer:
+          'Because steviol glycosides activate bitter taste receptors as well as sweet ones, more noticeably at higher concentrations. Rebaudioside A is used in preference to stevioside partly because it is cleaner in this respect, and formulators often blend glycosides or add salt and flavouring to mask what remains.',
+      },
+    ],
+    references: [
+      {
+        id: 'fda-sweeteners',
+        text: 'US Food and Drug Administration. Aspartame and Other Sweeteners in Food — high-purity steviol glycosides at 95 per cent minimum purity, the 200 to 400 times sweetness figure, and the exclusion of whole stevia leaf and crude extracts from food use.',
+        url: 'https://www.fda.gov/food/food-additives-petitions/aspartame-and-other-sweeteners-food',
+      },
+      {
+        id: 'who-nss',
+        text: 'World Health Organization. WHO advises not to use non-sugar sweeteners for weight control, 15 May 2023 — the conditional recommendation, the sweeteners named including stevia, and the exclusion of people with existing diabetes.',
+        url: 'https://www.who.int/news/item/15-05-2023-who-advises-not-to-use-non-sugar-sweeteners-for-weight-control-in-newly-released-guideline',
+      },
+      {
+        id: 'efsa-steviol',
+        text: 'EFSA Panel on Food Additives and Flavourings. Scientific opinion on steviol glycosides (E 960a–d) and the acceptable daily intake for steviol. EFSA Journal, 2024 — maintained the ADI at 4 mg/kg body weight per day and rejected a request to raise it.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11533382/',
+      },
+    ],
+    editorNote:
+      'Stevia is one of the few ingredients on this site where I think the product is fine and the story around it is the problem. As a sweetener it works, it is well characterised, and putting it in a psyllium drink is a sensible formulation decision rather than a cynical one — fibre powders that taste unbearable get abandoned, and an abandoned supplement helps nobody. What I would push back on is the chain of implication: that because it came from a leaf it is natural, that because it is natural it is healthy, and that because it is healthy the weight-management product containing it must work. The WHO guidance is the part worth actually reading, and the honest reading of it is that it found no benefit rather than proof of harm.',
+    related: ['pink-himalayan-salt', 'psyllium-husk'],
+    history: [
+      {
+        date: '2026-09-21',
+        note: 'First published with per-claim evidence grades. Purity, sweetness and permitted-form details from the FDA; the weight-control position from the 2023 WHO guideline; the acceptable daily intake from the 2024 EFSA opinion.',
+      },
+    ],
+    updated: '2026-09-21',
+  },
+  {
+    slug: 'fruit-and-vegetable-juice-powder',
+    name: 'Fruit and vegetable juice powder',
+    aliases: [
+      'fruit and vegetable juice powder',
+      'fruit and vegetable powder',
+      'fruit & vegetable juice powder',
+      'fruit and vegetable blend',
+      'vegetable juice powder',
+      'fruit juice powder',
+      'fruit and vegetable concentrate',
+    ],
+    category: 'Whole-food concentrate',
+    grade: 'D',
+    quickAnswer:
+      'Fruit and vegetable juice powder is dehydrated juice or pulp, used in supplements for colour and flavour and sold on the suggestion that it stands in for produce. Taken as the product itself, at the capsule doses used in trials, concentrates do raise plasma carotenoid and vitamin levels and show modest movement in some cardiovascular markers. As an undisclosed trace in a drink mix, it does neither. Even the reviews most favourable to the ingredient state plainly that it cannot replace eating fruit and vegetables.',
+    atAGlance: [
+      {
+        label: 'What it is',
+        value: 'Dehydrated juice or pulp',
+        note: 'No standard composition and no legal definition. Two products carrying this ingredient line may share almost nothing.',
+      },
+      {
+        label: 'Amount in most formulas',
+        value: 'Not disclosed',
+        note: 'It is listed without a quantity, which is permitted for a colour or flavour ingredient — and makes the nutritional implication impossible to check.',
+      },
+      {
+        label: 'Dose used in trials',
+        value: 'Six capsules a day',
+        note: 'Taken as the supplement itself. That is orders of magnitude above a pinch used to tint a fibre drink.',
+      },
+      {
+        label: 'Best-supported effect',
+        value: 'Raises plasma carotenoids',
+        note: 'Real, repeatable, and the strongest thing this ingredient class has going for it — at capsule doses.',
+      },
+      {
+        label: 'Replaces produce?',
+        value: 'No — and reviews say so',
+        note: 'Including a 2019 review with an author affiliated to the Juice Plus+ Science Institute, which states supplementation cannot replace fresh fruit and vegetables.',
+      },
+      {
+        label: 'Regulatory history',
+        value: 'FDA has acted on this',
+        note: 'A 2019 warning letter cited a marketer claiming its capsules provided "over 10 servings of fruits and vegetables every day".',
+      },
+    ],
+    whatIsIt:
+      'Fruit and vegetable juice powder is exactly what the name says and nothing more specific: juice or pulp from some combination of produce, dried — by spray, drum or freeze drying — into a powder. There is no standard recipe, no defined composition and no legal definition of the term, so the ingredient line tells you the category and not the contents. What survives the drying varies with the method and the starting material. Carotenoids and some polyphenols hold up reasonably well; vitamin C degrades readily with heat and oxygen, which is why some powders have ascorbic acid added back and then list it separately. Fibre is largely removed when the starting point is juice rather than whole fruit. In practice these powders appear in two quite different roles, and conflating them is the source of most of the confusion on this page: as the entire product, in capsules taken by the handful, and as a small colouring and flavouring addition to something else.',
+    mechanism:
+      'There is no single mechanism, because this is a mixture rather than a compound. The plausible active constituents are the carotenoids, polyphenols, vitamins and minerals carried over from the source produce, and the proposed pathway is the familiar one offered for fruit and vegetable intake generally: antioxidant and anti-inflammatory activity, improved endothelial function, and reductions in markers such as homocysteine. The crucial limitation is that this reasoning is borrowed. The evidence that eating fruit and vegetables is good for people comes from studying people who eat fruit and vegetables — whole foods, with their fibre, water, structure and the displacement of other foods they cause. A dried juice extract shares some constituents with that and not others, so the benefit has to be demonstrated for the powder rather than inherited from the produce. Some of it has been. Most of it has not.',
+    claims: [
+      {
+        claim: 'For raising plasma carotenoid and vitamin levels',
+        grade: 'B',
+        body: 'This is the strongest claim the ingredient class has, and it is a straightforwardly measurable one. Trials of encapsulated fruit, vegetable and berry juice concentrates consistently report increases in circulating carotenoids and several vitamins after supplementation. The reservation is not whether it happens but what it means: a higher plasma carotenoid reading is a biomarker of intake rather than a health outcome, and the studies establishing it have largely been short, small, and conducted in specific groups such as athletes and smokers. Raising a marker is a necessary step towards a benefit, not the benefit itself.',
+      },
+      {
+        claim: 'For cardiovascular risk markers',
+        grade: 'C',
+        body: 'A 2019 systematic review in the Journal of Clinical Medicine gathered 13 articles covering eight concentrate products and reported movement in total cholesterol, LDL, homocysteine, systolic blood pressure, BMI and TNF-alpha, with the strongest signal for homocysteine. The authors were candid about the limits: small numbers of trials, small samples, most durations under two months, and heterogeneous designs, concluding that the effect on biomarkers and on primary cardiovascular disorders cannot be confirmed with certainty. Two further things belong in the reader’s hands. The evidence base is closely tied to industry — one author of that review lists an affiliation with the Juice Plus+ Science Institute while the paper declares no conflict of interest, and the individual trials are frequently funded or supplied by manufacturers. And the doses are those of the product taken on its own, not of a trace ingredient.',
+        refs: ['jcm-concentrates', 'jcp-chapple'],
+      },
+      {
+        claim: 'As a substitute for eating fruit and vegetables',
+        grade: 'F',
+        body: 'Nobody credible claims this, including the researchers most sympathetic to the ingredient: the 2019 review states that supplementation cannot replace the consumption of fresh fruit and vegetables. The FDA has treated the stronger versions of the claim as a compliance matter. Its 2019 warning letter to the marketer of a whole-food fruit and vegetable capsule range cited, among other violations, marketing asserting the products provided "over 10 servings of fruits and vegetables every day". Dietary guidance on produce rests on studies of people eating produce, and a dried extract lacks the fibre, volume, water and displacement effect that come with it.',
+        refs: ['fda-balance-of-nature', 'jcm-concentrates'],
+      },
+      {
+        claim: 'At the amounts used for colour and flavour in a drink mix',
+        grade: 'F',
+        body: 'This is the version most readers of this site will actually encounter, and it is the weakest. Where a fibre powder or similar formula lists fruit and vegetable juice powder among its minor ingredients at an undisclosed amount, the quantity is there to tint and flavour the product. The trials showing biomarker effects used six capsules a day of concentrate taken as the supplement itself. A pinch in a 5 g scoop is smaller by orders of magnitude, and no evidence supports a nutritional contribution at that scale. The ingredient is doing an honest job; the packaging is the part that overstates it.',
+        refs: ['jcp-chapple'],
+      },
+    ],
+    dosage:
+      'There is no established effective dose, because the ingredient is not standardised to anything. The most-studied form is encapsulated concentrate taken as the product in its own right — the periodontal trial in the Journal of Clinical Periodontology used six capsules daily, split morning and evening, over nine months, and that is broadly typical of the literature. Nothing comparable exists for powders used as a minor component of another formula, and no conversion between the two is meaningful. Where a product does quantify the powder, compare it against the gram-level daily amounts used in trials rather than against a serving of fruit, because no defensible equivalence to produce exists.',
+    dosageGap:
+      'This is one of the widest gaps on the site, and it runs in both directions at once. The studied form is grams per day of concentrate taken as the whole product; the commercial form most people meet is an unquantified pinch used as a colourant. Meanwhile the implied benefit is the largest available — that you are somehow getting your produce in. When an amount is not disclosed you cannot close that gap yourself, and the absence of a figure should be read as what it is: the ingredient is present for appearance and taste, because an ingredient present for nutrition would have a number next to it.',
+    safety:
+      'At the amounts used in ordinary supplements this ingredient raises no particular safety concern; it is dried food. Three practical points are worth keeping. First, people with fruit or vegetable allergies need the source list, and a blanket ingredient line such as "fruit and vegetable juice powder" may not provide it — check the full declaration and the allergen statement rather than assuming. Second, concentrated fruit powders can carry meaningful amounts of sugar and of potassium or oxalate depending on what went into them, which matters for anyone managing diabetes, kidney disease or a history of oxalate stones. Third, and most relevant in practice, the risk is not toxicological but substitutional: treating a powder as a stand-in for produce means missing the fibre, volume and satiety that make fruit and vegetables useful in the first place. If you are eating well, this ingredient adds very little. If you are not, it does not fix it.',
+    faqs: [
+      {
+        question: 'Does fruit and vegetable powder count as a serving of vegetables?',
+        answer:
+          'No. There is no defensible equivalence between a dried extract and a serving of produce, and the FDA has issued a warning letter over marketing that claimed capsules delivered more than ten servings of fruits and vegetables a day. Even the systematic review most favourable to concentrates states that supplementation cannot replace fresh fruit and vegetables.',
+      },
+      {
+        question: 'Is there any real evidence for these powders?',
+        answer:
+          'Some, and it is worth being precise about it. Trials of encapsulated concentrates taken as the product itself do raise plasma carotenoid and vitamin levels reliably, and a 2019 review found modest movement in cardiovascular markers such as homocysteine. Those studies were small, short and often manufacturer-funded, and the authors concluded the effect on primary cardiovascular disorders cannot be confirmed with certainty.',
+      },
+      {
+        question: 'Why is fruit and vegetable juice powder in my fibre supplement?',
+        answer:
+          'For colour and flavour, in almost every case. It is typically listed with no amount, which is permitted for a flavouring or colouring ingredient and is the clearest signal available of what it is doing. A component included for nutrition would carry a quantity.',
+      },
+      {
+        question: 'Do these powders still contain fibre and vitamin C?',
+        answer:
+          'Often much less than the source produce. Fibre is largely lost when the starting material is juice rather than whole fruit, and vitamin C degrades with heat and oxygen during drying — some manufacturers add ascorbic acid back, which then appears separately on the panel. There is no standard process, so retention varies between products.',
+      },
+      {
+        question: 'How much of the research is funded by the manufacturers?',
+        answer:
+          'A substantial share. The periodontal trial cited on this page was funded in part by the manufacturer of the product tested, and the 2019 systematic review includes an author affiliated with that manufacturer’s science institute while declaring no conflict of interest. That does not make the findings wrong, but it is context a reader is entitled to have before weighing them.',
+      },
+      {
+        question: 'Should I take a greens or fruit-and-veg powder instead of eating vegetables?',
+        answer:
+          'No, and that framing is where the harm sits. The guidance to eat produce comes from studying people who eat produce, with the fibre, water and fullness that involves. A powder can raise some blood markers. It cannot do the displacement work that makes vegetables useful, and treating it as permission to skip them is a worse outcome than not taking it at all.',
+      },
+    ],
+    references: [
+      {
+        id: 'jcm-concentrates',
+        text: 'Lamprecht M, et al. Fruit and Vegetable Concentrate Supplementation and Cardiovascular Health: A Systematic Review from a Public Health Perspective. Journal of Clinical Medicine. 2019;8(11):1914 — 13 articles across eight concentrate products; source of the biomarker findings, the stated limitations, and the conclusion that supplementation cannot replace fresh produce.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6912365/',
+      },
+      {
+        id: 'jcp-chapple',
+        text: 'Chapple ILC, et al. Adjunctive daily supplementation with encapsulated fruit, vegetable and berry juice powder concentrates and clinical periodontal outcomes: a double-blind RCT. Journal of Clinical Periodontology. 2012;39(1):62–72 — the six-capsules-daily dose cited on this page; funded in part by the manufacturer of the product tested.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3267052/',
+      },
+      {
+        id: 'fda-balance-of-nature',
+        text: 'US Food and Drug Administration. Warning Letter to Evig LLC dba Balance of Nature, 20 August 2019 — cites marketing claiming the products provide "over 10 servings of fruits and vegetables every day", alongside unapproved drug claims and nutrition labelling violations.',
+        url: 'https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/evig-llc-dba-balance-nature-580888-08202019',
+      },
+    ],
+    editorNote:
+      'The thing I find genuinely useful about this ingredient is how reliably its disclosure tells you what it is for. When a product wants you to believe the fruit and vegetable powder is nutritional, it puts the phrase on the front of the pack and leaves the amount off the back. When a powder is included at a dose that could plausibly do something, the manufacturer says so, because that number is the selling point. So the absence of a figure is not an oversight to complain about — it is the answer. Beyond that, my objection is the one I would raise in clinic: the people most drawn to these products are usually the ones eating least produce, and a powder that raises a carotenoid reading while leaving the diet unchanged is a worse outcome than it appears, because it feels like the problem has been addressed.',
+    related: ['pink-himalayan-salt', 'psyllium-husk'],
+    history: [
+      {
+        date: '2026-09-21',
+        note: 'First published with per-claim evidence grades. Biomarker and cardiovascular findings from the 2019 Journal of Clinical Medicine systematic review; the studied dose and funding disclosure from the 2012 Journal of Clinical Periodontology trial; the servings claim from the FDA warning letter of 20 August 2019.',
+      },
+    ],
+    updated: '2026-09-21',
+  },
 ];
 
 export function getIngredient(slug: string) {
