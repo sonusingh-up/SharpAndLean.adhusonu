@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, Empty, SectionLabel } from '@/components/site';
@@ -10,6 +11,7 @@ import { categories } from '@/lib/sample';
 import { getReviews, getCollections, getCategoryData } from '@/lib/data';
 import { siteUrl, demoMode } from '@/lib/config';
 import { categoryGuides, informationPages as info } from '@/lib/editorial-content';
+import { authors } from '@/lib/author';
 export const revalidate = 3600;
 export async function generateStaticParams() {
   return [
@@ -298,6 +300,91 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
         </div>
       </SiteShell>
     );
+  if (section === 'about') {
+    const about = info.about;
+    return (
+      <SiteShell>
+        <article className="page-section info-page about-page">
+          <WebPageSchema
+            type="AboutPage"
+            name={about.title}
+            description={about.intro}
+            path="/about"
+          />
+          <BreadcrumbSchema items={[{ label: 'Our approach', path: '/about' }]} />
+          <Breadcrumb items={[{ label: 'Our approach' }]} />
+          <header className="page-top">
+            <SectionLabel>The Sharp &amp; Lean standard</SectionLabel>
+            <h1 className="page-title">{about.title}</h1>
+            <p className="page-intro">{about.intro}</p>
+          </header>
+
+          {/* The four checks, stated before the prose so the method is visible
+              without reading a thousand words first. */}
+          <ol className="about-checks">
+            {[
+              [
+                'Serving size',
+                'How many units make a serving, and how many servings are really in the container.',
+              ],
+              [
+                'Disclosed amounts',
+                'Whether every active carries its own number, or several hide inside one blend total.',
+              ],
+              [
+                'Total stimulants',
+                'Caffeine added up across every source on the panel, not read one line at a time.',
+              ],
+              [
+                'Testing claims',
+                'Whether a test names a laboratory, a batch and a date, or is just a reassuring phrase.',
+              ],
+            ].map(([title, text], i) => (
+              <li key={title}>
+                <span className="about-check-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+
+          <RichText html={about.body} />
+
+          <section className="about-authors">
+            <h2>Who writes this</h2>
+            <div className="author-cards">
+              {authors.map((a) => (
+                <Link className="author-card" href={`/author/${a.slug}`} key={a.slug}>
+                  {a.photo_url ? (
+                    <Image
+                      className="author-card-photo"
+                      src={a.photo_url}
+                      alt={a.name}
+                      width={72}
+                      height={72}
+                    />
+                  ) : (
+                    <span className="author-card-mark" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                  )}
+                  <span className="author-card-body">
+                    <strong>{a.name}</strong>
+                    <span className="author-card-title">{a.title}</span>
+                    <span className="author-card-role">{a.role}</span>
+                  </span>
+                  <ArrowUpRight size={16} />
+                </Link>
+              ))}
+            </div>
+          </section>
+        </article>
+      </SiteShell>
+    );
+  }
   const content = info[section];
   if (!content) notFound();
   return (
@@ -329,11 +416,6 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           <p className="page-intro">{content.intro}</p>
         </header>
         <RichText html={content.body} />
-        {section === 'about' && (
-          <Link className="button" href="/author/sumita-bhatti">
-            Meet Sumita Bhatti <ArrowUpRight size={17} />
-          </Link>
-        )}
       </article>
     </SiteShell>
   );
