@@ -116,8 +116,11 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <p className="page-intro">{r.summary}</p>
 
             {/* Two distinct roles, shown separately: the desk compiles the page,
-                the clinician reviews it. Collapsing them into one byline is what
-                created the misattribution this replaces. */}
+                the clinician reviews the evidence behind it. "Evidence reviewed"
+                rather than "medically reviewed" because she is a clinical
+                nutritionist rather than a physician, and because the medical
+                disclaimer states this site does not give medical advice. The
+                schema property stays reviewedBy, which is correct either way. */}
             <div className="byline-block">
               <div className="byline-person">
                 <span className="byline-role">Written by</span>
@@ -135,7 +138,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                     />
                   )}
                   <span>
-                    <span className="byline-role">Medically reviewed by</span>
+                    <span className="byline-role">Evidence reviewed by</span>
                     <Link href={`/author/${reviewedBy.slug}`}>{reviewedBy.name}</Link>
                     <span className="byline-credential">{reviewedBy.title}</span>
                   </span>
