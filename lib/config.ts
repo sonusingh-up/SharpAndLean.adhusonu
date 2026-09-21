@@ -16,3 +16,9 @@ export const siteUrl = (
   (vercelHost ? `https://${vercelHost}` : '') ||
   'http://localhost:3000'
 ).replace(/\/+$/, '');
+// Supabase being configured says nothing about where editorial content lives.
+// Product pages are assembled from lib/articles/*.ts, so content stays
+// file-based unless a deployment opts in explicitly. Keeping the two apart
+// lets database-backed tools — the admin CMS and the /recommended redirects —
+// run without emptying a site whose reviews are files.
+export const contentFromSupabase = hasSupabase && process.env.CONTENT_SOURCE === 'supabase';

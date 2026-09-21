@@ -1,12 +1,12 @@
 import { productReviews, productAsins, editorialCollections } from './products';
-import { hasSupabase } from './config';
+import { contentFromSupabase, hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
 import { amazonLink, amazonSearchLink, hasAmazonTag } from './amazon';
 export async function getReviews(): Promise<Review[]> {
   // With no partner tag configured the affiliate slot stays empty rather than
   // showing an untagged commercial link.
-  if (!hasSupabase)
+  if (!contentFromSupabase)
     return productReviews.map((review) => {
       if (!hasAmazonTag) return review;
       const asin = productAsins[review.slug];
@@ -39,7 +39,7 @@ export async function getReviews(): Promise<Review[]> {
   );
 }
 export async function getCollections(kind: Collection['kind']): Promise<Collection[]> {
-  if (!hasSupabase) return editorialCollections.filter((row) => row.kind === kind);
+  if (!contentFromSupabase) return editorialCollections.filter((row) => row.kind === kind);
   const select =
     kind === 'best_lists' ? '*, items:best_list_items(*), faqs:best_list_faqs(*)' : '*';
   const { data, error } = await publicClient()
@@ -54,7 +54,7 @@ export async function getCollections(kind: Collection['kind']): Promise<Collecti
   })) as unknown as Collection[];
 }
 export async function getCategoryData(slug: string) {
-  if (!hasSupabase) return null;
+  if (!contentFromSupabase) return null;
   const { data, error } = await publicClient()
     .from('categories')
     .select('*,faqs:category_faqs(*)')
@@ -64,7 +64,7 @@ export async function getCategoryData(slug: string) {
   return data;
 }
 export async function getAuthor() {
-  if (!hasSupabase) return null;
+  if (!contentFromSupabase) return null;
   const { data, error } = await publicClient()
     .from('authors')
     .select('*')

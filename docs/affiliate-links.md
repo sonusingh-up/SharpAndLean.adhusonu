@@ -9,6 +9,22 @@ Clerk sign-in and approved-editor membership use the existing admin setup.
 Set `NEXT_PUBLIC_SITE_URL=https://sharpandlean.com` in production so copied URLs
 use the production domain. Local development can use `http://localhost:3000`.
 
+## Content stays in files
+
+Configuring Supabase does not move the site onto the database. Product
+pages are assembled from `lib/articles/*.ts`, and `getReviews()` returns
+database rows as-is, so pointing content at an unpopulated `reviews` table
+would publish an empty catalogue. `contentFromSupabase` therefore requires
+an explicit `CONTENT_SOURCE=supabase`, which is separate from `hasSupabase`.
+Leave `CONTENT_SOURCE` unset until the reviews table is seeded; the admin
+CMS and these redirects only need `hasSupabase` and work either way.
+
+One consequence: with content in files, the CMS's review and list sections
+read the database, so they will look empty while the public site shows the
+file-based articles. The affiliate links section is unaffected — it reads
+and writes `affiliate_redirects`, which is exactly what `/recommended`
+serves.
+
 ## Use
 
 Open `/admin/affiliate-links`. Enter a product name, a unique slug and the full
