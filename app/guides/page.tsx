@@ -8,7 +8,7 @@ import { siteUrl } from '@/lib/config';
 export const revalidate = 3600;
 
 export const metadata = pageMeta(
-  'Guides',
+  'Guides: How to Read a Supplement Label',
   'How to read a Supplement Facts panel, work out what a serving really costs, and tell a checkable claim from an unfalsifiable one.',
   '/guides',
 );

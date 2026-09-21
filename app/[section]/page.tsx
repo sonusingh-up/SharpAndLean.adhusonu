@@ -31,20 +31,31 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params;
   const c = categories.find((c) => c.slug === section);
-  const title =
-    c?.name ||
-    info[section]?.title ||
-    { best: 'Best-of guides', compare: 'Supplement comparisons', contact: 'Get in touch' }[
-      section
-    ] ||
-    'Page';
-  return pageMeta(
-    title,
-    c?.description ||
-      info[section]?.intro ||
-      'Explore thoughtful supplement information from SharpAndLean.',
-    `/${section}`,
-  );
+  // Titles pick up " | SharpAndLean" from the layout template, so these are
+  // written to land under 60 characters once the suffix is appended, and the
+  // descriptions under 155 so Google does not truncate them.
+  const seoTitles: Record<string, string> = {
+    best: 'Supplement Shortlists: How to Build One',
+    compare: 'Compare Supplements Without Mixing Up Doses',
+    contact: 'Contact the Editorial Desk',
+    about: 'How We Read a Supplement Label',
+  };
+  const seoDescriptions: Record<string, string> = {
+    best: 'How to narrow a supplement category yourself: define the job, match disclosed doses to the research, then compare the real cost of a labelled serving.',
+    compare:
+      'Two products are only comparable once servings, strengths and forms line up. These guides do that arithmetic before drawing any conclusion.',
+    contact:
+      'Corrections, product suggestions, press questions and privacy requests. Send the page address and what differs, and we will check it against the source.',
+    about:
+      'How a label overview is produced: which figures come from the Supplement Facts panel, how the evidence is weighed, and who signs which kind of page.',
+  };
+  const title = c?.seoTitle || seoTitles[section] || info[section]?.title || 'Page';
+  const description =
+    c?.seoDescription ||
+    seoDescriptions[section] ||
+    info[section]?.intro ||
+    'Supplement labels and ingredient evidence from SharpAndLean.';
+  return pageMeta(title, description, `/${section}`);
 }
 export default async function SectionPage({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params;
