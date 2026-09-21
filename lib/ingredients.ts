@@ -1,4 +1,5 @@
 import type { FAQ } from './types';
+import type { HistoryEntry } from '@/components/article-footer';
 
 /**
  * Transparent A–F evidence grading.
@@ -79,6 +80,8 @@ export type IngredientPage = {
   editorNote: string;
   related: string[];
   updated: string;
+  /** Real publication events only. An invented edit trail is worse than none. */
+  history?: HistoryEntry[];
 };
 
 export const ingredients: IngredientPage[] = [
@@ -160,6 +163,10 @@ export const ingredients: IngredientPage[] = [
     editorNote:
       'My reservation with this ingredient is not safety, it is scope creep. Theanine has a genuine, narrow, well-tested use — it changes how caffeine feels — and that finding has been stretched to cover focus, memory and productivity claims it was never asked to support. If a product is sold to you on memory, look for what else is in the capsule, because it is unlikely to be the theanine doing the work.',
     related: ['green-tea-extract', 'vitamin-d3'],
+    history: [
+      { date: '2026-09-21', note: 'First published with per-claim evidence grades.' },
+      { date: '2026-09-21', note: 'Related-ingredient links extended as the reference set grew.' },
+    ],
     updated: '2026-09-21',
   },
   {
@@ -235,6 +242,10 @@ export const ingredients: IngredientPage[] = [
     editorNote:
       'This is the ingredient I point to when someone asks why we grade by claim rather than by ingredient. Glucomannan is a perfectly reasonable fibre that does what fibres do, and it is sold almost entirely for the one thing the evidence says it does not do. A single letter grade for the whole ingredient would hide exactly the distinction a buyer needs.',
     related: ['psyllium-husk', 'green-tea-extract'],
+    history: [
+      { date: '2026-09-21', note: 'First published with per-claim evidence grades.' },
+      { date: '2026-09-21', note: 'Related-ingredient links extended as the reference set grew.' },
+    ],
     updated: '2026-09-21',
   },
   {
@@ -321,6 +332,10 @@ export const ingredients: IngredientPage[] = [
     editorNote:
       'Vitamin D is the ingredient people most often take on faith. It has the strongest evidence base on this site for one specific job — fixing a deficiency — and some of the weakest for the broad preventive claims it gets sold on. Those two facts sit together comfortably once you stop treating a nutrient as either good or bad. Get the blood test; it answers the question the label cannot.',
     related: ['omega-3', 'psyllium-husk'],
+    history: [
+      { date: '2026-09-21', note: 'First published with per-claim evidence grades.' },
+      { date: '2026-09-21', note: 'Related-ingredient links extended as the reference set grew.' },
+    ],
     updated: '2026-09-21',
   },
   {
@@ -406,6 +421,7 @@ export const ingredients: IngredientPage[] = [
     editorNote:
       'Psyllium is the ingredient I would point to if someone asked what a good supplement looks like. It does one physical thing, that one thing produces several well-documented effects, the effective dose is cheap and disclosed, and the regulator has reviewed the cholesterol claim rather than taking a manufacturer at its word. It is also the one people abandon fastest, because a fortnight of bloating arrives before any of the benefits do. Build up slowly and the tolerance issue mostly disappears.',
     related: ['glucomannan', 'omega-3'],
+    history: [{ date: '2026-09-21', note: 'First published with per-claim evidence grades.' }],
     updated: '2026-09-21',
   },
   {
@@ -497,6 +513,7 @@ export const ingredients: IngredientPage[] = [
     editorNote:
       'Green tea extract is the clearest example on this site of a food being turned into something with a different risk profile and sold on the food’s reputation. Nobody worries about a cup of green tea, and they are right not to. A capsule delivering several times the catechin content of that cup is a different proposition, and the case reports are real. My practical concern is accumulation: it turns up quietly inside theanine products, pre-workouts and fat burners, so the person most at risk is often the one who never chose to take it at all.',
     related: ['l-theanine', 'glucomannan'],
+    history: [{ date: '2026-09-21', note: 'First published with per-claim evidence grades.' }],
     updated: '2026-09-21',
   },
   {
@@ -601,6 +618,7 @@ export const ingredients: IngredientPage[] = [
     editorNote:
       'Omega-3 is where I most often see someone doing everything right and still missing. They have read that fish oil is good for the heart, they buy a reputable 1,000 mg product, they take one a day — and they are getting perhaps 300 mg of EPA and DHA against a therapeutic target seven times higher, for a benefit that the largest trial in a healthy population did not find anyway. The honest summary is narrow: strong for triglycerides at clinical doses, real but product-specific for one high-risk group, and unconvincing as general insurance. Eating fish remains the easier version of this.',
     related: ['vitamin-d3', 'psyllium-husk'],
+    history: [{ date: '2026-09-21', note: 'First published with per-claim evidence grades.' }],
     updated: '2026-09-21',
   },
 ];

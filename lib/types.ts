@@ -38,7 +38,26 @@ export type Review = {
   who_for: string;
   who_avoid: string;
   score_breakdown: Record<string, number>;
+  brand?: string;
+  asin?: string;
   is_sample?: boolean;
+  /**
+   * Figures observed on a retailer listing on a given date. Namespaced because
+   * these are somebody else's numbers: the rating is the marketplace's, not an
+   * assessment by this site, and it must never be published as aggregateRating.
+   */
+  marketplace?: {
+    source: string;
+    price: number;
+    currency: string;
+    servings?: number;
+    rating?: number;
+    ratingCount?: number;
+    checkedAt: string;
+  };
+  /** Sources and publication history, populated for built-in overviews. */
+  references?: { id: string; text: string; url?: string }[];
+  history?: { date: string; note: string }[];
   product_name: string;
 };
 export type Collection = {

@@ -3,13 +3,9 @@ import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { ReviewCard } from '@/components/review-card';
-import {
-  EvidenceBadge,
-  QuickAnswer,
-  ExpertNote,
-  TableOfContents,
-} from '@/components/evidence';
+import { EvidenceBadge, QuickAnswer, ExpertNote, TableOfContents } from '@/components/evidence';
 import { pageMeta, JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from '@/components/seo';
+import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { ingredients, getIngredient, findIngredientByName } from '@/lib/ingredients';
 import { getReviews } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
@@ -88,9 +84,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
         />
         <FaqSchema faqs={ing.faqs} />
 
-        <Breadcrumb
-          items={[{ label: 'Ingredients', href: '/ingredients' }, { label: ing.name }]}
-        />
+        <Breadcrumb items={[{ label: 'Ingredients', href: '/ingredients' }, { label: ing.name }]} />
 
         <header className="page-top ingredient-top">
           <SectionLabel>{ing.category}</SectionLabel>
@@ -160,8 +154,8 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
           <section className="reading-section" id="products">
             <h2>Products we have covered containing {ing.name}</h2>
             <p>
-              Every label overview on this site whose Supplement Facts panel lists {ing.name},
-              with the amount each one discloses.
+              Every label overview on this site whose Supplement Facts panel lists {ing.name}, with
+              the amount each one discloses.
             </p>
             <div className="review-grid">
               {reviews.map((r) => (
@@ -183,22 +177,10 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
           </div>
         </section>
 
-        <section className="reading-section" id="references">
-          <h2>References</h2>
-          <ol className="reference-list">
-            {ing.references.map((r) => (
-              <li key={r.id} id={`ref-${r.id}`}>
-                {r.url ? (
-                  <a href={r.url} target="_blank" rel="noopener noreferrer">
-                    {r.text}
-                  </a>
-                ) : (
-                  r.text
-                )}
-              </li>
-            ))}
-          </ol>
-        </section>
+        <div id="references">
+          <ReferenceBox references={ing.references} />
+          <PageHistory entries={ing.history || [{ date: ing.updated, note: 'Published.' }]} />
+        </div>
 
         <ExpertNote>{ing.editorNote}</ExpertNote>
 
@@ -220,13 +202,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
         )}
 
         <p className="page-updated">
-          Last updated{' '}
-          {new Date(ing.updated).toLocaleDateString('en-GB', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          })}{' '}
-          · Compiled by <Link href={`/author/${teamProfile.slug}`}>{teamProfile.name}</Link>
+          Compiled by <Link href={`/author/${teamProfile.slug}`}>{teamProfile.name}</Link>
         </p>
       </article>
     </SiteShell>

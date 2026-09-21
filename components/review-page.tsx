@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Check, Minus, ArrowUpRight } from 'lucide-react';
 import type { Review } from '@/lib/types';
 import { categories } from '@/lib/sample';
@@ -8,7 +9,10 @@ import { ReviewCard } from './review-card';
 import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
 import { authorProfile, teamProfile } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
+import { hasSupabase } from '@/lib/config';
+import { Brain, Leaf, Flame } from 'lucide-react';
 import { TrustBar } from './evidence';
+import { ReferenceBox, PageHistory } from './article-footer';
 import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
@@ -58,9 +62,39 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   // A label overview records what a manufacturer published; it is not a
   // clinical assessment, so it must not be attributed to the clinician.
   const isLabelOverview = r.id.startsWith('editorial-product-');
-  const byline = isLabelOverview
+  // A submission can only be stored against a real database row. Built-in label
+  // overviews exist only in code, so their ids are not UUIDs and the API rejects
+  // them before it ever reaches the database. Showing a form that cannot succeed
+  // is worse than showing none.
+  const canAcceptSubmissions =
+    hasSupabase && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(r.id);
+  const writtenBy = isLabelOverview
     ? teamProfile
     : { slug: authorProfile.slug, name: author?.name || authorProfile.name };
+  // The clinician reviews rather than writes the label overviews, so she is
+  // credited separately instead of replacing the desk byline.
+  const reviewedBy =
+    writtenBy.slug === authorProfile.slug
+      ? null
+      : {
+          slug: authorProfile.slug,
+          name: author?.name || authorProfile.name,
+          title: authorProfile.title,
+          photo_url: author?.photo_url || authorProfile.photo_url,
+        };
+  // Lead with the ingredient the page is really about: the first active with a
+  // disclosed amount, skipping carrier weights graded as no evidence.
+  const HeroIcon =
+    r.category_slug === 'fat-burners' ? Flame : r.category_slug === 'nootropics' ? Brain : Leaf;
+  const headline = r.ingredients.find((i) => i.evidence_rating !== 'none') || r.ingredients[0];
+  const keyFigure = headline ? `${headline.dose}` : '';
+  const market = r.marketplace;
+  const perServing =
+    market?.servings && market.servings > 0
+      ? new Intl.NumberFormat('en-US', { style: 'currency', currency: market.currency }).format(
+          market.price / market.servings,
+        )
+      : null;
   return (
     <SiteShell>
       <article className="page-section">
@@ -84,7 +118,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           </div>
         )}
         <div className="review-page-hero">
-          <div>
+          <div className="review-hero-main">
             <SectionLabel>{category.name} / A closer look</SectionLabel>
             <h1 className="page-title">
               {r.title}
@@ -95,23 +129,152 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                   : ''}
             </h1>
             <p className="page-intro">{r.summary}</p>
-            <div className="byline">
-              {/* Label overviews are the desk's work; only evidence-led reviews
-                  carry the clinician's name. */}
-              <Link href={`/author/${byline.slug}`}>
-                {r.is_sample ? 'Editorial layout preview' : `By ${byline.name}`}
-              </Link>
-              <span>
-                {r.is_sample
-                  ? 'Awaiting verified content'
-                  : `Last reviewed ${new Date(r.updated_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`}
-              </span>
+
+            {/* Two distinct roles, shown separately: the desk compiles the page,
+                the clinician reviews the evidence behind it. "Evidence reviewed"
+                rather than "medically reviewed" because she is a clinical
+                nutritionist rather than a physician, and because the medical
+                disclaimer states this site does not give medical advice. The
+                schema property stays reviewedBy, which is correct either way. */}
+            <div className="byline-block">
+              <div className="byline-person">
+                <span className="byline-role">Written by</span>
+                <Link href={`/author/${writtenBy.slug}`}>{writtenBy.name}</Link>
+              </div>
+              {reviewedBy && (
+                <div className="byline-person byline-reviewer">
+                  {reviewedBy.photo_url && (
+                    <Image
+                      className="byline-avatar"
+                      src={reviewedBy.photo_url}
+                      alt=""
+                      width={34}
+                      height={34}
+                    />
+                  )}
+                  <span>
+                    <span className="byline-role">Evidence reviewed by</span>
+                    <Link href={`/author/${reviewedBy.slug}`}>{reviewedBy.name}</Link>
+                    <span className="byline-credential">{reviewedBy.title}</span>
+                  </span>
+                </div>
+              )}
+              <div className="byline-person">
+                <span className="byline-role">Last reviewed</span>
+                <span className="byline-date">
+                  {r.is_sample
+                    ? 'Awaiting verified content'
+                    : new Date(r.updated_at).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                </span>
+              </div>
             </div>
           </div>
-          <div className="score-ring">
-            <strong>{r.score === null ? '—' : r.score.toFixed(1)}</strong>
-            <span>{r.score === null ? 'Not rated' : 'OUT OF 10'}</span>
-          </div>
+
+          <aside className="featured-product" aria-label="Product at a glance">
+            <div className={`featured-product-art art-${r.category_slug}`}>
+              {r.featured_image_url ? (
+                <Image
+                  src={r.featured_image_url}
+                  alt={r.product_name || r.title}
+                  fill
+                  sizes="320px"
+                />
+              ) : (
+                <>
+                  <span>{category.name}</span>
+                  <HeroIcon strokeWidth={1} size={62} />
+                </>
+              )}
+              <div className="score-ring">
+                <strong>{r.score === null ? '—' : r.score.toFixed(1)}</strong>
+                {/* Labelled OUR SCORE so it reads as distinct from the
+                    marketplace rating shown directly beneath it. */}
+                <span title={r.score === null ? 'No score assigned by SharpAndLean' : undefined}>
+                  OUR SCORE
+                </span>
+              </div>
+            </div>
+            <div className="featured-product-body">
+              <span className="featured-product-label">At a glance</span>
+              <h2>{r.product_name || r.title}</h2>
+
+              {market && (
+                <div className="glance-headline">
+                  <div className="glance-price">
+                    <strong>
+                      {new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: market.currency,
+                      }).format(market.price)}
+                    </strong>
+                    {perServing && <span>{perServing} per serving</span>}
+                  </div>
+                  {market.rating != null && (
+                    <div className="glance-rating">
+                      <span
+                        className="stars"
+                        style={{ '--fill': `${(market.rating / 5) * 100}%` } as React.CSSProperties}
+                        aria-hidden="true"
+                      >
+                        ★★★★★
+                      </span>
+                      <span>
+                        <strong>{market.rating.toFixed(1)}</strong> on {market.source}
+                        {market.ratingCount
+                          ? ` · ${market.ratingCount.toLocaleString()} ratings`
+                          : ''}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <dl>
+                {keyFigure && (
+                  <div>
+                    <dt>Key figure</dt>
+                    <dd>{keyFigure}</dd>
+                  </div>
+                )}
+                {market?.servings && (
+                  <div>
+                    <dt>Servings</dt>
+                    <dd>{market.servings}</dd>
+                  </div>
+                )}
+                <div>
+                  <dt>Ingredients checked</dt>
+                  <dd>{r.ingredients.length || '—'}</dd>
+                </div>
+                <div>
+                  <dt>Third-party tested</dt>
+                  <dd>{r.third_party_tested ? 'Yes' : 'Not published'}</dd>
+                </div>
+              </dl>
+
+              <a className="button featured-product-cta" href="#where-to-buy">
+                Where to buy <ArrowUpRight size={15} />
+              </a>
+
+              {market && (
+                /* Somebody else's figures, dated, so a stale price is visibly
+                   stale rather than quietly wrong. */
+                <p className="glance-footnote">
+                  {market.source} price and rating checked{' '}
+                  {new Date(market.checkedAt).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                  . Both change — confirm on the listing before buying.
+                </p>
+              )}
+            </div>
+          </aside>
         </div>
         <div className="review-layout">
           <aside className="review-sidebar">
@@ -272,11 +435,33 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                     <p>{c.review_text}</p>
                   </div>
                 ))}
-                <CommunityForm reviewId={r.id} />
+                {canAcceptSubmissions ? (
+                  <CommunityForm reviewId={r.id} />
+                ) : (
+                  <p className="community-closed">
+                    Reader submissions open once a page is published from the editorial database.
+                    This overview is maintained in code, so there is nothing to attach a submission
+                    to yet. If you have used this product, send it through the{' '}
+                    <Link href="/contact">contact page</Link> and it will be considered when
+                    submissions open.
+                  </p>
+                )}
               </section>
             )}
           </div>
         </div>
+        <ReferenceBox references={r.references || []} />
+        <PageHistory
+          entries={
+            r.history || [
+              { date: r.published_at || r.updated_at, note: 'Published.' },
+              ...(r.updated_at && r.updated_at !== r.published_at
+                ? [{ date: r.updated_at, note: 'Reviewed and updated.' }]
+                : []),
+            ]
+          }
+        />
+
         {related.length > 0 && (
           <section className="related">
             <h2>Keep asking good questions.</h2>
@@ -298,8 +483,23 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               '@type': 'Product',
               name: r.product_name || r.title,
               description: r.summary,
+              // Mirrors the visible byline so the structured data makes the
+              // same attribution the page does.
+              ...(reviewedBy
+                ? {
+                    reviewedBy: {
+                      '@type': 'Person',
+                      '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
+                      name: reviewedBy.name,
+                      jobTitle: reviewedBy.title,
+                      url: `${siteUrl}/author/${reviewedBy.slug}`,
+                    },
+                  }
+                : {}),
               url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
               ...(r.featured_image_url ? { image: r.featured_image_url } : {}),
+              ...(r.brand ? { brand: { '@type': 'Brand', name: r.brand } } : {}),
+              ...(r.asin ? { sku: r.asin, productID: `asin:${r.asin}` } : {}),
               ...(r.ingredients.length
                 ? {
                     additionalProperty: r.ingredients.map((i) => ({
@@ -307,6 +507,25 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                       name: i.name,
                       value: i.dose,
                     })),
+                  }
+                : {}),
+              // Priced from the retailer listing on a known date. priceValidUntil
+              // bounds it so a stale figure expires rather than being asserted
+              // indefinitely. No aggregateRating: the rating is the retailer's,
+              // not ours, and marking it up would misstate who collected it.
+              ...(market && r.affiliate_url
+                ? {
+                    offers: {
+                      '@type': 'Offer',
+                      price: market.price,
+                      priceCurrency: market.currency,
+                      url: r.affiliate_url,
+                      availability: 'https://schema.org/InStock',
+                      priceValidUntil: new Date(new Date(market.checkedAt).getTime() + 30 * 864e5)
+                        .toISOString()
+                        .slice(0, 10),
+                      seller: { '@type': 'Organization', name: market.source },
+                    },
                   }
                 : {}),
             }}

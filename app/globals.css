@@ -2068,11 +2068,185 @@ summary::-webkit-details-marker {
   margin-bottom: 25px;
 }
 .review-page-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  align-items: start;
+  gap: 48px;
+  padding: 20px 0 46px;
+}
+.review-hero-main {
+  min-width: 0;
+}
+
+/* Two credited roles rather than one ambiguous byline. */
+.byline-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 30px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.byline-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.byline-person > span {
+  display: grid;
+}
+.byline-role {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9aa192;
+}
+.byline-person a {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #cfd6c4;
+}
+.byline-person a:hover {
+  text-decoration-color: var(--accent-sage);
+}
+.byline-credential {
+  font-size: 11px;
+  color: #8a9280;
+}
+.byline-date {
+  font-size: 13px;
+  color: #5d6a52;
+}
+.byline-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+/* Product at a glance. No manufacturer photography is licensed for use, so the
+   panel falls back to the category treatment already used on review cards. */
+.featured-product {
+  border: 1px solid #e3e8da;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--frame-bg);
+  position: sticky;
+  top: 24px;
+}
+.featured-product-art {
+  position: relative;
+  height: 172px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #4a5840;
+  background: #eef1e8;
+}
+.featured-product-art.art-fat-burners {
+  background: #e9ece2;
+}
+.featured-product-art.art-nootropics {
+  background: #eceeeb;
+}
+.featured-product-art.art-wellness {
+  background: #e8ece4;
+}
+.featured-product-art > span {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7f8b74;
+}
+.featured-product-art img {
+  /* Product packshots are usually on white with their own margin, so contain
+     keeps the whole bottle visible instead of cropping into the label. */
+  object-fit: contain;
+  padding: 14px;
+}
+.featured-product-art:has(img) {
+  background: #fff;
+}
+.featured-product .score-ring {
+  position: absolute;
+  right: 14px;
+  bottom: -30px;
+  width: 78px;
+  height: 78px;
+  border-width: 4px;
+  background: var(--frame-bg);
+}
+.featured-product .score-ring strong {
+  font-size: 22px;
+  line-height: 1;
+}
+.featured-product .score-ring span {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: #8a9280;
+  margin-top: 3px;
+}
+.featured-product-body {
+  padding: 22px 20px 20px;
+}
+.featured-product-label {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9aa192;
+}
+.featured-product-body h2 {
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 8px 0 16px;
+  padding-right: 66px;
+}
+.featured-product-body dl {
+  display: grid;
+  gap: 0;
+  font-size: 12.5px;
+  border-top: 1px solid var(--line);
+}
+.featured-product-body dl > div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  padding: 20px 0 50px;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+.featured-product-body dt {
+  color: #8a9280;
+}
+.featured-product-body dd {
+  text-align: right;
+  font-weight: 500;
+  color: #2f3a2c;
+}
+.featured-product-cta {
+  width: 100%;
+  justify-content: center;
+  margin-top: 18px;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .review-page-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .featured-product {
+    position: static;
+    max-width: 420px;
+  }
 }
 .review-page-hero .page-title {
   margin-top: 20px;
@@ -3778,4 +3952,180 @@ table {
   line-height: 1.7;
   color: #52603f;
   margin: 0 0 8px;
+}
+
+/* Collapsible article footer: sources and publication history. */
+.article-box {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-top: 16px;
+  background: var(--frame-bg);
+  overflow: hidden;
+}
+.article-box + .article-box {
+  margin-top: 10px;
+}
+.article-box > summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.18s ease;
+}
+.article-box > summary::-webkit-details-marker {
+  display: none;
+}
+.article-box > summary:hover {
+  background: #f6f7f2;
+}
+.article-box-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.article-box-meta {
+  font-size: 11.5px;
+  color: #8a9280;
+  margin-left: auto;
+  text-align: right;
+}
+/* Drawn chevron, so no icon import is needed inside a server component. */
+.article-box > summary::after {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid #8a9280;
+  border-bottom: 1.5px solid #8a9280;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.22s ease;
+}
+.article-box[open] > summary::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+.article-box[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+.article-box-body {
+  padding: 18px 20px 20px;
+}
+.article-box-body ol {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #68705f;
+}
+.article-box-body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.history-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+.history-list li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.history-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.history-list time {
+  color: #2f3a2c;
+  font-weight: 500;
+}
+@media (max-width: 560px) {
+  .article-box > summary {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+  }
+  .article-box-meta {
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+    order: 3;
+  }
+  .history-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+.community-closed {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px dashed #d7dccf;
+  border-radius: 14px;
+  background: #f8f9f5;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #68705f;
+}
+.community-closed a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Glance panel: price and rating lead, the spec list supports them. */
+.glance-headline {
+  display: grid;
+  gap: 12px;
+  padding: 14px 0 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+}
+.glance-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.glance-price strong {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+.glance-price span {
+  font-size: 12px;
+  color: #8a9280;
+}
+.glance-rating {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11.5px;
+  color: #68705f;
+}
+.glance-rating strong {
+  color: #2f3a2c;
+  font-weight: 600;
+}
+/* Partial fill without an icon set: one gradient clipped to the glyphs. */
+.stars {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1;
+  flex: none;
+  background: linear-gradient(90deg, #c9a227 var(--fill), #dfe3d8 var(--fill));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.glance-footnote {
+  margin-top: 14px;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: #9aa192;
 }
