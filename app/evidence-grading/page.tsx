@@ -3,6 +3,7 @@ import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { EvidenceBadge } from '@/components/evidence';
 import { pageMeta, BreadcrumbSchema, WebPageSchema, FaqSchema } from '@/components/seo';
 import { gradeBands } from '@/lib/ingredients';
+import { scoreCriteria } from '@/lib/scoring';
 
 export const revalidate = 3600;
 
@@ -21,6 +22,16 @@ const faqs = [
     question: 'Does a high grade mean I should take it?',
     answer:
       'No. A grade describes the strength of the evidence for a claim in the studied population. It says nothing about whether you personally need it, whether it interacts with your medication, or whether your levels are already adequate. That is a question for a clinician.',
+  },
+  {
+    question: 'How is a product score different from an evidence grade?',
+    answer:
+      'An evidence grade describes the published research for one claim, so it belongs to the ingredient rather than to any brand. A product score out of 10 judges a specific product: whether this tub, at this price, with this label, is a sensible purchase. A grade A ingredient can sit inside a product that scores poorly, which is the whole reason the two are kept separate.',
+  },
+  {
+    question: 'Why are the five scoring criteria weighted equally?',
+    answer:
+      'Because a product that hides its Supplement Facts panel and charges a large premium should not be rescued by its chemistry. Weighting evidence above everything else would produce high scores for expensive, opaque products built on well-studied ingredients, which is the outcome the method exists to avoid. The overall score is the mean of the five, so it can always be checked against the breakdown printed on the page.',
   },
   {
     question: 'Do grades change?',
@@ -108,6 +119,42 @@ export default function EvidenceGradingPage() {
             letters attached. Applying these bands honestly means some widely sold ingredients grade
             D or F for their headline use, and publishing those is the point of having a method
             rather than an opinion.
+          </p>
+
+          <h2 id="product-scores">Scoring a product, not an ingredient</h2>
+          <p>
+            A letter grade describes research. It cannot tell you whether a particular tub is worth
+            buying, because that also depends on how much active ingredient a serving contains, what
+            the label discloses and what you are paying for it. Reviews therefore carry a separate
+            score out of 10, built from five criteria applied the same way every time.
+          </p>
+          <p>
+            Each criterion is scored out of 10 and the overall figure is their mean, printed as a
+            breakdown on every scored review so the arithmetic can be checked. Label overviews carry
+            no score at all: they record what a manufacturer published and are not assessments.
+          </p>
+
+          <div className="criteria-table">
+            {scoreCriteria.map((c) => (
+              <div className="criteria-row" key={c.name}>
+                <h3>{c.name}</h3>
+                <p>{c.what}</p>
+                <p className="criteria-bands">
+                  <span>
+                    <strong>Scores 10:</strong> {c.high}
+                  </span>
+                  <span>
+                    <strong>Scores 0:</strong> {c.low}
+                  </span>
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p>
+            The five are weighted equally on purpose. A product whose active ingredient works, but
+            which does not publish a readable panel and charges a large premium over the generic
+            equivalent, should not be rescued by its chemistry.
           </p>
 
           <h2>When grades change</h2>

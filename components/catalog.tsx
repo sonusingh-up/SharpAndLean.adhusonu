@@ -13,8 +13,13 @@ export function Catalog({
   // score, so offering "Highest score" as the default promises a ranking the
   // site deliberately does not produce.
   const hasScores = reviews.some((r) => r.score !== null);
+  // Defaulting to score while most of the list is unscored puts one product on
+  // top of a pile of ties, which reads as a ranking of everything. Offer the
+  // sort as soon as anything is scored; only lead with it once most of the
+  // list can actually be ordered by it.
+  const mostlyScored = reviews.filter((r) => r.score !== null).length > reviews.length / 2;
   const hasPrices = reviews.some((r) => r.price_amount !== null);
-  const [sort, setSort] = useState(hasScores ? 'score' : 'newest');
+  const [sort, setSort] = useState(mostlyScored ? 'score' : 'newest');
   const [page, setPage] = useState(1);
   const sorted = [...reviews].sort((a, b) =>
     sort === 'price'
