@@ -7,6 +7,9 @@ import { ContentForm } from '@/components/admin/content-form';
 import { DataTable } from '@/components/admin/data-table';
 import { MediaLibrary } from '@/components/admin/media';
 import { Moderation } from '@/components/admin/moderation';
+import { AffiliateLinks } from '@/components/admin/affiliate-links';
+import type { AffiliateRedirect } from '@/lib/affiliate-redirects';
+import { siteUrl } from '@/lib/config';
 import { requireAdmin } from '@/lib/supabase/server';
 import { hasSupabase } from '@/lib/config';
 import { sampleReviews, categories as sampleCategories } from '@/lib/sample';
@@ -123,6 +126,10 @@ export default async function AdminPage({ params }: { params: Promise<{ path?: s
     );
   }
   if (section === 'media' && !id) return shell(<MediaLibrary preview={preview} />);
+  if (section === 'affiliate-links' && !id) {
+    const result = db ? await db.from('affiliate_redirects').select('id,name,slug,destination,enabled').order('created_at', { ascending: false }) : null;
+    return shell(<AffiliateLinks rows={(result?.data || []) as AffiliateRedirect[]} origin={siteUrl} unavailable={preview || Boolean(result?.error)} />);
+  }
   if (section === 'subscribers' && !id) {
     const result = db
       ? await db
