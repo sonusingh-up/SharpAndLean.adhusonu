@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start --hostname localhost",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts && node tests/live.mjs",
+    "test:unit": "tsx --test tests/*.test.ts",
+    "test:live": "node tests/live.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.4",

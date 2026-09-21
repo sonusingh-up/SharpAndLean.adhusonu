@@ -75,6 +75,12 @@ export type Collection = {
   summary: string;
   body: string;
   verdict?: string;
+  /**
+   * Short points a reader should leave with, rendered above the body. Used by
+   * /learn/ articles, which carry prose rather than a ranked list; best-of and
+   * comparison pages normally lead with their table instead.
+   */
+  takeaways?: string[];
   category_id?: string;
   is_published: boolean;
   seo_title: string;
