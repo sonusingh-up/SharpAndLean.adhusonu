@@ -3,6 +3,8 @@ import { create, insertMultiple, search as oramaSearch } from '@orama/orama';
 import { getReviews, getCollections } from './data';
 import { categories } from './sample';
 import { informationPages, categoryGuides } from './editorial-content';
+import { ingredients } from './ingredients';
+import { guides } from './guides';
 
 export type SearchHit = {
   title: string;
@@ -76,6 +78,22 @@ async function collectDocuments() {
       body: strip(categoryGuides[c.slug] || ''),
       kind: 'Category',
       url: `/${c.slug}`,
+    })),
+    ...ingredients.map((i) => ({
+      title: i.name,
+      summary: i.quickAnswer,
+      body: strip(
+        `${i.whatIsIt} ${i.mechanism} ${i.claims.map((c) => c.claim + ' ' + c.body).join(' ')}`,
+      ),
+      kind: 'Ingredient',
+      url: `/ingredients/${i.slug}`,
+    })),
+    ...guides.map((g) => ({
+      title: g.title,
+      summary: g.summary,
+      body: strip(`${g.hook} ${g.takeaways.join(' ')}`),
+      kind: 'Guide',
+      url: `/guides/${g.slug}`,
     })),
     ...Object.entries(informationPages).map(([slug, page]) => ({
       title: page.title,
