@@ -390,16 +390,6 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             )}
           </div>
         </div>
-        {related.length > 0 && (
-          <section className="related">
-            <h2>Keep asking good questions.</h2>
-            <div className="review-grid">
-              {related.map((v) => (
-                <ReviewCard key={v.id} review={v} />
-              ))}
-            </div>
-          </section>
-        )}
         <ReferenceBox references={r.references || []} />
         <PageHistory
           entries={
@@ -412,6 +402,16 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           }
         />
 
+        {related.length > 0 && (
+          <section className="related">
+            <h2>Keep asking good questions.</h2>
+            <div className="review-grid">
+              {related.map((v) => (
+                <ReviewCard key={v.id} review={v} />
+              ))}
+            </div>
+          </section>
+        )}
         <TrustBar published={all.length} years={15} />
       </article>
       {/* Label overviews carry no score and are explicitly not reviews, so they

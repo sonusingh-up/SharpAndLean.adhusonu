@@ -143,6 +143,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           </div>
         </section>
 
+        <ReferenceBox references={g.references || []} />
+        <PageHistory entries={g.history || [{ date: g.published, note: 'Published.' }]} />
+
         {g.related.length > 0 && (
           <section className="reading-section">
             <h2>Read next</h2>
@@ -155,9 +158,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             </div>
           </section>
         )}
-
-        <ReferenceBox references={g.references || []} />
-        <PageHistory entries={g.history || [{ date: g.published, note: 'Published.' }]} />
 
         <p className="page-updated">
           Published{' '}
