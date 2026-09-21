@@ -2068,11 +2068,179 @@ summary::-webkit-details-marker {
   margin-bottom: 25px;
 }
 .review-page-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  align-items: start;
+  gap: 48px;
+  padding: 20px 0 46px;
+}
+.review-hero-main {
+  min-width: 0;
+}
+
+/* Two credited roles rather than one ambiguous byline. */
+.byline-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 30px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.byline-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.byline-person > span {
+  display: grid;
+}
+.byline-role {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9aa192;
+}
+.byline-person a {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #cfd6c4;
+}
+.byline-person a:hover {
+  text-decoration-color: var(--accent-sage);
+}
+.byline-credential {
+  font-size: 11px;
+  color: #8a9280;
+}
+.byline-date {
+  font-size: 13px;
+  color: #5d6a52;
+}
+.byline-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+/* Product at a glance. No manufacturer photography is licensed for use, so the
+   panel falls back to the category treatment already used on review cards. */
+.featured-product {
+  border: 1px solid #e3e8da;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--frame-bg);
+  position: sticky;
+  top: 24px;
+}
+.featured-product-art {
+  position: relative;
+  height: 172px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #4a5840;
+  background: #eef1e8;
+}
+.featured-product-art.art-fat-burners {
+  background: #e9ece2;
+}
+.featured-product-art.art-nootropics {
+  background: #eceeeb;
+}
+.featured-product-art.art-wellness {
+  background: #e8ece4;
+}
+.featured-product-art > span {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7f8b74;
+}
+.featured-product-art img {
+  object-fit: cover;
+}
+.featured-product .score-ring {
+  position: absolute;
+  right: 14px;
+  bottom: -30px;
+  width: 78px;
+  height: 78px;
+  border-width: 4px;
+  background: var(--frame-bg);
+}
+.featured-product .score-ring strong {
+  font-size: 22px;
+  line-height: 1;
+}
+.featured-product .score-ring span {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: #8a9280;
+  margin-top: 3px;
+}
+.featured-product-body {
+  padding: 22px 20px 20px;
+}
+.featured-product-label {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9aa192;
+}
+.featured-product-body h2 {
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 8px 0 16px;
+  padding-right: 66px;
+}
+.featured-product-body dl {
+  display: grid;
+  gap: 0;
+  font-size: 12.5px;
+  border-top: 1px solid var(--line);
+}
+.featured-product-body dl > div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  padding: 20px 0 50px;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+.featured-product-body dt {
+  color: #8a9280;
+}
+.featured-product-body dd {
+  text-align: right;
+  font-weight: 500;
+  color: #2f3a2c;
+}
+.featured-product-cta {
+  width: 100%;
+  justify-content: center;
+  margin-top: 18px;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .review-page-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .featured-product {
+    position: static;
+    max-width: 420px;
+  }
 }
 .review-page-hero .page-title {
   margin-top: 20px;

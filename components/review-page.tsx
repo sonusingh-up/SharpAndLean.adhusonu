@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Check, Minus, ArrowUpRight } from 'lucide-react';
 import type { Review } from '@/lib/types';
 import { categories } from '@/lib/sample';
@@ -8,6 +9,7 @@ import { ReviewCard } from './review-card';
 import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
 import { authorProfile, teamProfile } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
+import { Brain, Leaf, Flame } from 'lucide-react';
 import { TrustBar } from './evidence';
 import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
@@ -58,9 +60,26 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   // A label overview records what a manufacturer published; it is not a
   // clinical assessment, so it must not be attributed to the clinician.
   const isLabelOverview = r.id.startsWith('editorial-product-');
-  const byline = isLabelOverview
+  const writtenBy = isLabelOverview
     ? teamProfile
     : { slug: authorProfile.slug, name: author?.name || authorProfile.name };
+  // The clinician reviews rather than writes the label overviews, so she is
+  // credited separately instead of replacing the desk byline.
+  const reviewedBy =
+    writtenBy.slug === authorProfile.slug
+      ? null
+      : {
+          slug: authorProfile.slug,
+          name: author?.name || authorProfile.name,
+          title: authorProfile.title,
+          photo_url: author?.photo_url || authorProfile.photo_url,
+        };
+  // Lead with the ingredient the page is really about: the first active with a
+  // disclosed amount, skipping carrier weights graded as no evidence.
+  const HeroIcon =
+    r.category_slug === 'fat-burners' ? Flame : r.category_slug === 'nootropics' ? Brain : Leaf;
+  const headline = r.ingredients.find((i) => i.evidence_rating !== 'none') || r.ingredients[0];
+  const keyFigure = headline ? `${headline.dose}` : '';
   return (
     <SiteShell>
       <article className="page-section">
@@ -84,7 +103,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           </div>
         )}
         <div className="review-page-hero">
-          <div>
+          <div className="review-hero-main">
             <SectionLabel>{category.name} / A closer look</SectionLabel>
             <h1 className="page-title">
               {r.title}
@@ -95,23 +114,96 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                   : ''}
             </h1>
             <p className="page-intro">{r.summary}</p>
-            <div className="byline">
-              {/* Label overviews are the desk's work; only evidence-led reviews
-                  carry the clinician's name. */}
-              <Link href={`/author/${byline.slug}`}>
-                {r.is_sample ? 'Editorial layout preview' : `By ${byline.name}`}
-              </Link>
-              <span>
-                {r.is_sample
-                  ? 'Awaiting verified content'
-                  : `Last reviewed ${new Date(r.updated_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`}
-              </span>
+
+            {/* Two distinct roles, shown separately: the desk compiles the page,
+                the clinician reviews it. Collapsing them into one byline is what
+                created the misattribution this replaces. */}
+            <div className="byline-block">
+              <div className="byline-person">
+                <span className="byline-role">Written by</span>
+                <Link href={`/author/${writtenBy.slug}`}>{writtenBy.name}</Link>
+              </div>
+              {reviewedBy && (
+                <div className="byline-person byline-reviewer">
+                  {reviewedBy.photo_url && (
+                    <Image
+                      className="byline-avatar"
+                      src={reviewedBy.photo_url}
+                      alt=""
+                      width={34}
+                      height={34}
+                    />
+                  )}
+                  <span>
+                    <span className="byline-role">Medically reviewed by</span>
+                    <Link href={`/author/${reviewedBy.slug}`}>{reviewedBy.name}</Link>
+                    <span className="byline-credential">{reviewedBy.title}</span>
+                  </span>
+                </div>
+              )}
+              <div className="byline-person">
+                <span className="byline-role">Last reviewed</span>
+                <span className="byline-date">
+                  {r.is_sample
+                    ? 'Awaiting verified content'
+                    : new Date(r.updated_at).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                </span>
+              </div>
             </div>
           </div>
-          <div className="score-ring">
-            <strong>{r.score === null ? '—' : r.score.toFixed(1)}</strong>
-            <span>{r.score === null ? 'Not rated' : 'OUT OF 10'}</span>
-          </div>
+
+          <aside className="featured-product" aria-label="Product at a glance">
+            <div className={`featured-product-art art-${r.category_slug}`}>
+              {r.featured_image_url ? (
+                <Image
+                  src={r.featured_image_url}
+                  alt={r.product_name || r.title}
+                  fill
+                  sizes="320px"
+                />
+              ) : (
+                <>
+                  <span>{category.name}</span>
+                  <HeroIcon strokeWidth={1} size={62} />
+                </>
+              )}
+              <div className="score-ring">
+                <strong>{r.score === null ? '—' : r.score.toFixed(1)}</strong>
+                <span>{r.score === null ? 'Not rated' : 'OUT OF 10'}</span>
+              </div>
+            </div>
+            <div className="featured-product-body">
+              <span className="featured-product-label">At a glance</span>
+              <h2>{r.product_name || r.title}</h2>
+              <dl>
+                {keyFigure && (
+                  <div>
+                    <dt>Key figure</dt>
+                    <dd>{keyFigure}</dd>
+                  </div>
+                )}
+                <div>
+                  <dt>Ingredients checked</dt>
+                  <dd>{r.ingredients.length || '—'}</dd>
+                </div>
+                <div>
+                  <dt>Third-party tested</dt>
+                  <dd>{r.third_party_tested ? 'Yes' : 'Not published'}</dd>
+                </div>
+                <div>
+                  <dt>Price</dt>
+                  <dd>{r.product_price || 'Not listed'}</dd>
+                </div>
+              </dl>
+              <a className="button featured-product-cta" href="#where-to-buy">
+                Where to buy <ArrowUpRight size={15} />
+              </a>
+            </div>
+          </aside>
         </div>
         <div className="review-layout">
           <aside className="review-sidebar">
@@ -298,6 +390,19 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               '@type': 'Product',
               name: r.product_name || r.title,
               description: r.summary,
+              // Mirrors the visible byline so the structured data makes the
+              // same attribution the page does.
+              ...(reviewedBy
+                ? {
+                    reviewedBy: {
+                      '@type': 'Person',
+                      '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
+                      name: reviewedBy.name,
+                      jobTitle: reviewedBy.title,
+                      url: `${siteUrl}/author/${reviewedBy.slug}`,
+                    },
+                  }
+                : {}),
               url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
               ...(r.featured_image_url ? { image: r.featured_image_url } : {}),
               ...(r.ingredients.length
