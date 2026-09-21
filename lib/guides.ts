@@ -1,4 +1,6 @@
 import type { FAQ } from './types';
+import type { Citation } from './ingredients';
+import type { HistoryEntry } from '@/components/article-footer';
 
 export type GuideBlock =
   | { type: 'p'; text: string }
@@ -25,6 +27,8 @@ export type Guide = {
   updated: string;
   /** What actually changed, when this is an update rather than a first publish. */
   changelog?: string;
+  references?: Citation[];
+  history?: HistoryEntry[];
 };
 
 export const guides: Guide[] = [
@@ -149,6 +153,29 @@ export const guides: Guide[] = [
     related: ['/ingredients/glucomannan', '/ingredients/vitamin-d3', '/best'],
     published: '2026-09-21',
     updated: '2026-09-21',
+    references: [
+      {
+        id: 'ods-weightloss-g',
+        text: 'NIH Office of Dietary Supplements. Dietary Supplements for Weight Loss — Fact Sheet for Consumers.',
+        url: 'https://ods.od.nih.gov/factsheets/WeightLoss-Consumer/',
+      },
+      {
+        id: 'ods-vitd-g',
+        text: 'NIH Office of Dietary Supplements. Vitamin D — Fact Sheet for Health Professionals, on mcg and IU units.',
+        url: 'https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/',
+      },
+      {
+        id: 'now-gluco-g',
+        text: 'NOW Foods. Glucomannan 575 mg Veg Capsules — Supplement Facts panel, source of the serving figures used here.',
+        url: 'https://www.nowfoods.com/products/supplements/glucomannan-575-mg-veg-capsules',
+      },
+    ],
+    history: [
+      {
+        date: '2026-09-21',
+        note: 'First published, using label figures from products covered on this site.',
+      },
+    ],
   },
 ];
 

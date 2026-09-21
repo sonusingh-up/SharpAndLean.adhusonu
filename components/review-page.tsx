@@ -11,6 +11,7 @@ import { authorProfile, teamProfile } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
 import { Brain, Leaf, Flame } from 'lucide-react';
 import { TrustBar } from './evidence';
+import { ReferenceBox, PageHistory } from './article-footer';
 import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
@@ -382,6 +383,18 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             </div>
           </section>
         )}
+        <ReferenceBox references={r.references || []} />
+        <PageHistory
+          entries={
+            r.history || [
+              { date: r.published_at || r.updated_at, note: 'Published.' },
+              ...(r.updated_at && r.updated_at !== r.published_at
+                ? [{ date: r.updated_at, note: 'Reviewed and updated.' }]
+                : []),
+            ]
+          }
+        />
+
         <TrustBar published={all.length} years={15} />
       </article>
       {/* Label overviews carry no score and are explicitly not reviews, so they

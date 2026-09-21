@@ -3947,3 +3947,109 @@ table {
   color: #52603f;
   margin: 0 0 8px;
 }
+
+/* Collapsible article footer: sources and publication history. */
+.article-box {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-top: 16px;
+  background: var(--frame-bg);
+  overflow: hidden;
+}
+.article-box + .article-box {
+  margin-top: 10px;
+}
+.article-box > summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.18s ease;
+}
+.article-box > summary::-webkit-details-marker {
+  display: none;
+}
+.article-box > summary:hover {
+  background: #f6f7f2;
+}
+.article-box-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.article-box-meta {
+  font-size: 11.5px;
+  color: #8a9280;
+  margin-left: auto;
+  text-align: right;
+}
+/* Drawn chevron, so no icon import is needed inside a server component. */
+.article-box > summary::after {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid #8a9280;
+  border-bottom: 1.5px solid #8a9280;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.22s ease;
+}
+.article-box[open] > summary::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+.article-box[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+.article-box-body {
+  padding: 18px 20px 20px;
+}
+.article-box-body ol {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #68705f;
+}
+.article-box-body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.history-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+.history-list li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.history-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.history-list time {
+  color: #2f3a2c;
+  font-weight: 500;
+}
+@media (max-width: 560px) {
+  .article-box > summary {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+  }
+  .article-box-meta {
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+    order: 3;
+  }
+  .history-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

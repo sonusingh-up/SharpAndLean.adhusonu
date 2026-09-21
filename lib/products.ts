@@ -317,6 +317,22 @@ export const productReviews: Review[] = products.map((p, index) => ({
   who_for: p.whoFor,
   who_avoid: p.caution,
   score_breakdown: {},
+  // The manufacturer page is the source every figure on the overview is taken
+  // from, so it is cited rather than only linked inside the body copy.
+  references: [
+    {
+      id: `manufacturer-${p.slug}`,
+      text: `${p.name} — manufacturer product information and Supplement Facts panel, the source of every figure on this page.`,
+      url: p.source,
+    },
+  ],
+  history: [
+    { date: '2026-09-20', note: 'First published as a manufacturer-label overview.' },
+    {
+      date: '2026-09-21',
+      note: 'Ingredient rows linked to their evidence pages; commercial link changed from a keyword search to the verified listing.',
+    },
+  ],
 }));
 
 export const productAsins: Record<string, string> = Object.fromEntries(

@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { KeyTakeaways, ExpertNote, TableOfContents } from '@/components/evidence';
 import { pageMeta, JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from '@/components/seo';
+import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { guides, getGuide } from '@/lib/guides';
 import { siteUrl } from '@/lib/config';
 import { teamProfile } from '@/lib/author';
@@ -154,6 +155,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             </div>
           </section>
         )}
+
+        <ReferenceBox references={g.references || []} />
+        <PageHistory entries={g.history || [{ date: g.published, note: 'Published.' }]} />
 
         <p className="page-updated">
           Published{' '}

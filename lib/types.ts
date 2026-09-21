@@ -39,6 +39,9 @@ export type Review = {
   who_avoid: string;
   score_breakdown: Record<string, number>;
   is_sample?: boolean;
+  /** Sources and publication history, populated for built-in overviews. */
+  references?: { id: string; text: string; url?: string }[];
+  history?: { date: string; note: string }[];
   product_name: string;
 };
 export type Collection = {
