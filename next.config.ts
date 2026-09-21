@@ -2,7 +2,18 @@ import type { NextConfig } from 'next';
 import { withSentryConfig } from '@sentry/nextjs/config';
 
 const config: NextConfig = {
-  images: { remotePatterns: [{ protocol: 'https', hostname: '*.supabase.co' }] },
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '*.supabase.co' },
+      // Amazon product media. Note that the Associates Operating Agreement
+      // expects product imagery to come through the Product Advertising API
+      // rather than a direct CDN reference; once PA-API credentials exist,
+      // getAmazonItems already returns Images.Primary.Large and these URLs
+      // should be replaced with the API-supplied ones.
+      { protocol: 'https', hostname: 'm.media-amazon.com' },
+      { protocol: 'https', hostname: 'images-na.ssl-images-amazon.com' },
+    ],
+  },
   async headers() {
     return [
       {

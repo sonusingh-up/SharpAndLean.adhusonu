@@ -291,6 +291,8 @@ const products = [
     listing: '50 servings, tropical fruits',
     published: '2026-09-21T00:00:00Z',
     updated: '2026-09-21T00:00:00Z',
+    image:
+      'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/61GVKtyzPKL._AC_SL1500_.jpg',
     category: 'fat-burners' as const,
     summary:
       'A flavoured psyllium husk powder sold for weight management at roughly six times the price per gram of plain psyllium — and the brand does not publish its Supplement Facts panel in readable text.',
@@ -423,7 +425,7 @@ export const productReviews: Review[] = products.map((p, index) => ({
   currency: 'USD',
   third_party_tested: false,
   money_back_guarantee: 'Check seller return policy',
-  featured_image_url: '',
+  featured_image_url: 'image' in p && p.image ? p.image : '',
   og_image_url: '',
   seo_title: p.name + ' — Label Overview',
   seo_desc: p.summary,
