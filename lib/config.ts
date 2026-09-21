@@ -22,3 +22,7 @@ export const siteUrl = (
 // lets database-backed tools — the admin CMS and the /recommended redirects —
 // run without emptying a site whose reviews are files.
 export const contentFromSupabase = hasSupabase && process.env.CONTENT_SOURCE === 'supabase';
+// Google Analytics loads only where a measurement ID is configured, so local
+// development and preview deployments never report into the property. Demo
+// builds stay out of it as well, alongside their noindex.
+export const gaId = demoMode ? '' : process.env.NEXT_PUBLIC_GA_ID || '';
