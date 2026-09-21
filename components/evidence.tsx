@@ -16,18 +16,31 @@ const labels: Record<EvidenceGrade, string> = {
 export function EvidenceBadge({
   grade,
   size = 'md',
+  linked = true,
 }: {
   grade: EvidenceGrade;
   size?: 'sm' | 'md' | 'lg';
+  /** Set false when the badge sits inside another link — nested anchors are
+      invalid HTML and break hydration. */
+  linked?: boolean;
 }) {
-  return (
-    <Link
-      className={`evidence-badge evidence-${grade.toLowerCase()} evidence-${size}`}
-      href="/evidence-grading"
-      title={`${labels[grade]} — see how grades are assigned`}
-    >
+  const className = `evidence-badge evidence-${grade.toLowerCase()} evidence-${size}`;
+  const title = `${labels[grade]} — see how grades are assigned`;
+  const inner = (
+    <>
       <span className="evidence-letter">{grade}</span>
       <span className="evidence-label">{labels[grade]}</span>
+    </>
+  );
+  if (!linked)
+    return (
+      <span className={className} title={title}>
+        {inner}
+      </span>
+    );
+  return (
+    <Link className={className} href="/evidence-grading" title={title}>
+      {inner}
     </Link>
   );
 }

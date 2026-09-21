@@ -60,7 +60,7 @@ export default function IngredientsIndex() {
             <Link className="ingredient-card" href={`/ingredients/${i.slug}`} key={i.slug}>
               <div className="ingredient-card-top">
                 <span className="tag">{i.category}</span>
-                <EvidenceBadge grade={i.grade} size="sm" />
+                <EvidenceBadge grade={i.grade} size="sm" linked={false} />
               </div>
               <h2>{i.name}</h2>
               <p>{i.quickAnswer.split('. ').slice(0, 2).join('. ')}.</p>
@@ -82,8 +82,8 @@ export default function IngredientsIndex() {
             its own grade, and the criteria are published rather than asserted.
           </p>
           <p>
-            A site where nothing ever scores below B is not being rigorous, it is being polite.
-            Some of these grades are deliberately low.
+            A site where nothing ever scores below B is not being rigorous, it is being polite. Some
+            of these grades are deliberately low.
           </p>
         </section>
       </div>
