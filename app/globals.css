@@ -179,21 +179,23 @@ svg {
   margin-left: 3px;
   letter-spacing: 0;
 }
+/* Proportions taken from the supplied logo artwork: 17% gap, ~22% corner
+   radius, no rotation. The three neutral tiles stay currentColor so the mark
+   inverts correctly on dark surfaces. */
 .logo-mark {
   display: grid;
-  grid-template-columns: 7px 7px;
-  gap: 3px;
+  grid-template-columns: 8px 8px;
+  gap: 1.5px;
   margin-right: 10px;
-  transform: rotate(-8deg);
 }
 .logo-mark i {
-  width: 7px;
-  height: 7px;
-  border-radius: 1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 1.6px;
   background: currentColor;
 }
 .logo-mark i:last-child {
-  background: #7ea87a;
+  background: #7faf75;
 }
 .desktop-nav,
 .nav-right {

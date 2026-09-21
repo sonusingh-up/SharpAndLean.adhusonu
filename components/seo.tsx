@@ -37,6 +37,13 @@ export function OrganizationSchema() {
         '@id': ORG_ID,
         name: 'SharpAndLean',
         url: siteUrl,
+        logo: {
+          '@type': 'ImageObject',
+          url: new URL('/images/logo.png', siteUrl).href,
+          width: 1254,
+          height: 1254,
+        },
+        image: new URL('/images/logo.png', siteUrl).href,
         description:
           'Independent editorial coverage of dietary supplements, built from manufacturer Supplement Facts panels and published research.',
         knowsAbout: [
