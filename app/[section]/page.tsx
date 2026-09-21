@@ -5,7 +5,7 @@ import { SiteShell, Breadcrumb, Empty, SectionLabel } from '@/components/site';
 import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
 import { Newsletter } from '@/components/newsletter';
-import { pageMeta, JsonLd, BreadcrumbSchema } from '@/components/seo';
+import { pageMeta, JsonLd, BreadcrumbSchema, WebPageSchema } from '@/components/seo';
 import { categories } from '@/lib/sample';
 import { getReviews, getCollections, getCategoryData } from '@/lib/data';
 import { siteUrl, demoMode } from '@/lib/config';
@@ -124,7 +124,25 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           </section>
         </div>
         <JsonLd
-          data={{ '@type': 'CollectionPage', name: category.name, url: `${siteUrl}/${section}` }}
+          data={{
+            '@type': 'CollectionPage',
+            name: category.name,
+            description: category.description,
+            url: `${siteUrl}/${section}`,
+            inLanguage: 'en-US',
+            isPartOf: { '@id': `${siteUrl}/#website` },
+            publisher: { '@id': `${siteUrl}/#organization` },
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: reviews.length,
+              itemListElement: reviews.map((r, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: r.title,
+                url: `${siteUrl}/${r.category_slug}/${r.slug}`,
+              })),
+            },
+          }}
         />
       </SiteShell>
     );
@@ -134,6 +152,34 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
     return (
       <SiteShell>
         <div className="page-section">
+          <JsonLd
+            data={{
+              '@type': 'CollectionPage',
+              name: section === 'best' ? 'Best-of guides' : 'Supplement comparisons',
+              url: `${siteUrl}/${section}`,
+              inLanguage: 'en-US',
+              isPartOf: { '@id': `${siteUrl}/#website` },
+              publisher: { '@id': `${siteUrl}/#organization` },
+              mainEntity: {
+                '@type': 'ItemList',
+                numberOfItems: list.length,
+                itemListElement: list.map((c, i) => ({
+                  '@type': 'ListItem',
+                  position: i + 1,
+                  name: c.title,
+                  url: `${siteUrl}/${section}/${c.slug}`,
+                })),
+              },
+            }}
+          />
+          <BreadcrumbSchema
+            items={[
+              {
+                label: section === 'best' ? 'The shortlists' : 'Comparisons',
+                path: `/${section}`,
+              },
+            ]}
+          />
           <Breadcrumb items={[{ label: section === 'best' ? 'The shortlists' : 'Comparisons' }]} />
           <header className="page-top">
             <SectionLabel>{section === 'best' ? 'The shortlists' : 'Side by side'}</SectionLabel>
@@ -173,6 +219,13 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
     return (
       <SiteShell>
         <div className="page-section">
+          <WebPageSchema
+            type="ContactPage"
+            name="Contact SharpAndLean"
+            description="Corrections, product suggestions, press questions and privacy requests."
+            path="/contact"
+          />
+          <BreadcrumbSchema items={[{ label: 'Contact', path: '/contact' }]} />
           <Breadcrumb items={[{ label: 'Contact' }]} />
           <header className="page-top">
             <SectionLabel>Let’s talk</SectionLabel>
@@ -193,12 +246,15 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
                   {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
                 </a>
               ) : (
-                <p>Use Sumita’s LinkedIn profile below for professional enquiries. Please do not send private medical information.</p>
+                <p>
+                  Use Sumita’s LinkedIn profile below for professional enquiries. Please do not send
+                  private medical information.
+                </p>
               )}
               <p>
-                For a correction, include the page URL, the passage in question and a primary
-                source when available. General messages are normally reviewed within five
-                business days; evidence or legal questions can take longer.
+                For a correction, include the page URL, the passage in question and a primary source
+                when available. General messages are normally reviewed within five business days;
+                evidence or legal questions can take longer.
               </p>
               <a
                 className="text-link"
@@ -214,15 +270,24 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               <div className="faq-list">
                 <details open>
                   <summary>Can I submit a product for review?</summary>
-                  <p>Yes. A suggestion does not guarantee coverage or a favourable verdict. Include the current label and official product page if you can.</p>
+                  <p>
+                    Yes. A suggestion does not guarantee coverage or a favourable verdict. Include
+                    the current label and official product page if you can.
+                  </p>
                 </details>
                 <details>
                   <summary>How do I report an error?</summary>
-                  <p>Send the exact page, disputed detail and best available source. Factual corrections are checked independently and updated visibly.</p>
+                  <p>
+                    Send the exact page, disputed detail and best available source. Factual
+                    corrections are checked independently and updated visibly.
+                  </p>
                 </details>
                 <details>
                   <summary>Do you accept paid rankings?</summary>
-                  <p>No. Commercial relationships do not purchase placement, scores or editorial approval.</p>
+                  <p>
+                    No. Commercial relationships do not purchase placement, scores or editorial
+                    approval.
+                  </p>
                 </details>
               </div>
               <h2>Stay in the loop.</h2>
@@ -238,6 +303,23 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
   return (
     <SiteShell>
       <article className="page-section info-page">
+        <WebPageSchema
+          type={
+            { about: 'AboutPage', contact: 'ContactPage' }[section] ||
+            (section.includes('policy') || section === 'terms' ? 'WebPage' : 'WebPage')
+          }
+          name={content.title}
+          description={content.intro}
+          path={`/${section}`}
+        />
+        <BreadcrumbSchema
+          items={[
+            {
+              label: section === 'about' ? 'Our approach' : content.title,
+              path: `/${section}`,
+            },
+          ]}
+        />
         <Breadcrumb items={[{ label: section === 'about' ? 'Our approach' : content.title }]} />
         <header className="page-top">
           <SectionLabel>

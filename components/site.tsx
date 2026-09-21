@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight, Plus, ArrowRight } from 'lucide-react';
 import { AuthControls, AuthMenuControls } from '@/components/auth-controls';
 import { SiteSearch } from '@/components/site-search';
+import { OrganizationSchema, WebSiteSchema } from '@/components/seo';
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="SharpAndLean home">
@@ -97,6 +98,9 @@ export function Footer() {
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="site-frame">
+      {/* Publisher and site identity, referenced by @id from every page node. */}
+      <OrganizationSchema />
+      <WebSiteSchema />
       <Header />
       <main id="main">{children}</main>
       <Footer />

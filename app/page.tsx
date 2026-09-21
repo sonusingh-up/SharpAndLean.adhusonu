@@ -18,8 +18,7 @@ import { Header, Footer, SectionLabel, ButtonLink } from '@/components/site';
 import { ReviewCard } from '@/components/review-card';
 import { Newsletter } from '@/components/newsletter';
 import { getReviews } from '@/lib/data';
-import { pageMeta, JsonLd } from '@/components/seo';
-import { siteUrl } from '@/lib/config';
+import { pageMeta, OrganizationSchema, WebSiteSchema, FaqSchema } from '@/components/seo';
 export const revalidate = 3600;
 export const metadata = pageMeta(
   'Know what goes in.',
@@ -45,7 +44,35 @@ export default async function Home() {
         </div>
       </div>
       <main id="main">
-        <JsonLd data={{ '@type': 'WebSite', name: 'SharpAndLean', url: siteUrl }} />
+        <OrganizationSchema />
+        <WebSiteSchema />
+        {/* The four label checks are the page's most extractable content, so
+            they are also published as question/answer pairs for AI answers. */}
+        <FaqSchema
+          faqs={[
+            {
+              question: 'How do you read a Supplement Facts panel?',
+              answer:
+                'Check four things: the serving size and how many servings the container holds, whether every active ingredient shows its own amount, the total stimulant content added across all sources, and whether any testing claim names a laboratory, a batch and a date.',
+            },
+            {
+              question: 'What is a proprietary blend?',
+              answer:
+                'A proprietary blend lists several ingredients under one combined total instead of giving each its own amount. You learn the order the ingredients appear in and nothing else, which makes it impossible to check any single dose against the research.',
+            },
+            {
+              question: 'Does the FDA approve dietary supplements?',
+              answer:
+                'No. Dietary supplements are regulated under the Dietary Supplement Health and Education Act of 1994 and are not approved by the FDA for safety or effectiveness before they go on sale. Manufacturers are responsible for their own safety and labelling, and the FDA acts after the fact.',
+            },
+            {
+              question:
+                'Does “made in an FDA-registered facility” mean a supplement is FDA approved?',
+              answer:
+                'No. It means a facility submitted a registration. It is not FDA approval of the product, the formula or any claim made for it.',
+            },
+          ]}
+        />
         <section className="hero-content">
           <div className="hero-kicker">
             <SectionLabel>Read the panel, not the promise.</SectionLabel>

@@ -162,10 +162,10 @@ export default async function DetailPage({
             <h2>A clinical eye on commercial claims</h2>
             <p>
               Sumita’s career has centred on nutrition, dietary planning and food safety. That
-              background shapes the questions she brings to supplement reviews. What is the
-              product meant to do? Is the ingredient amount disclosed? Does the cited research use
-              the same form and a comparable dose? Who was studied, and how closely do they resemble
-              the person being asked to buy the product?
+              background shapes the questions she brings to supplement reviews. What is the product
+              meant to do? Is the ingredient amount disclosed? Does the cited research use the same
+              form and a comparable dose? Who was studied, and how closely do they resemble the
+              person being asked to buy the product?
             </p>
             <p>
               SharpAndLean does not publish employer names, degrees, registrations or specialist
@@ -200,39 +200,87 @@ export default async function DetailPage({
             <ul>
               <li>Separate evidence for an ingredient from evidence for the finished formula.</li>
               <li>Compare the disclosed serving with the form and dose used in cited research.</li>
-              <li>Verify testing claims through batch documents or the certifier where possible.</li>
+              <li>
+                Verify testing claims through batch documents or the certifier where possible.
+              </li>
               <li>State contraindications and evidence limits in language a buyer can use.</li>
               <li>Keep affiliate relationships out of scoring and ranking decisions.</li>
-              <li>Date substantive reviews and revisit them when formulas or important evidence change.</li>
+              <li>
+                Date substantive reviews and revisit them when formulas or important evidence
+                change.
+              </li>
             </ul>
           </section>
           <section className="reading-section">
             <h2>Questions for Sumita</h2>
             <div className="faq-list">
-              <details open><summary>What qualifies you to review supplements?</summary><p>I bring more than 15 years of clinical nutrition experience, including dietary planning and food-safety work. My role here is evidence interpretation and editorial review. It is not a substitute for a reader’s own doctor or pharmacist.</p></details>
-              <details><summary>Do you accept products from brands?</summary><p>A brand may provide a label, supporting documents or a sample for evaluation. That does not buy coverage, placement or a positive conclusion. Any material relationship belongs in the disclosure.</p></details>
-              <details><summary>How often are reviews updated?</summary><p>We check pages when a formula changes, a material correction arrives or important new evidence affects the conclusion. Reviews also receive scheduled editorial checks, with higher-interest and safety-sensitive pages prioritised.</p></details>
-              <details><summary>What makes you reject a claim?</summary><p>Hidden doses, a mismatch between the marketed claim and the cited outcome, irrelevant research, unverifiable testing language or a safety omission can all weaken or disqualify a claim.</p></details>
-              <details><summary>Can you tell me which supplement I should take?</summary><p>Not through a public review. Personal recommendations require health history, medicines, diet and clinical context. Use the reviews to ask better questions, then take personal decisions to an appropriately qualified professional.</p></details>
+              <details open>
+                <summary>What qualifies you to review supplements?</summary>
+                <p>
+                  I bring more than 15 years of clinical nutrition experience, including dietary
+                  planning and food-safety work. My role here is evidence interpretation and
+                  editorial review. It is not a substitute for a reader’s own doctor or pharmacist.
+                </p>
+              </details>
+              <details>
+                <summary>Do you accept products from brands?</summary>
+                <p>
+                  A brand may provide a label, supporting documents or a sample for evaluation. That
+                  does not buy coverage, placement or a positive conclusion. Any material
+                  relationship belongs in the disclosure.
+                </p>
+              </details>
+              <details>
+                <summary>How often are reviews updated?</summary>
+                <p>
+                  We check pages when a formula changes, a material correction arrives or important
+                  new evidence affects the conclusion. Reviews also receive scheduled editorial
+                  checks, with higher-interest and safety-sensitive pages prioritised.
+                </p>
+              </details>
+              <details>
+                <summary>What makes you reject a claim?</summary>
+                <p>
+                  Hidden doses, a mismatch between the marketed claim and the cited outcome,
+                  irrelevant research, unverifiable testing language or a safety omission can all
+                  weaken or disqualify a claim.
+                </p>
+              </details>
+              <details>
+                <summary>Can you tell me which supplement I should take?</summary>
+                <p>
+                  Not through a public review. Personal recommendations require health history,
+                  medicines, diet and clinical context. Use the reviews to ask better questions,
+                  then take personal decisions to an appropriately qualified professional.
+                </p>
+              </details>
             </div>
           </section>
           <section className="reading-section">
             <h2>Product label overviews</h2>
-            <Catalog
-              reviews={all}
-              paginated
-            />
+            <Catalog reviews={all} paginated />
           </section>
         </div>
+        <BreadcrumbSchema items={[{ label: 'Meet Sumita', path: '/author/sumita-bhatti' }]} />
         <JsonLd
           data={{
-            '@type': 'Person',
-            name: author.name,
-            jobTitle: author.title,
-            image: new URL(author.photo_url, siteUrl).href,
+            '@type': 'ProfilePage',
             url: `${siteUrl}/author/sumita-bhatti`,
-            sameAs: [author.linkedin_url],
-            knowsAbout: author.specialisations,
+            inLanguage: 'en-US',
+            isPartOf: { '@id': `${siteUrl}/#website` },
+            publisher: { '@id': `${siteUrl}/#organization` },
+            mainEntity: {
+              '@type': 'Person',
+              '@id': `${siteUrl}/author/sumita-bhatti#person`,
+              name: author.name,
+              jobTitle: author.title,
+              description: author.bio,
+              image: new URL(author.photo_url, siteUrl).href,
+              url: `${siteUrl}/author/sumita-bhatti`,
+              sameAs: [author.linkedin_url],
+              knowsAbout: author.specialisations,
+              worksFor: { '@id': `${siteUrl}/#organization` },
+            },
           }}
         />
       </SiteShell>
@@ -351,26 +399,37 @@ export default async function DetailPage({
       </article>
       {!demoMode && (
         <JsonLd
-          data={
-            section === 'best'
+          data={{
+            '@type': 'Article',
+            headline: row.title,
+            description: row.summary,
+            url: new URL(`/${section}/${row.slug}`, siteUrl).href,
+            inLanguage: 'en-US',
+            datePublished: row.published_at,
+            dateModified: row.updated_at,
+            author: {
+              '@type': 'Organization',
+              name: 'SharpAndLean',
+              '@id': `${siteUrl}/#organization`,
+            },
+            publisher: { '@id': `${siteUrl}/#organization` },
+            isPartOf: { '@id': `${siteUrl}/#website` },
+            ...(section === 'best' && picks.length
               ? {
-                  '@type': 'ItemList',
-                  name: row.title,
-                  itemListElement: picks.map((r, i) => ({
-                    '@type': 'ListItem',
-                    position: i + 1,
-                    url: `${siteUrl}/${r.category_slug}/${r.slug}`,
-                    name: r.title,
-                  })),
+                  mainEntity: {
+                    '@type': 'ItemList',
+                    name: row.title,
+                    numberOfItems: picks.length,
+                    itemListElement: picks.map((r, i) => ({
+                      '@type': 'ListItem',
+                      position: i + 1,
+                      url: `${siteUrl}/${r.category_slug}/${r.slug}`,
+                      name: r.title,
+                    })),
+                  },
                 }
-              : {
-                  '@type': 'Article',
-                  headline: row.title,
-                  datePublished: row.published_at,
-                  dateModified: row.updated_at,
-                  author: { '@type': 'Organization', name: 'SharpAndLean' },
-                }
-          }
+              : {}),
+          }}
         />
       )}
     </SiteShell>
