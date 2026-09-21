@@ -284,6 +284,122 @@ const products = [
       },
     ],
   },
+  {
+    name: 'ColonBroom Psyllium Fiber Powder',
+    slug: 'colonbroom-psyllium-fiber-powder',
+    asin: 'B0DT1F2XYV',
+    listing: '50 servings, tropical fruits',
+    published: '2026-09-21T00:00:00Z',
+    updated: '2026-09-21T00:00:00Z',
+    category: 'fat-burners' as const,
+    summary:
+      'A flavoured psyllium husk powder sold for weight management at roughly six times the price per gram of plain psyllium — and the brand does not publish its Supplement Facts panel in readable text.',
+    source: 'https://colonbroom.com/',
+    sourceNote:
+      'We could not find a Supplement Facts panel in readable text anywhere on the brand’s own site, and the Amazon listing shows it only as an image. The per-serving figure below is therefore taken from Forbes Health rather than from the manufacturer, and is cited as such.',
+    facts:
+      'A one-scoop serving is reported to contain 3.6 g of psyllium husk powder, alongside 49 mg of sodium from pink Himalayan salt, natural flavour, citric acid, rebaudioside A from stevia, fruit and vegetable juice powder and organic rice hulls. The Amazon listing is 9.9 oz — roughly 280 g — for 50 servings at $34.97 at the time of checking. That works out at about 70 cents a serving, or roughly 19 cents per gram of psyllium husk once the flavourings are set aside.',
+    caution:
+      'Psyllium swells rapidly in liquid and has caused choking and oesophageal obstruction when taken with too little. Take it with a full glass of water, drink it promptly, and never immediately before lying down. Avoid it entirely with swallowing difficulty or a history of bowel obstruction. Because it slows absorption, separate it from medicines by at least two hours — this matters particularly for thyroid medication, lithium, carbamazepine and glucose-lowering drugs. Bloating and cramping are common in the first weeks.',
+    takeaway:
+      'Work out the cost per gram of psyllium rather than per tub, and check the serving against the 7 to 10 g used in the research before deciding whether one scoop is doing the job you bought it for.',
+    whoFor:
+      'Someone who wants flavoured, pre-measured psyllium and is willing to pay a premium for convenience, having already understood that the active ingredient is available plain for a fraction of the price.',
+    pros: [
+      'The active ingredient is psyllium husk, which has genuinely strong evidence for regularity and cholesterol',
+      'Flavoured and stevia-sweetened, which makes a famously unpleasant ingredient easier to take daily',
+      'Pre-measured scoops remove the guesswork that puts people off bulk psyllium powder',
+      'Single active ingredient — there is no proprietary blend hiding what you are taking',
+    ],
+    cons: [
+      'No Supplement Facts panel published in readable text on the brand’s own site, so the serving figure cannot be verified at source',
+      'About 19 cents per gram of psyllium against roughly 3 cents for plain psyllium powder — close to six times the price',
+      'A 3.6 g scoop is around half the 7 to 10 g daily amount used in the cholesterol research',
+      'Marketed for weight management, where the evidence for psyllium is limited rather than strong',
+      'Manufactured by Gut Health UAB in Lithuania and distributed by Karma Processing Inc in Delaware, with no manufacturing detail on the packaging',
+    ],
+    ingredients: [
+      {
+        name: 'Psyllium husk powder',
+        dose: '3.6 g per serving (reported)',
+        evidence_rating: 'strong' as const,
+        note: 'The only active ingredient, and a genuinely well-supported one — psyllium carries an FDA-authorised health claim for soluble fibre and coronary heart disease. The caveat is amount: research on cholesterol generally uses 7 to 10 g daily, so a single 3.6 g scoop sits at roughly half that. The evidence for weight loss specifically is much weaker than the marketing around this product implies.',
+      },
+      {
+        name: 'Sodium (from pink Himalayan salt)',
+        dose: '49 mg per serving',
+        evidence_rating: 'none' as const,
+        note: 'Present for taste and mixing rather than as an active. Pink Himalayan salt is chemically salt; the colour does not confer a benefit over any other sodium source.',
+      },
+      {
+        name: 'Rebaudioside A (stevia leaf extract)',
+        dose: 'Not disclosed',
+        evidence_rating: 'none' as const,
+        note: 'A sweetener. Its job is palatability, which is not a trivial thing for a psyllium product, but it is not a functional ingredient and no amount is disclosed.',
+      },
+      {
+        name: 'Fruit and vegetable juice powder',
+        dose: 'Not disclosed',
+        evidence_rating: 'none' as const,
+        note: 'Used for colour and flavour. At an undisclosed amount in a 5.6 g scoop it cannot be contributing meaningful nutrition, and it should not be read as a serving of produce.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is actually in ColonBroom?',
+        answer:
+          'Psyllium husk powder, reported at 3.6 g per serving, plus salt, natural flavour, citric acid, stevia extract, fruit and vegetable juice powder and rice hulls. The active ingredient is psyllium; everything else is there to make it taste and mix better.',
+      },
+      {
+        question: 'Is ColonBroom just psyllium husk?',
+        answer:
+          'Functionally, yes. It is flavoured, sweetened, pre-portioned psyllium. That is not a criticism of whether it works — psyllium works — but it does mean the comparison worth making is against plain psyllium powder rather than against other branded gut products.',
+      },
+      {
+        question: 'Why is it more expensive than plain psyllium?',
+        answer:
+          'You are paying for flavouring, portioning and brand. At $34.97 for 50 servings of 3.6 g, a gram of psyllium works out around 19 cents. A 12 oz tub of plain psyllium husk powder is about 3 cents a gram. Whether convenience is worth roughly six times the price is a reasonable thing to decide for yourself, but it should be a decision rather than an accident.',
+      },
+      {
+        question: 'Does ColonBroom cause weight loss?',
+        answer:
+          'The evidence for psyllium as a weight-loss agent is limited. It can make meals more filling, which may reduce how much you eat, but it does not change metabolism or fat storage. Our psyllium evidence page grades weight loss at C while grading cholesterol and regularity at A.',
+      },
+      {
+        question: 'Is one scoop enough?',
+        answer:
+          'For regularity, possibly. For the cholesterol benefit, the research generally uses 7 to 10 g of psyllium daily, and a 3.6 g scoop is about half. Two scoops would reach the studied range, which also doubles the cost per day.',
+      },
+      {
+        question: 'Why can I not find the Supplement Facts panel?',
+        answer:
+          'We could not either. There is no ingredients page on the brand site that we could locate, and the Amazon listing shows the panel only as an image rather than as text. That is why the serving figure on this page is attributed to Forbes Health rather than to the manufacturer.',
+      },
+    ],
+    references: [
+      {
+        id: 'forbes-colonbroom',
+        text: 'Forbes Health. ColonBroom Review — the source of the 3.6 g per serving figure and the ingredient list used on this page, as the manufacturer does not publish a readable panel.',
+        url: 'https://www.forbes.com/health/supplements/colon-broom-review/',
+      },
+      {
+        id: 'fda-psyllium-cb',
+        text: 'US Food and Drug Administration. Health claim: soluble fiber from certain foods and risk of coronary heart disease, 21 CFR 101.81.',
+        url: 'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81',
+      },
+      {
+        id: 'ods-weightloss-cb',
+        text: 'NIH Office of Dietary Supplements. Dietary Supplements for Weight Loss — Fact Sheet for Consumers.',
+        url: 'https://ods.od.nih.gov/factsheets/WeightLoss-Consumer/',
+      },
+    ],
+    history: [
+      {
+        date: '2026-09-21',
+        note: 'First published. Price and serving count checked against the Amazon listing on this date; the per-serving psyllium figure attributed to Forbes Health because no readable manufacturer panel could be found.',
+      },
+    ],
+  },
 ];
 
 export const productReviews: Review[] = products.map((p, index) => ({
@@ -295,7 +411,7 @@ export const productReviews: Review[] = products.map((p, index) => ({
   score: null,
   verdict: 'Manufacturer-label overview',
   summary: p.summary,
-  body: `<h2>What this page covers</h2><p>This is a source-based product overview, not a hands-on test or a clinical endorsement. No effectiveness score has been assigned.</p><h2>Read the label</h2><p>${p.facts}</p><h2>Before use</h2><p>${p.caution}</p><h2>What to compare</h2><p>${p.takeaway}</p><h2>Sources and shopping</h2><p><a href="${p.source}" target="_blank" rel="noopener noreferrer">Manufacturer product information</a> — the label figures above are taken from this page.</p><p>The commercial link on this page points to the ${p.listing} listing, checked against the manufacturer label above. Other pack sizes and strengths exist, so confirm the seller, strength and package size on arrival. Prices and stock change and are not quoted here.</p>`,
+  body: `<h2>What this page covers</h2><p>This is a source-based product overview, not a hands-on test or a clinical endorsement. No effectiveness score has been assigned.</p><h2>Read the label</h2><p>${p.facts}</p><h2>Before use</h2><p>${p.caution}</p><h2>What to compare</h2><p>${p.takeaway}</p><h2>Sources and shopping</h2><p><a href="${p.source}" target="_blank" rel="noopener noreferrer">Manufacturer product information</a>${'sourceNote' in p && p.sourceNote ? ` — ${p.sourceNote}` : ' — the label figures above are taken from this page.'}</p><p>The commercial link on this page points to the ${p.listing} listing, checked against the manufacturer label above. Other pack sizes and strengths exist, so confirm the seller, strength and package size on arrival. Prices and stock change and are not quoted here.</p>`,
   pros: p.pros,
   cons: p.cons,
   ingredients: p.ingredients,
@@ -312,27 +428,33 @@ export const productReviews: Review[] = products.map((p, index) => ({
   seo_title: p.name + ' — Label Overview',
   seo_desc: p.summary,
   is_published: true,
-  published_at: '2026-09-20T00:00:00Z',
-  updated_at: '2026-09-20T00:00:00Z',
+  published_at: 'published' in p && p.published ? p.published : '2026-09-20T00:00:00Z',
+  updated_at: 'updated' in p && p.updated ? p.updated : '2026-09-20T00:00:00Z',
   who_for: p.whoFor,
   who_avoid: p.caution,
   score_breakdown: {},
   // The manufacturer page is the source every figure on the overview is taken
   // from, so it is cited rather than only linked inside the body copy.
-  references: [
-    {
-      id: `manufacturer-${p.slug}`,
-      text: `${p.name} — manufacturer product information and Supplement Facts panel, the source of every figure on this page.`,
-      url: p.source,
-    },
-  ],
-  history: [
-    { date: '2026-09-20', note: 'First published as a manufacturer-label overview.' },
-    {
-      date: '2026-09-21',
-      note: 'Ingredient rows linked to their evidence pages; commercial link changed from a keyword search to the verified listing.',
-    },
-  ],
+  references:
+    'references' in p && p.references
+      ? p.references
+      : [
+          {
+            id: `manufacturer-${p.slug}`,
+            text: `${p.name} — manufacturer product information and Supplement Facts panel, the source of every figure on this page.`,
+            url: p.source,
+          },
+        ],
+  history:
+    'history' in p && p.history
+      ? p.history
+      : [
+          { date: '2026-09-20', note: 'First published as a manufacturer-label overview.' },
+          {
+            date: '2026-09-21',
+            note: 'Ingredient rows linked to their evidence pages; commercial link changed from a keyword search to the verified listing.',
+          },
+        ],
 }));
 
 export const productAsins: Record<string, string> = Object.fromEntries(
