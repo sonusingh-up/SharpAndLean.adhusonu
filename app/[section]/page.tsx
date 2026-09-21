@@ -65,11 +65,13 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
             <SectionLabel>{category.label}</SectionLabel>
             <h1 className="page-title">
               {category.name}.<br />
-              <span className="muted">With perspective.</span>
+              <span className="muted">{category.tagline}</span>
             </h1>
             <p className="page-intro">{category.description}</p>
-            <Link className="text-link" href="/author/sumita-bhatti">
-              Meet our reviewer <ArrowUpRight size={14} />
+            {/* These are the desk's label overviews, so this points at the
+                method rather than at the clinician who did not write them. */}
+            <Link className="text-link" href="/about">
+              How we read these labels <ArrowUpRight size={14} />
             </Link>
           </header>
           {reviews.length ? (
@@ -199,7 +201,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               {list.map((c) => (
                 <Link className="collection-card" href={`/${section}/${c.slug}`} key={c.id}>
                   <span className="tag">{demoMode ? 'Sample layout' : 'Editorial guide'}</span>
-                  <h2>{c.title}</h2>
+                  <h3>{c.title}</h3>
                   <p>{c.summary}</p>
                   <span className="circle">
                     <ArrowUpRight size={20} />
@@ -213,6 +215,100 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               description="Each guide needs a complete review before it goes live."
             />
           )}
+          {section === 'best' ? (
+            <>
+              <section className="reading-section">
+                <h2>Why there is no number one</h2>
+                <p>
+                  A ranking has to assume everyone wants the same thing. In supplements that
+                  assumption breaks immediately: a fibre powder, a relaxation formula and a vitamin
+                  D softgel are not competing for one crown, and the right choice depends on a gap
+                  you are trying to close rather than on a score somebody else assigned.
+                </p>
+                <p>
+                  So these guides teach the selection instead of performing it. Define the job in
+                  one sentence, list the candidates with their disclosed amounts, check whether the
+                  research used that form and dose, then compare what a labelled serving actually
+                  costs. The shortlist you end up with is yours, and you can redo it when a formula
+                  changes.
+                </p>
+              </section>
+              <section className="reading-section">
+                <h2>Where a shortlist usually goes wrong</h2>
+                <ul>
+                  <li>
+                    Comparing bottle prices when one product needs three capsules a serving and
+                    another needs one.
+                  </li>
+                  <li>
+                    Treating a proprietary blend as a single ingredient, when it hides how much of
+                    anything is in there.
+                  </li>
+                  <li>
+                    Accepting a study as support without checking it used the same form, dose and
+                    population.
+                  </li>
+                  <li>
+                    Reading a certification badge as a batch test result, when it may be neither
+                    recent nor specific to the bottle.
+                  </li>
+                </ul>
+              </section>
+            </>
+          ) : (
+            <>
+              <section className="reading-section">
+                <h2>What has to match before a comparison means anything</h2>
+                <p>
+                  Two products are comparable when four things line up: the active ingredient and
+                  its form, the amount per labelled serving, the number of servings in the
+                  container, and the total cost of getting through it. Change any one and the
+                  comparison stops being like for like, however similar the packaging looks.
+                </p>
+                <p>
+                  This is where most supplement shopping goes wrong, and it rarely involves anyone
+                  lying. A bottle that says 575 mg on the front can have a 1,725 mg serving. A fish
+                  oil labelled 1,000 mg can contain 300 mg of the omega-3 you are buying it for.
+                  Both numbers are true. Only one answers the question.
+                </p>
+              </section>
+              <section className="reading-section">
+                <h2>How to run the arithmetic</h2>
+                <ul>
+                  <li>
+                    Divide the price by servings per container, not by capsule count, to get a cost
+                    per serving.
+                  </li>
+                  <li>
+                    Convert to the same unit before comparing strengths — mcg and IU describe the
+                    same vitamin D, and elemental weight is not compound weight.
+                  </li>
+                  <li>
+                    Read the full panel rather than the product name. Two strengths of the same
+                    brand can contain different secondary ingredients.
+                  </li>
+                  <li>
+                    Compare the evidence separately from the price. A cheaper serving is not a
+                    better one.
+                  </li>
+                </ul>
+              </section>
+            </>
+          )}
+          <section className="reading-section">
+            <h2>Start from a category</h2>
+            <p>
+              Every label overview sits in one of three categories, each with a guide covering the
+              ingredients that come up most often and the questions worth asking about them.
+            </p>
+            <div className="index-category-links">
+              {categories.map((c) => (
+                <Link className="text-link" href={`/${c.slug}`} key={c.slug}>
+                  {c.name} <ArrowUpRight size={14} />
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </SiteShell>
     );

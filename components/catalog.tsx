@@ -9,15 +9,22 @@ export function Catalog({
   reviews: Review[];
   paginated?: boolean;
 }) {
-  const [sort, setSort] = useState('score');
+  // Nothing is sorted by a score that does not exist. Label overviews carry no
+  // score, so offering "Highest score" as the default promises a ranking the
+  // site deliberately does not produce.
+  const hasScores = reviews.some((r) => r.score !== null);
+  const hasPrices = reviews.some((r) => r.price_amount !== null);
+  const [sort, setSort] = useState(hasScores ? 'score' : 'newest');
   const [page, setPage] = useState(1);
   const sorted = [...reviews].sort((a, b) =>
     sort === 'price'
       ? (a.price_amount ?? Infinity) - (b.price_amount ?? Infinity)
-      : sort === 'newest'
-        ? new Date(b.published_at || b.updated_at).getTime() -
-          new Date(a.published_at || a.updated_at).getTime()
-        : (b.score ?? -1) - (a.score ?? -1),
+      : sort === 'name'
+        ? a.title.localeCompare(b.title)
+        : sort === 'newest'
+          ? new Date(b.published_at || b.updated_at).getTime() -
+            new Date(a.published_at || a.updated_at).getTime()
+          : (b.score ?? -1) - (a.score ?? -1),
   );
   const currencies = new Set(reviews.filter((r) => r.price_amount !== null).map((r) => r.currency));
   const shown = paginated ? sorted.slice((page - 1) * 6, page * 6) : sorted;
@@ -25,7 +32,16 @@ export function Catalog({
     <>
       <div className="catalog-bar">
         <span>
-          {reviews.length} {reviews.some((r) => r.is_sample) ? 'sample reviews' : 'reviews'}
+          {reviews.length}{' '}
+          {reviews.some((r) => r.is_sample)
+            ? 'sample reviews'
+            : hasScores
+              ? reviews.length === 1
+                ? 'review'
+                : 'reviews'
+              : reviews.length === 1
+                ? 'label overview'
+                : 'label overviews'}
         </span>
         <label>
           Sort by{' '}
@@ -36,11 +52,14 @@ export function Catalog({
               setPage(1);
             }}
           >
-            <option value="score">Highest score</option>
+            {hasScores && <option value="score">Highest score</option>}
             <option value="newest">Most recent</option>
-            <option value="price" disabled={currencies.size > 1}>
-              Price: low to high
-            </option>
+            <option value="name">Name: A to Z</option>
+            {hasPrices && (
+              <option value="price" disabled={currencies.size > 1}>
+                Price: low to high
+              </option>
+            )}
           </select>
         </label>
       </div>

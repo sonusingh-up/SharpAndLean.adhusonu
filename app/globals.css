@@ -1962,7 +1962,7 @@ summary::-webkit-details-marker {
   align-items: flex-start;
   gap: 22px;
 }
-.collection-card h2 {
+.collection-card h3 {
   font-size: 32px;
 }
 .collection-card p {
@@ -3120,7 +3120,7 @@ table {
   .collection-card {
     padding: 24px;
   }
-  .collection-card h2 {
+  .collection-card h3 {
     font-size: 27px;
   }
   .comparison-table th,
@@ -3390,4 +3390,11 @@ table {
   .about-checks {
     grid-template-columns: 1fr;
   }
+}
+
+.index-category-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 18px;
 }

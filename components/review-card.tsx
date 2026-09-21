@@ -4,6 +4,9 @@ import { ArrowUpRight, FlaskConical, Brain, Leaf, Flame } from 'lucide-react';
 import type { Review } from '@/lib/types';
 import { categories } from '@/lib/sample';
 export function ReviewCard({ review }: { review: Review }) {
+  // Unscored pages are label overviews. Calling them reviews on the card
+  // contradicts the page they open and the count above the grid.
+  const isOverview = review.score === null;
   const Icon =
     review.category_slug === 'fat-burners'
       ? Flame
@@ -27,12 +30,14 @@ export function ReviewCard({ review }: { review: Review }) {
           />
         ) : (
           <div className="editorial-cover">
-            <span>SHARP & LEAN / REVIEW NOTES</span>
+            <span>SHARP &amp; LEAN / {isOverview ? 'LABEL NOTES' : 'REVIEW NOTES'}</span>
             <Icon strokeWidth={1} size={76} />
             <span>INGREDIENTS. EVIDENCE. PERSPECTIVE.</span>
           </div>
         )}
-        <span className="art-chip">{review.is_sample ? 'Sample content' : 'Editorial review'}</span>
+        <span className="art-chip">
+          {review.is_sample ? 'Sample content' : isOverview ? 'Label overview' : 'Editorial review'}
+        </span>
         <span className="circle art-arrow">
           <ArrowUpRight size={19} />
         </span>
@@ -49,10 +54,14 @@ export function ReviewCard({ review }: { review: Review }) {
         <div className="review-card-bottom">
           <span>
             <FlaskConical size={14} />{' '}
-            {review.is_sample ? 'Review format preview' : 'Ingredient analysis'}
+            {review.is_sample
+              ? 'Review format preview'
+              : isOverview
+                ? 'Label breakdown'
+                : 'Ingredient analysis'}
           </span>
           <Link href={`/${review.category_slug}/${review.slug}`}>
-            Read review <ArrowUpRight size={15} />
+            {isOverview ? 'Read the label' : 'Read review'} <ArrowUpRight size={15} />
           </Link>
         </div>
       </div>
