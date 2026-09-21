@@ -2892,6 +2892,13 @@ table {
   justify-content: space-between;
   font-size: 13px;
 }
+.redirect-form { padding: 24px; max-width: 850px; }
+.redirect-form fieldset { border: 0; padding: 0; display: grid; gap: 18px; }
+.redirect-form label { display: grid; gap: 8px; }
+.redirect-form input:not([type="checkbox"]) { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+.redirect-form .redirect-checkbox { display: flex; align-items: center; }
+.redirect-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.redirect-url { overflow-wrap: anywhere; max-width: 420px; font-size: 13px; }
 .admin-form {
   display: flex;
   flex-direction: column;

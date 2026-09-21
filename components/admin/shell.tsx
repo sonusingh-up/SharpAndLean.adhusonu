@@ -27,6 +27,7 @@ export function AdminShell({
     ['best-lists', 'Best-of lists', ListOrdered],
     ['comparisons', 'Comparisons', Scale],
     ['articles', 'Learning articles', BookOpen],
+    ['affiliate-links', 'Affiliate links', ArrowUpRight],
     ['media', 'Media library', ImageIcon],
     ['subscribers', 'Subscribers', Users],
     ['community', 'Community', MessageSquare],
