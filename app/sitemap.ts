@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { siteUrl, demoMode } from '@/lib/config';
 import { getReviews, getCollections } from '@/lib/data';
+import { authors } from '@/lib/author';
 export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (demoMode) return [];
@@ -19,12 +20,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/best',
       '/compare',
       '/about',
-      '/author/sumita-bhatti',
+
       '/contact',
       '/affiliate-disclosure',
       '/medical-disclaimer',
       '/privacy-policy',
       '/terms',
+      ...authors.map((a) => `/author/${a.slug}`),
     ].map((path) => ({
       url: siteUrl + path,
       changeFrequency: 'weekly' as const,

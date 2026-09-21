@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   title: { default: 'SharpAndLean — Know what goes in.', template: '%s | SharpAndLean' },
   description:
     'Thoughtful supplement reviews for weight management, cognitive health and everyday wellness.',
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/images/logo.png',
+  },
   robots: demoMode ? { index: false, follow: false } : undefined,
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,15 +1,17 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, Empty, SectionLabel } from '@/components/site';
 import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
 import { Newsletter } from '@/components/newsletter';
-import { pageMeta, JsonLd, BreadcrumbSchema } from '@/components/seo';
+import { pageMeta, JsonLd, BreadcrumbSchema, WebPageSchema } from '@/components/seo';
 import { categories } from '@/lib/sample';
 import { getReviews, getCollections, getCategoryData } from '@/lib/data';
 import { siteUrl, demoMode } from '@/lib/config';
 import { categoryGuides, informationPages as info } from '@/lib/editorial-content';
+import { authors } from '@/lib/author';
 export const revalidate = 3600;
 export async function generateStaticParams() {
   return [
@@ -124,7 +126,25 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           </section>
         </div>
         <JsonLd
-          data={{ '@type': 'CollectionPage', name: category.name, url: `${siteUrl}/${section}` }}
+          data={{
+            '@type': 'CollectionPage',
+            name: category.name,
+            description: category.description,
+            url: `${siteUrl}/${section}`,
+            inLanguage: 'en-US',
+            isPartOf: { '@id': `${siteUrl}/#website` },
+            publisher: { '@id': `${siteUrl}/#organization` },
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: reviews.length,
+              itemListElement: reviews.map((r, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: r.title,
+                url: `${siteUrl}/${r.category_slug}/${r.slug}`,
+              })),
+            },
+          }}
         />
       </SiteShell>
     );
@@ -134,16 +154,44 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
     return (
       <SiteShell>
         <div className="page-section">
+          <JsonLd
+            data={{
+              '@type': 'CollectionPage',
+              name: section === 'best' ? 'Best-of guides' : 'Supplement comparisons',
+              url: `${siteUrl}/${section}`,
+              inLanguage: 'en-US',
+              isPartOf: { '@id': `${siteUrl}/#website` },
+              publisher: { '@id': `${siteUrl}/#organization` },
+              mainEntity: {
+                '@type': 'ItemList',
+                numberOfItems: list.length,
+                itemListElement: list.map((c, i) => ({
+                  '@type': 'ListItem',
+                  position: i + 1,
+                  name: c.title,
+                  url: `${siteUrl}/${section}/${c.slug}`,
+                })),
+              },
+            }}
+          />
+          <BreadcrumbSchema
+            items={[
+              {
+                label: section === 'best' ? 'The shortlists' : 'Comparisons',
+                path: `/${section}`,
+              },
+            ]}
+          />
           <Breadcrumb items={[{ label: section === 'best' ? 'The shortlists' : 'Comparisons' }]} />
           <header className="page-top">
             <SectionLabel>{section === 'best' ? 'The shortlists' : 'Side by side'}</SectionLabel>
             <h1 className="page-title">
-              {section === 'best' ? 'The picks. And the why.' : 'A clearer comparison.'}
+              {section === 'best' ? 'Shortlists, and the reasoning.' : 'Same category. Same units.'}
             </h1>
             <p className="page-intro">
               {section === 'best'
-                ? 'Considered guides with the reasoning behind every selection.'
-                : 'Compare the details that matter, without losing the context.'}
+                ? 'How to narrow a category down yourself: define the job, match the doses, then compare the cost of a labelled serving. These are methods, not rankings.'
+                : 'Two products are only comparable once the servings, strengths and forms line up. These guides do that arithmetic before drawing any conclusion.'}
             </p>
           </header>
           {list.length ? (
@@ -173,6 +221,13 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
     return (
       <SiteShell>
         <div className="page-section">
+          <WebPageSchema
+            type="ContactPage"
+            name="Contact SharpAndLean"
+            description="Corrections, product suggestions, press questions and privacy requests."
+            path="/contact"
+          />
+          <BreadcrumbSchema items={[{ label: 'Contact', path: '/contact' }]} />
           <Breadcrumb items={[{ label: 'Contact' }]} />
           <header className="page-top">
             <SectionLabel>Let’s talk</SectionLabel>
@@ -193,12 +248,15 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
                   {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
                 </a>
               ) : (
-                <p>Use Sumita’s LinkedIn profile below for professional enquiries. Please do not send private medical information.</p>
+                <p>
+                  Use Sumita’s LinkedIn profile below for professional enquiries. Please do not send
+                  private medical information.
+                </p>
               )}
               <p>
-                For a correction, include the page URL, the passage in question and a primary
-                source when available. General messages are normally reviewed within five
-                business days; evidence or legal questions can take longer.
+                For a correction, include the page URL, the passage in question and a primary source
+                when available. General messages are normally reviewed within five business days;
+                evidence or legal questions can take longer.
               </p>
               <a
                 className="text-link"
@@ -214,15 +272,24 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               <div className="faq-list">
                 <details open>
                   <summary>Can I submit a product for review?</summary>
-                  <p>Yes. A suggestion does not guarantee coverage or a favourable verdict. Include the current label and official product page if you can.</p>
+                  <p>
+                    Yes. A suggestion does not guarantee coverage or a favourable verdict. Include
+                    the current label and official product page if you can.
+                  </p>
                 </details>
                 <details>
                   <summary>How do I report an error?</summary>
-                  <p>Send the exact page, disputed detail and best available source. Factual corrections are checked independently and updated visibly.</p>
+                  <p>
+                    Send the exact page, disputed detail and best available source. Factual
+                    corrections are checked independently and updated visibly.
+                  </p>
                 </details>
                 <details>
                   <summary>Do you accept paid rankings?</summary>
-                  <p>No. Commercial relationships do not purchase placement, scores or editorial approval.</p>
+                  <p>
+                    No. Commercial relationships do not purchase placement, scores or editorial
+                    approval.
+                  </p>
                 </details>
               </div>
               <h2>Stay in the loop.</h2>
@@ -233,11 +300,113 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
         </div>
       </SiteShell>
     );
+  if (section === 'about') {
+    const about = info.about;
+    return (
+      <SiteShell>
+        <article className="page-section info-page about-page">
+          <WebPageSchema
+            type="AboutPage"
+            name={about.title}
+            description={about.intro}
+            path="/about"
+          />
+          <BreadcrumbSchema items={[{ label: 'Our approach', path: '/about' }]} />
+          <Breadcrumb items={[{ label: 'Our approach' }]} />
+          <header className="page-top">
+            <SectionLabel>The Sharp &amp; Lean standard</SectionLabel>
+            <h1 className="page-title">{about.title}</h1>
+            <p className="page-intro">{about.intro}</p>
+          </header>
+
+          {/* The four checks, stated before the prose so the method is visible
+              without reading a thousand words first. */}
+          <ol className="about-checks">
+            {[
+              [
+                'Serving size',
+                'How many units make a serving, and how many servings are really in the container.',
+              ],
+              [
+                'Disclosed amounts',
+                'Whether every active carries its own number, or several hide inside one blend total.',
+              ],
+              [
+                'Total stimulants',
+                'Caffeine added up across every source on the panel, not read one line at a time.',
+              ],
+              [
+                'Testing claims',
+                'Whether a test names a laboratory, a batch and a date, or is just a reassuring phrase.',
+              ],
+            ].map(([title, text], i) => (
+              <li key={title}>
+                <span className="about-check-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+
+          <RichText html={about.body} />
+
+          <section className="about-authors">
+            <h2>Who writes this</h2>
+            <div className="author-cards">
+              {authors.map((a) => (
+                <Link className="author-card" href={`/author/${a.slug}`} key={a.slug}>
+                  {a.photo_url ? (
+                    <Image
+                      className="author-card-photo"
+                      src={a.photo_url}
+                      alt={a.name}
+                      width={72}
+                      height={72}
+                    />
+                  ) : (
+                    <span className="author-card-mark" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                  )}
+                  <span className="author-card-body">
+                    <strong>{a.name}</strong>
+                    <span className="author-card-title">{a.title}</span>
+                    <span className="author-card-role">{a.role}</span>
+                  </span>
+                  <ArrowUpRight size={16} />
+                </Link>
+              ))}
+            </div>
+          </section>
+        </article>
+      </SiteShell>
+    );
+  }
   const content = info[section];
   if (!content) notFound();
   return (
     <SiteShell>
       <article className="page-section info-page">
+        <WebPageSchema
+          type={
+            { about: 'AboutPage', contact: 'ContactPage' }[section] ||
+            (section.includes('policy') || section === 'terms' ? 'WebPage' : 'WebPage')
+          }
+          name={content.title}
+          description={content.intro}
+          path={`/${section}`}
+        />
+        <BreadcrumbSchema
+          items={[
+            {
+              label: section === 'about' ? 'Our approach' : content.title,
+              path: `/${section}`,
+            },
+          ]}
+        />
         <Breadcrumb items={[{ label: section === 'about' ? 'Our approach' : content.title }]} />
         <header className="page-top">
           <SectionLabel>
@@ -247,11 +416,6 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           <p className="page-intro">{content.intro}</p>
         </header>
         <RichText html={content.body} />
-        {section === 'about' && (
-          <Link className="button" href="/author/sumita-bhatti">
-            Meet Sumita Bhatti <ArrowUpRight size={17} />
-          </Link>
-        )}
       </article>
     </SiteShell>
   );

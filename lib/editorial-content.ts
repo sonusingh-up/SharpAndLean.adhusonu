@@ -1,8 +1,8 @@
 export const informationPages: Record<string, { title: string; intro: string; body: string }> = {
   about: {
-    title: 'Good questions are a good start.',
+    title: 'How we read a label.',
     intro:
-      'SharpAndLean exists because a supplement label should be easier to interrogate than a sales page. We show our reasoning, name the limits of the evidence and correct the record when it changes.',
+      'The method behind every page: which figures we take from the Supplement Facts panel, how we weigh the research behind an ingredient, what stops a product cold, and who signs which kind of page.',
     body: `<h2>Why SharpAndLean exists</h2>
 <p>Supplement shopping has a peculiar problem: the loudest claim is often the easiest thing to find, while the information needed to judge it is scattered across a label, a manufacturer’s website and research that may not even test the finished product. SharpAndLean was created to close that gap. The aim is practical: help a reader understand what is in a formula, whether the amount is disclosed, what the research can actually support and where the uncertainty begins.</p>
 <p>That means resisting the rhythm of the typical affiliate page. A long ingredient list is not proof of a better product. “Clinically studied” is not useful when the study used a different extract or a dose several times larger than the one on the label. A polished certificate image is not the same as a batch-specific report from an independent laboratory. These distinctions are small on the page and enormous when somebody is deciding what to swallow every day.</p>
@@ -15,6 +15,10 @@ export const informationPages: Record<string, { title: string; intro: string; bo
 
 <h2>Why some brands appear more often</h2>
 <p>This method depends on a manufacturer publishing a complete, checkable Supplement Facts panel. Some companies do; others put a marketing page where the panel should be, hide the label behind a retailer listing, or block access to their own product pages altogether. Coverage therefore skews toward brands whose labels can actually be verified, and that is a property of our sourcing rather than a verdict on the companies missing from it. Appearing here often is not an endorsement, and being absent is not a criticism.</p>
+
+<h2>Who signs which page</h2>
+<p>Two bylines appear on this site and they mean different things. A page signed by the <a href="/author/snl-team">SNL Team</a> is a label overview: the editorial desk has transcribed the Supplement Facts panel from the manufacturer’s own published page, done the serving arithmetic and checked the claim against the research for that ingredient. It is a record of what a label says.</p>
+<p>A page signed by <a href="/author/sumita-bhatti">Sumita Bhatti</a> carries a clinical nutritionist’s reading of the evidence. That is a different kind of judgement and it is attributed to a named person who can be looked up. We keep the two apart deliberately: a label transcription does not borrow clinical authority it has not earned, and a clinical view is not published anonymously.</p>
 
 <h2>What can disqualify a product</h2>
 <p>An undisclosed proprietary blend can prevent a positive assessment when dose is central to the claim. Other serious problems include hidden stimulant totals, disease-treatment language, a testing claim that cannot be verified, a label that conflicts with the sales page, or a dose far below the range used in the cited research. Safety concerns carry more weight than novelty, packaging or the size of an affiliate commission.</p>
