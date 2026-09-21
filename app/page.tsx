@@ -20,9 +20,12 @@ import { Newsletter } from '@/components/newsletter';
 import { getReviews } from '@/lib/data';
 import { pageMeta, OrganizationSchema, WebSiteSchema, FaqSchema } from '@/components/seo';
 export const revalidate = 3600;
+// The root segment does not inherit the title template from its own layout, so
+// the homepage has to carry the brand itself or it ships a title with no brand
+// and no category term in it.
 export const metadata = pageMeta(
-  'Know what goes in.',
-  'We read the Supplement Facts panel — serving sizes, disclosed doses, hidden proprietary blends — and say what the evidence actually supports. Fat burners, nootropics and everyday wellness.',
+  'Supplement Labels and Ingredient Evidence | SharpAndLean',
+  'We read the Supplement Facts panel, not the front of the bottle. Ingredient evidence graded A to F, with doses checked against the research.',
   '/',
 );
 export default async function Home() {
