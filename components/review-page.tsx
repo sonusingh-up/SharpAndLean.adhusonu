@@ -62,16 +62,17 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   const [author, community] = await Promise.all([getAuthor(), getCommunity(r.id)]);
   // A label overview records what a manufacturer published; it is not a
   // clinical assessment, so it must not be attributed to the clinician.
-  const isLabelOverview = r.id.startsWith('editorial-product-');
+  const isLabelOverview = Boolean(r.is_label_overview);
   // A submission can only be stored against a real database row. Built-in label
   // overviews exist only in code, so their ids are not UUIDs and the API rejects
   // them before it ever reaches the database. Showing a form that cannot succeed
   // is worse than showing none.
   const canAcceptSubmissions =
     hasSupabase && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(r.id);
-  const writtenBy = isLabelOverview
-    ? teamProfile
-    : { slug: authorProfile.slug, name: author?.name || authorProfile.name };
+  const writtenBy =
+    (r.written_by ?? (isLabelOverview ? 'team' : 'clinician')) === 'team'
+      ? teamProfile
+      : { slug: authorProfile.slug, name: author?.name || authorProfile.name };
   // The clinician reviews rather than writes the label overviews, so she is
   // credited separately instead of replacing the desk byline.
   const reviewedBy =
@@ -123,7 +124,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <SectionLabel>{category.name} / A closer look</SectionLabel>
             <h1 className="page-title">
               {r.title}
-              {r.id.startsWith('editorial-product-')
+              {isLabelOverview
                 ? ' — label overview'
                 : !r.title.toLowerCase().includes('review')
                   ? ' review'
@@ -251,7 +252,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
 
               {r.asin ? (
                 <>
-                  <a className="button featured-product-cta" href={amazonLink(r.asin)} target="_blank" rel="sponsored nofollow noopener noreferrer">
+                  <a
+                    className="button featured-product-cta"
+                    href={amazonLink(r.asin)}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                  >
                     View on Amazon <ArrowUpRight size={15} />
                   </a>
                   <p className="glance-affiliate">Affiliate link · We may earn a commission.</p>
@@ -313,7 +319,14 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <RichText html={r.body} />
             {r.result_image && (
               <figure className="research-result-figure">
-                <Image src={r.result_image.src} alt={r.result_image.alt} width={1200} height={720} sizes="(max-width: 900px) 90vw, 900px" style={{ width: '100%', height: 'auto' }} />
+                <Image
+                  src={r.result_image.src}
+                  alt={r.result_image.alt}
+                  width={1200}
+                  height={720}
+                  sizes="(max-width: 900px) 90vw, 900px"
+                  style={{ width: '100%', height: 'auto' }}
+                />
                 <figcaption>{r.result_image.caption}</figcaption>
               </figure>
             )}
@@ -393,6 +406,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             {Object.keys(r.score_breakdown || {}).length > 0 && (
               <section>
                 <h2>Score breakdown</h2>
+                <p className="muted">
+                  Five criteria, each out of 10, averaged to the overall score. See{' '}
+                  <Link href="/evidence-grading#product-scores">how we score products</Link>.
+                </p>
                 {Object.entries(r.score_breakdown).map(([name, score]) => (
                   <div className="rating-row" key={name}>
                     <span>{name}</span>
@@ -406,35 +423,74 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               <h2 id="compare-heading">How does it compare?</h2>
               {related.length ? (
                 <>
-                  <p className="comparison-intro">A closer look at the alternatives. Compare the ingredients and serving sizes, then explore the full review.</p>
+                  <p className="comparison-intro">
+                    A closer look at the alternatives. Compare the ingredients and serving sizes,
+                    then explore the full review.
+                  </p>
                   <div className="comparison-grid">
                     {related.map((v) => {
                       const name = v.product_name || v.title;
-                      const ingredient = v.ingredients.find((item) => item.evidence_rating !== 'none');
+                      const ingredient = v.ingredients.find(
+                        (item) => item.evidence_rating !== 'none',
+                      );
                       return (
                         <article className="comparison-card" key={v.id}>
-                          <Link className="comparison-image" href={`/${v.category_slug}/${v.slug}`} aria-label={`Read review of ${name}`}>
+                          <Link
+                            className="comparison-image"
+                            href={`/${v.category_slug}/${v.slug}`}
+                            aria-label={`Read review of ${name}`}
+                          >
                             {v.featured_image_url ? (
-                              <Image src={v.featured_image_url} alt={name} fill sizes="(max-width: 700px) 80vw, 400px" />
+                              <Image
+                                src={v.featured_image_url}
+                                alt={name}
+                                fill
+                                sizes="(max-width: 700px) 80vw, 400px"
+                              />
                             ) : (
-                              <span className="comparison-placeholder"><HeroIcon size={48} strokeWidth={1} />Product overview</span>
+                              <span className="comparison-placeholder">
+                                <HeroIcon size={48} strokeWidth={1} />
+                                Product overview
+                              </span>
                             )}
                           </Link>
                           <div className="comparison-content">
                             <span className="comparison-eyebrow">An alternative to consider</span>
                             <h3>{name}</h3>
                             <p>{v.summary}</p>
-                            {ingredient && <div className="comparison-dose"><span>Per serving</span><strong>{ingredient.dose}</strong></div>}
+                            {ingredient && (
+                              <div className="comparison-dose">
+                                <span>Per serving</span>
+                                <strong>{ingredient.dose}</strong>
+                              </div>
+                            )}
                             <div className="comparison-actions">
-                              <a className="button" href={v.asin ? amazonLink(v.asin) : amazonSearchLink(name)} target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label={`Buy ${name} on Amazon`}>Buy on Amazon <ArrowUpRight size={15} /></a>
-                              <Link className="text-link" href={`/${v.category_slug}/${v.slug}`} aria-label={`Read review of ${name}`}>Read review <ArrowUpRight size={15} /></Link>
+                              <a
+                                className="button"
+                                href={v.asin ? amazonLink(v.asin) : amazonSearchLink(name)}
+                                target="_blank"
+                                rel="sponsored nofollow noopener noreferrer"
+                                aria-label={`Buy ${name} on Amazon`}
+                              >
+                                Buy on Amazon <ArrowUpRight size={15} />
+                              </a>
+                              <Link
+                                className="text-link"
+                                href={`/${v.category_slug}/${v.slug}`}
+                                aria-label={`Read review of ${name}`}
+                              >
+                                Read review <ArrowUpRight size={15} />
+                              </Link>
                             </div>
                           </div>
                         </article>
                       );
                     })}
                   </div>
-                  <p className="comparison-disclosure">Affiliate links: we may earn a commission at no extra cost to you. Check Amazon for current prices and availability.</p>
+                  <p className="comparison-disclosure">
+                    Affiliate links: we may earn a commission at no extra cost to you. Check Amazon
+                    for current prices and availability.
+                  </p>
                 </>
               ) : (
                 <p className="muted">Related reviews will appear as this category grows.</p>
@@ -563,7 +619,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           <FaqSchema faqs={r.faqs} />
         </>
       )}
-      {!r.is_sample && !r.id.startsWith('editorial-product-') && (
+      {/* Review markup needs a rating to mean anything, and label overviews
+          carry no score, so the gate is "a scored review" rather than "not
+          editorial". */}
+      {!r.is_sample && !isLabelOverview && r.score !== null && (
         <>
           <JsonLd
             data={{
@@ -573,13 +632,33 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               reviewBody: r.summary,
               datePublished: r.published_at,
               dateModified: r.updated_at,
-              author: author
+              // Mirrors the visible byline rather than crediting the clinician
+              // for prose she reviewed but did not write.
+              author:
+                writtenBy.slug === teamProfile.slug
+                  ? {
+                      '@type': 'Organization',
+                      '@id': `${siteUrl}/author/${teamProfile.slug}#team`,
+                      name: teamProfile.name,
+                      url: new URL(`/author/${teamProfile.slug}`, siteUrl).href,
+                    }
+                  : {
+                      '@type': 'Person',
+                      '@id': `${siteUrl}/author/${writtenBy.slug}#person`,
+                      name: writtenBy.name,
+                      url: new URL(`/author/${writtenBy.slug}`, siteUrl).href,
+                    },
+              ...(reviewedBy
                 ? {
-                    '@type': 'Person',
-                    name: author.name,
-                    url: new URL('/author/sumita-bhatti', siteUrl).href,
+                    reviewedBy: {
+                      '@type': 'Person',
+                      '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
+                      name: reviewedBy.name,
+                      jobTitle: reviewedBy.title,
+                      url: `${siteUrl}/author/${reviewedBy.slug}`,
+                    },
                   }
-                : { '@type': 'Organization', name: 'SharpAndLean' },
+                : {}),
               itemReviewed: {
                 '@type': 'Product',
                 name: r.product_name || r.title,

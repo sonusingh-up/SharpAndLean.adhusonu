@@ -2217,7 +2217,13 @@ summary::-webkit-details-marker {
   line-height: 1.5;
   margin: auto 0 0;
 }
-.glance-affiliate { font-size: 10px; line-height: 1.6; text-align: center; color: #68725e; margin: 10px 0 0; }
+.glance-affiliate {
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+  color: #68725e;
+  margin: 10px 0 0;
+}
 .featured-product-cta {
   width: 100%;
   justify-content: center;
@@ -2344,9 +2350,18 @@ summary::-webkit-details-marker {
 .toc a:hover {
   color: #141414;
 }
-.research-result-figure { margin: 36px 0; }
-.research-result-figure img { border-radius: 18px; }
-.research-result-figure figcaption { margin-top: 12px; color: #68725e; font-size: 12px; line-height: 1.7; }
+.research-result-figure {
+  margin: 36px 0;
+}
+.research-result-figure img {
+  border-radius: 18px;
+}
+.research-result-figure figcaption {
+  margin-top: 12px;
+  color: #68725e;
+  font-size: 12px;
+  line-height: 1.7;
+}
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2411,8 +2426,13 @@ summary::-webkit-details-marker {
   border-bottom: 1px solid var(--line);
   font-size: 12px;
 }
-.comparison-dose span { color: #73776e; }
-.comparison-dose strong { font-weight: 500; line-height: 1.6; }
+.comparison-dose span {
+  color: #73776e;
+}
+.comparison-dose strong {
+  font-weight: 500;
+  line-height: 1.6;
+}
 .comparison-actions {
   display: flex;
   align-items: center;
@@ -2420,13 +2440,29 @@ summary::-webkit-details-marker {
   gap: 18px;
   padding-top: 20px;
 }
-.comparison-actions .button { padding: 13px 18px; font-size: 11px; }
-.comparison-actions .text-link { font-size: 12px; }
-.review-body .comparison-intro { margin: -12px 0 24px; font-size: 14px; }
-.review-body .comparison-disclosure { margin: 16px 0 0; font-size: 11px; color: #73776e; }
+.comparison-actions .button {
+  padding: 13px 18px;
+  font-size: 11px;
+}
+.comparison-actions .text-link {
+  font-size: 12px;
+}
+.review-body .comparison-intro {
+  margin: -12px 0 24px;
+  font-size: 14px;
+}
+.review-body .comparison-disclosure {
+  margin: 16px 0 0;
+  font-size: 11px;
+  color: #73776e;
+}
 @media (max-width: 700px) {
-  .comparison-grid { grid-template-columns: 1fr; }
-  .comparison-content { padding: 20px; }
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .comparison-content {
+    padding: 20px;
+  }
 }
 .review-body {
   min-width: 0;
@@ -2495,8 +2531,11 @@ summary::-webkit-details-marker {
 .pros-cons p svg {
   margin-top: 4px;
 }
+/* A fixed label column, so every meter starts at the same x and the rows read
+   as one comparison rather than five unrelated bars. */
 .rating-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 15em) 1fr auto;
   align-items: center;
   gap: 15px;
   font-size: 13px;
@@ -2504,12 +2543,20 @@ summary::-webkit-details-marker {
   border-bottom: 1px solid var(--line);
 }
 .rating-row > span {
-  min-width: 120px;
+  min-width: 0;
 }
 .rating-row meter {
-  flex: 1;
-  width: 80px;
+  width: 100%;
   accent-color: #7ea87a;
+}
+@media (max-width: 640px) {
+  .rating-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+  }
+  .rating-row > span {
+    grid-column: 1 / -1;
+  }
 }
 .related {
   margin-top: 70px;
@@ -3933,6 +3980,44 @@ table {
   font-size: 13.5px;
   line-height: 1.7;
   color: #68705f;
+}
+
+.criteria-table {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 34px 0;
+}
+.criteria-row {
+  background: var(--frame-bg);
+  padding: 20px 22px;
+}
+.criteria-row h3 {
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.criteria-row p {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #68705f;
+  margin: 0;
+}
+.criteria-row p + p {
+  margin-top: 10px;
+}
+.criteria-bands {
+  display: grid;
+  gap: 4px;
+}
+.criteria-bands span {
+  display: block;
+}
+.criteria-bands strong {
+  color: var(--ink);
 }
 
 .trust-bar {

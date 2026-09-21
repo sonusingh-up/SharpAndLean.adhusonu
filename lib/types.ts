@@ -42,6 +42,12 @@ export type Review = {
   result_image?: { src: string; alt: string; caption: string };
   asin?: string;
   is_sample?: boolean;
+  /** Defined in code rather than stored in the database. */
+  is_editorial?: boolean;
+  /** Records what a manufacturer published; explicitly not a review. */
+  is_label_overview?: boolean;
+  /** Desk byline: the team, or the clinician writing in her own name. */
+  written_by?: 'team' | 'clinician';
   /**
    * Figures observed on a retailer listing on a given date. Namespaced because
    * these are somebody else's numbers: the rating is the marketplace's, not an

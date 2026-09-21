@@ -1,18 +1,32 @@
-import type { Review } from './types';
+import type { ProductArticle } from './types';
 
-export const nowPsylliumArticle: Partial<Review> = {
+export const nowPsylliumHuskPowder: ProductArticle = {
+  slug: 'now-psyllium-husk-powder',
+  name: 'NOW Psyllium Husk Powder',
   brand: 'NOW Foods',
-  seo_title: 'NOW Psyllium Husk Powder Review: Benefits, Testing & Value',
-  seo_desc: 'A researched review of NOW Psyllium Husk Powder: label facts, mixing, customer feedback, clinical evidence, lab-testing limits and alternatives.',
-  summary: 'A simple, unflavoured fibre powder with a clearly stated serving. Its appeal is the ingredient list; the real trade-offs are texture, preparation and how much you can verify about your bottle.',
+  category: 'fat-burners',
+  summary:
+    'A simple, unflavoured fibre powder with a clearly stated serving. Its appeal is the ingredient list; the real trade-offs are texture, preparation and how much you can verify about your bottle.',
   verdict: 'A sensible option if plain fibre fits your routine',
-  featured_image_url: 'https://m.media-amazon.com/images/I/71G7WuekpzL._AC_SL1500_.jpg',
-  updated_at: '2026-09-21T00:00:00Z',
-  result_image: {
+  seoTitle: 'NOW Psyllium Husk Powder Review: Benefits, Testing & Value',
+  seoDescription:
+    'A researched review of NOW Psyllium Husk Powder: label facts, mixing, customer feedback, clinical evidence, lab-testing limits and alternatives.',
+  asin: 'B007729DSE',
+  listing: '12 oz powder',
+  image: 'https://m.media-amazon.com/images/I/71G7WuekpzL._AC_SL1500_.jpg',
+  resultImage: {
     src: '/images/psyllium-research-results.svg',
     alt: 'Psyllium research summary: constipation guideline support is conditional; a 28-trial analysis found LDL cholesterol lower by 0.33 mmol/L; weight-loss findings differ between reviews. These are ingredient studies, not tests of NOW powder.',
-    caption: 'Published ingredient research, not a before-and-after claim or a laboratory test of NOW Psyllium. Study populations and doses differ. Sources and limitations are discussed above.',
+    caption:
+      'Published ingredient research, not a before-and-after claim or a laboratory test of NOW Psyllium. Study populations and doses differ. Sources and limitations are discussed above.',
   },
+  source: 'https://www.nowfoods.com/products/supplements/psyllium-husk-powder',
+  facts:
+    'The manufacturer lists a 9 g serving with 7 g dietary fibre. Its directions specify at least 12 oz of liquid and immediate consumption. This powder belongs in a discussion about fibre; its label does not establish fat loss.',
+  caution:
+    'NOW warns against use with swallowing difficulties and inadequate liquid because of choking risk. Its label advises medical consultation for medicines, medical conditions, pregnancy or nursing.',
+  takeaway:
+    'Compare powder weight, fibre content and the preparation instructions. Do not mistake a larger scoop for stronger evidence of weight loss.',
   body: `
 <h2>Our take: a straightforward fibre powder, with a texture trade-off</h2>
 <p>NOW Psyllium Husk Powder is the kind of product you might choose after getting tired of long ingredient lists. There is no flavour to pick and no complicated blend to decode. You are buying ground psyllium husk, measuring it, mixing it with enough liquid and drinking it promptly.</p>
@@ -77,6 +91,10 @@ export const nowPsylliumArticle: Partial<Review> = {
 <p>Confirm the listing says standard psyllium husk powder, 12 ounces, if you want the product covered here. Check the seller, delivery cost and return conditions. When the bottle arrives, compare its ingredient panel and directions with the listing, and retain the lot number if you plan to request testing information.</p>
 <p>Our conclusion is uncomplicated: the short ingredient list and clear serving information make NOW an easy product to evaluate. Its drawbacks are equally concrete—an unflavoured texture, preparation that needs attention and a gap between general testing claims and a batch report we can inspect. If those trade-offs work for you, it belongs on your shortlist.</p>
 `,
+  whoFor:
+    'Adults considering a plain fibre powder who are comfortable measuring, mixing and drinking it promptly. Its simple formula may appeal if you do not want added flavour or sweetness. Confirm it is appropriate for your health needs and medicines first.',
+  whoAvoid:
+    'Get medical advice before use with swallowing difficulty, intestinal blockage, unexplained rectal bleeding or relevant health conditions. Anyone unable to follow the liquid instructions should not improvise a dry or concentrated serving.',
   pros: [
     'One listed ingredient, with separate figures for powder weight and dietary fibre',
     'Unflavoured format for people who prefer to avoid a sweetened fibre drink',
@@ -89,35 +107,102 @@ export const nowPsylliumArticle: Partial<Review> = {
     'No matching lot-specific independent lab report verified for this review',
     'Ingredient studies do not establish brand-specific weight-loss results',
   ],
-  ingredients: [{
-    name: 'Psyllium husk powder',
-    dose: '9 g powder: 7 g dietary fibre, including 6 g soluble fibre',
-    evidence_rating: 'moderate',
-    note: 'The manufacturer lists psyllium seed husk as the ingredient. Evidence varies by outcome: constipation guidance is conditional, LDL findings are encouraging, and weight-loss findings are mixed. This grade is not a laboratory purity score or a trial result for NOW’s finished product.',
-  }],
-  who_for: 'Adults considering a plain fibre powder who are comfortable measuring, mixing and drinking it promptly. Its simple formula may appeal if you do not want added flavour or sweetness. Confirm it is appropriate for your health needs and medicines first.',
-  who_avoid: 'Get medical advice before use with swallowing difficulty, intestinal blockage, unexplained rectal bleeding or relevant health conditions. Anyone unable to follow the liquid instructions should not improvise a dry or concentrated serving.',
+  ingredients: [
+    {
+      name: 'Psyllium husk powder',
+      dose: '9 g powder: 7 g dietary fibre, including 6 g soluble fibre',
+      evidence_rating: 'moderate',
+      note: 'The manufacturer lists psyllium seed husk as the ingredient. Evidence varies by outcome: constipation guidance is conditional, LDL findings are encouraging, and weight-loss findings are mixed. This grade is not a laboratory purity score or a trial result for NOW’s finished product.',
+    },
+  ],
   faqs: [
-    { question: 'Is NOW Psyllium Husk Powder the same as whole psyllium husks?', answer: 'It is a more finely ground form. Do not assume the same spoonful has the same weight or that a recipe can swap the two without adjustments. Use the serving and preparation directions for the specific package.' },
-    { question: 'How much fibre is in a serving?', answer: 'The product information checked lists 7 g dietary fibre in a 9 g serving of powder, including 6 g soluble and 1 g insoluble fibre. The 12-ounce bottle contains approximately 38 servings. Check your current label for changes.' },
-    { question: 'Does it taste good?', answer: 'We have not taste-tested it. Customer feedback varies: some people appreciate the plain taste, while others dislike the texture or clumping. Unflavoured is not a promise that you will find it tasteless.' },
-    { question: 'Is it independently lab tested?', answer: 'NOW describes internal and external testing within its wider quality program. We did not verify a lot-specific independent certificate for this powder, so cannot publish contaminant results or label it batch-verified. Ask for a report matching your lot number.' },
-    { question: 'Does it contain lead?', answer: 'We do not have a verified result for a specific lot and cannot give a concentration or claim it is lead-free. A brand’s general testing statement does not supply that number. A matching laboratory report with methods, units and detection limits is needed.' },
-    { question: 'Will it lower my cholesterol?', answer: 'Research on psyllium shows an average LDL reduction across trials, but individual results vary. Those studies do not predict what one serving of this product will do for you. Discuss the label and your treatment goals with your clinician.' },
-    { question: 'Can I use it to lose weight?', answer: 'Weight-loss studies of psyllium have reached different conclusions. This review does not establish a weight-loss result for NOW powder. Its clearest practical appeal is adding fibre in a simple format.' },
-    { question: 'How should I compare the price?', answer: 'Divide your final bottle price by the labelled serving count, approximately 38 for the 12-ounce size checked here. Include delivery and compare the same form and size. Do not assume that a capsule count is a serving count.' },
+    {
+      question: 'Is NOW Psyllium Husk Powder the same as whole psyllium husks?',
+      answer:
+        'It is a more finely ground form. Do not assume the same spoonful has the same weight or that a recipe can swap the two without adjustments. Use the serving and preparation directions for the specific package.',
+    },
+    {
+      question: 'How much fibre is in a serving?',
+      answer:
+        'The product information checked lists 7 g dietary fibre in a 9 g serving of powder, including 6 g soluble and 1 g insoluble fibre. The 12-ounce bottle contains approximately 38 servings. Check your current label for changes.',
+    },
+    {
+      question: 'Does it taste good?',
+      answer:
+        'We have not taste-tested it. Customer feedback varies: some people appreciate the plain taste, while others dislike the texture or clumping. Unflavoured is not a promise that you will find it tasteless.',
+    },
+    {
+      question: 'Is it independently lab tested?',
+      answer:
+        'NOW describes internal and external testing within its wider quality program. We did not verify a lot-specific independent certificate for this powder, so cannot publish contaminant results or label it batch-verified. Ask for a report matching your lot number.',
+    },
+    {
+      question: 'Does it contain lead?',
+      answer:
+        'We do not have a verified result for a specific lot and cannot give a concentration or claim it is lead-free. A brand’s general testing statement does not supply that number. A matching laboratory report with methods, units and detection limits is needed.',
+    },
+    {
+      question: 'Will it lower my cholesterol?',
+      answer:
+        'Research on psyllium shows an average LDL reduction across trials, but individual results vary. Those studies do not predict what one serving of this product will do for you. Discuss the label and your treatment goals with your clinician.',
+    },
+    {
+      question: 'Can I use it to lose weight?',
+      answer:
+        'Weight-loss studies of psyllium have reached different conclusions. This review does not establish a weight-loss result for NOW powder. Its clearest practical appeal is adding fibre in a simple format.',
+    },
+    {
+      question: 'How should I compare the price?',
+      answer:
+        'Divide your final bottle price by the labelled serving count, approximately 38 for the 12-ounce size checked here. Include delivery and compare the same form and size. Do not assume that a capsule count is a serving count.',
+    },
   ],
   references: [
-    { id: 'now-guideline', text: 'AGA–ACG (2023). Clinical practice guideline on chronic idiopathic constipation: conditional recommendation for fibre.', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10544839/' },
-    { id: 'now-constipation-trial', text: 'McRorie et al. (1998). Randomised trial comparing psyllium and docusate in chronic constipation.', url: 'https://pubmed.ncbi.nlm.nih.gov/9663731/' },
-    { id: 'now-lipids', text: 'Jovanovski et al. (2018). Meta-analysis of 28 psyllium trials and lipid outcomes.', url: 'https://pubmed.ncbi.nlm.nih.gov/30239559/' },
-    { id: 'now-weight-review', text: 'Systematic review of psyllium supplementation, body weight and waist circumference.', url: 'https://pubmed.ncbi.nlm.nih.gov/30880409/' },
-    { id: 'now-weight-2023', text: '2023 meta-analysis of psyllium for weight loss with narrower study-selection criteria.', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10389520/' },
-    { id: 'now-medline', text: 'MedlinePlus. Psyllium: use, precautions and interactions.', url: 'https://medlineplus.gov/druginfo/meds/a601104.html' },
-    { id: 'now-fda', text: 'FDA. Consumer information on dietary supplements and premarket approval.', url: 'https://www.fda.gov/food/dietary-supplements/information-consumers-using-dietary-supplements' },
+    {
+      id: 'now-guideline',
+      text: 'AGA–ACG (2023). Clinical practice guideline on chronic idiopathic constipation: conditional recommendation for fibre.',
+      url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10544839/',
+    },
+    {
+      id: 'now-constipation-trial',
+      text: 'McRorie et al. (1998). Randomised trial comparing psyllium and docusate in chronic constipation.',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/9663731/',
+    },
+    {
+      id: 'now-lipids',
+      text: 'Jovanovski et al. (2018). Meta-analysis of 28 psyllium trials and lipid outcomes.',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/30239559/',
+    },
+    {
+      id: 'now-weight-review',
+      text: 'Systematic review of psyllium supplementation, body weight and waist circumference.',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/30880409/',
+    },
+    {
+      id: 'now-weight-2023',
+      text: '2023 meta-analysis of psyllium for weight loss with narrower study-selection criteria.',
+      url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10389520/',
+    },
+    {
+      id: 'now-medline',
+      text: 'MedlinePlus. Psyllium: use, precautions and interactions.',
+      url: 'https://medlineplus.gov/druginfo/meds/a601104.html',
+    },
+    {
+      id: 'now-fda',
+      text: 'FDA. Consumer information on dietary supplements and premarket approval.',
+      url: 'https://www.fda.gov/food/dietary-supplements/information-consumers-using-dietary-supplements',
+    },
   ],
   history: [
-    { date: '2026-09-20', note: 'First published as a short product-label overview.' },
-    { date: '2026-09-21', note: 'Expanded after search-result, retailer, manufacturer and clinical-source research. Verified the Amazon 12-ounce product and photograph. Added a research-results graphic and laboratory-transparency discussion; no physical testing or lot-specific lab analysis performed.' },
+    {
+      date: '2026-09-20',
+      note: 'First published as a short product-label overview.',
+    },
+    {
+      date: '2026-09-21',
+      note: 'Expanded after search-result, retailer, manufacturer and clinical-source research. Verified the Amazon 12-ounce product and photograph. Added a research-results graphic and laboratory-transparency discussion; no physical testing or lot-specific lab analysis performed.',
+    },
   ],
+  updated: '2026-09-21T00:00:00Z',
 };
