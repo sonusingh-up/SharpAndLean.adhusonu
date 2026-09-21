@@ -9,6 +9,7 @@ import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { ReviewPage, AffiliateButton } from '@/components/review-page';
 import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
+import { KeyTakeaways } from '@/components/evidence';
 import { BreadcrumbSchema, JsonLd, pageMeta } from '@/components/seo';
 import { demoMode, siteUrl } from '@/lib/config';
 import type { Review } from '@/lib/types';
@@ -442,6 +443,9 @@ export default async function DetailPage({
           <p className="page-intro">{row.summary}</p>
           {row.verdict && <p className="notice">{row.verdict}</p>}
         </header>
+        {/* Rendered on presence of data rather than on section, so a best-of
+            or comparison page can opt in without another branch here. */}
+        {row.takeaways?.length ? <KeyTakeaways items={row.takeaways} /> : null}
         {section === 'best' && (
           <nav className="quick-picks" aria-label="Quick picks">
             {picks.map((r, i) => (
