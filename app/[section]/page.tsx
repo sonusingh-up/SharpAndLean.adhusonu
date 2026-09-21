@@ -184,12 +184,12 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           <header className="page-top">
             <SectionLabel>{section === 'best' ? 'The shortlists' : 'Side by side'}</SectionLabel>
             <h1 className="page-title">
-              {section === 'best' ? 'The picks. And the why.' : 'A clearer comparison.'}
+              {section === 'best' ? 'Shortlists, and the reasoning.' : 'Same category. Same units.'}
             </h1>
             <p className="page-intro">
               {section === 'best'
-                ? 'Considered guides with the reasoning behind every selection.'
-                : 'Compare the details that matter, without losing the context.'}
+                ? 'How to narrow a category down yourself: define the job, match the doses, then compare the cost of a labelled serving. These are methods, not rankings.'
+                : 'Two products are only comparable once the servings, strengths and forms line up. These guides do that arithmetic before drawing any conclusion.'}
             </p>
           </header>
           {list.length ? (

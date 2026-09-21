@@ -36,12 +36,20 @@ export async function GET() {
 - Figures such as serving sizes and ingredient amounts are transcribed from the
   manufacturer page linked on each overview, on the date shown on that page.
   Labels change; the linked source is authoritative, not our copy of it.
-- Editorial judgements are attributed to Sumita Bhatti, a clinical nutritionist.
-  Her credentials beyond that are not published unless documented.
+- Attribution is split deliberately. Pages bylined **SNL Team** are label
+  transcriptions compiled by the editorial desk. Pages bylined **Sumita Bhatti**
+  carry a clinical nutritionist's evidence interpretation. Do not attribute a
+  label overview to her, and do not describe the team byline as a clinician.
+  Credentials beyond those stated are not published.
 - Nothing here is medical advice. Dietary supplements are regulated under DSHEA
   and are not approved by the FDA for safety or effectiveness before sale.
 - Some outbound purchase links are Amazon affiliate links. Commercial links are
   disclosed on the page and never affect editorial conclusions.
+
+## Authors
+
+- ${siteUrl}/author/snl-team — the editorial desk that compiles label overviews
+- ${siteUrl}/author/sumita-bhatti — clinical nutritionist, sets the review method
 
 ## Method
 

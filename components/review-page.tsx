@@ -6,6 +6,7 @@ import { SiteShell, Breadcrumb, SectionLabel } from './site';
 import { RichText } from './rich-text';
 import { ReviewCard } from './review-card';
 import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
+import { authorProfile, teamProfile } from '@/lib/author';
 import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
@@ -52,6 +53,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
     <p className="muted">No purchase link has been published for this product yet.</p>
   );
   const [author, community] = await Promise.all([getAuthor(), getCommunity(r.id)]);
+  // A label overview records what a manufacturer published; it is not a
+  // clinical assessment, so it must not be attributed to the clinician.
+  const isLabelOverview = r.id.startsWith('editorial-product-');
+  const byline = isLabelOverview
+    ? teamProfile
+    : { slug: authorProfile.slug, name: author?.name || authorProfile.name };
   return (
     <SiteShell>
       <article className="page-section">
@@ -87,10 +94,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             </h1>
             <p className="page-intro">{r.summary}</p>
             <div className="byline">
-              <Link href="/author/sumita-bhatti">
-                {r.is_sample
-                  ? 'Editorial layout preview'
-                  : `By ${r.id.startsWith('editorial-product-') ? 'SharpAndLean editorial team' : author?.name || 'SharpAndLean editorial team'}`}
+              {/* Label overviews are the desk's work; only evidence-led reviews
+                  carry the clinician's name. */}
+              <Link href={`/author/${byline.slug}`}>
+                {r.is_sample ? 'Editorial layout preview' : `By ${byline.name}`}
               </Link>
               <span>
                 {r.is_sample
