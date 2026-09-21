@@ -4053,3 +4053,18 @@ table {
     gap: 4px;
   }
 }
+
+.community-closed {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px dashed #d7dccf;
+  border-radius: 14px;
+  background: #f8f9f5;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #68705f;
+}
+.community-closed a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

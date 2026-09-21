@@ -9,6 +9,7 @@ import { ReviewCard } from './review-card';
 import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
 import { authorProfile, teamProfile } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
+import { hasSupabase } from '@/lib/config';
 import { Brain, Leaf, Flame } from 'lucide-react';
 import { TrustBar } from './evidence';
 import { ReferenceBox, PageHistory } from './article-footer';
@@ -61,6 +62,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   // A label overview records what a manufacturer published; it is not a
   // clinical assessment, so it must not be attributed to the clinician.
   const isLabelOverview = r.id.startsWith('editorial-product-');
+  // A submission can only be stored against a real database row. Built-in label
+  // overviews exist only in code, so their ids are not UUIDs and the API rejects
+  // them before it ever reaches the database. Showing a form that cannot succeed
+  // is worse than showing none.
+  const canAcceptSubmissions =
+    hasSupabase && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(r.id);
   const writtenBy = isLabelOverview
     ? teamProfile
     : { slug: authorProfile.slug, name: author?.name || authorProfile.name };
@@ -368,7 +375,17 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                     <p>{c.review_text}</p>
                   </div>
                 ))}
-                <CommunityForm reviewId={r.id} />
+                {canAcceptSubmissions ? (
+                  <CommunityForm reviewId={r.id} />
+                ) : (
+                  <p className="community-closed">
+                    Reader submissions open once a page is published from the editorial database.
+                    This overview is maintained in code, so there is nothing to attach a submission
+                    to yet. If you have used this product, send it through the{' '}
+                    <Link href="/contact">contact page</Link> and it will be considered when
+                    submissions open.
+                  </p>
+                )}
               </section>
             )}
           </div>
