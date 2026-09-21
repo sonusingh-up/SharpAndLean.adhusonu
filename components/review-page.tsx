@@ -88,6 +88,13 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
     r.category_slug === 'fat-burners' ? Flame : r.category_slug === 'nootropics' ? Brain : Leaf;
   const headline = r.ingredients.find((i) => i.evidence_rating !== 'none') || r.ingredients[0];
   const keyFigure = headline ? `${headline.dose}` : '';
+  const market = r.marketplace;
+  const perServing =
+    market?.servings && market.servings > 0
+      ? new Intl.NumberFormat('en-US', { style: 'currency', currency: market.currency }).format(
+          market.price / market.servings,
+        )
+      : null;
   return (
     <SiteShell>
       <article className="page-section">
@@ -184,17 +191,59 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               )}
               <div className="score-ring">
                 <strong>{r.score === null ? '—' : r.score.toFixed(1)}</strong>
-                <span>{r.score === null ? 'Not rated' : 'OUT OF 10'}</span>
+                {/* Labelled OUR SCORE so it reads as distinct from the
+                    marketplace rating shown directly beneath it. */}
+                <span title={r.score === null ? 'No score assigned by SharpAndLean' : undefined}>
+                  OUR SCORE
+                </span>
               </div>
             </div>
             <div className="featured-product-body">
               <span className="featured-product-label">At a glance</span>
               <h2>{r.product_name || r.title}</h2>
+
+              {market && (
+                <div className="glance-headline">
+                  <div className="glance-price">
+                    <strong>
+                      {new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: market.currency,
+                      }).format(market.price)}
+                    </strong>
+                    {perServing && <span>{perServing} per serving</span>}
+                  </div>
+                  {market.rating != null && (
+                    <div className="glance-rating">
+                      <span
+                        className="stars"
+                        style={{ '--fill': `${(market.rating / 5) * 100}%` } as React.CSSProperties}
+                        aria-hidden="true"
+                      >
+                        ★★★★★
+                      </span>
+                      <span>
+                        <strong>{market.rating.toFixed(1)}</strong> on {market.source}
+                        {market.ratingCount
+                          ? ` · ${market.ratingCount.toLocaleString()} ratings`
+                          : ''}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <dl>
                 {keyFigure && (
                   <div>
                     <dt>Key figure</dt>
                     <dd>{keyFigure}</dd>
+                  </div>
+                )}
+                {market?.servings && (
+                  <div>
+                    <dt>Servings</dt>
+                    <dd>{market.servings}</dd>
                   </div>
                 )}
                 <div>
@@ -205,14 +254,25 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                   <dt>Third-party tested</dt>
                   <dd>{r.third_party_tested ? 'Yes' : 'Not published'}</dd>
                 </div>
-                <div>
-                  <dt>Price</dt>
-                  <dd>{r.product_price || 'Not listed'}</dd>
-                </div>
               </dl>
+
               <a className="button featured-product-cta" href="#where-to-buy">
                 Where to buy <ArrowUpRight size={15} />
               </a>
+
+              {market && (
+                /* Somebody else's figures, dated, so a stale price is visibly
+                   stale rather than quietly wrong. */
+                <p className="glance-footnote">
+                  {market.source} price and rating checked{' '}
+                  {new Date(market.checkedAt).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                  . Both change — confirm on the listing before buying.
+                </p>
+              )}
             </div>
           </aside>
         </div>

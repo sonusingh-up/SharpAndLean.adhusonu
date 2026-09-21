@@ -4074,3 +4074,58 @@ table {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Glance panel: price and rating lead, the spec list supports them. */
+.glance-headline {
+  display: grid;
+  gap: 12px;
+  padding: 14px 0 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+}
+.glance-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.glance-price strong {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+.glance-price span {
+  font-size: 12px;
+  color: #8a9280;
+}
+.glance-rating {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11.5px;
+  color: #68705f;
+}
+.glance-rating strong {
+  color: #2f3a2c;
+  font-weight: 600;
+}
+/* Partial fill without an icon set: one gradient clipped to the glyphs. */
+.stars {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1;
+  flex: none;
+  background: linear-gradient(90deg, #c9a227 var(--fill), #dfe3d8 var(--fill));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.glance-footnote {
+  margin-top: 14px;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: #9aa192;
+}
