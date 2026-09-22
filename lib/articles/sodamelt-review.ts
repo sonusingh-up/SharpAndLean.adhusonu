@@ -35,6 +35,7 @@ export const sodameltReview: ProductArticle = {
   seoDescription:
     'SodaMelt is sold for bloating and “metabolic wellness”. The ingredient list contains cascara sagrada, buckthorn and Chinese rhubarb — and the page recommends taking it daily for three to six months.',
   listing: '30 capsules, one-month supply',
+  image: '/images/sodamelt.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/sodamelt',
   alternatives: ['colonbroom-review-2026', 'slimset-review'],
   writtenBy: 'team',
