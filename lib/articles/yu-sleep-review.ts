@@ -41,10 +41,9 @@ export const yuSleepReview: ProductArticle = {
   // line, which do not belong inside this site's own product card.
   image: '/images/yu-sleep.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/yu-sleep',
-  // Nothing here is comparable yet: the only other sleep-adjacent page is a label
-  // overview, and a comparison card must lead to a full review. An explicit empty
-  // list says so, rather than letting the category fallback offer whey protein.
-  alternatives: [],
+  // The same active, disclosed and undisclosed: NOW itemises its theanine and
+  // everything beside it, this page names neither.
+  alternatives: ['now-l-theanine-100-mg'],
   writtenBy: 'team',
   price: '$138 for a two-month package, down to $49 a month on the six-month',
   guarantee: '60-day money-back guarantee stated on the sales page',
