@@ -20,6 +20,8 @@ To enable Sentry performance tracing, set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_D
 
 Enable Clerk's native Supabase integration: add `role: "authenticated"` to Clerk session token claims and register the Clerk frontend domain in Supabase's Third-Party Auth settings. The server and browser clients pass Clerk session tokens through Supabase's `accessToken` callback. Do not use the deprecated Supabase JWT template integration.
 
+Each Clerk instance is its own issuer, so development and production must both be registered in Supabase. A project that trusts only `<slug>.clerk.accounts.dev` rejects production tokens with `PGRST301 — No suitable key was found to decode the JWT`, and because `requireAdmin()` reports any failed `is_admin` call the same way, `/admin` then claims the account is not an approved editor even though the allowlist row is present and the token's `sub`, `role` and `iss` are all correct. Both connections can coexist; adding the production domain does not disturb the development one.
+
 Create your test account using the site's **Sign up** button. To grant editorial access, add the approved account's Clerk user ID to `public.clerk_admin_users(clerk_user_id)` through the SQL editor. Public signup does not grant editor access. `002_clerk_auth.sql` preserves any existing Supabase editor records without converting or deleting them. Pages, server actions, database policies and storage policies enforce access; the allowlist cannot be edited by ordinary users or editors.
 
 ## Editorial setup
@@ -48,7 +50,11 @@ Import this directory as a Next.js project, set the environment variables and ru
 
 ## Still needed for public launch
 
-Live Supabase configuration and migrations; Vercel project details and Clerk production instance; verified review copy, ingredient research and affiliate URLs; Sumita's complete approved biography and credentials; operator contact and completed legal pages. Sumita's supplied portrait and LinkedIn URL are already included. Email delivery and the post-launch automation hooks are not connected. Clerk development configuration passes `clerk doctor`; production is not configured yet. Full signup and signed-in account verification require the user's test account.
+Verified review copy, ingredient research and affiliate URLs; Sumita's complete approved biography and credentials; operator contact and completed legal pages. Sumita's supplied portrait and LinkedIn URL are already included. Email delivery and the post-launch automation hooks are not connected. `SUPABASE_SERVICE_ROLE_KEY` is unset in Vercel, so `lib/public-api.ts` cannot run; the Supabase integration supplies that same secret under the name `SUPABASE_SECRET_KEY`.
+
+## Configured
+
+The Supabase project and migrations 001–003 are live, the Vercel production deployment serves `sharpandlean.com`, and the Clerk production instance at `clerk.sharpandlean.com` is registered in Supabase's Third-Party Auth beside the development one. Editor sign-in to `/admin` is verified end to end. Editorial content is still assembled from `lib/articles/*.ts`: the `reviews` table is empty, so `CONTENT_SOURCE` must stay unset, and the CMS's review, best-of and comparison sections read that empty table rather than the published articles.
 
 ## Artwork
 
