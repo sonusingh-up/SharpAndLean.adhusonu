@@ -29,7 +29,19 @@ export const metadata = pageMeta(
   '/',
 );
 export default async function Home() {
-  const reviews = (await getReviews()).slice(0, 4);
+  const all = await getReviews();
+  /* "Best" on this site can only mean one thing: the highest total against the
+     five published criteria. Deriving the shortlist from the scores rather than
+     hand-picking it means the homepage cannot drift from the pages it links to,
+     and a product cannot be promoted here without earning it on its own page.
+     Label overviews carry no score and are therefore not eligible. */
+  const topRated = all
+    .filter((r) => r.score !== null)
+    .sort((a, b) => (b.score as number) - (a.score as number))
+    .slice(0, 3);
+  const topRatedIds = new Set(topRated.map((r) => r.id));
+  // Everything else, so the page does not show the same product twice.
+  const reviews = all.filter((r) => !topRatedIds.has(r.id)).slice(0, 4);
   return (
     <div className="site-frame home-frame">
       <div className="hero-image">
@@ -261,6 +273,31 @@ export default async function Home() {
             <Link href="/medical-disclaimer">What that means for you</Link>.
           </p>
         </section>
+        {topRated.length > 0 && (
+          <section className="section" id="top-rated">
+            <div className="section-heading">
+              <div>
+                <SectionLabel>What scores best</SectionLabel>
+                <h2>
+                  The best
+                  <br />
+                  we’ve reviewed.
+                </h2>
+              </div>
+              <p>
+                Ranked by their score against{' '}
+                <Link href="/evidence-grading#product-scores">the five criteria</Link>, never by
+                what pays. Everything scored so far is a protein powder — that reflects what we have
+                reviewed, not the category.
+              </p>
+            </div>
+            <div className="review-grid review-grid-three">
+              {topRated.map((r) => (
+                <ReviewCard key={r.id} review={r} />
+              ))}
+            </div>
+          </section>
+        )}
         <section className="section" id="reviews">
           <div className="section-heading">
             <div>

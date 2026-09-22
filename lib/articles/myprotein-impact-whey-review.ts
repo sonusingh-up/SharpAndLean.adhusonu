@@ -31,7 +31,7 @@ export const myproteinImpactWhey: ProductArticle = {
   },
   seoTitle: 'Myprotein Impact Whey Review: The UK Price Benchmark',
   seoDescription:
-    'A UK review of Myprotein Impact Whey Protein: what £1.10 a serving actually buys, why the protein figure moves with the flavour, and what Informed Protein certification does and does not cover.',
+    'Myprotein Impact Whey reviewed: what £1.10 a serving really buys, why the protein figure moves with the flavour, and what its certification misses.',
   listing: '900 g, 30 servings, vanilla',
   image: 'https://static.thcdn.com/productimg/original/10530943-6705347406722854.png',
   affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-whey-uk',

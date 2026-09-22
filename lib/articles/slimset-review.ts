@@ -29,9 +29,9 @@ export const slimsetReview: ProductArticle = {
     // should not take it. The unstated green tea extract dose is the open risk.
     'Safety and tolerability': 5,
   },
-  seoTitle: 'SlimSet Review: One Dose Disclosed, and It’s Caffeine',
+  seoTitle: 'SlimSet Review 2026: Does It Work, or Is It Caffeine?',
   seoDescription:
-    'SlimSet names five ingredients and puts a number next to one of them — 138 mg of caffeine. We went through the sales page line by line: the missing panel, the price arithmetic, and what the evidence shows.',
+    'SlimSet lists five ingredients and puts a number next to one — 138 mg of caffeine. What the sales page leaves out, and what it costs you per day.',
   listing: '30 capsules, one-month supply',
   image: '/images/slimset.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/slimset',
