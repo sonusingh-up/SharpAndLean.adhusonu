@@ -34,6 +34,7 @@ export const myproteinImpactWhey: ProductArticle = {
     'A UK review of Myprotein Impact Whey Protein: what £1.10 a serving actually buys, why the protein figure moves with the flavour, and what Informed Protein certification does and does not cover.',
   listing: '900 g, 30 servings, vanilla',
   image: 'https://static.thcdn.com/productimg/original/10530943-6705347406722854.png',
+  affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-whey-uk',
   alternatives: ['optimum-nutrition-uk-review-2026', 'kinetica-whey-protein-review'],
   writtenBy: 'team',
   price: '£32.99 for 30 servings, checked 22 September 2026',

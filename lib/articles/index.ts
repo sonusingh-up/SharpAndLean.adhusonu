@@ -9,6 +9,7 @@ import { colonbroomReview2026 } from './colonbroom-review-2026';
 import { optimumNutritionUkReview2026 } from './optimum-nutrition-uk-review-2026';
 import { myproteinImpactWhey } from './myprotein-impact-whey-review';
 import { kineticaWheyProtein } from './kinetica-whey-protein-review';
+import { slimsetReview } from './slimset-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -27,6 +28,7 @@ export const articles: ProductArticle[] = [
   optimumNutritionUkReview2026,
   myproteinImpactWhey,
   kineticaWheyProtein,
+  slimsetReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and
