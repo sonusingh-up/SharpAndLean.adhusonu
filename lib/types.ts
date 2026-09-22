@@ -49,6 +49,12 @@ export type Review = {
   /** Desk byline: the team, or the clinician writing in her own name. */
   written_by?: 'team' | 'clinician';
   /**
+   * Author slug of someone who used the product themselves. Credited beside the
+   * writer, never instead of them: using a product and assessing its evidence
+   * are different jobs.
+   */
+  tested_by?: string;
+  /**
    * Figures observed on a retailer listing on a given date. Namespaced because
    * these are somebody else's numbers: the rating is the marketplace's, not an
    * assessment by this site, and it must never be published as aggregateRating.

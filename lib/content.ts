@@ -33,7 +33,11 @@ export function cleanHtml(html: string) {
         attribs: {
           ...attrs,
           rel: 'noopener noreferrer',
-          ...(attrs.href && /clickbank|hop\.clickbank|awin|gurumedia/i.test(attrs.href)
+          /* Commission-earning links must not pass link equity. `/recommended/`
+             is this site's own affiliate redirect namespace, so a body link
+             into it is a paid link even though the host is ours. */
+          ...(attrs.href &&
+          /clickbank|hop\.clickbank|awin|gurumedia|\/recommended\//i.test(attrs.href)
             ? { rel: 'sponsored nofollow noopener noreferrer' }
             : {}),
         },

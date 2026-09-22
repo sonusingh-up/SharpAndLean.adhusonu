@@ -50,8 +50,8 @@ export function toReview(a: ProductArticle, index: number): Review {
     cons: a.cons ?? [],
     ingredients: a.ingredients ?? [],
     faqs: a.faqs ?? [],
-    affiliate_url: '',
-    affiliate_network: '',
+    affiliate_url: a.affiliateUrl ?? '',
+    affiliate_network: a.affiliateNetwork ?? '',
     product_price: a.price ?? 'Check current seller price',
     price_amount: null,
     currency: 'USD',
@@ -76,6 +76,7 @@ export function toReview(a: ProductArticle, index: number): Review {
     // the label template is an overview of what the manufacturer published.
     is_label_overview: isLabelOverview,
     written_by: a.writtenBy ?? 'team',
+    tested_by: a.testedBy,
     // The manufacturer page is the source every figure on an overview is taken
     // from, so it is cited rather than only linked inside the body copy.
     references: a.references ?? [

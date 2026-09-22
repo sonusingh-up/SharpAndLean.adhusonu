@@ -50,12 +50,32 @@ export const authors: AuthorProfile[] = [
       'Editorial corrections',
     ],
   },
+  {
+    name: 'Pankaj Singh',
+    slug: 'pankaj-singh',
+    title: 'Hands-on Product Tester',
+    kind: 'person',
+    bio: 'Pankaj Singh buys supplements with his own money and uses them long enough to have an opinion worth reading. He drank Optimum Nutrition Gold Standard 100% Whey almost daily for three years while training in India, across several tubs and flavours, which is the kind of exposure a one-week trial cannot produce. What he contributes is narrow and specific: how a powder mixes, how it tastes by the fiftieth shake rather than the first, how a scoop and a tub behave in a humid kitchen, and how his own digestion handled it. He is not a clinician, his experience is one person’s, and the tubs he used were bought in India rather than the United Kingdom — all three limits are stated on any page carrying his name.',
+    role: 'Supplies first-hand use notes on products he has bought and used himself.',
+    credentials: [
+      'Reports only on products he has personally bought and used, for a stated length of time',
+      'Separates what he experienced from what the research shows',
+      'States the market he bought in, because formulas and labels differ by country',
+    ],
+    specialisations: [
+      'Long-term daily use notes',
+      'Mixing, texture and taste over months rather than days',
+      'Tolerability and practical routine fit',
+    ],
+  },
 ];
 
 /** Default author for evidence-led reviews. */
-export const authorProfile = authors[0];
+export const authorProfile = authors.find((a) => a.slug === 'sumita-bhatti')!;
 /** Byline used for label overviews, guides and comparisons. */
-export const teamProfile = authors[1];
+export const teamProfile = authors.find((a) => a.slug === 'snl-team')!;
+/** Credited separately from the writer when a page rests on first-hand use. */
+export const testerProfile = authors.find((a) => a.slug === 'pankaj-singh')!;
 
 export function getAuthorBySlug(slug: string) {
   return authors.find((a) => a.slug === slug);

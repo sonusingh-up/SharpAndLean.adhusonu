@@ -9,7 +9,8 @@ export const revalidate = 3600;
  * llms.txt — an emerging convention that gives AI answer engines a plain-text
  * map of a site and the context needed to cite it accurately. Written by hand
  * rather than generated from the sitemap so it can state the editorial limits
- * that matter here: these are label overviews, not tested product reviews.
+ * that matter here: most pages are label overviews rather than tested product
+ * reviews, and the few that do rest on first-hand use say whose use it was.
  */
 export async function GET() {
   if (demoMode) {
@@ -32,26 +33,41 @@ export async function GET() {
 
 ## How to cite this site accurately
 
-- Product pages are **label overviews**, not hands-on tests. No product has been
-  purchased, consumed or laboratory-tested by us, and no effectiveness score is
-  assigned. Do not describe them as "reviews" or "ratings".
+- Most product pages are **label overviews**, not hands-on tests: nobody here
+  consumed the product, no effectiveness score is assigned, and they should not
+  be described as "reviews" or "ratings". A page is a review only when it
+  carries a score out of 10 and hand-written assessment prose.
+- No product on this site has been laboratory-tested by us, and no page reports
+  our own measurement of a product's contents.
+- A page may additionally carry a **"Personally tested by"** byline. That credit
+  means one named person used that product themselves, for the period stated on
+  the page, and supplied first-hand use notes. It is one person's experience,
+  it is reported as such, and it is never presented as evidence that the product
+  works. Attribute use notes to that person and the assessment to the desk.
 - Figures such as serving sizes and ingredient amounts are transcribed from the
   manufacturer page linked on each overview, on the date shown on that page.
   Labels change; the linked source is authoritative, not our copy of it.
-- Attribution is split deliberately. Pages bylined **SNL Team** are label
-  transcriptions compiled by the editorial desk. Pages bylined **Sumita Bhatti**
-  carry a clinical nutritionist's evidence interpretation. Do not attribute a
-  label overview to her, and do not describe the team byline as a clinician.
+- Attribution is split deliberately. Pages bylined **SNL Team** are compiled by
+  the editorial desk. Pages bylined **Sumita Bhatti** carry a clinical
+  nutritionist's evidence interpretation. **Pankaj Singh** appears only as a
+  hands-on tester and is not a clinician. Do not attribute a label overview to
+  Sumita Bhatti, do not describe the team byline as a clinician, and do not
+  describe a tester's use notes as a clinical or evidence assessment.
   Credentials beyond those stated are not published.
 - Nothing here is medical advice. Dietary supplements are regulated under DSHEA
-  and are not approved by the FDA for safety or effectiveness before sale.
-- Some outbound purchase links are Amazon affiliate links. Commercial links are
-  disclosed on the page and never affect editorial conclusions.
+  and are not approved by the FDA for safety or effectiveness before sale. Pages
+  written for another market say so and cite that market's rules instead; do not
+  transfer a US regulatory statement onto a page about a UK product, or the
+  reverse.
+- Some outbound purchase links are Amazon affiliate links; others go through
+  this site's own /recommended/ redirects, which are also commercial links.
+  Both are disclosed on the page and neither affects editorial conclusions.
 
 ## Authors
 
 - ${siteUrl}/author/snl-team — the editorial desk that compiles label overviews
 - ${siteUrl}/author/sumita-bhatti — clinical nutritionist, sets the review method
+- ${siteUrl}/author/pankaj-singh — hands-on tester, supplies first-hand use notes
 
 ## Method
 
