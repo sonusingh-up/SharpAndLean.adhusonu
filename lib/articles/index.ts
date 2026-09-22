@@ -7,8 +7,8 @@ import { nowOmega3MolecularlyDistilled } from './now-omega-3-molecularly-distill
 import { natureMadeVitaminD31000Iu } from './nature-made-vitamin-d3-1000-iu';
 import { colonbroomReview2026 } from './colonbroom-review-2026';
 import { optimumNutritionUkReview2026 } from './optimum-nutrition-uk-review-2026';
-import { myproteinImpactWhey } from './myprotein-impact-whey';
-import { kineticaWheyProtein } from './kinetica-whey-protein';
+import { myproteinImpactWhey } from './myprotein-impact-whey-review';
+import { kineticaWheyProtein } from './kinetica-whey-protein-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
