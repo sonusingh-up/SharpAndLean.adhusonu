@@ -2,24 +2,22 @@ import { productReviews, productAsins, editorialCollections } from './products';
 import { contentFromSupabase, hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
-import { amazonLink, amazonSearchLink, hasAmazonTag } from './amazon';
+import { amazonLink, hasAmazonTag } from './amazon';
 export async function getReviews(): Promise<Review[]> {
   // With no partner tag configured the affiliate slot stays empty rather than
   // showing an untagged commercial link.
   if (!contentFromSupabase)
     return productReviews.map((review) => {
-      // An article that names its own commercial link keeps it. The Amazon
-      // fallback below is a US .com link, so silently replacing a deliberate
-      // link would send, say, a UK reader to the wrong marketplace.
+      // An article that names its own commercial link keeps it. The fallback
+      // below is a US .com link, so silently replacing a deliberate link would
+      // send, say, a UK reader to the wrong marketplace.
       if (review.affiliate_url || !hasAmazonTag) return review;
+      // Only a verified ASIN earns an automatic link. The old fallback was a
+      // tagged keyword search, which guesses a listing rather than naming one —
+      // and on the US store, which is the wrong shop for a UK-only product.
       const asin = productAsins[review.slug];
-      return {
-        ...review,
-        // A verified ASIN gives a direct listing; otherwise fall back to a
-        // tagged search so the link still works and still earns.
-        affiliate_url: asin ? amazonLink(asin) : amazonSearchLink(review.product_name),
-        affiliate_network: 'Amazon',
-      };
+      if (!asin) return review;
+      return { ...review, affiliate_url: amazonLink(asin), affiliate_network: 'Amazon' };
     });
   const { data, error } = await publicClient()
     .from('reviews')

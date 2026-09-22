@@ -54,6 +54,8 @@ export type Review = {
    * are different jobs.
    */
   tested_by?: string;
+  /** Slugs to compare against, in order, overriding the same-category default. */
+  alternative_slugs?: string[];
   /**
    * Figures observed on a retailer listing on a given date. Namespaced because
    * these are somebody else's numbers: the rating is the marketplace's, not an

@@ -77,6 +77,7 @@ export function toReview(a: ProductArticle, index: number): Review {
     is_label_overview: isLabelOverview,
     written_by: a.writtenBy ?? 'team',
     tested_by: a.testedBy,
+    alternative_slugs: a.alternatives,
     // The manufacturer page is the source every figure on an overview is taken
     // from, so it is cited rather than only linked inside the body copy.
     references: a.references ?? [

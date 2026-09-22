@@ -60,6 +60,14 @@ export type ProductArticle = {
   /** Names the destination on the button, e.g. "Amazon" or "Holland & Barrett". */
   affiliateNetwork?: string;
 
+  /**
+   * Slugs to show in "How does it compare?", in order. Without this the page
+   * falls back to other articles in the same category, which is only a useful
+   * comparison when the category happens to be narrow — "wellness" holds fish
+   * oil and vitamin D as readily as it holds whey.
+   */
+  alternatives?: string[];
+
   brand?: string;
   asin?: string;
   /** Which pack the commercial link points at, e.g. "90 veg capsules". */
