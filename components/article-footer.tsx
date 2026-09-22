@@ -1,4 +1,5 @@
 import type { Citation } from '@/lib/ingredients';
+import { linkRel } from '@/lib/content';
 
 export type HistoryEntry = {
   date: string;
@@ -42,7 +43,7 @@ export function ReferenceBox({ references }: { references: Citation[] }) {
           {references.map((r) => (
             <li key={r.id} id={`ref-${r.id}`}>
               {r.url ? (
-                <a href={r.url} target="_blank" rel="noopener noreferrer">
+                <a href={r.url} target="_blank" rel={linkRel(r.url)}>
                   {r.text}
                 </a>
               ) : (

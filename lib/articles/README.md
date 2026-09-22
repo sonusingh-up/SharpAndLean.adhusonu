@@ -31,6 +31,15 @@ export const exampleProduct: ProductArticle = {
 
 The URL is `/<category>/<slug>`.
 
+## Slugs
+
+A review's slug is `<product-name>-review`, e.g. `kinetica-whey-protein-review`.
+The file is named after the slug, so renaming one means renaming both and
+updating the import in `index.ts`, every `alternatives` entry pointing at it,
+and every in-body link. A published slug is a promise to the outside world:
+change one only if nothing external links to it yet, and add a redirect if
+anything does.
+
 ## Two kinds of page
 
 The shape of the file decides which one you get:
@@ -85,6 +94,21 @@ writer. Set it only when someone named actually used the product, and say in
 the body how long for, in which market, and what their experience does not
 establish. It is the one claim on a page here that a reader cannot check
 against a label, so it carries a correspondingly higher burden.
+
+## Outbound links are nofollow
+
+Every link out of a page — citations, manufacturer sources, retailers, research
+bodies — is rendered `rel="nofollow"`, and commercial links additionally carry
+`sponsored`. That is handled centrally by `linkRel()` in `lib/content.ts`, which
+`cleanHtml` applies to body copy and the references box applies to citations, so
+an article file never sets `rel` itself. Write plain `<a href="...">` and it
+comes out right.
+
+The reasoning: the links exist so a reader can check a figure, which nofollow
+does not affect. What the site does not do is hand ranking signal to the
+manufacturers, retailers and organisations it writes about, because it writes
+about them critically and the two should not be entangled. Internal links are
+relative and pass equity normally.
 
 ## Commercial links
 

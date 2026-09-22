@@ -1,7 +1,7 @@
 import type { ProductArticle } from './types';
 
 export const kineticaWheyProtein: ProductArticle = {
-  slug: 'kinetica-whey-protein',
+  slug: 'kinetica-whey-protein-review',
   name: 'Kinetica Whey Protein',
   brand: 'Kinetica',
   category: 'wellness',
@@ -35,7 +35,7 @@ export const kineticaWheyProtein: ProductArticle = {
     'A UK review of Kinetica Whey Protein: the full panel it publishes, what Informed Sport batch testing actually protects you from, why the “glutamine” figure is glutamic acid, and what a serving costs.',
   listing: '2.27 kg, 76 servings, vanilla',
   image: 'https://m.media-amazon.com/images/I/61-3HdTLUmL._AC_SY879_.jpg',
-  alternatives: ['optimum-nutrition-uk-review-2026', 'myprotein-impact-whey'],
+  alternatives: ['optimum-nutrition-uk-review-2026', 'myprotein-impact-whey-review'],
   writtenBy: 'team',
   price: '£89.99 for 76 servings, checked 22 September 2026',
   guarantee: 'Free UK shipping over £50 stated on the brand’s own store',
@@ -82,12 +82,12 @@ export const kineticaWheyProtein: ProductArticle = {
 <h2>Informed Sport: what batch testing actually protects you from</h2>
 <p>Anti-doping operates on strict liability. If a banned substance is in your sample, it is your problem, regardless of how it got there or whether the contamination was anyone’s fault. That is why supplement certification is a genuine issue for a competing athlete and a mostly theoretical one for everybody else.</p>
 <p>The brand states that every batch of this product is batch tested and certified under Informed Sport against the WADA list. Three words in that sentence carry the weight: <em>every batch</em>. A site registration tells you a factory was inspected. A product certification tells you the recipe was assessed. Batch testing tells you that the specific run your tub came from was screened — which is the only one of the three that describes the powder in your kitchen.</p>
-<p>The comparison that makes this concrete is <a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard</a>. That company states its Middlesbrough site is Informed-Sport registered, and separately names which of its products are Informed Sport registered — the standard retail Gold Standard tub is not among them. <a href="/wellness/myprotein-impact-whey">Myprotein Impact Whey</a> carries an Informed Protein certification, which verifies protein content and purity rather than banned substances. Three products, three different claims, and only one of them is about the batch in front of you.</p>
+<p>The comparison that makes this concrete is <a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard</a>. That company states its Middlesbrough site is Informed-Sport registered, and separately names which of its products are Informed Sport registered — the standard retail Gold Standard tub is not among them. <a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a> carries an Informed Protein certification, which verifies protein content and purity rather than banned substances. Three products, three different claims, and only one of them is about the batch in front of you.</p>
 <p>One caveat we will not skip. We could not open the Informed Sport product directory for this review — it returned a bot-verification page — so the batch-testing statement above is the brand’s, accurately reported, and not something we confirmed with the certifier. If you compete, look your own tub’s batch code up. That takes a minute and is the entire point of the programme.</p>
 
 <h2>Price: where this lands against the cheap stuff</h2>
 <p>From the brand’s own store on 22 September 2026: 300 g at £20.99 (£2.10 a serving), 1 kg at £52.99 (£1.61), 2.27 kg at £89.99 (£1.19) and 4.5 kg at £145.99 (£0.98). Free UK shipping over £50. Those per-serving figures are the brand’s own, and it rounds a couple of them up — £89.99 over 76 servings is £1.18, which is what the product card on this page shows.</p>
-<p>Convert to the figure that actually compares products — cost per 100 g of protein, at 23 g a scoop — and the 2.27 kg pack is about £5.17, the 4.5 kg about £4.26, and the 300 g pack a wince-inducing £9.13. For reference, <a href="/wellness/myprotein-impact-whey">Myprotein Impact Whey</a> worked out at roughly £5.00 on the same day.</p>
+<p>Convert to the figure that actually compares products — cost per 100 g of protein, at 23 g a scoop — and the 2.27 kg pack is about £5.17, the 4.5 kg about £4.26, and the 300 g pack a wince-inducing £9.13. For reference, <a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a> worked out at roughly £5.00 on the same day.</p>
 <p>So the honest summary is that batch testing here costs you almost nothing at 2.27 kg and saves you money at 4.5 kg. That is not what most people assume about certified products, and it is the most useful thing on this page. The small packs are for trying a flavour, not for buying protein.</p>
 <p>The usual caution applies to large packs: cheapest per gram is only cheapest if you finish it. A 4.5 kg sack is 150 servings of one flavour.</p>
 
@@ -211,6 +211,10 @@ export const kineticaWheyProtein: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-22',
+      note: 'Slug changed from kinetica-whey-protein to kinetica-whey-protein-review, matching the <product>-review convention. Nothing linked to the old address outside this repository, so no redirect was needed. Outbound links on this page are now nofollow, including the citations — they are here so a figure can be checked, not to pass ranking signal to the brands and organisations the page writes about.',
+    },
     {
       date: '2026-09-22',
       note: 'First published. The full nutrition panel, amino acid profile, ingredient list, directions and all four pack prices were read from the brand’s own UK store on this date. Scored 8.0 out of 10, with the highest label-transparency mark on the site: the brand publishes in text what its larger competitors publish as an image or not at all. The Informed Sport directory could not be opened to confirm a current batch listing, and the page says so rather than implying verification.',

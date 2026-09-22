@@ -1,7 +1,7 @@
 import type { ProductArticle } from './types';
 
 export const myproteinImpactWhey: ProductArticle = {
-  slug: 'myprotein-impact-whey',
+  slug: 'myprotein-impact-whey-review',
   name: 'Myprotein Impact Whey Protein',
   brand: 'Myprotein',
   category: 'wellness',
@@ -34,7 +34,7 @@ export const myproteinImpactWhey: ProductArticle = {
     'A UK review of Myprotein Impact Whey Protein: what £1.10 a serving actually buys, why the protein figure moves with the flavour, and what Informed Protein certification does and does not cover.',
   listing: '900 g, 30 servings, vanilla',
   image: 'https://static.thcdn.com/productimg/original/10530943-6705347406722854.png',
-  alternatives: ['optimum-nutrition-uk-review-2026', 'kinetica-whey-protein'],
+  alternatives: ['optimum-nutrition-uk-review-2026', 'kinetica-whey-protein-review'],
   writtenBy: 'team',
   price: '£32.99 for 30 servings, checked 22 September 2026',
   guarantee: '30-day returns stated on the brand’s own checkout',
@@ -77,7 +77,7 @@ export const myproteinImpactWhey: ProductArticle = {
 <p>Myprotein’s product page describes the range as “quality tested” and “certified by world leading labs” without naming a certifier, which on its own is the kind of phrase this site treats as marketing. There is, however, something concrete behind it.</p>
 <p>In <a href="https://www.thg.com/news/article-3">a July 2025 announcement from its parent company</a>, Myprotein said Impact Whey Protein and Impact Whey Isolate had become the first of its products certified under Informed Protein, an independent programme run by the testing authority LGC. The announcement describes that certification as verifying true protein content free from amino acid spiking and fillers, product purity against contaminants and undeclared ingredients, and manufacturing standards.</p>
 <p>That is a meaningful thing to hold in a category with a documented label-accuracy problem — the same announcement cites research finding only 27 per cent of protein powders contained their stated protein amount. If your worry is that a cheap whey is padded with free amino acids to inflate its protein number, this is the certification that addresses it directly.</p>
-<p>What it is not is a banned-substance certification. Informed Protein and Informed Sport are different programmes with different purposes, even though LGC runs both. Informed Sport is the one that batch-tests for substances on the WADA list, and it is the one a drug-tested athlete needs. We have not verified a current Informed Sport batch listing for this product, so if you compete, check the certifier’s database for your specific batch rather than reading one certification as if it were the other. Our <a href="/wellness/kinetica-whey-protein">Kinetica Whey Protein review</a> covers a product that makes the banned-substance claim explicitly.</p>
+<p>What it is not is a banned-substance certification. Informed Protein and Informed Sport are different programmes with different purposes, even though LGC runs both. Informed Sport is the one that batch-tests for substances on the WADA list, and it is the one a drug-tested athlete needs. We have not verified a current Informed Sport batch listing for this product, so if you compete, check the certifier’s database for your specific batch rather than reading one certification as if it were the other. Our <a href="/wellness/kinetica-whey-protein-review">Kinetica Whey Protein review</a> covers a product that makes the banned-substance claim explicitly.</p>
 
 <h2>Price: the arithmetic, and the trap in it</h2>
 <p>£32.99 divided by 30 servings is £1.10 a serving, which the brand states itself. Divide that by the 22 g of protein in a scoop and multiply by 100 and you get about £5.00 per 100 g of protein. Use that second figure, not the first, whenever you compare tubs: cost per serving flatters any product with a small scoop.</p>
@@ -202,6 +202,10 @@ export const myproteinImpactWhey: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-22',
+      note: 'Slug changed from myprotein-impact-whey to myprotein-impact-whey-review, matching the <product>-review convention. Nothing linked to the old address outside this repository, so no redirect was needed. Outbound links on this page are now nofollow, including the citations — they are here so a figure can be checked, not to pass ranking signal to the brands and organisations the page writes about.',
+    },
     {
       date: '2026-09-22',
       note: 'First published. Serving count, protein figure, protein percentage, ingredient list and the £32.99 price read from the brand’s own UK page on this date. Scored 7.6 out of 10: the value mark is the highest on the site so far, and the transparency mark reflects a headline protein figure taken from the best flavour in the range and a nutrition panel we could not read in full.',
