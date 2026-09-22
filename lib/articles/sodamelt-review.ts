@@ -31,9 +31,9 @@ export const sodameltReview: ProductArticle = {
     // only thing keeping this off 0.
     'Safety and tolerability': 2,
   },
-  seoTitle: 'SodaMelt Review: Three Laxatives in a Proprietary Blend',
+  seoTitle: 'SodaMelt Review 2026: Is It Just a Laxative Blend?',
   seoDescription:
-    'SodaMelt is sold for bloating and “metabolic wellness”. The ingredient list contains cascara sagrada, buckthorn and Chinese rhubarb — and the page recommends taking it daily for three to six months.',
+    'SodaMelt is sold for bloating and metabolic wellness. Its blend holds three stimulant laxatives, no doses — and it says take one every day for months.',
   listing: '30 capsules, one-month supply',
   image: '/images/sodamelt.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/sodamelt',

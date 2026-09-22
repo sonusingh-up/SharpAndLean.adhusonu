@@ -33,7 +33,7 @@ export const optimumNutritionUkReview2026: ProductArticle = {
   },
   seoTitle: 'Optimum Nutrition Gold Standard Whey: UK Review 2026',
   seoDescription:
-    'A UK review of Optimum Nutrition Gold Standard 100% Whey: the 24 g label, what the protein research supports, the Informed Sport detail most reviews get wrong, and three years of daily use.',
+    'ON Gold Standard whey reviewed for the UK: the 24 g label, what it costs per gram of protein, and the Informed Sport detail most reviews get wrong.',
   listing: '900 g tub, unflavoured, 30 servings',
   image: '/images/optimum-nutrition-gold-standard-whey.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',

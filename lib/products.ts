@@ -70,7 +70,7 @@ const collectionDrafts: CollectionDraft[] = [
     slug: 'optimum-nutrition-vs-myprotein-impact-whey',
     seo_title: 'ON Gold Standard vs Myprotein Impact Whey: Worth £7 More?',
     seo_desc:
-      'Same 900 g tub, same 30 servings, £7 apart at the cheapest. We put both UK labels side by side — protein per scoop, protein by weight, and what that gap actually buys.',
+      'Same 900 g tub, same 30 servings, £7 apart at the cheapest. Both UK labels side by side: protein per scoop, protein by weight, and what the gap buys.',
     summary:
       'Two 900 g tubs, thirty servings each, sold in the same country on the same day — and one costs at least £7 more. This is about as clean as a supplement comparison gets, so the only question left is what the extra money is actually buying.',
     verdict:

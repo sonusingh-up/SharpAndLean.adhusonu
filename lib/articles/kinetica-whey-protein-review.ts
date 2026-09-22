@@ -32,7 +32,7 @@ export const kineticaWheyProtein: ProductArticle = {
   },
   seoTitle: 'Kinetica Whey Protein Review: Batch-Tested, Fully Labelled',
   seoDescription:
-    'A UK review of Kinetica Whey Protein: the full panel it publishes, what Informed Sport batch testing actually protects you from, why the “glutamine” figure is glutamic acid, and what a serving costs.',
+    'Kinetica Whey reviewed: the full panel it publishes, what batch testing really protects you from, and why its “glutamine” figure is glutamic acid.',
   listing: '2.27 kg, 76 servings, vanilla',
   image: 'https://m.media-amazon.com/images/I/61-3HdTLUmL._AC_SY879_.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/kinetica-whey-uk',
