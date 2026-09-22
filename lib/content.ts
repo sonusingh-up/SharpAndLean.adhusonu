@@ -18,7 +18,8 @@ export function safeUrl(url: string) {
 /* Commission-earning links. `/recommended/` is this site's own affiliate
    redirect namespace, so a body link into it is a paid link even though the
    host is ours. */
-const PAID_LINK = /clickbank|hop\.clickbank|awin|gurumedia|\/recommended\//i;
+const PAID_LINK =
+  /clickbank|hop\.clickbank|awin|gurumedia|amzn\.to|amazon\.[a-z.]+[^\s"]*[?&]tag=|\/recommended\//i;
 
 /**
  * The `rel` for a link in body copy.

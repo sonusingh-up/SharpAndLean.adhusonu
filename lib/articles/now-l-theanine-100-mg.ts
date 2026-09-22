@@ -42,6 +42,8 @@ export const nowLTheanine100Mg: ProductArticle = {
   listing: '90 veg capsules',
   image:
     'https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2022-08/0145_mainimage.png?itok=-_KLBkES',
+  affiliateUrl: 'https://amzn.to/4dr7gR2',
+  affiliateNetwork: 'Amazon',
   alternatives: ['yu-sleep-review'],
   writtenBy: 'team',
   price: '$21.99 for 90 capsules on the manufacturer’s own store',
