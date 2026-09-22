@@ -13,6 +13,8 @@ const config: NextConfig = {
       // should be replaced with the API-supplied ones.
       { protocol: 'https', hostname: 'm.media-amazon.com' },
       { protocol: 'https', hostname: 'images-na.ssl-images-amazon.com' },
+      // Myprotein product imagery, served from THG's shared product CDN.
+      { protocol: 'https', hostname: 'static.thcdn.com', pathname: '/productimg/**' },
     ],
   },
   async headers() {

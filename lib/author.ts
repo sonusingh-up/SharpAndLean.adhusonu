@@ -55,6 +55,7 @@ export const authors: AuthorProfile[] = [
     slug: 'pankaj-singh',
     title: 'Hands-on Product Tester',
     kind: 'person',
+    photo_url: '/images/pankaj.jpg',
     bio: 'Pankaj Singh buys supplements with his own money and uses them long enough to have an opinion worth reading. He drank Optimum Nutrition Gold Standard 100% Whey almost daily for three years while training in India, across several tubs and flavours, which is the kind of exposure a one-week trial cannot produce. What he contributes is narrow and specific: how a powder mixes, how it tastes by the fiftieth shake rather than the first, how a scoop and a tub behave in a humid kitchen, and how his own digestion handled it. He is not a clinician, his experience is one person’s, and the tubs he used were bought in India rather than the United Kingdom — all three limits are stated on any page carrying his name.',
     role: 'Supplies first-hand use notes on products he has bought and used himself.',
     credentials: [

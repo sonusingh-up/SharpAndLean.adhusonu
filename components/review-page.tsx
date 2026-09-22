@@ -17,7 +17,7 @@ import { CommunityForm } from './community-form';
 import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
-import { amazonLink, amazonSearchLink } from '@/lib/amazon';
+import { amazonLink } from '@/lib/amazon';
 export function AffiliateButton({
   review,
   fallback = null,
@@ -50,9 +50,15 @@ export function AffiliateButton({
 }
 export async function ReviewPage({ review: r, all }: { review: Review; all: Review[] }) {
   const category = categories.find((c) => c.slug === r.category_slug)!;
-  const related = all
-    .filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
-    .slice(0, 3);
+  // A page can name its own comparisons. Falling back to "same category" puts
+  // fish oil beside a whey protein, which compares nothing a reader can use.
+  const related = (
+    r.alternative_slugs?.length
+      ? r.alternative_slugs
+          .map((slug) => all.find((v) => v.slug === slug && v.id !== r.id))
+          .filter((v): v is Review => Boolean(v))
+      : all.filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
+  ).slice(0, 3);
   const { toc } = articleContent(r.body);
   // Body headings are anchored with a positional suffix, so resolve the sources
   // section from the generated table of contents rather than guessing its id.
@@ -153,9 +159,21 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 <Link href={`/author/${writtenBy.slug}`}>{writtenBy.name}</Link>
               </div>
               {testedBy && (
-                <div className="byline-person">
-                  <span className="byline-role">Personally tested by</span>
-                  <Link href={`/author/${testedBy.slug}`}>{testedBy.name}</Link>
+                <div className="byline-person byline-reviewer">
+                  {testedBy.photo_url && (
+                    <Image
+                      className="byline-avatar"
+                      src={testedBy.photo_url}
+                      alt=""
+                      width={34}
+                      height={34}
+                    />
+                  )}
+                  <span>
+                    <span className="byline-role">Personally tested by</span>
+                    <Link href={`/author/${testedBy.slug}`}>{testedBy.name}</Link>
+                    <span className="byline-credential">{testedBy.title}</span>
+                  </span>
                 </div>
               )}
               {reviewedBy && (
@@ -480,15 +498,31 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                               </div>
                             )}
                             <div className="comparison-actions">
-                              <a
-                                className="button"
-                                href={v.asin ? amazonLink(v.asin) : amazonSearchLink(name)}
-                                target="_blank"
-                                rel="sponsored nofollow noopener noreferrer"
-                                aria-label={`Buy ${name} on Amazon`}
-                              >
-                                Buy on Amazon <ArrowUpRight size={15} />
-                              </a>
+                              {/* Only offer a commercial link the alternative
+                                  actually has. The old fallback sent every card
+                                  to an amazon.com search, which is the wrong
+                                  marketplace for a product sold in the UK. */}
+                              {v.affiliate_url && safeUrl(v.affiliate_url) ? (
+                                <a
+                                  className="button"
+                                  href={v.affiliate_url}
+                                  target="_blank"
+                                  rel="sponsored nofollow noopener noreferrer"
+                                  aria-label={`Check the price of ${name}`}
+                                >
+                                  Check the price <ArrowUpRight size={15} />
+                                </a>
+                              ) : v.asin ? (
+                                <a
+                                  className="button"
+                                  href={amazonLink(v.asin)}
+                                  target="_blank"
+                                  rel="sponsored nofollow noopener noreferrer"
+                                  aria-label={`Buy ${name} on Amazon`}
+                                >
+                                  Buy on Amazon <ArrowUpRight size={15} />
+                                </a>
+                              ) : null}
                               <Link
                                 className="text-link"
                                 href={`/${v.category_slug}/${v.slug}`}
@@ -502,10 +536,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                       );
                     })}
                   </div>
-                  <p className="comparison-disclosure">
-                    Affiliate links: we may earn a commission at no extra cost to you. Check Amazon
-                    for current prices and availability.
-                  </p>
+                  {related.some((v) => v.affiliate_url || v.asin) && (
+                    <p className="comparison-disclosure">
+                      Affiliate links: we may earn a commission at no extra cost to you. Prices and
+                      availability change — check the seller before buying.
+                    </p>
+                  )}
                 </>
               ) : (
                 <p className="muted">Related reviews will appear as this category grows.</p>
