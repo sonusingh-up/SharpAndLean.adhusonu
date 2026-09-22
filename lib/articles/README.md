@@ -35,10 +35,10 @@ The URL is `/<category>/<slug>`.
 
 The shape of the file decides which one you get:
 
-| You supply                      | You get          | The h1 reads      |
-| ------------------------------- | ---------------- | ----------------- |
+| You supply                       | You get          | The h1 reads         |
+| -------------------------------- | ---------------- | -------------------- |
 | `facts` + `caution` + `takeaway` | a label overview | "… — label overview" |
-| `body`                          | a review         | "… review"        |
+| `body`                           | a review         | "… review"           |
 
 A label overview is assembled from the standard template in `to-review.ts` and
 records only what the manufacturer published. Supplying `body` replaces the
@@ -50,11 +50,49 @@ field comments in `types.ts` and the defaults in `to-review.ts`. A short
 overview needs about eight fields; a long-form review with pros, cons,
 ingredients, FAQs, references and history uses about twenty-five.
 
+## Comparison products get full reviews, never stubs
+
+When a review needs alternatives for its "How does it compare?" block, name
+them with `alternatives: ['<slug>', ...]`. Without that field the page falls
+back to other articles in the same category, and the categories here are wide
+enough that a whey protein will be compared against fish oil.
+
+**Every slug named there must be a full review, written to the same standard as
+the review that links to it** — researched body prose, a five-criterion
+`scoreBreakdown`, pros, cons, ingredients, FAQs, references and history. Use
+[`optimum-nutrition-uk-review-2026.ts`](optimum-nutrition-uk-review-2026.ts) as
+the model.
+
+Do not create a thin `facts`/`caution`/`takeaway` label overview just to give a
+comparison card something to point at. A comparison card is a promise that
+there is a real review behind it, and a reader who follows the link and finds a
+stub has been misled by this site rather than by a manufacturer. If you are not
+prepared to research the alternative properly, leave it out of `alternatives`
+and discuss it as prose in the body instead — an unlinked mention promises
+nothing.
+
+A practical consequence: adding one review often means adding three. Budget for
+that before starting, rather than discovering it at the comparison block.
+
 ## Bylines
 
 Pages are bylined to the team by default, with the clinician credited
 separately as the evidence reviewer. Set `writtenBy: 'clinician'` on an article
 she wrote herself.
+
+`testedBy: '<author slug>'` adds a "Personally tested by" credit beside the
+writer. Set it only when someone named actually used the product, and say in
+the body how long for, in which market, and what their experience does not
+establish. It is the one claim on a page here that a reader cannot check
+against a label, so it carries a correspondingly higher burden.
+
+## Commercial links
+
+`asin` links to amazon.com. For a product sold in another market, set
+`affiliateUrl` to a `/recommended/<slug>` redirect instead and create that
+redirect in the admin CMS — an article-supplied link is never overwritten by
+the Amazon fallback. A product with neither field simply shows no buy button,
+which is the right outcome: the site does not guess at listings.
 
 ## Files here
 
