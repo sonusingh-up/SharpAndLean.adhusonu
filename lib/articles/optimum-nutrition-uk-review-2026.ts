@@ -22,9 +22,10 @@ export const optimumNutritionUkReview2026: ProductArticle = {
     // full nutrition table was an image rather than readable text on the listing we
     // could open, and the advertised BCAA and glutamine amounts are not quantified there.
     'Label transparency': 6,
-    // A premium brand price against supermarket and own-brand whey. We could not
-    // verify a current GBP figure from our connection, so this reflects the brand's
-    // established market position rather than a price we checked today.
+    // £5.55 to £6.94 per 100 g of protein against roughly £5.00 for the UK value
+    // benchmark: 11 to 39 per cent more for the same nutrient, with no demonstrated
+    // difference in effect. The range is wide because the brand's own store is the
+    // most expensive place in the country to buy it.
     'Value against the generic equivalent': 5,
     // Food-grade dairy protein. The real issues are milk and soy allergens and
     // lactose tolerance, all declared on the label in capitals.
@@ -39,12 +40,12 @@ export const optimumNutritionUkReview2026: ProductArticle = {
   alternatives: ['myprotein-impact-whey-review', 'kinetica-whey-protein-review'],
   writtenBy: 'team',
   testedBy: 'pankaj-singh',
-  price: 'Not verified in GBP — check the current listing',
+  price: '£39.99–£50.00 across seven UK retailers, checked 22 September 2026',
   guarantee: 'Check the seller’s returns policy',
   thirdPartyTested: false,
   source: 'https://www.amazon.co.uk/Optimum-Nutrition-Standard-Glutamine-Unflavoured/dp/B07Z7FLGDV',
   sourceNote:
-    'The serving size, protein amount, ingredient list and mixing directions quoted here were read from the Amazon.co.uk listing for the 900 g unflavoured tub on 22 September 2026. From our connection the brand’s own store redirects to its India site, so we could not read the GB product page or a GBP price ourselves.',
+    'The serving size, protein amount, ingredient list and mixing directions quoted here were read from the Amazon.co.uk listing for the 900 g unflavoured tub on 22 September 2026. From our connection the brand’s own store redirects to its India site, so the GB product page and its full nutrition panel were not available to us; the UK prices quoted here come from a named UK price comparison of seven retailers, read on the same date.',
   takeaway:
     'Work out the price per 100 g of protein before you buy, and check whether you are short of protein at all. If you compete under anti-doping rules, read the third-party testing section closely — it does not say what most reviews claim it says.',
   body: `
@@ -86,10 +87,10 @@ export const optimumNutritionUkReview2026: ProductArticle = {
 <p>It is worth seeing what the strongest answer looks like, because both alternatives on this page make a claim this tub does not. <a href="/wellness/kinetica-whey-protein-review">Kinetica</a> states that every batch is batch tested under Informed Sport against the WADA list — the run your tub came from, not the building it was made in. <a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a> carries an LGC Informed Protein certification, which verifies that the protein content on the label is real and not inflated with free amino acids. Three products, three different claims, and only one of the three is about the powder in your kitchen.</p>
 
 <h2>Price: there is no single UK number, so here is the arithmetic</h2>
-<p>We are not quoting a GBP price on this page, because we could not verify one. The brand’s store redirected away from its GB site from our connection, and the retailer listing we could read priced in the wrong currency for a UK buyer. Publishing a plausible-looking figure we had not checked would be worse than publishing none.</p>
+<p>On 22 September 2026 the 900 g pack ran from £39.99 to £50.00 across seven UK retailers. The most expensive of the seven was Optimum Nutrition’s own store at £50.00; the cheapest independent was £39.99. That £10 spread inside a single brand is worth absorbing before anything else on this page: where you buy this matters more than most of the label differences people argue about.</p>
 <p>What we can give you is the calculation that actually decides this purchase. Take the checkout price, divide by the servings on the tub, and you have cost per serving. Then divide that by 24 and multiply by 100, and you have cost per 100 g of protein — the only figure that compares one whey with another honestly. A 900 g tub at 30 servings contains about 720 g of protein; a 2.27 kg tub contains roughly two and a half times that, which is why the large tub is almost always cheaper per gram if you will realistically get through it.</p>
 <p>Two traps in UK whey pricing. A price per kilogram of powder is not a price per kilogram of protein: a 900 g tub delivering 24 g per 30 g scoop is about 80 per cent protein by weight, and a cheaper powder at 70 per cent is not the bargain the shelf price suggests. And a flavoured tub and an unflavoured tub of the same brand can differ in both protein percentage and price, so compare the specific variant rather than the product name.</p>
-<p>We do have one verified UK comparator to hold it against. On 22 September 2026, Myprotein listed its <a href="/wellness/myprotein-impact-whey-review">Impact Whey Protein</a> at £32.99 for a 900 g tub of 30 servings, a figure the brand's own page states as £1.10 per serving. At the 22 g of protein per scoop that page gives for the Original version, that is about £5.00 per 100 g of protein, in a pack that lines up serving-for-serving with the Gold Standard tub reviewed here. Whatever Gold Standard costs on the day you look, that is the number to beat.</p>
+<p>The number that makes those figures mean something is the comparison. On 22 September 2026, Myprotein listed its <a href="/wellness/myprotein-impact-whey-review">Impact Whey Protein</a> at £32.99 for a 900 g tub of 30 servings, a figure the brand's own page states as £1.10 per serving. At the 22 g of protein per scoop that page gives for the Original version, that is about £5.00 per 100 g of protein, in a pack that lines up serving-for-serving with the Gold Standard tub reviewed here. Whatever Gold Standard costs on the day you look, that is the number to beat.</p>
 <p><a href="/wellness/kinetica-whey-protein-review">Kinetica Whey Protein</a> gives a second data point from the same day: £1.19 a serving in its 2.27 kg pack and £0.98 in its 4.5 kg, which at 23 g a scoop is about £5.17 and £4.26 per 100 g of protein. That is a batch-tested product costing roughly what the value brand costs, which is worth knowing before you assume a premium buys anything.</p>
 <p>If Gold Standard comes out meaningfully more expensive per 100 g of protein, you are paying for taste, mixability and brand confidence. Those can be worth paying for — a tub you enjoy and finish beats a cheaper one that sits in the cupboard — but you should know that is what the premium buys, because it is not buying a different physiological effect.</p>
 
@@ -121,7 +122,7 @@ export const optimumNutritionUkReview2026: ProductArticle = {
     'Three years of near-daily use by one of our contributors without digestive trouble, and it mixes cleanly in water',
   ],
   cons: [
-    'We could not verify a current UK price, because the brand’s store redirected away from its GB site from our connection',
+    'Costs 11 to 39 per cent more per gram of protein than the UK value benchmark, with no demonstrated difference in effect',
     'The standard retail tub is not among the products the company names as Informed Sport registered — only the England Rugby version is',
     'Advertised BCAA and glutamine amounts are not quantified on the ingredient panel we could read, and the full nutrition table was published as an image',
     'A brand premium over supermarket and own-brand whey with no demonstrated difference in effect at equal protein',
@@ -185,9 +186,9 @@ export const optimumNutritionUkReview2026: ProductArticle = {
         'Possibly, but not certainly. Whey protein isolate is low in lactose and is the first ingredient, but the blend also contains whey protein concentrate, which carries more. Tolerance varies a great deal between individuals. If you have reacted to whey before, try the smallest pack, or consider an isolate-only product. Anyone with a cow’s milk protein allergy should avoid it entirely.',
     },
     {
-      question: 'Why does this review not give a price?',
+      question: 'How much should I pay for it in the UK?',
       answer:
-        'Because we could not verify one. From our connection the brand’s site redirects away from its GB store, and the retailer listing we could read did not price in pounds. We would rather publish the arithmetic — price divided by servings, then converted to cost per 100 g of protein — than a GBP figure we had not actually checked.',
+        'On 22 September 2026 the 900 g pack ranged from £39.99 to £50.00 across seven UK retailers, with the brand’s own store at the top of that range. Convert whatever you are quoted into cost per 100 g of protein — price, divided by 30 servings, divided by 24 g, times 100 — and you get £5.55 at the cheap end and £6.94 at the expensive one. Anything near the upper figure means you have found the wrong retailer rather than the wrong product.',
     },
     {
       question: 'Has this product ever been the subject of legal complaints?',
@@ -231,6 +232,10 @@ export const optimumNutritionUkReview2026: ProductArticle = {
     {
       date: '2026-09-22',
       note: 'Outbound links are now nofollow, including the citations and the manufacturer source. The links stay so any figure on this page can be checked; what they no longer do is pass ranking signal to the brands, retailers and organisations the page writes about. The commercial link carries sponsored as well.',
+    },
+    {
+      date: '2026-09-22',
+      note: 'Added verified UK prices. The page previously published no GBP figure because the brand’s GB store was unreachable from our connection; a named comparison of seven UK retailers supplied a £39.99 to £50.00 range for the 900 g pack, which now anchors the cost section, the price field and the value score. The score itself is unchanged at 5 out of 10 for value — the reasoning behind it is now a checked figure rather than the brand’s market position.',
     },
     {
       date: '2026-09-22',

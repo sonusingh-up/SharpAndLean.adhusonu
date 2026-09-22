@@ -76,6 +76,25 @@ function CompareTable({ reviews }: { reviews: Review[] }) {
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <th scope="row">Product</th>
+            {reviews.map((r) => (
+              <td key={r.id}>
+                <span className="compare-product-image">
+                  {r.featured_image_url ? (
+                    <Image
+                      src={r.featured_image_url}
+                      alt={r.product_name || r.title}
+                      fill
+                      sizes="(max-width: 700px) 40vw, 200px"
+                    />
+                  ) : (
+                    <span className="comparison-placeholder">No image</span>
+                  )}
+                </span>
+              </td>
+            ))}
+          </tr>
           {[
             [
               'Editorial score',
@@ -480,20 +499,36 @@ export default async function DetailPage({
         <div className="collection-body">
           <RichText html={row.body} />
           {picks.map((r) => (
-            <section className="pick-section" id={`pick-${r.id}`} key={r.id}>
-              <SectionLabel>
-                {categories.find((c) => c.slug === r.category_slug)?.name}
-              </SectionLabel>
-              <h2>{r.title}</h2>
-              <p>
-                {section === 'best'
-                  ? row.items?.find((i) => i.review_id === r.id)?.why_it_made_the_list
-                  : r.summary}
-              </p>
-              <Link className="text-link" href={`/${r.category_slug}/${r.slug}`}>
-                Read the full review <ArrowUpRight size={16} />
-              </Link>
-              <AffiliateButton review={r} />
+            <section
+              className={`pick-section${r.featured_image_url ? ' has-media' : ''}`}
+              id={`pick-${r.id}`}
+              key={r.id}
+            >
+              {r.featured_image_url && (
+                <Link className="pick-media" href={`/${r.category_slug}/${r.slug}`}>
+                  <Image
+                    src={r.featured_image_url}
+                    alt={r.product_name || r.title}
+                    fill
+                    sizes="(max-width: 700px) 60vw, 220px"
+                  />
+                </Link>
+              )}
+              <div className="pick-body">
+                <SectionLabel>
+                  {categories.find((c) => c.slug === r.category_slug)?.name}
+                </SectionLabel>
+                <h2>{r.title}</h2>
+                <p>
+                  {section === 'best'
+                    ? row.items?.find((i) => i.review_id === r.id)?.why_it_made_the_list
+                    : r.summary}
+                </p>
+                <Link className="text-link" href={`/${r.category_slug}/${r.slug}`}>
+                  Read the full review <ArrowUpRight size={16} />
+                </Link>
+                <AffiliateButton review={r} />
+              </div>
             </section>
           ))}
           {row.faqs && row.faqs.length > 0 && (

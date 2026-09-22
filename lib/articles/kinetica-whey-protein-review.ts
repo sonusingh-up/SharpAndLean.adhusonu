@@ -35,6 +35,7 @@ export const kineticaWheyProtein: ProductArticle = {
     'A UK review of Kinetica Whey Protein: the full panel it publishes, what Informed Sport batch testing actually protects you from, why the “glutamine” figure is glutamic acid, and what a serving costs.',
   listing: '2.27 kg, 76 servings, vanilla',
   image: 'https://m.media-amazon.com/images/I/61-3HdTLUmL._AC_SY879_.jpg',
+  affiliateUrl: 'https://sharpandlean.com/recommended/kinetica-whey-uk',
   alternatives: ['optimum-nutrition-uk-review-2026', 'myprotein-impact-whey-review'],
   writtenBy: 'team',
   price: '£89.99 for 76 servings, checked 22 September 2026',

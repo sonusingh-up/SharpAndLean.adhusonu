@@ -2650,11 +2650,52 @@ summary::-webkit-details-marker {
   max-width: 880px;
   margin: 50px auto;
 }
+/* Product shot inside the at-a-glance table, so the two tubs being compared
+   are recognisable before the reader reaches the numbers. */
+.compare-product-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  aspect-ratio: 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.compare-product-image img {
+  object-fit: contain;
+  padding: 12px;
+  mix-blend-mode: multiply;
+}
+.compare-product-image .comparison-placeholder {
+  position: absolute;
+  inset: 0;
+  place-content: center;
+}
 .pick-section {
   margin-top: 40px;
   padding: 30px;
   border: 1px solid var(--line);
   border-radius: 20px;
+}
+.pick-section.has-media {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.pick-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  background: #f5f6f1;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.pick-media img {
+  object-fit: contain;
+  padding: 20px;
+  mix-blend-mode: multiply;
 }
 .pick-section h2 {
   margin: 18px 0;
@@ -2892,13 +2933,41 @@ table {
   justify-content: space-between;
   font-size: 13px;
 }
-.redirect-form { padding: 24px; max-width: 850px; }
-.redirect-form fieldset { border: 0; padding: 0; display: grid; gap: 18px; }
-.redirect-form label { display: grid; gap: 8px; }
-.redirect-form input:not([type="checkbox"]) { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
-.redirect-form .redirect-checkbox { display: flex; align-items: center; }
-.redirect-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-.redirect-url { overflow-wrap: anywhere; max-width: 420px; font-size: 13px; }
+.redirect-form {
+  padding: 24px;
+  max-width: 850px;
+}
+.redirect-form fieldset {
+  border: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.redirect-form label {
+  display: grid;
+  gap: 8px;
+}
+.redirect-form input:not([type='checkbox']) {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.redirect-form .redirect-checkbox {
+  display: flex;
+  align-items: center;
+}
+.redirect-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.redirect-url {
+  overflow-wrap: anywhere;
+  max-width: 420px;
+  font-size: 13px;
+}
 .admin-form {
   display: flex;
   flex-direction: column;
@@ -3431,8 +3500,20 @@ table {
   .pick-section {
     padding: 22px;
   }
+  /* The side-by-side card has nowhere to go at phone width, so the product
+     shot stacks above the copy rather than squeezing it. */
+  .pick-section.has-media {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .pick-media {
+    max-width: 220px;
+  }
   .pick-section h2 {
     font-size: 28px;
+  }
+  .compare-product-image {
+    max-width: 120px;
   }
   .collection-body {
     margin-top: 30px;
