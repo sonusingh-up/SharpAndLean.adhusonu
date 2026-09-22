@@ -7,7 +7,7 @@ import { SiteShell, Breadcrumb, SectionLabel } from './site';
 import { RichText } from './rich-text';
 import { ReviewCard } from './review-card';
 import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
-import { authorProfile, teamProfile } from '@/lib/author';
+import { authorProfile, teamProfile, getAuthorBySlug } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
 import { hasSupabase } from '@/lib/config';
 import { Brain, Leaf, Flame } from 'lucide-react';
@@ -35,9 +35,14 @@ export function AffiliateButton({
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
       >
+        {/* Only name a destination the page actually knows. A redirect under
+            /recommended/ can be repointed in the CMS, so claiming it lands on
+            an "official website" would be an assertion the page cannot back. */}
         {review.affiliate_network === 'Amazon'
           ? 'Search this product on Amazon'
-          : 'Visit official website'}{' '}
+          : review.affiliate_network
+            ? `Check the price at ${review.affiliate_network}`
+            : 'Check the current price'}{' '}
         <ArrowUpRight size={16} />
       </a>
     </div>
@@ -84,6 +89,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           title: authorProfile.title,
           photo_url: author?.photo_url || authorProfile.photo_url,
         };
+  // First-hand use is credited as its own role. It is deliberately separate
+  // from the desk byline and the evidence review: someone who drank the product
+  // for three years can describe it, and that is not the same as assessing it.
+  const testedBy = r.tested_by ? getAuthorBySlug(r.tested_by) : undefined;
   // Lead with the ingredient the page is really about: the first active with a
   // disclosed amount, skipping carrier weights graded as no evidence.
   const HeroIcon =
@@ -143,6 +152,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 <span className="byline-role">Written by</span>
                 <Link href={`/author/${writtenBy.slug}`}>{writtenBy.name}</Link>
               </div>
+              {testedBy && (
+                <div className="byline-person">
+                  <span className="byline-role">Personally tested by</span>
+                  <Link href={`/author/${testedBy.slug}`}>{testedBy.name}</Link>
+                </div>
+              )}
               {reviewedBy && (
                 <div className="byline-person byline-reviewer">
                   {reviewedBy.photo_url && (
@@ -656,6 +671,19 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                       name: reviewedBy.name,
                       jobTitle: reviewedBy.title,
                       url: `${siteUrl}/author/${reviewedBy.slug}`,
+                    },
+                  }
+                : {}),
+              // contributor rather than a second author: he supplied the use
+              // notes, he did not write or sign off the assessment.
+              ...(testedBy
+                ? {
+                    contributor: {
+                      '@type': 'Person',
+                      '@id': `${siteUrl}/author/${testedBy.slug}#person`,
+                      name: testedBy.name,
+                      jobTitle: testedBy.title,
+                      url: `${siteUrl}/author/${testedBy.slug}`,
                     },
                   }
                 : {}),

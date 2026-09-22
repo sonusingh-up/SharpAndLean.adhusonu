@@ -43,6 +43,22 @@ export type ProductArticle = {
    * as the evidence reviewer either way, so this is only about who wrote it.
    */
   writtenBy?: 'team' | 'clinician';
+  /**
+   * Author slug of someone who used the product themselves, credited beside the
+   * writer. Set this only when the page genuinely rests on first-hand use: it
+   * is the one claim on a page here that a reader cannot check against a label.
+   */
+  testedBy?: string;
+
+  /**
+   * Commercial link for this page, used by the sidebar and "Where to buy"
+   * buttons. Point it at a site redirect under /recommended/ rather than a
+   * retailer URL, so the destination can be changed without editing the
+   * article. Products linked by ASIN do not need this.
+   */
+  affiliateUrl?: string;
+  /** Names the destination on the button, e.g. "Amazon" or "Holland & Barrett". */
+  affiliateNetwork?: string;
 
   brand?: string;
   asin?: string;

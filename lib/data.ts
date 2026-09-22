@@ -8,7 +8,10 @@ export async function getReviews(): Promise<Review[]> {
   // showing an untagged commercial link.
   if (!hasSupabase)
     return productReviews.map((review) => {
-      if (!hasAmazonTag) return review;
+      // An article that names its own commercial link keeps it. The Amazon
+      // fallback below is a US .com link, so silently replacing a deliberate
+      // link would send, say, a UK reader to the wrong marketplace.
+      if (review.affiliate_url || !hasAmazonTag) return review;
       const asin = productAsins[review.slug];
       return {
         ...review,

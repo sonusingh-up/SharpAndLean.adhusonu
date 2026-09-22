@@ -123,10 +123,23 @@ export default async function DetailPage({
       linkedin_url: stored?.linkedin_url || profile.linkedin_url,
     };
     const isTeam = profile.kind === 'team';
+    // The long-form sections below name the clinician and describe her method, so
+    // they belong to her page rather than to every person byline.
+    const isClinician = profile.slug === 'sumita-bhatti';
     return (
       <SiteShell>
         <div className="page-section">
-          <Breadcrumb items={[{ label: isTeam ? 'The editorial desk' : 'Meet Sumita' }]} />
+          <Breadcrumb
+            items={[
+              {
+                label: isTeam
+                  ? 'The editorial desk'
+                  : isClinician
+                    ? 'Meet Sumita'
+                    : `Meet ${profile.name.split(' ')[0]}`,
+              },
+            ]}
+          />
           <div className={`author-hero ${isTeam ? 'author-hero-team' : ''}`}>
             <div>
               <SectionLabel>
@@ -178,7 +191,7 @@ export default async function DetailPage({
               </ul>
             )}
           </section>
-          {!isTeam && (
+          {isClinician && (
             <>
               <section className="reading-section">
                 <h2>A clinical eye on commercial claims</h2>
@@ -357,7 +370,13 @@ export default async function DetailPage({
             </>
           )}
           <section className="reading-section">
-            <h2>{isTeam ? 'Everything the desk has published' : 'Product label overviews'}</h2>
+            <h2>
+              {isTeam
+                ? 'Everything the desk has published'
+                : isClinician
+                  ? 'Product label overviews'
+                  : 'Browse the product pages'}
+            </h2>
             <Catalog reviews={all} paginated />
           </section>
         </div>

@@ -6,6 +6,7 @@ import { nowGlucomannan575Mg } from './now-glucomannan-575-mg';
 import { nowOmega3MolecularlyDistilled } from './now-omega-3-molecularly-distilled';
 import { natureMadeVitaminD31000Iu } from './nature-made-vitamin-d3-1000-iu';
 import { colonbroomReview2026 } from './colonbroom-review-2026';
+import { optimumNutritionUkReview2026 } from './optimum-nutrition-uk-review-2026';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -21,6 +22,7 @@ export const articles: ProductArticle[] = [
   nowOmega3MolecularlyDistilled,
   natureMadeVitaminD31000Iu,
   colonbroomReview2026,
+  optimumNutritionUkReview2026,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and
