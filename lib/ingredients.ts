@@ -1072,6 +1072,191 @@ export const ingredients: IngredientPage[] = [
     ],
     updated: '2026-09-21',
   },
+  {
+    slug: 'whey-protein-blend',
+    name: 'Whey protein blend',
+    aliases: [
+      'whey protein blend',
+      'whey protein concentrate',
+      'whey protein isolate',
+      'hydrolysed whey protein',
+      'hydrolyzed whey protein',
+      'whey protein',
+      'whey',
+    ],
+    category: 'Protein',
+    grade: 'A',
+    quickAnswer:
+      'Whey is the protein fraction of milk, sold as concentrate, isolate, hydrolysate or a blend of all three. For building and keeping muscle alongside resistance training it has about the strongest evidence of anything covered on this site — but that evidence is about eating enough protein in a day, not about whey specifically or about any brand. It helps strength recover between hard sessions and does not touch soreness. Most UK adults already eat enough protein; the people it genuinely helps are those training hard enough to need 1.2 to 2.0 g per kilogram a day.',
+    atAGlance: [
+      {
+        label: 'Protein per scoop',
+        value: '20–25 g typical',
+        note: 'Around the amount at which muscle protein synthesis is maximised in young adults from a fast-digesting protein. A bigger scoop is not a proportionally bigger effect.',
+      },
+      {
+        label: 'Daily target that matters',
+        value: '≈1.6 g/kg',
+        note: 'Where the pooled benefit plateaued across 49 trials. Total daily protein does the work; the shake is one way to reach it.',
+      },
+      {
+        label: 'Per meal',
+        value: '0.4 g/kg × 4 meals',
+        note: 'The distribution most consistent with the data — roughly 32 g four times a day for an 80 kg adult, from any source.',
+      },
+      {
+        label: 'Protein by weight',
+        value: '70–80% of the powder',
+        note: 'Concentrate sits nearer 70 per cent, isolate-led blends nearer 80. A price per kilogram of powder is not a price per kilogram of protein.',
+      },
+      {
+        label: 'What a GB label may claim',
+        value: 'Muscle mass and bones',
+        note: 'The only authorised protein claims. Fat loss, recovery time and performance are marketing, not approved wording.',
+      },
+      {
+        label: 'Kidney risk in healthy adults',
+        value: 'None established',
+        note: '28 trials and 1,358 participants without kidney disease: the change in filtration rate did not differ between higher- and lower-protein diets.',
+      },
+    ],
+    whatIsIt:
+      'Whey is what separates from the curds when milk is coagulated to make cheese — historically a waste stream, now the most-sold sports supplement in the world. It contains roughly a fifth of milk’s protein, the rest being casein, and it is unusually rich in the branched-chain amino acids, particularly leucine. What reaches a tub is that liquid concentrated and dried, and how far the processing goes is the only thing separating the three forms you will see on a panel. Concentrate is filtered least and typically arrives at 70 to 80 per cent protein by weight, carrying more of the milk’s fat, carbohydrate and lactose with it. Isolate is filtered further to around 90 per cent, which strips most of the lactose and most of the fat. Hydrolysate is protein that has been partly broken into shorter chains before you drink it. A “blend” is simply two or three of these in one tub, and the order they are listed in tells you which dominates. None of this changes the amino acids that end up in your bloodstream; it changes the protein density of the powder, the lactose load, the price and the taste.',
+    mechanism:
+      'Muscle protein is in constant turnover, being broken down and rebuilt around the clock. Resistance training raises the rate of synthesis for roughly a day afterwards, and eating protein raises it too — but only for a few hours, and only up to a point. Whey is well suited to that job for two reasons. It digests quickly, producing a sharp rise in circulating amino acids rather than the slow drip casein gives, and it is high in leucine, the amino acid that acts less as a building block than as a signal, triggering the mTOR pathway that switches synthesis on. That signalling threshold is why the useful dose is a step rather than a slope: below roughly 2 to 3 g of leucine in a sitting the response is blunted, and well above it the extra protein is largely oxidised for energy rather than built into tissue. The practical consequence runs against how these products are sold. If the mechanism is a switch that can be flipped several times a day, then spreading protein across meals matters more than what is in any one shake, and a second scoop does considerably less than the first.',
+    claims: [
+      {
+        claim: 'Building and keeping muscle alongside resistance training',
+        grade: 'A',
+        body: 'This is the claim the ingredient earns. A 2018 systematic review and meta-analysis in the British Journal of Sports Medicine pooled 49 studies and 1,863 participants and found that protein supplementation significantly increased gains in both muscle size and strength during prolonged resistance training. That is a large, consistent body of randomised evidence, and it clears the bar for an A comfortably. Two caveats keep it honest rather than diluting it. The benefit plateaued at roughly 1.6 g of protein per kilogram of body weight per day, so it is a claim about reaching an intake rather than about adding a supplement on top of one already met. And the finding is about protein: the same analysis found source mattered less than total amount, so nothing here distinguishes whey from an equivalent quantity of chicken, milk or a well-constructed plant blend. It also does nothing without the training.',
+        refs: ['morton2018'],
+      },
+      {
+        claim: 'Recovering strength between hard sessions',
+        grade: 'B',
+        body: 'Better supported than most people expect, and for a narrower outcome than most people assume. A 2022 systematic review with meta-analysis in the European Journal of Clinical Nutrition found protein supplementation preserved maximal voluntary contraction in the days after damaging resistance exercise — isokinetic strength at 24, 48 and 72 hours, isometric at 96 — and lowered creatine kinase, a blood marker of muscle damage, at 48 and 72 hours. A whey-specific meta-analysis reached a similar conclusion, reporting a small-to-medium effect on the recovery of muscle function across the 24 to 96 hours after exercise. B rather than A because effect sizes are modest, protocols vary, and the whey-specific analysis found no benefit for creatine kinase where the broader protein one did. If you train the same muscles again within two or three days, this is a real and measurable reason to get the protein in.',
+        refs: ['recovery2022', 'davies2018'],
+      },
+      {
+        claim: 'Reducing muscle soreness',
+        grade: 'F',
+        body: 'Both of the reviews above looked for this and did not find it. Protein supplementation had no effect on muscle soreness compared with control, even while the same trials showed strength being preserved and damage markers falling. That dissociation is genuinely interesting — it means the powder can be helping you in a way you cannot feel, and that feeling fine is not evidence it worked — but as a marketing claim it fails on the evidence. If a product is sold to you on the promise that you will ache less tomorrow, the research says otherwise.',
+        refs: ['recovery2022', 'davies2018'],
+      },
+      {
+        claim: 'For fat loss or weight management',
+        grade: 'D',
+        body: 'Not an authorised claim on a GB label, and not one the ingredient supports on its own terms. The plausible mechanisms — protein is more satiating than carbohydrate or fat, and a higher protein intake during energy restriction helps preserve lean mass — are about total protein in the diet, not about a powder. Adding a shake to an otherwise unchanged diet adds calories; it only helps if it displaces something. There is a specific trap here too: a flavoured whey mixed with milk is a 250 to 300 kcal drink that many people count as a supplement rather than as food. The grade is D rather than F because the underlying mechanism is real and the effect can be engineered deliberately, not because any trial has shown a whey powder causing weight loss.',
+        refs: ['gb-nhc'],
+      },
+      {
+        claim: 'Whey being better than other protein sources, and timing it around training',
+        grade: 'D',
+        body: 'Whey does have properties the others lack: it digests faster and carries more leucine per gram than most proteins, which is a defensible reason to prefer it in the specific hours around training. What does not follow is the conclusion drawn from it. The 2018 meta-analysis found total daily protein a stronger predictor of gains than either source or timing, and the review of per-meal dosing concluded that what matters is hitting roughly 0.4 g per kilogram across at least four feedings, not landing one of them in a particular window. The “anabolic window” as sold — a narrow post-workout period during which a fast protein is uniquely effective — is a much stronger claim than the data support. Convenience is the honest reason to drink a shake after training, and it is a perfectly good one.',
+        refs: ['morton2018', 'schoenfeld2018'],
+      },
+      {
+        claim: 'Choosing a product for its BCAA or glutamine content',
+        grade: 'F',
+        body: 'These are not added ingredients. Branched-chain amino acids and glutamic acid are intrinsic components of whey, present in every tub on the shelf in much the same proportion, so advertising them is describing dairy protein rather than differentiating a product. Two things make this worth flagging. Research on isolated BCAA supplements is a separate and considerably weaker literature that does not transfer to whole protein — taking whey is not taking a BCAA supplement, and the case for the latter is poor. And the glutamine figure quoted on packaging is very often the panel’s glutamic acid figure, which is a different amino acid; we found exactly that on one product covered here. A number on the front of a tub that every competitor could print is not a reason to choose it.',
+      },
+    ],
+    dosage:
+      'Two numbers govern this and they answer different questions. For the day, roughly 1.6 g of protein per kilogram of body weight is where the pooled benefit plateaued across 49 trials, with the confidence interval reaching about 2.2 g/kg; the British Nutrition Foundation cites American College of Sports Medicine figures of 1.2 to 2.0 g/kg for people training hard. For the sitting, the review of per-meal dosing concluded that about 0.4 g per kilogram across at least four meals is the distribution most consistent with the data — around 32 g four times a day for an 80 kg adult, from any source. A 20 to 25 g scoop is roughly the amount at which muscle protein synthesis is maximised in young adults from a fast-digesting protein, which is why almost every whey on the market lands there. Note what this means for buying: one scoop is a portion of a day’s protein, not a dose of a drug, and the right number of scoops is whatever closes the gap between what you eat and the target. For most UK adults that gap is zero — average intakes are 76 g a day against a Reference Nutrient Intake near 56 g for men and 45 g for women.',
+    dosageGap:
+      'The gap on a whey label is rarely underdosing — 20 to 25 g a scoop is close to universal — but there are four places the panel and the packaging drift apart. First, protein by weight: a powder at 73 per cent protein and one at 80 per cent look identical on a shelf, and a price per kilogram of powder is not a price per kilogram of protein. Convert to cost per 100 g of protein and the ranking between tubs moves. Second, the headline figure is often the best case across a flavour range — a front-of-pack “up to 23 g” can sit above the panel of the specific flavour in your basket. Third, protein content itself has a documented accuracy problem; the practice of inflating a protein reading with free amino acids has its own name, amino spiking, and its own certification programme in response, which tells you how real it is. Fourth, the intrinsic amino acid figures discussed above get promoted as features. None of these is hidden. All of them require reading the back rather than the front.',
+    safety:
+      'For a healthy adult, whey is a food and the risk profile is close to drinking milk. Two allergens are the real issues and both are declared in bold on a GB label. Whey is a dairy product, so anyone with a cow’s milk protein allergy must avoid it entirely; and most commercial blends use soya lecithin as an emulsifier. Lactose is a separate question from allergy: concentrate retains more of it, isolate much less, so someone who reacted to a cheap concentrate may do fine on an isolate. Gastrointestinal complaints in the first week — bloating, wind, loose stools — are the usual reason people abandon a tub, and a large pack is a poor way to discover this. On kidneys, the fear is more durable than the evidence: a 2018 systematic review and meta-analysis of 28 trials and 1,358 participants without kidney disease found that the change in glomerular filtration rate did not differ between higher- and lower-protein diets. That finding is specifically about people with healthy kidneys, and it does not extend to anyone with existing renal impairment or on a protein-restricted diet for a medical reason, who should take any supplement to their clinician. Contamination is a genuine, separate concern for anyone subject to anti-doping rules, where strict liability makes a batch-level certificate — not a factory registration, and not a label accuracy certification — the thing that matters.',
+    faqs: [
+      {
+        question: 'Does whey protein actually build muscle?',
+        answer:
+          'Alongside resistance training, yes, and the evidence is strong: a meta-analysis of 49 trials and 1,863 participants found protein supplementation increased gains in both muscle size and strength. The honest framing is that it works by helping you reach a daily protein intake, with the pooled benefit plateauing near 1.6 g per kilogram of body weight. If you already hit that from food, adding a shake has nothing left to do. And nothing happens without the training.',
+      },
+      {
+        question: 'Is whey better than getting protein from food?',
+        answer:
+          'Not for the outcome most people care about. The same meta-analysis found total daily protein a stronger predictor of gains than protein source. Whey digests faster and carries more leucine per gram than most proteins, which is a reasonable reason to prefer it in the hours around training, but the advantage is narrow. Where it genuinely wins is practical: 24 g of protein in a shaker, portable and costing less than most animal foods per gram of protein.',
+      },
+      {
+        question: 'Concentrate, isolate or hydrolysate — which should I buy?',
+        answer:
+          'Concentrate unless you have a reason not to, because it is the cheapest per gram of protein. Isolate is filtered further to roughly 90 per cent protein with most of the lactose removed, which is worth paying for if concentrate upsets your stomach and a waste of money if it does not. Hydrolysate is pre-broken into shorter chains and is the most expensive; the case for it in a healthy adult is thin. None of them changes what reaches your bloodstream.',
+      },
+      {
+        question: 'Do I have to drink it straight after training?',
+        answer:
+          'No. The anabolic window as marketed — a narrow post-workout period when a fast protein is uniquely effective — is a stronger claim than the evidence supports. Total daily protein predicted gains better than timing did, and the per-meal research points to roughly 0.4 g per kilogram spread across at least four feedings rather than one well-placed shake. Drinking it after training is convenient, which is a perfectly good reason on its own.',
+      },
+      {
+        question: 'Will whey protein damage my kidneys?',
+        answer:
+          'There is no evidence of that in people with healthy kidneys. A 2018 systematic review and meta-analysis of 28 randomised trials and 1,358 participants without kidney disease found the change in glomerular filtration rate did not differ between higher- and lower-protein diets. This does not apply to anyone with existing kidney disease or on a protein-restricted diet, who should discuss any supplement with their clinician first.',
+      },
+      {
+        question: 'Will it stop me being sore?',
+        answer:
+          'No, and this is one of the clearer negative findings in the area. Reviews that found protein preserved strength and lowered creatine kinase in the days after damaging exercise found no effect on soreness at all. The useful implication is the reverse of the marketing: feeling fine is not evidence the protein worked, and aching is not evidence it failed.',
+      },
+      {
+        question: 'Why do labels advertise BCAAs and glutamine?',
+        answer:
+          'Because whey contains them naturally and it sounds like a feature. Every whey on the shelf carries broadly the same proportions, so the figure differentiates nothing. Worth knowing: the research on isolated BCAA supplements is separate and much weaker, and the “glutamine” number on packaging is frequently the panel’s glutamic acid figure — a different amino acid.',
+      },
+      {
+        question: 'What can a whey product legally claim in the UK?',
+        answer:
+          'Under the Great Britain nutrition and health claims register, the authorised protein claims are that protein contributes to the growth and maintenance of muscle mass, and to the maintenance of normal bones. Anything past that wording — fat loss, faster recovery, improved performance — is marketing language rather than an approved claim, whatever the front of the tub says.',
+      },
+    ],
+    references: [
+      {
+        id: 'morton2018',
+        text: 'Morton RW et al. (2018). A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. British Journal of Sports Medicine — 49 studies, 1,863 participants, benefit plateauing near 1.6 g/kg/day, with source and timing less predictive than total intake.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28698222/',
+      },
+      {
+        id: 'recovery2022',
+        text: 'Systematic review with meta-analysis (2022), European Journal of Clinical Nutrition. The impact of dietary protein supplementation on recovery from resistance exercise-induced muscle damage — maximal voluntary contraction preserved at 24 to 96 hours and creatine kinase lowered at 48 and 72 hours, with no effect on muscle soreness.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10393778/',
+      },
+      {
+        id: 'davies2018',
+        text: 'Davies RW et al. (2018). The effect of whey protein supplementation on the temporal recovery of muscle function following resistance training: a systematic review and meta-analysis — a small-to-medium effect on recovery of muscle function across 24 to 96 hours, and no benefit for creatine kinase.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5852797/',
+      },
+      {
+        id: 'schoenfeld2018',
+        text: 'Schoenfeld BJ and Aragon AA (2018). How much protein can the body use in a single meal for muscle-building? Journal of the International Society of Sports Nutrition — roughly 0.4 g/kg per meal across at least four meals, against the earlier 20 to 25 g per-sitting figure for fast-digesting protein.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29497353/',
+      },
+      {
+        id: 'devries2018',
+        text: 'Devries MC et al. (2018). Changes in kidney function do not differ between healthy adults consuming higher- compared with lower- or normal-protein diets: a systematic review and meta-analysis. The Journal of Nutrition — 28 trials, 1,358 participants without kidney disease.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30383278/',
+      },
+      {
+        id: 'bnf-protein',
+        text: 'British Nutrition Foundation. Protein — the UK Reference Nutrient Intake of 0.75 g/kg/day, average UK intakes of 76.0 g/day for adults aged 19 to 64, the American College of Sports Medicine range of 1.2 to 2.0 g/kg/day for those training hard, and the statement that most UK adults do not need supplemental protein.',
+        url: 'https://www.nutrition.org.uk/nutritional-information/protein/',
+      },
+      {
+        id: 'gb-nhc',
+        text: 'Great Britain nutrition and health claims register — the authorised protein claims a GB label may make, covering growth and maintenance of muscle mass and maintenance of normal bones.',
+        url: 'https://www.gov.uk/government/publications/great-britain-nutrition-and-health-claims-nhc-register',
+      },
+    ],
+    editorNote:
+      'This is the rare ingredient page where my job is mostly to talk the evidence down rather than up. The A grade is deserved, and I would not want a reader to leave thinking otherwise — but an A for “protein helps you build muscle when you train” is close to an A for a nutrient doing its job, and the supplement industry has spent thirty years dressing that up as something proprietary. What I see in clinic is people buying a second tub before they have worked out what they already eat. The first question is not which whey; it is how many grams of protein were in yesterday. If the answer is already 1.6 g per kilogram, the powder has nothing to add and the money is better spent elsewhere. If it is nowhere near, then a scoop is a cheap, well-evidenced, thoroughly unglamorous way to close the gap — and the cheapest tub that you will actually drink will do it as well as the expensive one.',
+    related: ['omega-3', 'rebaudioside-a'],
+    history: [
+      {
+        date: '2026-09-22',
+        note: 'First published with per-claim evidence grades. Muscle-mass and timing findings from the 2018 British Journal of Sports Medicine meta-analysis; recovery and soreness findings from the 2022 European Journal of Clinical Nutrition review and the 2018 whey-specific meta-analysis; per-meal dosing from Schoenfeld and Aragon; kidney safety from the 2018 Journal of Nutrition meta-analysis; UK intakes from the British Nutrition Foundation and permitted claims from the GB register.',
+      },
+    ],
+    updated: '2026-09-22',
+  },
 ];
 
 export function getIngredient(slug: string) {
