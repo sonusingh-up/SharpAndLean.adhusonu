@@ -52,8 +52,11 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   const category = categories.find((c) => c.slug === r.category_slug)!;
   // A page can name its own comparisons. Falling back to "same category" puts
   // fish oil beside a whey protein, which compares nothing a reader can use.
-  const related = (
-    r.alternative_slugs?.length
+  const related = // Checked for presence rather than length: an article that sets an empty list
+  // is saying it has no comparable product, which is different from not having
+  // been asked the question.
+  (
+    r.alternative_slugs
       ? r.alternative_slugs
           .map((slug) => all.find((v) => v.slug === slug && v.id !== r.id))
           .filter((v): v is Review => Boolean(v))

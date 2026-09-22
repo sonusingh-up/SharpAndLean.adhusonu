@@ -83,6 +83,11 @@ nothing.
 A practical consequence: adding one review often means adding three. Budget for
 that before starting, rather than discovering it at the comparison block.
 
+When a product genuinely has no comparable full review yet, set
+`alternatives: []`. An explicit empty list suppresses the comparison block
+entirely; omitting the field falls back to same-category, which is how a sleep
+supplement ends up being compared against whey protein.
+
 ## Bylines
 
 Pages are bylined to the team by default, with the clinician credited
