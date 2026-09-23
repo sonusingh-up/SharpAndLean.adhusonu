@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">GLP-1 drugs and supplements: mean weight loss, to scale</title>
+  <desc id="desc">Mean percentage body weight reduction reported in four separate trials. Tirzepatide 15 mg, 20.9 per cent over 72 weeks in SURMOUNT-1. Semaglutide 2.4 mg, about 15 per cent over 68 weeks in STEP 1. Amarasate bitter hops extract, 4.3 per cent over 24 weeks in the 150-person C4 trial reported in Obesity Pillars. Placebo arm of that same trial, about 0.5 per cent. These are different trials with different durations and populations, shown together for scale rather than as a head-to-head comparison.</desc>
+  <rect width="1200" height="720" rx="24" fill="#f3f5ed"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#20281e">
+    <text x="56" y="72" font-size="34" font-weight="bold">Mean weight loss, to scale</text>
+    <text x="56" y="108" font-size="19" fill="#5d6a53">Four separate trials — different durations and populations. Shown for scale, not as a head-to-head.</text>
+
+    <!-- Scale: x = 430 at 0%, 33.2px per percentage point -->
+    <g stroke="#e2e8d8" stroke-width="1">
+      <line x1="596" y1="150" x2="596" y2="580"/>
+      <line x1="762" y1="150" x2="762" y2="580"/>
+      <line x1="928" y1="150" x2="928" y2="580"/>
+      <line x1="1094" y1="150" x2="1094" y2="580"/>
+    </g>
+    <line x1="430" y1="150" x2="430" y2="580" stroke="#c9d2bd" stroke-width="2"/>
+    <g font-size="14" fill="#8a9280" text-anchor="middle">
+      <text x="430" y="606">0%</text>
+      <text x="596" y="606">5%</text>
+      <text x="762" y="606">10%</text>
+      <text x="928" y="606">15%</text>
+      <text x="1094" y="606">20%</text>
+    </g>
+
+    <!-- Tirzepatide 20.9% -->
+    <text x="410" y="196" font-size="19" font-weight="bold" text-anchor="end">Tirzepatide 15 mg</text>
+    <text x="410" y="219" font-size="14" fill="#6d795e" text-anchor="end">SURMOUNT-1 · 72 weeks · prescription</text>
+    <rect x="430" y="170" width="694" height="44" rx="8" fill="#3f5a33"/>
+    <text x="1108" y="199" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="end">20.9%</text>
+
+    <!-- Semaglutide ~15% -->
+    <text x="410" y="306" font-size="19" font-weight="bold" text-anchor="end">Semaglutide 2.4 mg</text>
+    <text x="410" y="329" font-size="14" fill="#6d795e" text-anchor="end">STEP 1 · 68 weeks · prescription</text>
+    <rect x="430" y="280" width="498" height="44" rx="8" fill="#5a7c47"/>
+    <text x="912" y="309" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="end">~15%</text>
+
+    <!-- Amarasate 4.3% -->
+    <text x="410" y="416" font-size="19" font-weight="bold" text-anchor="end">Amarasate (Calocurb)</text>
+    <text x="410" y="439" font-size="14" fill="#6d795e" text-anchor="end">C4 trial · 24 weeks · supplement</text>
+    <rect x="430" y="390" width="143" height="44" rx="8" fill="#9bb07f"/>
+    <text x="591" y="419" font-size="20" font-weight="bold" fill="#20281e">4.3%</text>
+
+    <!-- Placebo 0.5% -->
+    <text x="410" y="526" font-size="19" font-weight="bold" text-anchor="end">Placebo</text>
+    <text x="410" y="549" font-size="14" fill="#6d795e" text-anchor="end">C4 trial · 24 weeks</text>
+    <rect x="430" y="500" width="17" height="44" rx="6" fill="#c7d1b6"/>
+    <text x="465" y="529" font-size="20" font-weight="bold" fill="#20281e">0.5%</text>
+
+    <text x="56" y="668" font-size="15" fill="#6d795e">Every other product marketed as a &#8220;GLP-1 supplement&#8221; has weaker human evidence than the 4.3% bar — or none at all.</text>
+  </g>
+</svg>

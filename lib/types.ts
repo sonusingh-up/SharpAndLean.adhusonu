@@ -99,6 +99,8 @@ export type Collection = {
   faqs?: FAQ[];
   product_a_id?: string;
   product_b_id?: string;
+  /** Figure published under the intro, same shape as a review's result image. */
+  figure?: { src: string; alt: string; caption: string };
   /**
    * Products named on a page that have not been reviewed here yet.
    *

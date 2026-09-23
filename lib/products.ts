@@ -186,11 +186,17 @@ const collectionDrafts: CollectionDraft[] = [
     kind: 'articles' as const,
     title: 'GLP-1, explained properly',
     slug: 'glp-1',
-    seo_title: 'GLP-1 Explained: The Hormone, The Drugs, The Supplements',
+    seo_title: 'What Is GLP-1? Drugs, Supplements and the Real Numbers',
     seo_desc:
-      'What GLP-1 is, what the drugs achieved in trials, what happens when you stop, and which "GLP-1 supplements" have human evidence behind them — and which have none.',
+      'Semaglutide lost 15%, tirzepatide 21%, the best-evidenced supplement 4.3%. Every GLP-1 figure traced to its trial — plus what happens when you stop.',
     summary:
       'A hormone your gut has always made, a drug class that reset what weight loss medicine can do, and a fast-growing aisle of supplements borrowing the name. This page separates the three, with every figure traced to its trial.',
+    figure: {
+      src: '/images/glp-1-weight-loss-scale.svg',
+      alt: 'Bar chart comparing mean weight loss: tirzepatide 20.9 per cent, semaglutide about 15 per cent, Amarasate 4.3 per cent and placebo 0.5 per cent.',
+      caption:
+        'Mean percentage weight loss reported in four separate trials: tirzepatide 15 mg over 72 weeks (SURMOUNT-1), semaglutide 2.4 mg over 68 weeks (STEP 1), and the Amarasate and placebo arms of the 150-person C4 trial over 24 weeks, reported in Obesity Pillars in July 2026. Different durations and populations, shown together for scale rather than as a head-to-head comparison.',
+    },
     verdict:
       'One supplement in this category has real randomised human evidence. It produced about a quarter of the weight loss the drugs produce. Everything else in the aisle is weaker than that, and several products have no human data at all.',
     takeaways: [
