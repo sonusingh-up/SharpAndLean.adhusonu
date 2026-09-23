@@ -12,6 +12,7 @@ import { kineticaWheyProtein } from './kinetica-whey-protein-review';
 import { slimsetReview } from './slimset-review';
 import { sodameltReview } from './sodamelt-review';
 import { yuSleepReview } from './yu-sleep-review';
+import { calocurbReview } from './calocurb-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -33,6 +34,7 @@ export const articles: ProductArticle[] = [
   slimsetReview,
   sodameltReview,
   yuSleepReview,
+  calocurbReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and

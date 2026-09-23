@@ -307,8 +307,9 @@ const collectionDrafts: CollectionDraft[] = [
         brand: 'Calocurb',
         evidence: 'Randomised human trials, manufacturer-linked',
         note: 'The only product in this category with randomised controlled human evidence measuring both appetite hormones and weight. Amarasate is a bitter hops extract in an enteric-coated capsule, designed to reach the small intestine and trigger bitter taste receptors that release GLP-1, CCK and PYY. In a 24-week double-blind placebo-controlled trial of 150 adults with a BMI of 25 to 35, reported in Obesity Pillars in July 2026, participants lost 3.77 kg against 0.40 kg on placebo, with lean mass preserved. Read that with two caveats: the earlier trials were small (19 to 30 people) and the research programme originates with the New Zealand institute that developed and licenses the extract. It is also roughly a quarter of what the drugs achieve.',
-        url: 'https://www.amazon.com/Calocurb-Supplement-Activator-Patented-Overeating/dp/B09SL1T2CM',
+        url: 'https://sharpandlean.com/recommended/calocurb',
         image: 'https://m.media-amazon.com/images/I/71xeuKkRK1L._AC_SX569_.jpg',
+        reviewSlug: 'fat-burners/calocurb-review',
       },
       {
         name: 'GLP-1 Probiotic (Akkermansia muciniphila)',
