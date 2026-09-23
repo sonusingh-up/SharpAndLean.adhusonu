@@ -11,6 +11,8 @@ import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
 import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
+import { ReferenceBox, PageHistory } from '@/components/article-footer';
+import { authorProfile, teamProfile } from '@/lib/author';
 import { BreadcrumbSchema, JsonLd, pageMeta } from '@/components/seo';
 import { demoMode, siteUrl } from '@/lib/config';
 import type { Review } from '@/lib/types';
@@ -486,6 +488,43 @@ export default async function DetailPage({
           <h1 className="page-title">{row.title}</h1>
           <p className="page-intro">{row.summary}</p>
           {row.verdict && <p className="notice">{row.verdict}</p>}
+          {/* Same split attribution reviews carry: the desk writes, the clinician
+              checks the evidence. It matters more here than anywhere, because this
+              is the page most likely to be read before a medical decision. */}
+          {section === 'learn' && (
+            <div className="byline-block">
+              <div className="byline-person">
+                <span className="byline-role">Written by</span>
+                <Link href={`/author/${teamProfile.slug}`}>{teamProfile.name}</Link>
+              </div>
+              <div className="byline-person byline-reviewer">
+                {authorProfile.photo_url && (
+                  <Image
+                    className="byline-avatar"
+                    src={authorProfile.photo_url}
+                    alt=""
+                    width={34}
+                    height={34}
+                  />
+                )}
+                <span>
+                  <span className="byline-role">Evidence reviewed by</span>
+                  <Link href={`/author/${authorProfile.slug}`}>{authorProfile.name}</Link>
+                  <span className="byline-credential">{authorProfile.title}</span>
+                </span>
+              </div>
+              <div className="byline-person">
+                <span className="byline-role">Last reviewed</span>
+                <span className="byline-date">
+                  {new Date(row.updated_at).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </span>
+              </div>
+            </div>
+          )}
         </header>
         {/* Rendered on presence of data rather than on section, so a best-of
             or comparison page can opt in without another branch here. */}
@@ -639,6 +678,8 @@ export default async function DetailPage({
                 </div>
               </section>
             )}
+            {row.references?.length ? <ReferenceBox references={row.references} /> : null}
+            {row.history?.length ? <PageHistory entries={row.history} /> : null}
           </div>
         </div>
         {collections.length > 1 && (
@@ -670,6 +711,20 @@ export default async function DetailPage({
               name: 'SharpAndLean',
               '@id': `${siteUrl}/#organization`,
             },
+            ...(section === 'learn'
+              ? {
+                  reviewedBy: {
+                    '@type': 'Person',
+                    '@id': `${siteUrl}/author/${authorProfile.slug}#person`,
+                    name: authorProfile.name,
+                    jobTitle: authorProfile.title,
+                    url: `${siteUrl}/author/${authorProfile.slug}`,
+                  },
+                }
+              : {}),
+            ...(row.references?.length
+              ? { citation: row.references.filter((c) => c.url).map((c) => c.url) }
+              : {}),
             publisher: { '@id': `${siteUrl}/#organization` },
             isPartOf: { '@id': `${siteUrl}/#website` },
             ...(section === 'best' && picks.length

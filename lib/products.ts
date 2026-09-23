@@ -186,6 +186,8 @@ const collectionDrafts: CollectionDraft[] = [
     kind: 'articles' as const,
     title: 'GLP-1, explained properly',
     slug: 'glp-1',
+    published_at: '2026-09-22T00:00:00Z',
+    updated_at: '2026-09-23T00:00:00Z',
     seo_title: 'What Is GLP-1? Drugs, Supplements and the Real Numbers',
     seo_desc:
       'Semaglutide lost 15%, tirzepatide 21%, the best-evidenced supplement 4.3%. Every GLP-1 figure traced to its trial — plus what happens when you stop.',
@@ -207,6 +209,97 @@ const collectionDrafts: CollectionDraft[] = [
       'Stopping reverses most of it. The STEP 1 extension saw a mean 11.6 percentage points regained within a year — about two-thirds of everything lost.',
       'Among supplements, only Amarasate (Calocurb) has randomised human trials measuring GLP-1 and weight: 3.77 kg over 24 weeks versus 0.40 kg on placebo. Real, and roughly a quarter of the drug effect.',
       'Berberine is not "nature’s Ozempic" — it acts on AMPK, not the GLP-1 receptor. Several probiotic and fibre products base their GLP-1 claims on preclinical work rather than human trials.',
+    ],
+    references: [
+      {
+        id: 'step1',
+        text: 'Wilding JPH et al. (2021). Once-weekly semaglutide in adults with overweight or obesity. STEP 1 — mean weight reduction of about 15 per cent over 68 weeks, and the body composition sub-study behind the lean mass figures.',
+        url: 'https://www.nejm.org/doi/full/10.1056/NEJMoa2032183',
+      },
+      {
+        id: 'step1-extension',
+        text: 'Wilding JPH et al. (2022). Weight regain and cardiometabolic effects after withdrawal of semaglutide: the STEP 1 trial extension. Diabetes, Obesity and Metabolism — a mean 11.6 percentage points regained over 52 weeks off treatment.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9542252/',
+      },
+      {
+        id: 'surmount1',
+        text: 'Jastreboff AM et al. (2022). Tirzepatide once weekly for the treatment of obesity. SURMOUNT-1 — 20.9 per cent mean weight reduction on 15 mg at 72 weeks.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/35658024/',
+      },
+      {
+        id: 'surmount5',
+        text: 'Aronne LJ et al. (2025). Tirzepatide as compared with semaglutide for the treatment of obesity. SURMOUNT-5 — head-to-head at maximum tolerated dose over 72 weeks.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/40353578/',
+      },
+      {
+        id: 'select',
+        text: 'Lincoff AM et al. (2023). Semaglutide and cardiovascular outcomes in obesity without diabetes. SELECT — 17,604 participants, major adverse cardiovascular events 6.5 per cent against 8.0 per cent on placebo.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37952131/',
+      },
+      {
+        id: 'wegovy-label',
+        text: 'US Food and Drug Administration. WEGOVY (semaglutide) injection prescribing information — the boxed warning on thyroid C-cell tumours, the contraindications, and the adverse reaction rates quoted on this page.',
+        url: 'https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/215256s024lbl.pdf',
+      },
+      {
+        id: 'who-naion',
+        text: 'World Health Organization (27 June 2025). The use of semaglutide medicines and risk of non-arteritic anterior ischemic optic neuropathy (NAION) — the EMA PRAC conclusion that NAION is a very rare side effect, up to 1 in 10,000 users.',
+        url: 'https://www.who.int/news/item/27-06-2025-27-06-2025-semaglutide-medicines-naion',
+      },
+      {
+        id: 'fda-unapproved',
+        text: 'US Food and Drug Administration. FDA’s concerns with unapproved GLP-1 drugs used for weight loss — dosing errors, salt forms, counterfeits, research-use-only labelling, and the advice to use a licensed prescriber and pharmacy.',
+        url: 'https://www.fda.gov/drugs/drug-alerts-and-statements/fdas-concerns-unapproved-glp-1-drugs-used-weight-loss',
+      },
+      {
+        id: 'lean-mass-review',
+        text: 'Neeland IJ et al. (2024). Changes in lean body mass with glucagon-like peptide-1-based therapies and mitigation strategies. Diabetes, Obesity and Metabolism — context for the proportion of weight lost as lean tissue and what protein and resistance training do about it.',
+        url: 'https://dom-pubs.onlinelibrary.wiley.com/doi/10.1111/dom.15728',
+      },
+      {
+        id: 'fibre-glp1',
+        text: 'Dietary fibers to boost endogenous GLP-1 secretion and satiety: a scoping review (2026). Frontiers in Endocrinology — 52 studies, 1,085 participants; GLP-1 rises showed only a non-significant tendency toward increased satiety.',
+        url: 'https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full',
+      },
+      {
+        id: 'amarasate',
+        text: 'Amarasate — overview of the bitter hops extract and its published human trials, including the 24-week C4 trial of 150 adults reported in Obesity Pillars in July 2026. We were unable to open the paper itself; the trial figures here come from the institute and trade reporting of it.',
+        url: 'https://en.wikipedia.org/wiki/Amarasate',
+      },
+      {
+        id: 'pendulum-trial',
+        text: 'Perraudeau F et al. Improvements to postprandial glucose control in subjects with type 2 diabetes: a multicenter, double-blind, randomized trial of a novel probiotic formulation. BMJ Open Diabetes Research & Care — the human trial behind Pendulum, with glycaemic rather than weight endpoints.',
+        url: 'https://drc.bmj.com/content/8/1/e001319',
+      },
+      {
+        id: 'schwitzer-pendulum',
+        text: 'Schwitzer G. Analysis of celebrity-endorsed GLP-1 probiotic marketing — notes that the company’s GLP-1 claims rest on preclinical studies rather than studies in people.',
+        url: 'https://garyschwitzer.substack.com/p/the-one-supplement-halle-berry-swears',
+      },
+      {
+        id: 'ucla-berberine',
+        text: 'UCLA Health. What to know about berberine, the so-called “nature’s Ozempic” — the AMPK mechanism, the limited trial evidence, and the drug interactions.',
+        url: 'https://www.uclahealth.org/news/article/what-know-about-berberine-so-called-natures-ozempic',
+      },
+      {
+        id: 'nice-ta1026',
+        text: 'National Institute for Health and Care Excellence. Tirzepatide for managing overweight and obesity (TA1026) — the BMI thresholds and phased NHS rollout cited in the access section.',
+        url: 'https://www.nice.org.uk/guidance/ta1026',
+      },
+    ],
+    history: [
+      {
+        date: '2026-09-23',
+        note: 'Rewritten for an international readership and re-researched from primary sources. The earlier draft treated the UK as the default and recommended protein and vitamin D; access by country is now one section among several, and the product block carries supplements actually marketed for GLP-1. Added a contents sidebar, a to-scale figure comparing the trial results, and the full source list below.',
+      },
+      {
+        date: '2026-09-23',
+        note: 'Corrected an overstatement in the first draft. It said nothing sold as a supplement comes close to the drugs, which is too absolute: Amarasate has randomised human trials measuring appetite hormones and weight, reporting 3.77 kg against 0.40 kg on placebo over 24 weeks. The page now reports that alongside its limitations — small earlier trials, a manufacturer-linked research programme, and an effect roughly a quarter the size of the drugs.',
+      },
+      {
+        date: '2026-09-22',
+        note: 'First published.',
+      },
     ],
     recommendations: [
       {
