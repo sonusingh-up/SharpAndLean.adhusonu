@@ -287,8 +287,7 @@ export default async function Home() {
               <p>
                 Ranked by their score against{' '}
                 <Link href="/evidence-grading#product-scores">the five criteria</Link>, never by
-                what pays. Everything scored so far is a protein powder — that reflects what we have
-                reviewed, not the category.
+                what pays. Label overviews carry no score, so they do not appear here.
               </p>
             </div>
             <div className="review-grid review-grid-three">
