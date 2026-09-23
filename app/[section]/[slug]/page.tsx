@@ -435,17 +435,19 @@ export default async function DetailPage({
   const collections = await getCollections(kind);
   const row = collections.find((r) => r.slug === slug);
   if (!row) notFound();
+  // A /learn/ article can recommend products too, using the same `items` list a
+  // best-of page uses. Driving them off review ids rather than hand-written HTML
+  // means a recommendation carries the live score, image and commercial link, and
+  // cannot drift from the review it points at.
   const picks =
-    section === 'best'
-      ? (row.items || [])
+    section === 'compare'
+      ? [row.product_a_id, row.product_b_id]
+          .map((id) => all.find((r) => r.id === id))
+          .filter((r): r is Review => !!r)
+      : (row.items || [])
           .sort((a, b) => a.rank - b.rank)
           .map((i) => all.find((r) => r.id === i.review_id))
-          .filter((r): r is Review => !!r)
-      : section === 'compare'
-        ? [row.product_a_id, row.product_b_id]
-            .map((id) => all.find((r) => r.id === id))
-            .filter((r): r is Review => !!r)
-        : [];
+          .filter((r): r is Review => !!r);
   return (
     <SiteShell>
       <article className="page-section">
@@ -495,9 +497,22 @@ export default async function DetailPage({
             ))}
           </nav>
         )}
-        {picks.length > 0 && <CompareTable reviews={picks} />}
+        {picks.length > 0 && section !== 'learn' && <CompareTable reviews={picks} />}
         <div className="collection-body">
           <RichText html={row.body} />
+          {section === 'learn' && picks.length > 0 && (
+            <div className="section-heading" id="recommended">
+              <div>
+                <SectionLabel>What we would actually buy</SectionLabel>
+                <h2>Products worth considering.</h2>
+              </div>
+              <p>
+                Reviewed and scored on this site against{' '}
+                <Link href="/evidence-grading#product-scores">the five criteria</Link>. None of them
+                is a substitute for a prescribed medicine.
+              </p>
+            </div>
+          )}
           {picks.map((r) => (
             <section
               className={`pick-section${r.featured_image_url ? ' has-media' : ''}`}
@@ -520,9 +535,7 @@ export default async function DetailPage({
                 </SectionLabel>
                 <h2>{r.title}</h2>
                 <p>
-                  {section === 'best'
-                    ? row.items?.find((i) => i.review_id === r.id)?.why_it_made_the_list
-                    : r.summary}
+                  {row.items?.find((i) => i.review_id === r.id)?.why_it_made_the_list ?? r.summary}
                 </p>
                 <Link className="text-link" href={`/${r.category_slug}/${r.slug}`}>
                   Read the full review <ArrowUpRight size={16} />
