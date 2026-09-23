@@ -1772,6 +1772,12 @@ summary::-webkit-details-marker {
     margin-top: 18px;
     font-size: 12px;
   }
+  /* .review-layout already collapses to one column below 800px, so the sidebar
+     only needs releasing from sticky positioning. */
+  .collection-layout .review-sidebar {
+    position: static;
+    margin-bottom: 30px;
+  }
   .review-grid,
   .review-grid-three {
     grid-template-columns: 1fr;
@@ -2359,6 +2365,15 @@ summary::-webkit-details-marker {
 .toc a:hover {
   color: #141414;
 }
+/* The explainer layout reuses the review grid, but its body is its own column
+   rather than a centred measure, so the width override has to go. */
+.collection-layout {
+  margin-top: 45px;
+}
+.collection-layout .collection-body {
+  max-width: none;
+  margin: 0;
+}
 .research-result-figure {
   margin: 36px 0;
 }
@@ -2714,6 +2729,20 @@ summary::-webkit-details-marker {
 }
 .pick-section .affiliate-block {
   margin-top: 25px;
+}
+.rec-evidence {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6d795e;
+  margin: 0 0 10px;
+}
+/* Says out loud that no score stands behind this card. */
+.rec-unreviewed {
+  font-size: 13px;
+  font-style: italic;
+  color: #8a9280;
+  margin-top: 16px;
 }
 .admin-shell {
   display: flex;

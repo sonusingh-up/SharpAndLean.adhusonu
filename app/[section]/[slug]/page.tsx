@@ -9,7 +9,10 @@ import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { ReviewPage, AffiliateButton } from '@/components/review-page';
 import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
+import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
+import { ReferenceBox, PageHistory } from '@/components/article-footer';
+import { authorProfile, teamProfile } from '@/lib/author';
 import { BreadcrumbSchema, JsonLd, pageMeta } from '@/components/seo';
 import { demoMode, siteUrl } from '@/lib/config';
 import type { Review } from '@/lib/types';
@@ -435,17 +438,22 @@ export default async function DetailPage({
   const collections = await getCollections(kind);
   const row = collections.find((r) => r.slug === slug);
   if (!row) notFound();
+  // Same anchored-heading pass RichText performs, so the contents list and the
+  // ids it points at cannot drift apart.
+  const { toc } = articleContent(row.body);
+  // A /learn/ article can recommend products too, using the same `items` list a
+  // best-of page uses. Driving them off review ids rather than hand-written HTML
+  // means a recommendation carries the live score, image and commercial link, and
+  // cannot drift from the review it points at.
   const picks =
-    section === 'best'
-      ? (row.items || [])
+    section === 'compare'
+      ? [row.product_a_id, row.product_b_id]
+          .map((id) => all.find((r) => r.id === id))
+          .filter((r): r is Review => !!r)
+      : (row.items || [])
           .sort((a, b) => a.rank - b.rank)
           .map((i) => all.find((r) => r.id === i.review_id))
-          .filter((r): r is Review => !!r)
-      : section === 'compare'
-        ? [row.product_a_id, row.product_b_id]
-            .map((id) => all.find((r) => r.id === id))
-            .filter((r): r is Review => !!r)
-        : [];
+          .filter((r): r is Review => !!r);
   return (
     <SiteShell>
       <article className="page-section">
@@ -480,10 +488,60 @@ export default async function DetailPage({
           <h1 className="page-title">{row.title}</h1>
           <p className="page-intro">{row.summary}</p>
           {row.verdict && <p className="notice">{row.verdict}</p>}
+          {/* Same split attribution reviews carry: the desk writes, the clinician
+              checks the evidence. It matters more here than anywhere, because this
+              is the page most likely to be read before a medical decision. */}
+          {section === 'learn' && (
+            <div className="byline-block">
+              <div className="byline-person">
+                <span className="byline-role">Written by</span>
+                <Link href={`/author/${teamProfile.slug}`}>{teamProfile.name}</Link>
+              </div>
+              <div className="byline-person byline-reviewer">
+                {authorProfile.photo_url && (
+                  <Image
+                    className="byline-avatar"
+                    src={authorProfile.photo_url}
+                    alt=""
+                    width={34}
+                    height={34}
+                  />
+                )}
+                <span>
+                  <span className="byline-role">Evidence reviewed by</span>
+                  <Link href={`/author/${authorProfile.slug}`}>{authorProfile.name}</Link>
+                  <span className="byline-credential">{authorProfile.title}</span>
+                </span>
+              </div>
+              <div className="byline-person">
+                <span className="byline-role">Last reviewed</span>
+                <span className="byline-date">
+                  {new Date(row.updated_at).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </span>
+              </div>
+            </div>
+          )}
         </header>
         {/* Rendered on presence of data rather than on section, so a best-of
             or comparison page can opt in without another branch here. */}
         {row.takeaways?.length ? <KeyTakeaways items={row.takeaways} /> : null}
+        {row.figure && (
+          <figure className="research-result-figure">
+            <Image
+              src={row.figure.src}
+              alt={row.figure.alt}
+              width={1200}
+              height={720}
+              sizes="(max-width: 900px) 90vw, 900px"
+              style={{ width: '100%', height: 'auto' }}
+            />
+            <figcaption>{row.figure.caption}</figcaption>
+          </figure>
+        )}
         {section === 'best' && (
           <nav className="quick-picks" aria-label="Quick picks">
             {picks.map((r, i) => (
@@ -495,55 +553,134 @@ export default async function DetailPage({
             ))}
           </nav>
         )}
-        {picks.length > 0 && <CompareTable reviews={picks} />}
-        <div className="collection-body">
-          <RichText html={row.body} />
-          {picks.map((r) => (
-            <section
-              className={`pick-section${r.featured_image_url ? ' has-media' : ''}`}
-              id={`pick-${r.id}`}
-              key={r.id}
-            >
-              {r.featured_image_url && (
-                <Link className="pick-media" href={`/${r.category_slug}/${r.slug}`}>
-                  <Image
-                    src={r.featured_image_url}
-                    alt={r.product_name || r.title}
-                    fill
-                    sizes="(max-width: 700px) 60vw, 220px"
-                  />
-                </Link>
-              )}
-              <div className="pick-body">
-                <SectionLabel>
-                  {categories.find((c) => c.slug === r.category_slug)?.name}
-                </SectionLabel>
-                <h2>{r.title}</h2>
-                <p>
-                  {section === 'best'
-                    ? row.items?.find((i) => i.review_id === r.id)?.why_it_made_the_list
-                    : r.summary}
-                </p>
-                <Link className="text-link" href={`/${r.category_slug}/${r.slug}`}>
-                  Read the full review <ArrowUpRight size={16} />
-                </Link>
-                <AffiliateButton review={r} />
-              </div>
-            </section>
-          ))}
-          {row.faqs && row.faqs.length > 0 && (
-            <section className="reading-section">
-              <h2>Your questions</h2>
-              <div className="faq-list">
-                {row.faqs.map((f, i) => (
-                  <details key={i}>
-                    <summary>{f.question}</summary>
-                    <p>{f.answer}</p>
-                  </details>
+        {picks.length > 0 && section !== 'learn' && <CompareTable reviews={picks} />}
+        {/* A long explainer earns a contents list; a two-product comparison does
+            not, so the sidebar is opt-in on length rather than on section. */}
+        <div className={toc.length > 3 ? 'review-layout collection-layout' : ''}>
+          {toc.length > 3 && (
+            <aside className="review-sidebar">
+              <nav className="toc" aria-label="Table of contents">
+                <h4>On this page</h4>
+                {toc.map((t) => (
+                  <a key={t.id} href={`#${t.id}`}>
+                    {t.title}
+                  </a>
                 ))}
-              </div>
-            </section>
+                {(row.recommendations?.length || picks.length > 0) && (
+                  <a href="#recommended">What is actually sold</a>
+                )}
+                {row.faqs?.length ? <a href="#faqs">Your questions</a> : null}
+              </nav>
+            </aside>
           )}
+          <div className="collection-body">
+            <RichText html={row.body} />
+            {section === 'learn' && (picks.length > 0 || row.recommendations?.length) && (
+              <div className="section-heading" id="recommended">
+                <div>
+                  <SectionLabel>The products people are buying</SectionLabel>
+                  <h2>What is actually sold.</h2>
+                </div>
+                <p>
+                  The best-known supplements marketed for GLP-1, with what the evidence behind each
+                  one supports. None is a substitute for a prescribed medicine, and none has been
+                  scored here yet.
+                </p>
+              </div>
+            )}
+            {/* Named but not reviewed. The card says so rather than borrowing the
+              authority of a score this site has not given. */}
+            {row.recommendations?.map((rec) => (
+              <section className={`pick-section${rec.image ? ' has-media' : ''}`} key={rec.name}>
+                {rec.image && (
+                  <a
+                    className="pick-media"
+                    href={rec.url}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                  >
+                    <Image
+                      src={rec.image}
+                      alt={rec.name}
+                      fill
+                      sizes="(max-width: 700px) 60vw, 220px"
+                    />
+                  </a>
+                )}
+                <div className="pick-body">
+                  <SectionLabel>{rec.brand || 'Supplement'}</SectionLabel>
+                  <h2>{rec.name}</h2>
+                  {rec.evidence && <p className="rec-evidence">Evidence: {rec.evidence}</p>}
+                  <p>{rec.note}</p>
+                  {rec.reviewSlug ? (
+                    <Link className="text-link" href={`/${rec.reviewSlug}`}>
+                      Read the full review <ArrowUpRight size={16} />
+                    </Link>
+                  ) : (
+                    <p className="rec-unreviewed">Not yet reviewed or scored on this site.</p>
+                  )}
+                  <div className="affiliate-block">
+                    <p>Affiliate link: we may earn a commission at no extra cost to you.</p>
+                    <a
+                      className="button"
+                      href={rec.url}
+                      target="_blank"
+                      rel="sponsored nofollow noopener noreferrer"
+                    >
+                      Check the current price <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+                </div>
+              </section>
+            ))}
+            {picks.map((r) => (
+              <section
+                className={`pick-section${r.featured_image_url ? ' has-media' : ''}`}
+                id={`pick-${r.id}`}
+                key={r.id}
+              >
+                {r.featured_image_url && (
+                  <Link className="pick-media" href={`/${r.category_slug}/${r.slug}`}>
+                    <Image
+                      src={r.featured_image_url}
+                      alt={r.product_name || r.title}
+                      fill
+                      sizes="(max-width: 700px) 60vw, 220px"
+                    />
+                  </Link>
+                )}
+                <div className="pick-body">
+                  <SectionLabel>
+                    {categories.find((c) => c.slug === r.category_slug)?.name}
+                  </SectionLabel>
+                  <h2>{r.title}</h2>
+                  <p>
+                    {row.items?.find((i) => i.review_id === r.id)?.why_it_made_the_list ??
+                      r.summary}
+                  </p>
+                  <Link className="text-link" href={`/${r.category_slug}/${r.slug}`}>
+                    Read the full review <ArrowUpRight size={16} />
+                  </Link>
+                  <AffiliateButton review={r} />
+                </div>
+              </section>
+            ))}
+            {row.faqs && row.faqs.length > 0 && (
+              <section className="reading-section" id="faqs">
+                <h2>Your questions</h2>
+                <div className="faq-list">
+                  {row.faqs.map((f, i) => (
+                    <details key={i}>
+                      <summary>{f.question}</summary>
+                      <p>{f.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
+            {row.references?.length ? <ReferenceBox references={row.references} /> : null}
+            {row.history?.length ? <PageHistory entries={row.history} /> : null}
+          </div>
         </div>
         {collections.length > 1 && (
           <section className="reading-section">
@@ -574,6 +711,20 @@ export default async function DetailPage({
               name: 'SharpAndLean',
               '@id': `${siteUrl}/#organization`,
             },
+            ...(section === 'learn'
+              ? {
+                  reviewedBy: {
+                    '@type': 'Person',
+                    '@id': `${siteUrl}/author/${authorProfile.slug}#person`,
+                    name: authorProfile.name,
+                    jobTitle: authorProfile.title,
+                    url: `${siteUrl}/author/${authorProfile.slug}`,
+                  },
+                }
+              : {}),
+            ...(row.references?.length
+              ? { citation: row.references.filter((c) => c.url).map((c) => c.url) }
+              : {}),
             publisher: { '@id': `${siteUrl}/#organization` },
             isPartOf: { '@id': `${siteUrl}/#website` },
             ...(section === 'best' && picks.length

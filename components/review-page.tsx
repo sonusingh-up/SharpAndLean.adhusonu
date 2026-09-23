@@ -18,6 +18,18 @@ import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
 import { amazonLink } from '@/lib/amazon';
+/**
+ * What a commercial button says.
+ *
+ * Named here rather than inline because a review carries the same link in three
+ * places, and they disagreed when each wrote its own text. "Search this product
+ * on Amazon" was written for a keyword-search fallback that no longer exists.
+ */
+function affiliateLabel(network: string) {
+  if (network === 'Amazon') return 'View on Amazon';
+  return network ? `Check the price at ${network}` : 'Check the current price';
+}
+
 export function AffiliateButton({
   review,
   fallback = null,
@@ -38,12 +50,7 @@ export function AffiliateButton({
         {/* Only name a destination the page actually knows. A redirect under
             /recommended/ can be repointed in the CMS, so claiming it lands on
             an "official website" would be an assertion the page cannot back. */}
-        {review.affiliate_network === 'Amazon'
-          ? 'Search this product on Amazon'
-          : review.affiliate_network
-            ? `Check the price at ${review.affiliate_network}`
-            : 'Check the current price'}{' '}
-        <ArrowUpRight size={16} />
+        {affiliateLabel(review.affiliate_network)} <ArrowUpRight size={16} />
       </a>
     </div>
   );
@@ -53,15 +60,15 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   // A page can name its own comparisons. Falling back to "same category" puts
   // fish oil beside a whey protein, which compares nothing a reader can use.
   const related = // Checked for presence rather than length: an article that sets an empty list
-  // is saying it has no comparable product, which is different from not having
-  // been asked the question.
-  (
-    r.alternative_slugs
-      ? r.alternative_slugs
-          .map((slug) => all.find((v) => v.slug === slug && v.id !== r.id))
-          .filter((v): v is Review => Boolean(v))
-      : all.filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
-  ).slice(0, 3);
+    // is saying it has no comparable product, which is different from not having
+    // been asked the question.
+    (
+      r.alternative_slugs
+        ? r.alternative_slugs
+            .map((slug) => all.find((v) => v.slug === slug && v.id !== r.id))
+            .filter((v): v is Review => Boolean(v))
+        : all.filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
+    ).slice(0, 3);
   const { toc } = articleContent(r.body);
   // Body headings are anchored with a positional suffix, so resolve the sources
   // section from the generated table of contents rather than guessing its id.
@@ -286,7 +293,23 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 </div>
               </dl>
 
-              {r.asin ? (
+              {/* An article that names its own commercial link wins here, exactly as
+                  it does in the sidebar and the comparison cards. This button used
+                  to read `asin` alone, so a page carrying both would send the top
+                  CTA to Amazon and the other two somewhere else. */}
+              {r.affiliate_url && safeUrl(r.affiliate_url) ? (
+                <>
+                  <a
+                    className="button featured-product-cta"
+                    href={r.affiliate_url}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                  >
+                    {affiliateLabel(r.affiliate_network)} <ArrowUpRight size={15} />
+                  </a>
+                  <p className="glance-affiliate">Affiliate link · We may earn a commission.</p>
+                </>
+              ) : r.asin ? (
                 <>
                   <a
                     className="button featured-product-cta"
