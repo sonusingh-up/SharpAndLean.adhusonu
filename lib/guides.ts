@@ -68,7 +68,7 @@ export const guides: Guide[] = [
         type: 'callout',
         text: 'This is a real product, and the figures come straight from the manufacturer panel.',
         href: '/fat-burners/now-glucomannan-575-mg',
-        label: 'See the full label overview',
+        label: 'Read the full review',
       },
       {
         type: 'h2',
