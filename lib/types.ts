@@ -99,4 +99,25 @@ export type Collection = {
   faqs?: FAQ[];
   product_a_id?: string;
   product_b_id?: string;
+  /**
+   * Products named on a page that have not been reviewed here yet.
+   *
+   * Deliberately separate from `items`, which points at scored reviews. A card
+   * built from this carries no score and says plainly that no review stands
+   * behind it, so the page cannot imply an assessment it has not made. Set
+   * `reviewSlug` once a review exists and the card starts linking to it.
+   */
+  recommendations?: {
+    name: string;
+    brand?: string;
+    /** What it is, and what the evidence behind it actually supports. */
+    note: string;
+    /** Where to buy. A /recommended/ redirect or a retailer link. */
+    url: string;
+    image?: string;
+    /** Short evidence label, e.g. "Human RCTs" or "Preclinical only". */
+    evidence?: string;
+    /** Category path of a published review, once one exists. */
+    reviewSlug?: string;
+  }[];
 };

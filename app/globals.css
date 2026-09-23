@@ -2715,6 +2715,20 @@ summary::-webkit-details-marker {
 .pick-section .affiliate-block {
   margin-top: 25px;
 }
+.rec-evidence {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6d795e;
+  margin: 0 0 10px;
+}
+/* Says out loud that no score stands behind this card. */
+.rec-unreviewed {
+  font-size: 13px;
+  font-style: italic;
+  color: #8a9280;
+  margin-top: 16px;
+}
 .admin-shell {
   display: flex;
   min-height: 100vh;

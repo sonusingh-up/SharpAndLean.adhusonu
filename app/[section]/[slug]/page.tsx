@@ -500,19 +500,64 @@ export default async function DetailPage({
         {picks.length > 0 && section !== 'learn' && <CompareTable reviews={picks} />}
         <div className="collection-body">
           <RichText html={row.body} />
-          {section === 'learn' && picks.length > 0 && (
+          {section === 'learn' && (picks.length > 0 || row.recommendations?.length) && (
             <div className="section-heading" id="recommended">
               <div>
-                <SectionLabel>What we would actually buy</SectionLabel>
-                <h2>Products worth considering.</h2>
+                <SectionLabel>The products people are buying</SectionLabel>
+                <h2>What is actually sold.</h2>
               </div>
               <p>
-                Reviewed and scored on this site against{' '}
-                <Link href="/evidence-grading#product-scores">the five criteria</Link>. None of them
-                is a substitute for a prescribed medicine.
+                The best-known supplements marketed for GLP-1, with what the evidence behind each
+                one supports. None is a substitute for a prescribed medicine, and none has been
+                scored here yet.
               </p>
             </div>
           )}
+          {/* Named but not reviewed. The card says so rather than borrowing the
+              authority of a score this site has not given. */}
+          {row.recommendations?.map((rec) => (
+            <section className={`pick-section${rec.image ? ' has-media' : ''}`} key={rec.name}>
+              {rec.image && (
+                <a
+                  className="pick-media"
+                  href={rec.url}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                >
+                  <Image
+                    src={rec.image}
+                    alt={rec.name}
+                    fill
+                    sizes="(max-width: 700px) 60vw, 220px"
+                  />
+                </a>
+              )}
+              <div className="pick-body">
+                <SectionLabel>{rec.brand || 'Supplement'}</SectionLabel>
+                <h2>{rec.name}</h2>
+                {rec.evidence && <p className="rec-evidence">Evidence: {rec.evidence}</p>}
+                <p>{rec.note}</p>
+                {rec.reviewSlug ? (
+                  <Link className="text-link" href={`/${rec.reviewSlug}`}>
+                    Read the full review <ArrowUpRight size={16} />
+                  </Link>
+                ) : (
+                  <p className="rec-unreviewed">Not yet reviewed or scored on this site.</p>
+                )}
+                <div className="affiliate-block">
+                  <p>Affiliate link: we may earn a commission at no extra cost to you.</p>
+                  <a
+                    className="button"
+                    href={rec.url}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                  >
+                    Check the current price <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+            </section>
+          ))}
           {picks.map((r) => (
             <section
               className={`pick-section${r.featured_image_url ? ' has-media' : ''}`}
