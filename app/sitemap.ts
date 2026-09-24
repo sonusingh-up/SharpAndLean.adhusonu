@@ -2,10 +2,12 @@ import type { MetadataRoute } from 'next';
 import { siteUrl, demoMode } from '@/lib/config';
 import { getReviews, getCollections } from '@/lib/data';
 import { authors } from '@/lib/author';
-import { ingredients } from '@/lib/ingredients';
-import { guides } from '@/lib/guides';
+import { liveIngredients } from '@/lib/ingredients';
+import { liveGuides } from '@/lib/guides';
 export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const ingredients = liveIngredients();
+  const guides = liveGuides();
   if (demoMode) return [];
   const [reviews, best, comparisons, articles] = await Promise.all([
     getReviews(),

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel, Empty } from '@/components/site';
 import { pageMeta, JsonLd, BreadcrumbSchema } from '@/components/seo';
-import { guides } from '@/lib/guides';
+import { liveGuides } from '@/lib/guides';
 import { siteUrl } from '@/lib/config';
 
 export const revalidate = 3600;
@@ -14,6 +14,7 @@ export const metadata = pageMeta(
 );
 
 export default function GuidesIndex() {
+  const guides = liveGuides();
   return (
     <SiteShell>
       <div className="page-section">

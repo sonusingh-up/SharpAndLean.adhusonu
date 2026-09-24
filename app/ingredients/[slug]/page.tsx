@@ -6,7 +6,7 @@ import { ReviewCard } from '@/components/review-card';
 import { EvidenceBadge, QuickAnswer, ExpertNote, TableOfContents } from '@/components/evidence';
 import { pageMeta, JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from '@/components/seo';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
-import { ingredients, getIngredient, findIngredientByName } from '@/lib/ingredients';
+import { liveIngredients, getIngredient, findIngredientByName } from '@/lib/ingredients';
 import { getReviews } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
 import { teamProfile } from '@/lib/author';
@@ -14,7 +14,8 @@ import { teamProfile } from '@/lib/author';
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return ingredients.map((i) => ({ slug: i.slug }));
+  // Scheduled pages are not prebuilt; they render on first request once live.
+  return liveIngredients().map((i) => ({ slug: i.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

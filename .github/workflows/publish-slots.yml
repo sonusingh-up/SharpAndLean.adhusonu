@@ -1,0 +1,40 @@
+# Makes scheduled content appear at its publish slot instead of up to an hour
+# later. See lib/schedule.ts.
+#
+# Scheduled content is hidden by publish time in the app itself; this workflow
+# only tells the site to refresh its cached pages at each slot. If it fails or
+# runs late, pages still appear within an hour through the hourly refresh, and
+# nothing can ever publish early because of it.
+#
+# Requires a repository secret named REVALIDATE_SECRET holding the same value as
+# the REVALIDATE_SECRET environment variable on Vercel.
+name: Publish scheduled content
+
+on:
+  schedule:
+    # 09:00, 13:00, 17:00 and 21:00 IST (UTC+05:30), written in UTC.
+    # Keep in step with PUBLISH_SLOTS in lib/schedule.ts; a test checks this.
+    - cron: '30 3,7,11,15 * * *'
+  # Lets you refresh the site by hand from the Actions tab.
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Refresh cached pages
+        env:
+          REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
+          SITE_URL: https://sharpandlean.com
+        run: |
+          if [ -z "$REVALIDATE_SECRET" ]; then
+            echo "::error::The REVALIDATE_SECRET repository secret is not set."
+            exit 1
+          fi
+          curl --fail-with-body --silent --show-error \
+            --retry 3 --retry-all-errors --retry-delay 20 \
+            -X POST -H "x-revalidate-secret: $REVALIDATE_SECRET" \
+            "$SITE_URL/api/revalidate"

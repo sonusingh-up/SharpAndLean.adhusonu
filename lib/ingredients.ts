@@ -1,5 +1,6 @@
 import type { FAQ } from './types';
 import type { HistoryEntry } from '@/components/article-footer';
+import { isLive, slot } from './schedule';
 
 /**
  * Transparent A–F evidence grading.
@@ -86,6 +87,11 @@ export type IngredientPage = {
   editorNote: string;
   related: string[];
   updated: string;
+  /**
+   * When the page goes live, usually slot(date, n) from lib/schedule. Omitted
+   * means live now. Until then the page is a 404 and appears in no list.
+   */
+  published?: string;
   /** Real publication events only. An invented edit trail is worse than none. */
   history?: HistoryEntry[];
 };
@@ -1415,11 +1421,12 @@ export const ingredients: IngredientPage[] = [
     related: ['l-theanine', 'gaba'],
     history: [
       {
-        date: '2026-09-24',
+        date: '2026-09-25',
         note: 'First published with per-claim evidence grades. Libido findings from the 2010 BMC systematic review and the SSRI pilot trial; menopause findings from the 2011 Maturitas review; hormone findings from the 2003 Journal of Endocrinology trial.',
       },
     ],
-    updated: '2026-09-24',
+    published: slot('2026-09-25', 1),
+    updated: '2026-09-25',
   },
   {
     slug: 'grape-seed-extract',
@@ -1554,11 +1561,12 @@ export const ingredients: IngredientPage[] = [
     related: ['omega-3', 'green-tea-extract'],
     history: [
       {
-        date: '2026-09-24',
+        date: '2026-09-25',
         note: 'First published with per-claim evidence grades. Blood pressure findings from the 2016 Medicine meta-analysis and the 2011 Journal of the American Dietetic Association meta-analysis, which also supplied the lipid findings; bleeding caution from the 2019 laboratory study of anticoagulant activity.',
       },
     ],
-    updated: '2026-09-24',
+    published: slot('2026-09-25', 2),
+    updated: '2026-09-25',
   },
   {
     slug: 'capsicum-annuum',
@@ -1720,11 +1728,12 @@ export const ingredients: IngredientPage[] = [
     related: ['green-tea-extract', 'gymnema-sylvestre', 'glucomannan'],
     history: [
       {
-        date: '2026-09-24',
+        date: '2026-09-25',
         note: 'First published with per-claim evidence grades. Energy expenditure findings from the 2012 Chemical Senses meta-analyses and the 2020 thermogenesis meta-analysis; appetite from the 2014 Appetite meta-analysis; weight outcomes from the 2003 British Journal of Nutrition and 2009 AJCN trials and the 2011 EFSA opinion; topical use from the 2017 Cochrane review.',
       },
     ],
-    updated: '2026-09-24',
+    published: slot('2026-09-25', 3),
+    updated: '2026-09-25',
   },
   {
     slug: 'gymnema-sylvestre',
@@ -1857,11 +1866,12 @@ export const ingredients: IngredientPage[] = [
     related: ['capsicum-annuum', 'glucomannan', 'psyllium-husk'],
     history: [
       {
-        date: '2026-09-24',
+        date: '2026-09-25',
         note: 'First published with per-claim evidence grades. Sweet-taste findings from the 2017 Journal of Psychopharmacology experiment and the 2020 Nutrients mint study; blood sugar findings from the 2021 Phytotherapy Research meta-analysis; liver caution from the 2010 case report.',
       },
     ],
-    updated: '2026-09-24',
+    published: slot('2026-09-25', 4),
+    updated: '2026-09-25',
   },
   {
     slug: 'gaba',
@@ -1983,22 +1993,32 @@ export const ingredients: IngredientPage[] = [
     related: ['l-theanine', 'maca-root'],
     history: [
       {
-        date: '2026-09-24',
+        date: '2026-09-26',
         note: 'First published with per-claim evidence grades. Stress and sleep findings from the 2020 Frontiers in Neuroscience systematic review; blood–brain barrier and mechanism discussion from the 2015 Frontiers in Psychology review.',
       },
     ],
-    updated: '2026-09-24',
+    published: slot('2026-09-26', 1),
+    updated: '2026-09-26',
   },
 ];
 
+/**
+ * Ingredient pages whose publish time has passed. Anything a reader can see —
+ * pages, lists, the sitemap, search, links from reviews — must read this rather
+ * than `ingredients`, which also holds scheduled pages.
+ */
+export function liveIngredients(now: number = Date.now()) {
+  return ingredients.filter((i) => isLive(i.published, now));
+}
+
 export function getIngredient(slug: string) {
-  return ingredients.find((i) => i.slug === slug);
+  return liveIngredients().find((i) => i.slug === slug);
 }
 
 /** Match a free-text product ingredient name to an ingredient page, if one exists. */
 export function findIngredientByName(name: string) {
   const needle = name.toLowerCase().trim();
-  return ingredients.find(
+  return liveIngredients().find(
     (i) =>
       i.aliases.some((a) => needle === a || needle.includes(a)) ||
       needle.includes(i.name.toLowerCase()),

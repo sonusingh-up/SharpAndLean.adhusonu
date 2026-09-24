@@ -5,14 +5,16 @@ import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { KeyTakeaways, ExpertNote, TableOfContents } from '@/components/evidence';
 import { pageMeta, JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from '@/components/seo';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
-import { guides, getGuide } from '@/lib/guides';
+import { liveGuides, getGuide } from '@/lib/guides';
+import { scheduledPaths, isScheduledHref } from '@/lib/scheduled-paths';
 import { siteUrl } from '@/lib/config';
 import { teamProfile } from '@/lib/author';
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return guides.map((g) => ({ slug: g.slug }));
+  // Scheduled guides are not prebuilt; they render on first request once live.
+  return liveGuides().map((g) => ({ slug: g.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -30,6 +32,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const g = getGuide(slug);
   if (!g) notFound();
+  // Links to pages scheduled after this guide stay hidden until those pages go live.
+  const scheduled = scheduledPaths();
+  const related = g.related.filter((href) => !isScheduledHref(href, scheduled));
 
   const toc = g.blocks
     .filter((b): b is Extract<typeof b, { type: 'h2' }> => b.type === 'h2')
@@ -120,6 +125,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 </figure>
               );
             if (b.type === 'expert') return <ExpertNote key={i}>{b.text}</ExpertNote>;
+            if (isScheduledHref(b.href, scheduled))
+              return (
+                <aside className="guide-callout" key={i}>
+                  <p>{b.text}</p>
+                </aside>
+              );
             return (
               <aside className="guide-callout" key={i}>
                 <p>{b.text}</p>
@@ -146,11 +157,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <ReferenceBox references={g.references || []} />
         <PageHistory entries={g.history || [{ date: g.published, note: 'Published.' }]} />
 
-        {g.related.length > 0 && (
+        {related.length > 0 && (
           <section className="reading-section">
             <h2>Read next</h2>
             <div className="index-category-links">
-              {g.related.map((href) => (
+              {related.map((href) => (
                 <Link className="text-link" href={href} key={href}>
                   {href.replace(/^\//, '').replace(/[-/]/g, ' ')} <ArrowUpRight size={14} />
                 </Link>
