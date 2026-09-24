@@ -3,12 +3,7 @@ import { contentFromSupabase, hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
 import { amazonLink, hasAmazonTag } from './amazon';
-import { isLive } from './schedule';
-/** Reviews whose publish time has passed. Scheduled ones are invisible until then. */
 export async function getReviews(): Promise<Review[]> {
-  return (await loadReviews()).filter((r) => isLive(r.published_at));
-}
-async function loadReviews(): Promise<Review[]> {
   // With no partner tag configured the affiliate slot stays empty rather than
   // showing an untagged commercial link.
   if (!contentFromSupabase)
@@ -44,11 +39,7 @@ async function loadReviews(): Promise<Review[]> {
       }) as Review,
   );
 }
-/** Collections whose publish time has passed, like getReviews(). */
 export async function getCollections(kind: Collection['kind']): Promise<Collection[]> {
-  return (await loadCollections(kind)).filter((c) => isLive(c.published_at));
-}
-async function loadCollections(kind: Collection['kind']): Promise<Collection[]> {
   if (!contentFromSupabase) return editorialCollections.filter((row) => row.kind === kind);
   const select =
     kind === 'best_lists' ? '*, items:best_list_items(*), faqs:best_list_faqs(*)' : '*';
