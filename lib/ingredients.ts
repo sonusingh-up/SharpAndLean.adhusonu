@@ -1989,6 +1989,588 @@ export const ingredients: IngredientPage[] = [
     ],
     updated: '2026-09-24',
   },
+  {
+    slug: 'akkermansia-muciniphila',
+    name: 'Akkermansia muciniphila (WB-STR-0001)',
+    aliases: ['akkermansia muciniphila', 'akkermansia', 'a. muciniphila', 'wb-str-0001'],
+    category: 'Probiotic (gut bacterium)',
+    grade: 'D',
+    quickAnswer:
+      'Akkermansia muciniphila is a mucus-eating bacterium found in most healthy guts, and people with obesity and type 2 diabetes tend to carry less of it. That link is real; whether swallowing it helps is far less settled. Only two small randomised trials have reported results. In the first, heat-killed bacteria did more than live ones; in the second, a live strain helped only people who started with very little. WB-STR-0001 is Pendulum’s strain. It has never been tested on its own — only as one of five strains in a blend — and we found no FDA review of it.',
+    atAGlance: [
+      {
+        label: 'Dose in the first human trial',
+        value: '10 billion a day',
+        note: 'Live or pasteurised bacteria for three months; 32 people finished (Depommier 2019).',
+      },
+      {
+        label: 'WB-STR-0001 in Pendulum Akkermansia',
+        value: '100 million AFU',
+        note: 'A hundredth of that trial dose — and counted by a different method, so not directly comparable even then.',
+      },
+      {
+        label: 'EU safe intake (pasteurised strain MucT)',
+        value: '3.4 × 10¹⁰ cells a day',
+        note: 'EFSA, 2021, for adults excluding pregnancy and breastfeeding. It covers the heat-killed form only.',
+      },
+      {
+        label: 'Trials of WB-STR-0001 on its own',
+        value: 'None found',
+        note: 'It has been tested only inside a five-strain blend, WBF-011, alongside inulin.',
+      },
+      {
+        label: 'FDA GRAS notice for WB-STR-0001',
+        value: 'None found',
+        note: 'FDA’s GRAS notice inventory returned no Akkermansia notices when searched on 24 September 2026.',
+      },
+      {
+        label: 'Normal share of gut bacteria',
+        value: 'More than 1%',
+        note: 'Of faecal cells in healthy adults — a common resident, not a rarity.',
+      },
+    ],
+    whatIsIt:
+      'Akkermansia muciniphila was first isolated in 2004, at Wageningen University, from the faeces of a healthy adult, by growing bacteria on a medium where gastric mucin was the only source of carbon and nitrogen. The strain that came out of that experiment, MucT, is still the reference strain, and the name describes the organism: “muciniphila” means mucin-loving. It is a strictly anaerobic bacterium — oxygen kills it — which lives in the mucus layer that lines the gut wall, and it is not unusual: a 2008 study using a DNA probe found it made up more than 1 per cent of the bacterial cells in adult faeces. What made it famous is a correlation. People with overweight, obesity, untreated type 2 diabetes and high blood pressure tend to carry less of it, which is why it is now sold as a supplement. Three strain names matter for reading the evidence. MucT is the strain the EU has authorised, in heat-killed form. AKK-WST01 is the live strain in the 2025 diabetes trial. WB-STR-0001 is Pendulum’s live strain, sold in its Akkermansia capsules and its multi-strain products. The US National Center for Complementary and Integrative Health is explicit that probiotic effects are strain-specific: what one strain does cannot be assumed for another, even within the same species.',
+    mechanism:
+      'The organism feeds on mucin, the glycoprotein that makes up the protective mucus over the gut lining, and in animal studies its presence is associated with that layer being renewed and the barrier between the gut and the bloodstream holding up better. The most important mechanistic finding, though, cuts against the way the live product is sold. In a 2017 mouse study in Nature Medicine, pasteurising the bacterium did not destroy its effects — it enhanced them, reducing fat-mass gain, insulin resistance and abnormal blood lipids more than the live organism did. The same study identified a protein on the bacterium’s outer membrane, Amuc_1100, that binds an immune receptor called Toll-like receptor 2, survives the temperatures used for pasteurisation, improves the gut barrier and on its own reproduces part of the benefit. If the active ingredient is a structural component rather than a living population, a dead bacterium can work, and “live” stops being the feature it is marketed as. The first human trial fits that reading: the pasteurised form lowered the activity of DPP-IV, an enzyme that breaks down gut hormones, while the live form and placebo did not. What it did not do is raise GLP-1. For live strains specifically, the 2025 diabetes trial adds a second idea — that a supplement only takes hold, and only helps, in a gut that has little of the organism to begin with.',
+    claims: [
+      {
+        claim: 'Improving insulin sensitivity and metabolic markers',
+        grade: 'C',
+        body: 'The most encouraging claim, resting on two small trials that do not quite agree. In the first, a single-centre pilot in overweight, insulin-resistant adults (40 enrolled, 32 finished), 10 billion pasteurised bacteria a day for three months improved insulin sensitivity by 28.62 per cent against placebo (P = 0.002), cut insulin levels by 34.08 per cent (P = 0.006) and lowered total cholesterol by 8.68 per cent (P = 0.02). The live form, at the same dose, improved an insulin-resistance score but did not reproduce those results. In the second, a 2025 trial of the live strain AKK-WST01 in 58 people with overweight or obese type 2 diabetes, both groups improved and the difference between them was not significant. The benefit appeared only in participants who started with low levels of the bacterium. Promising and plausible, but two small studies with different forms and different results is what a C describes.',
+        refs: ['depommier2019', 'zhang2025'],
+      },
+      {
+        claim: 'Weight loss',
+        grade: 'D',
+        body: 'Not established in people. In the first trial, weight fell by 2.27 kg more on the pasteurised form than on placebo, but the difference was not statistically significant (P = 0.091). In the 2025 diabetes trial there was no significant difference in weight between groups overall; reductions in weight and fat mass appeared only in the low-baseline subgroup. A third, larger trial — 90 people given pasteurised A. muciniphila or placebo for six months to see whether it helped keep weight off after a low-calorie diet — was completed in November 2023 and, at the time of writing, has posted no results on ClinicalTrials.gov. A weight-loss claim built on this record is running ahead of it.',
+        refs: ['depommier2019', 'zhang2025', 'nct05417360'],
+      },
+      {
+        claim: 'Strengthening the gut lining',
+        grade: 'D',
+        body: 'This is the claim most products lead with, and it is the one resting almost entirely on animal and laboratory work. The mouse evidence is genuinely good: the Amuc_1100 protein improved gut-barrier function and partly reproduced the whole bacterium’s effects. Human evidence that swallowing A. muciniphila measurably strengthens the gut lining is not established by the trials published so far. Where a label footnotes this claim as “based on preclinical studies”, that footnote is accurate, and it is the most important sentence on the pack.',
+        refs: ['plovier2017', 'depommier2019'],
+      },
+      {
+        claim: 'Raising GLP-1',
+        grade: 'F',
+        body: 'The claim that matters most commercially, and the one the human evidence contradicts. The first trial measured active GLP-1 in the blood directly, by ELISA, and the authors report plainly that they did not find any significant changes in plasma GLP-1 levels — at 10 billion bacteria a day, a hundred times the amount in some commercial capsules. The pasteurised form did lower the enzyme that breaks GLP-1 down, which is presumably where the idea comes from, but a lower-activity enzyme is not the same as a higher hormone level, and the hormone level is what was measured. A product printing “increases GLP-1 production” on the box is making a claim the only direct human measurement does not support.',
+        refs: ['depommier2019'],
+      },
+      {
+        claim: 'That WB-STR-0001 itself has clinical proof',
+        grade: 'D',
+        body: 'WB-STR-0001 has been in one published human trial, and not on its own. The 2020 study in BMJ Open Diabetes Research & Care randomised 76 people with type 2 diabetes to placebo or one of two multi-strain formulations for 12 weeks. The one containing WB-STR-0001, called WBF-011, also contained four other strains and inulin. Its primary outcome — glucose over three hours after a meal — improved by 36.1 mg/dL/180 min against placebo at p = 0.0500, exactly on the conventional threshold, with A1c 0.6 lower as a secondary outcome. Every author was employed by Pendulum. A placebo-controlled design is real evidence, but a five-strain blend cannot tell you what one strain did, and a single result at the edge of significance is not replication. For the single-strain product sold on this strain, there is no trial at all.',
+        refs: ['perraudeau2020', 'nccih-probiotics'],
+      },
+    ],
+    dosage:
+      'The only dose tested in a published trial of A. muciniphila on its own is 10 billion bacteria a day, taken for three months, in both live and pasteurised form. For the heat-killed strain MucT, the European Food Safety Authority set a safe intake of 3.4 × 10¹⁰ cells a day for adults, derived from a 90-day rat study by applying a 200-fold safety margin; the applicant had proposed up to 5 × 10¹⁰. That figure is a safety ceiling, not an effective dose, and it applies to the pasteurised product only. There is no established dose for any live strain taken alone, and none for WB-STR-0001. The 2025 trial adds a practical point that no label can: whether a live strain does anything may depend on how much of it you already carry, which only a stool test can tell you.',
+    dosageGap:
+      'The gap here is large and easy to miss. Pendulum’s single-strain capsule provides 100 million AFU of WB-STR-0001 a day — a hundredth of the 10 billion bacteria used in the first human trial. AFU, or active fluorescent units, are counted by staining cells and passing them through a flow cytometer; the classic probiotic count, CFU, counts cells that grow into colonies on a plate. The two methods measure different things, no label converts between them, and nobody has shown what 100 million AFU corresponds to in trial terms. Across brands, counts run from 100 million to hundreds of billions of AFU, which is less a range of doses than a range of counting conventions. The second gap is regulatory. The EU’s authorisation covers pasteurised MucT; a live product is not covered by it, however similar the name on the front.',
+    safety:
+      'A. muciniphila is a normal member of the human gut community, and EFSA describes the reference strain as well characterised, non-toxin-producing and avirulent. In the first human trial, both live and pasteurised forms were well tolerated at 10 billion a day for three months, with no difference in adverse events between groups. EFSA’s safety conclusion excludes pregnant and breastfeeding women, and there is no safety data in children. The general cautions for live probiotics apply with full force here. The National Center for Complementary and Integrative Health notes that the risk of harm is greater in people with severe illness or weakened immune systems, that products have been found to contain organisms not on the label, and that in September 2023 the FDA warned of severe and sometimes fatal infections in premature infants given probiotics. Two research associations are worth knowing without overstating: A. muciniphila has been found at higher levels in untreated multiple sclerosis — where, in laboratory tests, it provoked inflammatory responses from human immune cells — and a five-country analysis found it raised in Parkinson’s disease. Neither shows the bacterium causes either condition, but both are reasons for anyone with those diagnoses, or with inflammatory bowel disease or a compromised immune system, to take a supplement to their clinician rather than their basket.',
+    faqs: [
+      {
+        question: 'Does Akkermansia work better live or pasteurised?',
+        answer:
+          'On the evidence so far, pasteurised. In the only trial to compare them, at the same dose of 10 billion a day, the heat-killed form produced the headline improvements in insulin sensitivity, insulin levels and cholesterol; the live form improved one insulin-resistance score. Mouse work explains why: a protein on the bacterium’s surface, Amuc_1100, survives pasteurisation and carries part of the effect. That does not prove live strains cannot work — a 2025 trial found one helped people who started with little of it — but it does mean “live” is not the selling point it is presented as.',
+      },
+      {
+        question: 'Does Akkermansia increase GLP-1?',
+        answer:
+          'Not in the human trial that measured it. Researchers tested active GLP-1 in the blood of people taking 10 billion bacteria a day for three months and found no significant change. The pasteurised form did lower DPP-IV, the enzyme that breaks GLP-1 down, but a change in the enzyme is not a change in the hormone. The GLP-1 label on these products is a marketing position, not a trial result.',
+      },
+      {
+        question: 'Will Akkermansia help me lose weight?',
+        answer:
+          'The trials do not show it. The first found a 2.27 kg difference that was not statistically significant; the 2025 diabetes trial found no overall difference between groups; and a completed six-month weight-maintenance trial of 90 people has not published results. Any benefit so far appears limited to people who start with low levels of the bacterium.',
+      },
+      {
+        question: 'Should I test my Akkermansia levels before taking it?',
+        answer:
+          'If you are considering it at all, that is the sensible order. The most recent randomised trial found the live strain colonised and helped only in people with low baseline levels, and did neither in people who already had plenty. A stool test gives you a baseline and a way to check whether the supplement changed anything, which is worth more than any claim on the box.',
+      },
+      {
+        question: 'Is WB-STR-0001 FDA approved or GRAS?',
+        answer:
+          'Dietary supplements are not FDA-approved before sale, so no probiotic is. On GRAS, FDA’s own notice inventory listed no Akkermansia notices when we searched it on 24 September 2026. A company can describe an ingredient as GRAS on the basis of its own expert panel without FDA ever reviewing it; that is a legal route, but it is not the same as an FDA “no questions” letter, and the two should not be confused.',
+      },
+      {
+        question: 'Can I raise my Akkermansia with food instead?',
+        answer:
+          'Possibly, but the human evidence is thinner than the advice suggests. A 2024 pooled analysis of six human studies found galacto-oligosaccharides raised A. muciniphila in healthy people; the same analysis did not report that for inulin, which is the fibre most often paired with it in supplements. A generally fibre-rich diet is a reasonable goal on its own merits, whatever it does for this one organism.',
+      },
+      {
+        question: 'Who should not take an Akkermansia supplement?',
+        answer:
+          'Anyone pregnant or breastfeeding, where safety has not been assessed; anyone with a weakened immune system or serious illness, where live probiotics carry more risk; infants, especially premature ones; and anyone with multiple sclerosis, Parkinson’s disease or inflammatory bowel disease, given the research associations, without a clinician’s view first.',
+      },
+    ],
+    references: [
+      {
+        id: 'depommier2019',
+        text: 'Depommier C et al. (2019). Supplementation with Akkermansia muciniphila in overweight and obese human volunteers: a proof-of-concept exploratory study. Nature Medicine 25:1096-1103 — 40 enrolled, 32 completed, 10 billion live or pasteurised bacteria a day for three months. Pasteurised: insulin sensitivity +28.62% (P = 0.002), insulinaemia −34.08% (P = 0.006), total cholesterol −8.68% (P = 0.02), weight −2.27 kg (P = 0.091). The full text reports no significant change in plasma GLP-1 and lower DPP-IV activity with the pasteurised form only.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31263284/',
+      },
+      {
+        id: 'zhang2025',
+        text: 'Zhang Y et al. (2025). Akkermansia muciniphila supplementation in patients with overweight/obese type 2 diabetes: efficacy depends on its baseline levels in the gut. Cell Metabolism 37(3):592-605 — 12 weeks, 58 participants, live strain AKK-WST01; no significant between-group difference overall, with benefit confined to those with low baseline levels.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/39879980/',
+      },
+      {
+        id: 'perraudeau2020',
+        text: 'Perraudeau F et al. (2020). Improvements to postprandial glucose control in subjects with type 2 diabetes: a multicenter, double blind, randomized placebo-controlled trial of a novel probiotic formulation. BMJ Open Diabetes Research & Care — 76 participants, 12 weeks; WBF-011 contained inulin and five strains including A. muciniphila WB-STR-0001; primary outcome improved by 36.1 mg/dL/180 min at p = 0.0500. All authors were employed by Pendulum Therapeutics.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32675291/',
+      },
+      {
+        id: 'plovier2017',
+        text: 'Plovier H et al. (2017). A purified membrane protein from Akkermansia muciniphila or the pasteurized bacterium improves metabolism in obese and diabetic mice. Nature Medicine 23:107-113 — pasteurisation enhanced the effects in mice; the outer-membrane protein Amuc_1100 is heat-stable, binds Toll-like receptor 2 and improves the gut barrier.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/27892954/',
+      },
+      {
+        id: 'efsa2021',
+        text: 'EFSA Panel on Nutrition, Novel Foods and Food Allergens (2021). Safety of pasteurised Akkermansia muciniphila as a novel food pursuant to Regulation (EU) 2015/2283. EFSA Journal 19(9):6780 — strain MucT; safe at 3.4 × 10¹⁰ cells a day for adults excluding pregnant and lactating women; viable count specified below 10 CFU/g.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8409316/',
+      },
+      {
+        id: 'eu2022',
+        text: 'Commission Implementing Regulation (EU) 2022/168 authorising the placing on the market of pasteurised Akkermansia muciniphila as a novel food.',
+        url: 'https://eur-lex.europa.eu/eli/reg_impl/2022/168/oj/eng',
+      },
+      {
+        id: 'derrien2004',
+        text: 'Derrien M et al. (2004). Akkermansia muciniphila gen. nov., sp. nov., a human intestinal mucin-degrading bacterium. International Journal of Systematic and Evolutionary Microbiology 54:1469-1476 — isolation of strain MucT from human faeces.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/15388697/',
+      },
+      {
+        id: 'derrien2008',
+        text: 'Derrien M et al. (2008). The mucin degrader Akkermansia muciniphila is an abundant resident of the human intestinal tract. Applied and Environmental Microbiology 74:1646-1648 — more than 1% of total faecal cells.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/18083887/',
+      },
+      {
+        id: 'nct05417360',
+        text: 'ClinicalTrials.gov NCT05417360. Effect of pasteurized Akkermansia muciniphila on maintenance of body weight after a low calorie diet — Maastricht University Medical Center, 90 participants, completed 20 November 2023, no results posted as of 24 September 2026.',
+        url: 'https://clinicaltrials.gov/study/NCT05417360',
+      },
+      {
+        id: 'fda-gras',
+        text: 'US Food and Drug Administration. GRAS Notice Inventory — searched for Akkermansia on 24 September 2026, with no records returned.',
+        url: 'https://www.hfpappexternal.fda.gov/scripts/fdcc/index.cfm?set=GRASNotices',
+      },
+      {
+        id: 'nccih-probiotics',
+        text: 'National Center for Complementary and Integrative Health. Probiotics: usefulness and safety — strain-specific effects, higher risk in severe illness and immune compromise, label contamination, and the September 2023 FDA warning on probiotics in premature infants.',
+        url: 'https://www.nccih.nih.gov/health/probiotics-usefulness-and-safety',
+      },
+      {
+        id: 'cekanaviciute2017',
+        text: 'Cekanaviciute E et al. (2017). Gut bacteria from multiple sclerosis patients modulate human T cells and exacerbate symptoms in mouse models. PNAS 114:10713-10718 — A. muciniphila increased in 71 untreated MS patients against 71 controls, and induced pro-inflammatory responses in human immune cells and mice.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28893978/',
+      },
+      {
+        id: 'hirayama2021',
+        text: 'Hirayama M, Ohno K (2021). Parkinson’s disease and gut microbiota. Annals of Nutrition and Metabolism 77(Suppl 2):28-35 — a meta-analysis across five countries indicating mucin-degrading Akkermansia is increased in Parkinson’s disease.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34500451/',
+      },
+      {
+        id: 'tian2024',
+        text: 'Tian R et al. (2024). Effect of inulin, galacto-oligosaccharides, and polyphenols on the gut microbiota, with a focus on Akkermansia muciniphila. Food & Function 15:4763-4772 — six studies, 451 participants; galacto-oligosaccharides increased A. muciniphila in healthy participants.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/38590256/',
+      },
+    ],
+    editorNote:
+      'I find this organism genuinely interesting, which is exactly why I want the page to be strict about it. The association between low Akkermansia and metabolic disease is one of the more robust findings in microbiome research, and the mouse work is elegant. But the human record is two small trials, and the most striking thing either of them found is that the heat-killed version did more than the live one — the opposite of how the category is sold. The GLP-1 framing I would simply ask people to ignore: the one trial that measured it found nothing. If a patient asks me about it, my answer is the same as the 2025 trial’s: test first. If your levels are low and you want to try it, you have a reason and a way to check whether it worked. If they are normal, the best available evidence says a capsule is unlikely to change anything.',
+    related: ['chicory-inulin', 'capsule-excipients', 'psyllium-husk'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Trial figures from the Depommier 2019 abstract and full text (including the GLP-1 and DPP-IV results), the 2025 Cell Metabolism trial and the 2020 WBF-011 trial; mechanism from Plovier 2017; safety from EFSA’s 2021 novel food opinion and NCCIH; GRAS status from FDA’s notice inventory and trial status from ClinicalTrials.gov. Sources were limited to government, regulatory and peer-reviewed medical publications.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
+  {
+    slug: 'chicory-inulin',
+    name: 'Chicory inulin',
+    aliases: ['chicory inulin', 'inulin', 'chicory root fiber', 'chicory root fibre'],
+    category: 'Prebiotic fibre',
+    grade: 'B',
+    quickAnswer:
+      'Chicory inulin is a fibre from chicory root that you cannot digest but your gut bacteria can. Its most reliable effect is on those bacteria: it consistently raises bifidobacteria. At 12 g a day it can make you more regular — an effect the EU has authorised as a health claim — though a 2022 review found it softened stools more than it made them more frequent, and it reliably causes wind. It does not help weight loss. Most capsules contain a fraction of a gram, far too little to do any of this.',
+    atAGlance: [
+      {
+        label: 'Dose behind the EU regularity claim',
+        value: '12 g a day',
+        note: 'The condition of use attached to the authorised claim for native chicory inulin.',
+      },
+      {
+        label: 'In Pendulum Akkermansia',
+        value: '276 mg',
+        note: 'About one forty-third of that dose. It is there as food for the capsule’s bacteria, not as a dose for you.',
+      },
+      {
+        label: 'Stool frequency across trials',
+        value: 'No significant change',
+        note: 'Inulin-type fructans in a 2022 meta-analysis of 16 trials — though stool consistency did improve.',
+      },
+      {
+        label: 'Body weight across 33 trials',
+        value: 'No effect',
+        note: 'Glucose and cholesterol improved only in people with type 2 diabetes.',
+      },
+      {
+        label: 'Where side effects become likely',
+        value: 'Above 20 g a day',
+        note: 'Wind, bloating, cramps and diarrhoea, per the US National Center for Complementary and Integrative Health.',
+      },
+      {
+        label: 'On a US label',
+        value: 'Counted as fibre',
+        note: 'By FDA enforcement discretion since 2018, pending a formal rule.',
+      },
+    ],
+    whatIsIt:
+      'Inulin is a chain of fructose units, usually capped with a single glucose, that plants use to store energy in place of starch. Chicory root (Cichorium intybus) is the main commercial source, and “native chicory inulin” is the long-chain material extracted from it without being broken down further. Shorter chains made by partly breaking it down are sold as oligofructose, and the whole family is called inulin-type fructans. The chain length matters more than it sounds: the EU health claim applies specifically to native chicory inulin, not to the whole family. The human small intestine has no enzyme that can break the bonds between fructose units, so inulin passes through undigested and reaches the colon intact. That is the entire basis of its use. In the US it can be declared as dietary fibre on Nutrition and Supplement Facts labels, not because it is yet written into FDA’s definition of fibre, but because in 2018 FDA said it would exercise enforcement discretion to allow it while a formal rule is completed.',
+    mechanism:
+      'In the colon, inulin is fermented by bacteria. Some groups — bifidobacteria most consistently — are unusually good at using it, and grow in response, which is what “prebiotic” means: a substance selectively used by gut microbes in a way that is meant to benefit the host. Fermentation produces short-chain fatty acids, which the colon uses as fuel, and gas, which is why wind is the most predictable side effect. The picture has become more complicated than simple bifidobacterial growth. A 2017 analysis in Gut of a randomised trial in adults with mild constipation found inulin shifted three groups in particular — Anaerostipes, Bifidobacterium and Bilophila — and that the fall in Bilophila, rather than the rise in bifidobacteria, was the change associated with softer stools and better constipation-related quality of life. The fermentation also draws water into the stool and adds bacterial mass, which is the physical route to its effects on regularity.',
+    claims: [
+      {
+        claim: 'Raising bifidobacteria (the prebiotic effect)',
+        grade: 'A',
+        body: 'This is what inulin reliably does, and it clears the bar comfortably. A 2022 systematic review in Advances in Nutrition of human trials in healthy adults concluded that inulin-type fructans promote the abundance of Bifidobacterium, Lactobacillus and Faecalibacterium prausnitzii, and the bifidogenic effect is among the most replicated findings in the field. The grade needs one honest limit. Raising a group of bacteria is a change in the gut, not in itself a health outcome, and the 2017 Gut study found the change most associated with a clinical benefit was a fall in a different genus altogether. An A here means the effect on the bacteria is certain; what that effect does for you is graded in the claims below.',
+        refs: ['hughes2022', 'vandeputte2017'],
+      },
+      {
+        claim: 'Regularity and constipation',
+        grade: 'B',
+        body: 'Real, modest, and narrower than it is usually sold. The European Food Safety Authority concluded in 2015 that six studies in 86 people consistently showed native chicory inulin at 12 g a day or more increases stool frequency, and the EU authorised the claim that chicory inulin contributes to normal defecation by increasing stool frequency. A 2022 meta-analysis in the American Journal of Clinical Nutrition, pooling 16 trials and 1,251 people with chronic constipation, complicates it: in the inulin-type fructan subgroup, stool frequency did not change significantly, stool consistency did improve, and flatulence got significantly worse. Psyllium, in the same analysis, added about three bowel movements a week. So a B: supported, at the right dose, for making stools easier to pass — but if constipation is the problem, it is not the strongest fibre available.',
+        refs: ['efsa2015', 'eu2015', 'vanderschoot2022'],
+      },
+      {
+        claim: 'Blood sugar and cholesterol',
+        grade: 'C',
+        body: 'Present, but in the wrong people for most of its marketing. A 2017 meta-analysis of 20 randomised trials and 607 adults found inulin-type fructans lowered LDL cholesterol only slightly overall and did not affect fasting glucose; lower fasting insulin appeared in the type 2 diabetes subgroup, from few trials and with possible publication bias. A 2021 meta-analysis of 33 trials reached a sharper version of the same conclusion: significant effects appeared only in people with diabetes — fasting glucose 0.42 mmol/L lower, total cholesterol 0.46 mmol/L lower, triglycerides 0.21 mmol/L lower — with high unexplained variation between studies. Worth discussing with a clinician if you have type 2 diabetes; not a reason to take it if you do not.',
+        refs: ['liu2017', 'li2021'],
+      },
+      {
+        claim: 'Weight loss',
+        grade: 'F',
+        body: 'The largest pooled analysis looked for it and did not find it. Across 33 randomised trials, body weight was not affected by inulin-type fructan intake, in any group studied. The mechanism people cite — fermentable fibre producing satiety signals — is plausible, and it may still matter as part of an overall higher-fibre diet, but a weight-loss claim for inulin itself fails on the trial evidence.',
+        refs: ['li2021'],
+      },
+      {
+        claim: 'Feeding Akkermansia',
+        grade: 'D',
+        body: 'This is the reason inulin is paired with Akkermansia in supplements, and the human evidence contradicts itself. In mice, inulin raises Akkermansia levels. In people, a small 45-day trial in 60 overweight adults with type 2 diabetes (about 15 per group) reported a rise with 10 g a day of inulin. But a 2024 pooled analysis of six human studies and 451 participants found that galacto-oligosaccharides increased A. muciniphila in healthy people and did not report the same for inulin. Mixed human results and good animal data is a D — and at the 276 mg found in a typical capsule, well below any amount tested, the pairing is a theory rather than a dose.',
+        refs: ['inulin-mice', 'roshanravan2017', 'tian2024'],
+      },
+    ],
+    dosage:
+      'The dose attached to the EU regularity claim is 12 g of native chicory inulin a day. Trials generally use 5 to 20 g a day, and a broader fibre meta-analysis found that doses above 10 g and courses of at least four weeks were where benefits on stool frequency appeared. Starting low and building up over a week or two is the practical advice, because the gut bacteria that ferment it adjust over time and the wind is worst at the start. The US National Center for Complementary and Integrative Health notes that prebiotics taken in large amounts — more than 20 g a day for an adult — can cause gas, bloating, abdominal pain, cramps and diarrhoea.',
+    dosageGap:
+      'The gap is not subtle. Inulin turns up in probiotic capsules as a “prebiotic” at 200 to 500 mg — Pendulum’s single-strain Akkermansia contains 276 mg, about one forty-third of the 12 g behind the only authorised claim. At that amount it can only be doing one job: acting as a carrier and food source for the bacteria in the capsule, a role for which there is no human evidence at that dose. If you actually want inulin’s effects, it is sold as a plain powder, and a teaspoon costs a fraction of a capsule. The label that says “with prebiotic fibre” is telling you what is in it, not that there is enough of it to matter.',
+    safety:
+      'Inulin is a food ingredient eaten routinely in onions, garlic, leeks, wheat and bananas, and its side effects are digestive rather than dangerous. Wind is the most consistent: the 2022 meta-analysis found inulin-type fructans significantly worsened flatulence, and NCCIH lists gas, bloating, abdominal pain, cramps and diarrhoea above about 20 g a day. People with irritable bowel syndrome have particular reason for caution. NCCIH reports that inulin-type fructans increased gassiness in people with IBS and that prebiotic supplements did not improve IBS symptoms or quality of life. Anyone following a diet a dietitian has prescribed for IBS should check before adding it. Building up the dose slowly is the single most useful thing you can do to tolerate it.',
+    faqs: [
+      {
+        question: 'How much inulin do I need to take?',
+        answer:
+          'The EU-authorised regularity claim is based on 12 g of native chicory inulin a day, and most trials use between 5 and 20 g. Build up over a week or two, because the wind is worst at the start. Above about 20 g a day, side effects become likely.',
+      },
+      {
+        question: 'Does inulin help with constipation?',
+        answer:
+          'Modestly. The EU accepted that 12 g a day increases stool frequency, but a 2022 meta-analysis of 16 trials found inulin-type fructans improved stool consistency rather than frequency, and made flatulence significantly worse. In the same analysis, psyllium added about three bowel movements a week. If constipation is the problem, psyllium has the stronger evidence.',
+      },
+      {
+        question: 'Why does inulin give me wind?',
+        answer:
+          'Because the bacteria that ferment it produce gas as a by-product — it is the mechanism working, not a sign of a problem. Starting with a small amount and increasing gradually usually helps. If it persists at a dose that is doing you no other good, it is a reasonable reason to stop.',
+      },
+      {
+        question: 'Is inulin good for IBS?',
+        answer:
+          'Often not. The US National Center for Complementary and Integrative Health reports that inulin-type fructans increased gassiness in people with IBS, and that prebiotic supplements did not improve IBS symptoms or quality of life. Speak to your GP or dietitian before adding it.',
+      },
+      {
+        question: 'Will inulin help me lose weight?',
+        answer:
+          'Not on the evidence. A 2021 meta-analysis of 33 randomised trials found body weight was not affected by inulin-type fructans. Effects on blood sugar and cholesterol appeared only in people with type 2 diabetes.',
+      },
+      {
+        question: 'Does inulin feed Akkermansia?',
+        answer:
+          'In mice, yes. In people the evidence is mixed: one small trial in type 2 diabetes reported a rise with 10 g a day, while a 2024 pooled analysis of six human studies credited galacto-oligosaccharides, not inulin, with raising it. The small amount paired with Akkermansia in supplement capsules has not been tested at all.',
+      },
+      {
+        question: 'Is the inulin in my probiotic capsule enough to do anything?',
+        answer:
+          'Almost certainly not by itself. Capsules typically contain 200 to 500 mg, against the 12 g behind the EU claim. It is included to feed the capsule’s own bacteria — a role that is plausible but untested at that dose.',
+      },
+      {
+        question: 'Is inulin the same as FOS or oligofructose?',
+        answer:
+          'Closely related, not identical. Oligofructose and fructo-oligosaccharides are shorter chains of the same fructose units, and all of them are inulin-type fructans. The EU regularity claim is specific to native chicory inulin, the long-chain form, so a product using a shorter-chain version cannot rely on it.',
+      },
+    ],
+    references: [
+      {
+        id: 'efsa2015',
+        text: 'EFSA Panel on Dietetic Products, Nutrition and Allergies (2015). Scientific opinion on the substantiation of a health claim related to “native chicory inulin” and maintenance of normal defecation by increasing stool frequency. EFSA Journal 13(1):3951 — six studies, 86 subjects, at least 12 g a day.',
+        url: 'https://doi.org/10.2903/j.efsa.2015.3951',
+      },
+      {
+        id: 'eu2015',
+        text: 'Commission Regulation (EU) 2015/2314 authorising the claim that chicory inulin contributes to maintenance of normal defecation by increasing stool frequency, with 12 g of native chicory inulin a day as the condition of use.',
+        url: 'https://eur-lex.europa.eu/eli/reg/2015/2314/oj/eng',
+      },
+      {
+        id: 'vanderschoot2022',
+        text: 'van der Schoot A, Drysdale C, Whelan K, Dimidi E (2022). The effect of fiber supplementation on chronic constipation in adults: an updated systematic review and meta-analysis of randomized controlled trials. American Journal of Clinical Nutrition — 16 trials, 1,251 participants; inulin-type fructans improved stool consistency (SMD 0.36) but not frequency, and worsened flatulence (SMD 0.79).',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9535527/',
+      },
+      {
+        id: 'hughes2022',
+        text: 'Hughes RL et al. (2022). The prebiotic potential of inulin-type fructans: a systematic review. Advances in Nutrition 13(2):492-529 — human trials in healthy adults; increases in Bifidobacterium, Lactobacillus and Faecalibacterium prausnitzii.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34555168/',
+      },
+      {
+        id: 'vandeputte2017',
+        text: 'Vandeputte D et al. (2017). Prebiotic inulin-type fructans induce specific changes in the human gut microbiota. Gut 66:1968-1974 — changes in Anaerostipes, Bilophila and Bifidobacterium; the fall in Bilophila associated with softer stools. Two authors were from the research institute of an inulin manufacturer.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28213610/',
+      },
+      {
+        id: 'liu2017',
+        text: 'Liu F et al. (2017). Effect of inulin-type fructans on blood lipid profile and glucose level: a systematic review and meta-analysis of randomized controlled trials. European Journal of Clinical Nutrition 71:9-20 — 20 trials, 607 adults.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/27623982/',
+      },
+      {
+        id: 'li2021',
+        text: 'Li L, Li P, Xu L (2021). Assessing the effects of inulin-type fructan intake on body weight, blood glucose, and lipid profile: a systematic review and meta-analysis of randomized controlled trials. Food Science & Nutrition 9:4598-4616 — 33 trials; effects only in people with diabetes; no effect on body weight.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34401107/',
+      },
+      {
+        id: 'inulin-mice',
+        text: 'Inulin improves diet-induced hepatic steatosis and increases intestinal Akkermansia genus level (2022). International Journal of Molecular Sciences — an animal study.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8782000/',
+      },
+      {
+        id: 'roshanravan2017',
+        text: 'Roshanravan N et al. (2017). The effects of sodium butyrate and inulin supplementation on angiotensin signaling pathway via promotion of Akkermansia muciniphila abundance in type 2 diabetes. Journal of Cardiovascular and Thoracic Research 9:183-190 — 60 patients in four groups, 10 g a day of inulin for 45 days.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29391930/',
+      },
+      {
+        id: 'tian2024',
+        text: 'Tian R et al. (2024). Effect of inulin, galacto-oligosaccharides, and polyphenols on the gut microbiota, with a focus on Akkermansia muciniphila. Food & Function 15:4763-4772 — six studies, 451 participants; galacto-oligosaccharides increased A. muciniphila in healthy participants.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/38590256/',
+      },
+      {
+        id: 'fda-fiber',
+        text: 'US Food and Drug Administration. Questions and answers on dietary fiber — inulin and inulin-type fructans among the non-digestible carbohydrates FDA intends to add to the definition of dietary fiber, declarable under enforcement discretion since June 2018.',
+        url: 'https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/questions-and-answers-dietary-fiber',
+      },
+      {
+        id: 'nccih-ibs',
+        text: 'National Center for Complementary and Integrative Health. Irritable bowel syndrome: what you need to know — inulin-type fructans increased gassiness in IBS; prebiotic supplements did not improve symptoms or quality of life; side effects above 20 g a day.',
+        url: 'https://www.nccih.nih.gov/health/irritable-bowel-syndrome-what-you-need-to-know',
+      },
+    ],
+    editorNote:
+      'Inulin is a perfectly respectable fibre with an honest, modest evidence base, and I would rather people knew exactly what that base is than either dismissed it or expected too much. It changes your gut bacteria reliably; it makes stools easier to pass at a proper dose; and it will almost certainly give you wind while you get used to it. What irritates me is the way it is used in capsules — a quarter of a gram, labelled “prebiotic fibre”, borrowing the credibility of research done at fifty times that amount. If a patient wants the benefits of inulin, I tell them to buy inulin, start with a teaspoon, and see how their gut responds. If they have IBS, I usually tell them not to bother.',
+    related: ['psyllium-husk', 'glucomannan', 'akkermansia-muciniphila'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Regularity from EFSA’s 2015 opinion, the EU’s authorised claim and the 2022 American Journal of Clinical Nutrition meta-analysis; microbiota effects from the 2022 Advances in Nutrition review and the 2017 Gut study; metabolic effects from the 2017 and 2021 meta-analyses; label status from FDA; tolerability from NCCIH. Sources were limited to government, regulatory and peer-reviewed medical publications.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
+  {
+    slug: 'capsule-excipients',
+    name: 'Hypromellose, microcrystalline cellulose, L-leucine and silica',
+    aliases: [
+      'hypromellose',
+      'hydroxypropyl methylcellulose',
+      'microcrystalline cellulose',
+      'silicon dioxide',
+      'capsule excipients',
+    ],
+    category: 'Capsule excipients',
+    grade: 'A',
+    quickAnswer:
+      'These four are the capsule and the machinery aids, not active ingredients. Hypromellose is the plant-derived cellulose that replaces gelatin in vegetarian capsules; microcrystalline cellulose bulks out a small dose so the capsule fills; L-leucine and silica keep the powder flowing through the filling machine. US and EU regulators have reviewed all four and found no safety concern at the amounts used. They do nothing for your health — and one thing a plain hypromellose capsule does not do is survive stomach acid: in a scanning study it broke open in about nine minutes.',
+    atAGlance: [
+      {
+        label: 'Health benefit',
+        value: 'None claimed',
+        note: 'All four are there for manufacturing. The A grade is for their safety record, not for a benefit.',
+      },
+      {
+        label: 'Plain hypromellose capsule in the stomach',
+        value: '≈9 minutes',
+        note: 'To break open, in fasted volunteers — no different from gelatin. It is not delayed-release by itself.',
+      },
+      {
+        label: 'Silicon dioxide limit in US food',
+        value: '2% by weight',
+        note: 'The ceiling for its use as an anticaking agent under 21 CFR 172.480.',
+      },
+      {
+        label: 'Highest no-effect level for celluloses',
+        value: 'Up to 9,000 mg/kg a day',
+        note: 'In chronic animal studies reviewed by EFSA in 2018. A capsule contains milligrams.',
+      },
+      {
+        label: 'Leucine an adult needs each day',
+        value: '≈2.7 g',
+        note: 'WHO’s 39 mg per kg, for a 70 kg adult. The flow-agent amount in a capsule is too small to be declared.',
+      },
+    ],
+    whatIsIt:
+      'Every capsule has two kinds of ingredient: the ones on the Supplement Facts panel, which are there to do something, and the “other ingredients” listed beneath it, which are there so the product can be made. These four are the second kind, and they appear together on labels often enough to deserve one page. Hypromellose — hydroxypropyl methylcellulose, E 464 in the EU — is cellulose from plants, chemically modified so it forms a clear film when dried; it is what “vegetarian capsule” means on most labels, replacing the animal gelatin of a traditional capsule. Microcrystalline cellulose, E 460(i), is purified, partly broken-down plant cellulose used as a filler and binder: a dose of a few hundred milligrams, or a few milligrams of bacteria, does not fill a capsule on its own, and something inert has to make up the volume. L-leucine is an essential amino acid, the same one found in every protein you eat, used here as a water-soluble lubricant so the powder does not stick to the machinery. Silica is silicon dioxide, E 551, a fine powder that stops particles clumping — the same job it does in table salt and powdered foods.',
+    mechanism:
+      'None of these is meant to act on the body, so the useful question is what the body does with them. Celluloses, including microcrystalline cellulose and hypromellose, are not absorbed: EFSA’s 2018 re-evaluation found they pass through the gut and are excreted intact, with some fermentation by gut bacteria along the way — which is to say they behave like dietary fibre. Silicon dioxide is poorly absorbed, although EFSA noted silicon-containing material has been found in some tissues. L-leucine is absorbed and used exactly like the leucine in food. The one active property worth understanding is the capsule’s. A hypromellose capsule is designed to dissolve, and a gamma-scintigraphy study — radiolabelled capsules tracked by camera in eight fasted volunteers — found plain hypromellose capsules broke open in the stomach after 9 ± 2 minutes, against 7 ± 4 minutes for gelatin, a difference that was not significant. Protection from stomach acid requires an acid-resistant capsule grade or an enteric coating, and the words “hypromellose (vegetarian capsule)” on a label do not tell you which you have.',
+    claims: [
+      {
+        claim: 'Safe at the amounts used in a capsule',
+        grade: 'A',
+        body: 'Graded on the safety record, because none of these ingredients claims a benefit — and the record is unusually consistent. For the celluloses, international expert committees have set the acceptable daily intake as “not specified”, the category reserved for substances of very low toxicity; EFSA’s 2018 re-evaluation found no genotoxicity, no carcinogenicity for microcrystalline cellulose or modified celluloses, and no-effect levels in chronic studies of up to 9,000 mg per kg of body weight a day. In the US, hypromellose is permitted in food as a film former and stabiliser under 21 CFR 172.874. For silicon dioxide, EFSA’s 2024 follow-up concluded it raises no safety concern for any population group at the reported uses, and US rules cap it at 2 per cent of a food’s weight. L-leucine is an essential nutrient and a permitted food additive. Against those margins, the milligrams in a capsule are not close.',
+        refs: ['efsa-celluloses', 'cfr-172-874', 'efsa-silica-2024', 'cfr-172-480', 'cfr-172-320'],
+      },
+      {
+        claim: 'A vegetarian (hypromellose) capsule protects its contents from stomach acid',
+        grade: 'F',
+        body: 'This is the misconception worth correcting, because it matters most for live probiotics. The human evidence shows the opposite: in the scintigraphy study, every plain hypromellose capsule disintegrated in the stomach, in about nine minutes, no differently from gelatin. The study was small — eight volunteers — but it tracked the capsules directly, and it is the evidence there is. Capsules can be made acid-resistant, with special grades or an enteric coating, and a product that uses one will usually say so specifically. A label that says only “hypromellose (vegetarian capsule)” is describing what the capsule is made of, not what it does.',
+        refs: ['tuleu2007'],
+      },
+      {
+        claim: 'The L-leucine adds useful protein or muscle benefit',
+        grade: 'F',
+        body: 'It does not, and the arithmetic is not close. WHO puts the adult leucine requirement at 39 mg per kg of body weight a day — about 2.7 g for a 70 kg adult — and a single scoop of whey protein contains a couple of grams. The leucine in a capsule is there as a lubricant, used in amounts small enough that labels do not declare them. It is listed because the law requires every ingredient to be listed, not because it contributes anything nutritionally.',
+        refs: ['who935', 'leucine-lubricant'],
+      },
+      {
+        claim: 'Silica is a hidden health risk',
+        grade: 'D',
+        body: 'The concern is theoretical rather than demonstrated, and it is worth stating accurately in both directions. EFSA’s 2018 re-evaluation found no indication of adverse effects in the available studies and no genotoxic concern, but it could not set an acceptable daily intake, because the food additive’s specifications do not exclude nano-sized particles and there was no long-term study covering them. Its 2024 follow-up used a margin-of-exposure approach instead and concluded silicon dioxide does not raise a safety concern for any population group at the reported uses, while noting that uncertainty remains about nano-sized aggregates. That is a data gap regulators are actively managing, not evidence of harm.',
+        refs: ['efsa-silica-2018', 'efsa-silica-2024'],
+      },
+      {
+        claim: 'Microcrystalline cellulose is a harmful filler',
+        grade: 'F',
+        body: 'Half of this is true: it is a filler. The harmful part is not supported. EFSA found microcrystalline cellulose is not absorbed, passes through the gut largely as a fibre would, showed no carcinogenic properties, and produced no specific adverse effects at dietary levels of up to 10 per cent in short-term studies. The legitimate question about fillers is not whether they are dangerous but how much of a capsule they occupy — which, on a product with a very small active dose, can be most of it.',
+        refs: ['efsa-celluloses'],
+      },
+    ],
+    dosage:
+      'These ingredients are not dosed for an effect, and their amounts are not declared on labels; “other ingredients” are listed by name, not quantity. The limits that exist are generous. Celluloses carry an acceptable daily intake of “not specified”. Silicon dioxide is capped in US food at 2 per cent of the product’s weight when used as an anticaking agent. L-leucine is a nutrient an adult needs about 2.7 g of every day. Nothing about taking one or two capsules a day approaches any of these.',
+    dosageGap:
+      'The gap to watch here is not a dose but a description. Some supplements are sold as “delayed release” while listing only “hypromellose (vegetarian capsule)” among their other ingredients. A plain hypromellose capsule is not delayed-release — it breaks open in the stomach in minutes — so a delayed-release claim depends on a specific acid-resistant grade or a coating that the ingredient list may not identify. If protection from stomach acid is the reason you are choosing a product, ask the manufacturer which capsule it uses, and whether it has been tested.',
+    safety:
+      'None of these four is a recognised major allergen, and hypromellose capsules are plant-derived, which makes them suitable for vegetarians and for anyone avoiding animal gelatin for religious or dietary reasons. The one medical exception worth naming is maple syrup urine disease, a rare inherited condition in which the body cannot break down leucine and the other branched-chain amino acids, and which is managed with a strictly controlled diet. Anyone with it should check every supplement’s other ingredients with their metabolic team, however small the amount. For everyone else, these ingredients are among the most thoroughly assessed substances in a supplement bottle, and they are not a reason to choose or avoid a product.',
+    faqs: [
+      {
+        question: 'Why are these listed if they do nothing?',
+        answer:
+          'Because every ingredient in a supplement has to be listed. The Supplement Facts panel shows the ingredients meant to have an effect, with amounts; the “other ingredients” line lists what makes the product manufacturable — the capsule, fillers, and flow agents — by name only.',
+      },
+      {
+        question: 'Is hypromellose vegan?',
+        answer:
+          'Hypromellose is made from plant cellulose, and it is what most “vegetarian capsule” labels refer to. Whether a whole product is vegan depends on everything else in it, but the capsule itself is not from an animal.',
+      },
+      {
+        question: 'Does a vegetarian capsule protect probiotics from stomach acid?',
+        answer:
+          'A plain one does not. In a study that tracked radiolabelled capsules in volunteers, hypromellose capsules broke open in the stomach after about nine minutes — no differently from gelatin. Acid-resistant grades and enteric coatings exist for that purpose, and a product using one will usually say so explicitly.',
+      },
+      {
+        question: 'Is silicon dioxide safe to eat?',
+        answer:
+          'At the levels used in food and supplements, yes, according to the European Food Safety Authority’s 2024 review, which found no safety concern for any population group. EFSA did note remaining uncertainty about nano-sized particles, which is why it declined to set a formal acceptable daily intake. US rules cap its use at 2 per cent of a food’s weight.',
+      },
+      {
+        question: 'Why is L-leucine in my probiotic?',
+        answer:
+          'As a lubricant, so the powder flows through the capsule-filling machine without sticking. It is the same amino acid found in all dietary protein, used in amounts far too small to have any nutritional effect.',
+      },
+      {
+        question: 'Is microcrystalline cellulose just filler?',
+        answer:
+          'Yes — that is its job. It is purified plant cellulose that is not absorbed, behaves much like dietary fibre, and has been assessed as very low toxicity. The more useful question it raises is how little of the active ingredient there may be, if most of the capsule is filler.',
+      },
+      {
+        question: 'Should I avoid products that contain these?',
+        answer:
+          'No. They are among the most thoroughly reviewed ingredients in any supplement. The exception is anyone with maple syrup urine disease, who should check any product containing added leucine with their metabolic team.',
+      },
+    ],
+    references: [
+      {
+        id: 'efsa-celluloses',
+        text: 'EFSA Panel on Food Additives and Nutrient Sources added to Food (2018). Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal 16(1):e05047 — ADI “not specified”; not absorbed; no genotoxic or carcinogenic concern; NOAELs up to 9,000 mg/kg bw a day.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32625652/',
+      },
+      {
+        id: 'efsa-silica-2018',
+        text: 'EFSA Panel on Food Additives and Nutrient Sources added to Food (2018). Re-evaluation of silicon dioxide (E 551) as a food additive. EFSA Journal 16(1):e05088 — poorly absorbed, no indication of adverse effects, no genotoxic concern; ADI not confirmed because specifications do not exclude nanoparticles.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32625658/',
+      },
+      {
+        id: 'efsa-silica-2024',
+        text: 'EFSA Panel on Food Additives and Flavourings (2024). Re-evaluation of silicon dioxide (E 551) as a food additive in foods for infants below 16 weeks of age and follow-up of its re-evaluation for all population groups. EFSA Journal 22(10):e8880 — no safety concern for any population group at reported uses; uncertainty remains about nano-sized aggregates.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/39421729/',
+      },
+      {
+        id: 'cfr-172-874',
+        text: '21 CFR 172.874, Hydroxypropyl methylcellulose — permitted in food as an emulsifier, film former, protective colloid, stabiliser, suspending agent or thickener, in accordance with good manufacturing practice.',
+        url: 'https://www.govinfo.gov/content/pkg/CFR-2024-title21-vol3/xml/CFR-2024-title21-vol3-sec172-874.xml',
+      },
+      {
+        id: 'cfr-172-480',
+        text: '21 CFR 172.480, Silicon dioxide — permitted as an anticaking agent at no more than 2 per cent by weight of the food.',
+        url: 'https://www.govinfo.gov/content/pkg/CFR-2024-title21-vol3/xml/CFR-2024-title21-vol3-sec172-480.xml',
+      },
+      {
+        id: 'cfr-172-320',
+        text: '21 CFR 172.320, Amino acids — L-leucine among the amino acids permitted as food additives.',
+        url: 'https://www.govinfo.gov/content/pkg/CFR-2024-title21-vol3/xml/CFR-2024-title21-vol3-sec172-320.xml',
+      },
+      {
+        id: 'tuleu2007',
+        text: 'Tuleu C et al. (2007). A scintigraphic investigation of the disintegration behaviour of capsules in fasting subjects: a comparison of hypromellose capsules containing carrageenan as a gelling agent and standard gelatin capsules. European Journal of Pharmaceutical Sciences 30:251-255 — eight volunteers; all capsules disintegrated in the stomach, hypromellose at 9 ± 2 minutes and gelatin at 7 ± 4.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/17188473/',
+      },
+      {
+        id: 'who935',
+        text: 'WHO/FAO/UNU Expert Consultation (2007). Protein and amino acid requirements in human nutrition. WHO Technical Report Series 935 — an adult leucine requirement of 39 mg per kg of body weight a day.',
+        url: 'https://iris.who.int/handle/10665/43411',
+      },
+      {
+        id: 'leucine-lubricant',
+        text: 'Liu W et al. (2011). A new water-soluble lubricant of tablets: L-leucine combined with PEG6000. Zhongguo Zhong Yao Za Zhi 36(15):2061-2065 — L-leucine as a water-soluble tablet lubricant.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22066440/',
+      },
+      {
+        id: 'medlineplus-msud',
+        text: 'MedlinePlus Genetics (US National Library of Medicine). Maple syrup urine disease — an inherited inability to break down leucine, isoleucine and valine.',
+        url: 'https://medlineplus.gov/genetics/condition/maple-syrup-urine-disease/',
+      },
+    ],
+    editorNote:
+      'I wrote this page because people ask about the “other ingredients” line more than almost anything else on a label, usually with the assumption that anything unfamiliar is sinister. These four are not. They are some of the most thoroughly reviewed substances in food, and I would much rather someone spent their scrutiny on the Supplement Facts panel above them. The one point I do want people to take away is about the capsule. “Vegetarian capsule” tells you what the shell is made of; it does not tell you it survives your stomach. If a probiotic’s whole case depends on live bacteria reaching your gut, ask what the capsule actually does — a plain one opens in minutes.',
+    related: ['akkermansia-muciniphila', 'chicory-inulin', 'whey-protein-blend'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published. Safety from EFSA’s 2018 re-evaluations of celluloses and silicon dioxide and its 2024 silicon dioxide follow-up; US permissions from 21 CFR 172.874, 172.480 and 172.320; capsule behaviour from the 2007 gamma-scintigraphy study; leucine requirement from WHO Technical Report Series 935. Sources were limited to government, regulatory and peer-reviewed medical publications.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
 ];
 
 export function getIngredient(slug: string) {
