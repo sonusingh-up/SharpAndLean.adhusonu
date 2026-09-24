@@ -1257,6 +1257,738 @@ export const ingredients: IngredientPage[] = [
     ],
     updated: '2026-09-22',
   },
+  {
+    slug: 'maca-root',
+    name: 'Maca root',
+    aliases: [
+      'maca root',
+      'maca root powder',
+      'maca root extract',
+      'gelatinized maca',
+      'gelatinised maca',
+      'lepidium meyenii',
+      'maca powder',
+      'maca extract',
+    ],
+    category: 'Root / adaptogen',
+    grade: 'D',
+    quickAnswer:
+      'Maca is a turnip-like root from the high Andes, sold as a powder or capsule for libido, energy, fertility and menopausal symptoms. A handful of small trials suggest it may modestly improve sexual desire and some menopausal symptoms, but the reviews that pooled them called the evidence limited. It does not raise testosterone: the trial that measured it directly found no change. It is a food in Peru and appears well tolerated, so the main risk is spending money on a promise that is larger than the research.',
+    atAGlance: [
+      {
+        label: 'Typical studied dose',
+        value: '1.5–3 g a day',
+        note: 'Dried root powder, usually for 6 to 12 weeks. Extract products vary too much to convert reliably.',
+      },
+      {
+        label: 'Effect on testosterone',
+        value: 'None measured',
+        note: 'A 12-week randomised trial in men at 1.5 g and 3 g a day found serum testosterone unchanged at every time point.',
+      },
+      {
+        label: 'Libido trials',
+        value: '4 RCTs, all small',
+        note: 'Three of four were positive in a 2010 systematic review, which still judged the evidence too limited to be conclusive.',
+      },
+      {
+        label: 'Menopause trials',
+        value: '4 RCTs, all small',
+        note: 'All favourable on symptom scores, but a 2011 review said numbers and quality were too low for firm conclusions.',
+      },
+      {
+        label: 'Safety profile',
+        value: 'Food-like',
+        note: 'Eaten as a staple in Peru. Long-term supplement safety at high doses has not been studied properly.',
+      },
+    ],
+    whatIsIt:
+      'Maca (Lepidium meyenii) is a root vegetable in the same family as radish, cabbage and broccoli. It grows at 4,000 metres and above in the Peruvian Andes, where it has been eaten for centuries, usually boiled, baked or made into a porridge or drink. The root comes in yellow, red and black varieties, and some supplement brands sell them separately on the strength of small studies suggesting they behave differently. Most of what you find on a shelf is dried, ground root, either raw or "gelatinised". Gelatinised maca has been cooked under pressure to remove the starch, which makes it easier to digest and closer to how it is traditionally eaten. Extracts also exist, but they are not standardised to any agreed marker compound, so one brand’s 500 mg extract cannot be compared with another’s.',
+    mechanism:
+      'Nobody knows how maca works, if it does. That is worth saying plainly, because product pages often write as if the mechanism were settled. The root contains compounds called macamides and macaenes, which are unique to maca, along with glucosinolates, sterols and a lot of ordinary carbohydrate and protein. Early marketing claimed maca acted as a hormone or boosted testosterone. The human evidence contradicts that: in a 12-week trial in men it did not change testosterone, oestradiol, LH, FSH or prolactin. The current theory is that any effect on desire or mood acts somewhere other than the sex hormones, possibly in the brain, but this is a hypothesis drawn largely from animal work rather than a demonstrated pathway in people.',
+    claims: [
+      {
+        claim: 'Improving sexual desire and function',
+        grade: 'C',
+        body: 'This is maca’s best-supported claim, and it is still thin. A 2010 systematic review in BMC Complementary and Alternative Medicine found four randomised, placebo-controlled trials. Two reported a significant improvement in sexual desire or dysfunction, in healthy menopausal women and healthy men. One, in cyclists, found no effect. The fourth, in men with mild erectile dysfunction, reported an improvement on a standard erectile function score. The authors concluded the evidence was limited, because the trials were few, small and short. A small pilot trial in people with sexual side effects from SSRI antidepressants found a possible dose-related benefit. That is a promising signal, not a finding. The grade is C: something may be there, and a single well-run trial could confirm or erase it.',
+        refs: ['shin2010', 'dording2008'],
+      },
+      {
+        claim: 'Easing menopausal symptoms',
+        grade: 'C',
+        body: 'A 2011 systematic review in Maturitas found four randomised trials of maca in peri- and postmenopausal women. All four reported favourable effects on standard menopause symptom scores. The reviewers still concluded the evidence was limited, and they were right to: the total number of women was small, the methods were weak, and several trials came from the same group of researchers. For anyone weighing maca against treatments with a real evidence base, such as hormone therapy or the non-hormonal drugs, maca is not in the same league. Hot flushes also respond strongly to placebo, which makes small trials especially easy to over-read.',
+        refs: ['lee2011'],
+      },
+      {
+        claim: 'Raising testosterone',
+        grade: 'F',
+        body: 'This is the claim to be most sceptical of, because it has actually been tested and failed. A 12-week double-blind randomised trial published in the Journal of Endocrinology gave healthy men 1.5 g or 3 g of maca a day. Serum testosterone was not affected at any time point, and neither were the other reproductive hormones measured. The same research group separately found that the men’s reported sexual desire improved without any change in testosterone. So if maca does anything for libido, it does not do it through testosterone. A product sold as a "testosterone booster" on the strength of maca is selling a mechanism the research has ruled out.',
+        refs: ['gonzales2003'],
+      },
+      {
+        claim: 'Improving male fertility and sperm quality',
+        grade: 'D',
+        body: 'A few small trials have reported increases in semen volume, sperm count or motility with maca, and there is a larger body of animal work. The human studies are too small and too short to build a fertility decision on, and none has shown an increase in pregnancies, which is the outcome that matters. Anyone trying to conceive is better served by a fertility assessment than by a root powder, and should not use maca as a reason to delay one.',
+      },
+      {
+        claim: 'Energy, stamina and mood',
+        grade: 'D',
+        body: 'Maca is widely sold as an energy food and an "adaptogen". Neither label has a scientific definition that trials can test directly, and the human studies on energy, exercise performance and mood are few, small and inconsistent. Maca is a nutritious, carbohydrate-rich vegetable, and a spoonful in a smoothie will provide calories, but that is not the same as a stimulant effect, and it does not have one.',
+      },
+    ],
+    dosage:
+      'Most human trials used 1.5 to 3 g of dried maca root a day, typically for 6 to 12 weeks, and occasionally up to 3.5 g. That is roughly a heaped teaspoon to a tablespoon of powder. Capsule products often provide 500 mg to 750 mg per capsule, so matching a studied dose means three to six capsules a day. Gelatinised powder is cooked, which is closer to how maca is eaten in Peru and tends to be easier on the stomach. Effects, where reported, took weeks rather than days to appear.',
+    dosageGap:
+      'The common gap is the capsule. A single 500 mg capsule is a third of the lowest studied dose, and many products direct one or two a day. Extracts make it harder still: a label reading "maca extract 4:1, 500 mg" is claiming to equal 2 g of root, but there is no agreed standard, and the trials mostly used whole powdered root rather than extracts. The other gap is colour. Black, red and yellow maca are sometimes sold at a premium on the basis of differences seen mainly in animal studies. There is no human evidence that justifies paying more for a particular colour.',
+    safety:
+      'Maca is a staple food in the Andes and has been eaten in large quantities for generations, which is reassuring. In trials lasting up to about three months, side effects were uncommon and mild, mostly stomach upset. That is not the same as knowing that high-dose, long-term use as a supplement is safe, because no one has studied it properly. Three points deserve care. First, maca is a brassica and contains glucosinolates, which in large amounts can interfere with thyroid function in people who are short of iodine. This is theoretical for most people, but anyone with thyroid disease should mention maca to their clinician, and raw powder carries more of these compounds than cooked. Second, anyone with a hormone-sensitive condition, such as some breast cancers, endometriosis or fibroids, should ask before using it. The human evidence suggests maca does not act as a hormone, but the question has not been settled. Third, there is a published case of maca interfering with a laboratory testosterone test in a woman, so tell whoever orders your blood tests that you take it. There is not enough safety data for pregnancy or breastfeeding.',
+    faqs: [
+      {
+        question: 'Does maca increase testosterone?',
+        answer:
+          'No. A 12-week randomised trial gave men 1.5 g or 3 g of maca a day and found serum testosterone unchanged at every point, along with the other reproductive hormones. Some of the same men reported more sexual desire, which suggests that if maca affects libido, it does so through some route other than testosterone.',
+      },
+      {
+        question: 'Does maca work for libido?',
+        answer:
+          'Possibly, a little. A 2010 systematic review found four small randomised trials, three of which reported benefits for sexual desire or function. The reviewers still concluded the evidence was too limited to be sure. If you try it, give it six to eight weeks at 1.5 to 3 g a day, which is what the trials used, and be honest with yourself about whether it made a difference.',
+      },
+      {
+        question: 'Can maca help with menopause symptoms?',
+        answer:
+          'Four small trials all reported improvements in symptom scores, but a 2011 review judged the evidence limited because the trials were small and methodologically weak. Menopause symptoms respond strongly to placebo, which makes small trials easy to over-read. Maca is not a substitute for a conversation about treatments with much stronger evidence.',
+      },
+      {
+        question: 'What is the difference between raw and gelatinised maca?',
+        answer:
+          'Gelatinised maca has been cooked under pressure and dried, which removes most of the starch. It is closer to how maca is eaten in Peru, where it is always cooked, and many people find it easier to digest. Raw powder keeps more of the glucosinolates, the compounds with a theoretical effect on the thyroid. For most people either is fine; gelatinised is the more cautious choice.',
+      },
+      {
+        question: 'Is red or black maca better than yellow?',
+        answer:
+          'There is no good human evidence that one colour is better for any purpose. The differences come mainly from animal studies. Paying a premium for a specific colour is paying for a hypothesis.',
+      },
+      {
+        question: 'How much maca should I take?',
+        answer:
+          'Human trials mostly used 1.5 to 3 g of dried root a day, which is about one to three teaspoons of powder or three to six typical capsules. A single 500 mg capsule is a third of the lowest studied amount.',
+      },
+      {
+        question: 'Is maca safe?',
+        answer:
+          'For most healthy adults at food-like amounts it appears to be, and trials of up to three months reported few side effects. If you have thyroid disease or a hormone-sensitive condition, or you are pregnant or breastfeeding, check with a clinician first. Also tell whoever orders your blood tests, as maca has been reported to interfere with a testosterone assay.',
+      },
+    ],
+    references: [
+      {
+        id: 'shin2010',
+        text: 'Shin BC, Lee MS, Yang EJ, Lim HS, Ernst E (2010). Maca (L. meyenii) for improving sexual function: a systematic review. BMC Complementary and Alternative Medicine 10:44 — four RCTs, three positive and one negative, evidence judged limited.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2928177/',
+      },
+      {
+        id: 'lee2011',
+        text: 'Lee MS, Shin BC, Yang EJ, Lim HJ, Ernst E (2011). Maca (Lepidium meyenii) for treatment of menopausal symptoms: a systematic review. Maturitas 70(3):227-233 — four RCTs, all favourable, evidence judged limited.',
+        url: 'https://www.maturitas.org/article/S0378-5122(11)00262-3/abstract',
+      },
+      {
+        id: 'gonzales2003',
+        text: 'Gonzales GF et al. (2003). Effect of Lepidium meyenii (Maca), a root with aphrodisiac and fertility-enhancing properties, on serum reproductive hormone levels in adult healthy men. Journal of Endocrinology 176(1):163-168 — 12-week RCT at 1.5 g and 3 g a day; testosterone and other reproductive hormones unchanged.',
+        url: 'https://joe.bioscientifica.com/view/journals/joe/176/1/163.xml',
+      },
+      {
+        id: 'dording2008',
+        text: 'Dording CM et al. (2008). A double-blind, randomized, pilot dose-finding study of maca root (L. meyenii) for the management of SSRI-induced sexual dysfunction. CNS Neuroscience & Therapeutics.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6494062/',
+      },
+      {
+        id: 'maca-assay',
+        text: 'First case report of testosterone assay-interference in a female taking maca (Lepidium meyenii).',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22700073/',
+      },
+      {
+        id: 'mskcc-maca',
+        text: 'Memorial Sloan Kettering Cancer Center. Maca — integrative medicine monograph covering uses, evidence and cautions.',
+        url: 'https://www.mskcc.org/cancer-care/integrative-medicine/herbs/maca',
+      },
+    ],
+    editorNote:
+      'Maca is a good example of a claim surviving after the research has answered it. The testosterone question was tested more than twenty years ago, in a proper randomised trial, and the answer was no. Yet "testosterone support" is still one of the most common reasons it is sold. What is left once you take that away is modest and genuinely uncertain: a few small trials hinting at better libido and fewer menopausal symptoms. It is a reasonable thing to try, cheaply and for a limited time, provided nobody is paying premium prices for a mechanism that has already been disproved.',
+    related: ['l-theanine', 'gaba'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Libido findings from the 2010 BMC systematic review and the SSRI pilot trial; menopause findings from the 2011 Maturitas review; hormone findings from the 2003 Journal of Endocrinology trial.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
+  {
+    slug: 'grape-seed-extract',
+    name: 'Grape seed extract',
+    aliases: [
+      'grape seed extract',
+      'grapeseed extract',
+      'vitis vinifera seed extract',
+      'grape seed proanthocyanidins',
+    ],
+    category: 'Plant polyphenol',
+    grade: 'C',
+    quickAnswer:
+      'Grape seed extract is a concentrate of the polyphenols found in the seeds of wine grapes, mainly compounds called proanthocyanidins. Its best-supported use is blood pressure: a meta-analysis of 16 trials found a modest average fall, clearest in younger people and those carrying extra weight. The evidence for cholesterol is weak, and "antioxidant" claims mean very little on their own. It is generally well tolerated, but it may add to the effect of blood thinners.',
+    atAGlance: [
+      {
+        label: 'Typical studied dose',
+        value: '150–300 mg a day',
+        note: 'Of standardised extract, usually for 4 to 16 weeks. Some trials went higher.',
+      },
+      {
+        label: 'Average blood pressure fall',
+        value: '≈6 / 3 mmHg',
+        note: 'Systolic and diastolic, pooled across 16 trials and 810 people. An earlier 9-trial analysis found a much smaller systolic effect.',
+      },
+      {
+        label: 'Who responded most',
+        value: 'Under 50, BMI 25+',
+        note: 'The reduction was significant only in younger subjects and larger in those who were overweight or had metabolic disorders.',
+      },
+      {
+        label: 'Effect on LDL cholesterol',
+        value: 'Not significant',
+        note: 'Pooled trials have not shown a reliable change in lipids.',
+      },
+      {
+        label: 'Main interaction',
+        value: 'Blood thinners',
+        note: 'Grape seed polyphenols have anticoagulant and antiplatelet activity in laboratory studies.',
+      },
+    ],
+    whatIsIt:
+      'Grape seed extract is made from the seeds of grapes, usually Vitis vinifera, the species used for wine. The seeds are a by-product of wine and juice production, which is part of why the extract is cheap. What makes it interesting is its concentration of oligomeric proanthocyanidins, or OPCs: chains of polyphenol building blocks that also give red wine, tea and dark chocolate some of their bitterness and astringency. Good-quality extracts are standardised, typically to 90 per cent or more total polyphenols or to a stated OPC percentage. The number on the label only means something if that standardisation is given. "Grape seed 500 mg" with no percentage could be almost anything.',
+    mechanism:
+      'In laboratory work, grape seed polyphenols act as antioxidants, help the lining of blood vessels release nitric oxide, and reduce some markers of inflammation. The nitric oxide effect is the plausible link to blood pressure: blood vessels that relax more easily lower the pressure inside them. The word "antioxidant" deserves a caution, though. A compound that neutralises free radicals in a test tube does not necessarily do so in the body at the doses that are absorbed, and large trials of antioxidant supplements have repeatedly failed to show the benefits predicted from laboratory work. Proanthocyanidins are also poorly absorbed intact. Much of what reaches the bloodstream consists of smaller compounds made by gut bacteria, which may be responsible for part of the effect.',
+    claims: [
+      {
+        claim: 'Lowering blood pressure',
+        grade: 'B',
+        body: 'This is the claim the ingredient earns. A 2016 meta-analysis in Medicine pooled 16 randomised trials with 810 participants. It found average falls of about 6 mmHg systolic and 2.8 mmHg diastolic. That is similar in size to a meaningful cut in dietary salt, and smaller than a single blood pressure drug. The detail matters: the reduction was statistically significant only in trials of people under 50, and it was larger in people who were overweight or had metabolic disorders. An earlier 2011 meta-analysis of nine trials found a much smaller systolic effect, about 1.5 mmHg. B rather than A because the trials are small, they disagree about the size of the effect, and the benefit is concentrated in particular groups. It is a plausible add-on for someone with mildly raised blood pressure. It is not a replacement for prescribed treatment.',
+        refs: ['zhang2016', 'feringa2011'],
+      },
+      {
+        claim: 'Improving cholesterol',
+        grade: 'D',
+        body: 'The 2011 meta-analysis that looked at cardiovascular risk markers found no significant effect on LDL cholesterol, HDL cholesterol or triglycerides. Individual small trials have reported improvements, but they do not hold up when pooled. If cholesterol is the reason you are considering grape seed extract, the evidence points elsewhere, for example to soluble fibres such as psyllium, or to prescribed treatment where it is indicated.',
+        refs: ['feringa2011'],
+      },
+      {
+        claim: 'Circulation and chronic venous insufficiency',
+        grade: 'D',
+        body: 'Grape seed extract has a long history of use in parts of Europe for heavy, swollen legs and poor venous circulation, and there are older trials suggesting benefit. Most are small, short and methodologically weak by current standards. The idea is plausible given the effects on blood vessels, but it has not been tested properly.',
+      },
+      {
+        claim: 'General antioxidant protection and anti-ageing',
+        grade: 'D',
+        body: 'Proanthocyanidins are powerful antioxidants in a test tube. That is true and nearly meaningless for a buyer. Antioxidant capacity measured in a laboratory does not predict health effects in people, and the large trials of antioxidant supplements, for vitamins E and C and beta-carotene, did not deliver the benefits the laboratory work promised. A label claiming "antioxidant protection" is describing chemistry, not an outcome anyone has shown in trials of grape seed extract.',
+      },
+    ],
+    dosage:
+      'Blood pressure trials typically used 150 to 300 mg a day of standardised extract for 4 to 16 weeks, and a few used more. Look for a label that states the standardisation, commonly 90 to 95 per cent polyphenols or a stated OPC percentage. It is usually taken with food. If you are trying it for blood pressure, measure before you start and again after two to three months, on the same device at the same time of day. A home reading is the only way to know whether it is doing anything for you.',
+    dosageGap:
+      'The gap here is usually standardisation rather than dose. A product listing "grape seed extract 100 mg" without a polyphenol or OPC percentage gives you no way to compare it with the trials, which used standardised extracts. Multi-ingredient "heart health" or "antioxidant" blends are worse: grape seed often appears as a small part of a proprietary blend at a fraction of the studied amount. The other trap is "grape extract" or "resveratrol", which are different materials from grape seed extract and should not borrow its evidence.',
+    safety:
+      'Grape seed extract is generally well tolerated in trials lasting up to several months. The reported side effects are mild: headache, nausea, stomach upset, dizziness and an itchy scalp. The one interaction worth taking seriously is with blood thinners. In laboratory studies grape seed polyphenols have anticoagulant and antiplatelet activity, so combining the extract with warfarin, clopidogrel, aspirin or similar drugs could in principle increase bleeding risk. Stop it before planned surgery, and check with a clinician if you take any of those drugs or have a bleeding disorder. Because it can lower blood pressure, anyone already on blood pressure medication should monitor their readings. There is not enough information on use in pregnancy or breastfeeding, and grape allergy is a contraindication.',
+    faqs: [
+      {
+        question: 'Does grape seed extract lower blood pressure?',
+        answer:
+          'Modestly, in some people. A meta-analysis of 16 trials found average falls of about 6 mmHg systolic and 3 mmHg diastolic. The effect was clearest in people under 50 and in those who were overweight or had metabolic disorders. An earlier analysis found a smaller effect. If you try it, check your blood pressure before and after two to three months so you know whether it is working for you.',
+      },
+      {
+        question: 'Can I take it instead of my blood pressure medication?',
+        answer:
+          'No. The average effect is smaller than a single blood pressure drug and inconsistent between people. If you take medication and want to add grape seed extract, talk to your clinician and keep monitoring, because the two effects could add together.',
+      },
+      {
+        question: 'Does it lower cholesterol?',
+        answer:
+          'Not reliably. A 2011 meta-analysis of cardiovascular risk markers found no significant effect on LDL, HDL or triglycerides. Soluble fibres such as psyllium have much better evidence for LDL cholesterol.',
+      },
+      {
+        question: 'What should I look for on the label?',
+        answer:
+          'A stated standardisation, such as "95% polyphenols" or a stated OPC percentage, and an amount of 150 to 300 mg a day. Without the standardisation there is no way to compare the product with the trials.',
+      },
+      {
+        question: 'Is grape seed extract the same as resveratrol?',
+        answer:
+          'No. Resveratrol is a different polyphenol, found mainly in grape skins and in Japanese knotweed. Grape seed extract is rich in proanthocyanidins. They have different research bases, and one should not borrow the other’s evidence.',
+      },
+      {
+        question: 'Is it safe with blood thinners?',
+        answer:
+          'Check with your doctor first. Grape seed polyphenols have anticoagulant and antiplatelet activity in laboratory studies, which could add to the effect of drugs such as warfarin, clopidogrel or aspirin. Stop taking it before planned surgery.',
+      },
+    ],
+    references: [
+      {
+        id: 'zhang2016',
+        text: 'Zhang H et al. (2016). The impact of grape seed extract treatment on blood pressure changes: a meta-analysis of 16 randomized controlled trials. Medicine 95(33) — 810 participants; systolic −6.08 mmHg and diastolic −2.80 mmHg, significant only in subjects under 50 and greater with BMI of 25 or above.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/27537554/',
+      },
+      {
+        id: 'feringa2011',
+        text: 'Feringa HHH et al. (2011). The effect of grape seed extract on cardiovascular risk markers: a meta-analysis of randomized controlled trials. Journal of the American Dietetic Association 111(8):1173-1181 — nine trials; systolic −1.54 mmHg, no significant effect on lipids.',
+        url: 'https://www.jandonline.org/article/S0002-8223(11)00587-6/abstract',
+      },
+      {
+        id: 'gse-anticoag',
+        text: 'Dual anticoagulant/antiplatelet activity of polyphenolic grape seeds extract. Nutrients, 2019 — laboratory evidence behind the bleeding-risk caution.',
+        url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6356405/',
+      },
+      {
+        id: 'gse-2021-rct',
+        text: 'Grape seed extract positively modulates blood pressure and perceived stress: a randomized, double-blind, placebo-controlled study in healthy volunteers. Nutrients, 2021.',
+        url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7922661/',
+      },
+    ],
+    editorNote:
+      'Grape seed extract is often sold as an antioxidant, which is the least useful thing to say about it. The more interesting finding is the blood pressure result: small, real and concentrated in particular groups. That makes it a reasonable thing for someone with mildly raised blood pressure to try, provided they measure before and after rather than trusting that it is working. If readers take one habit from this page, it should be that one. A home blood pressure monitor costs less than a few bottles and settles the question.',
+    related: ['omega-3', 'green-tea-extract'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Blood pressure findings from the 2016 Medicine meta-analysis and the 2011 Journal of the American Dietetic Association meta-analysis, which also supplied the lipid findings; bleeding caution from the 2019 laboratory study of anticoagulant activity.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
+  {
+    slug: 'capsicum-annuum',
+    name: 'Capsicum annuum (capsaicin)',
+    aliases: [
+      'capsicum annuum',
+      'capsicum annuum extract',
+      'capsicum extract',
+      'capsicum fruit',
+      'capsicum',
+      'cayenne pepper',
+      'cayenne',
+      'red pepper extract',
+      'chilli pepper extract',
+      'chili pepper extract',
+      'capsaicin',
+      'capsaicinoids',
+      'capsinoids',
+      'capsimax',
+    ],
+    category: 'Thermogenic / plant extract',
+    grade: 'D',
+    quickAnswer:
+      'Capsicum annuum is the chilli pepper, and capsaicin is the compound that makes it hot. It appears in fat burners because it slightly raises energy expenditure and can slightly reduce appetite. Both effects are real in trials and both are small: tens of calories, not hundreds. The longer trials have not turned that into meaningful weight loss. Topical capsaicin is a different story: as a high-strength skin patch it is a licensed treatment for some nerve pain, but that says nothing about a capsule.',
+    atAGlance: [
+      {
+        label: 'Extra energy burned',
+        value: '≈34 kcal a day',
+        note: 'Pooled increase in resting metabolic rate across trials. Roughly one small biscuit.',
+      },
+      {
+        label: 'Less eaten at a meal',
+        value: '≈74 kcal',
+        note: 'Pooled reduction in intake when capsaicinoids were taken before a meal, in short laboratory studies.',
+      },
+      {
+        label: 'Weight regain after dieting',
+        value: 'No difference',
+        note: 'A 3-month trial at 135 mg capsaicin a day found more fat burning but no less weight regain than placebo.',
+      },
+      {
+        label: 'Common side effects',
+        value: 'Burning, reflux',
+        note: 'Stomach and throat burning, heartburn and loose stools, especially on an empty stomach.',
+      },
+      {
+        label: 'Where capsaicin has strong evidence',
+        value: 'Skin patch for nerve pain',
+        note: 'A prescription 8% patch — a different use, route and dose from any fat burner.',
+      },
+    ],
+    whatIsIt:
+      'Capsicum annuum is the species that gives us bell peppers, jalapeños, paprika and cayenne. The heat comes from a family of compounds called capsaicinoids, of which capsaicin is the main one. Sweet peppers have almost none. Supplements use extracts standardised to a capsaicinoid content, often around 2 per cent, and some use coated beadlets, such as the branded Capsimax, designed to release in the gut rather than the mouth so the capsule does not burn on the way down. A related group, capsinoids, comes from a non-pungent pepper variety. Capsinoids act on the same receptor without the heat and have been studied separately.',
+    mechanism:
+      'Capsaicin activates a receptor called TRPV1, the same one that responds to heat. That is why chilli feels hot and why the body responds as if it were warming up: the sympathetic nervous system becomes slightly more active, the body burns a little more energy and shifts slightly towards burning fat. Some studies suggest it activates brown fat, a heat-producing tissue that adults have in small and variable amounts. Capsaicin may also reduce appetite through signals from the gut. All of this is well documented in short laboratory studies. The problem is scale. The extra energy burned is a few tens of calories a day, and the body adjusts to repeated exposure, which may be why the effect has not produced much weight loss over months.',
+    claims: [
+      {
+        claim: 'Increasing energy expenditure ("thermogenesis")',
+        grade: 'C',
+        body: 'The effect is real and it is small. A 2012 critical review and meta-analysis in Chemical Senses concluded that capsaicin and capsiate both increase energy expenditure and fat burning, especially at high doses, and that the magnitude is small. A later meta-analysis put the pooled increase in resting metabolic rate at about 34 kcal a day. For scale, that is roughly one small biscuit. The grade is C rather than higher because the studies are mostly short and acute, doses vary widely, and the effect may fade with regular use. Nobody should build a weight-loss plan on 34 calories.',
+        refs: ['ludy2012', 'zsiga2020'],
+      },
+      {
+        claim: 'Reducing appetite and food intake',
+        grade: 'C',
+        body: 'A 2014 meta-analysis in Appetite found that taking capsaicinoids before a meal reduced how much people ate at that meal by about 74 kcal. That is a genuine finding, and it is the most useful part of the capsaicin story. It comes from short laboratory studies, though, and nobody has shown that it persists over weeks, or that people do not simply eat more later. Treat it as a small effect on one meal rather than a lasting change in appetite.',
+        refs: ['whiting2014'],
+      },
+      {
+        claim: 'Weight loss or keeping weight off',
+        grade: 'D',
+        body: 'This is the claim fat burners make, and the longer trials do not support it. In a 2003 trial in the British Journal of Nutrition, people who had just lost weight took 135 mg of capsaicin a day or a placebo for three months. The capsaicin group burned more fat, but regained just as much weight. A 12-week trial of 6 mg a day of capsinoids, published in the American Journal of Clinical Nutrition in 2009, found a loss of abdominal fat but no significant difference in body weight. The European Food Safety Authority reviewed the evidence for capsaicin and maintaining weight after weight loss and did not accept the claim. D, because the mechanism is real but the outcome that matters has not been shown.',
+        refs: ['lejeune2003', 'snitker2009', 'efsa-capsaicin'],
+      },
+      {
+        claim: 'Relieving nerve pain (topical use)',
+        grade: 'B',
+        body: 'Included so the evidence is not borrowed by the wrong product. A 2017 Cochrane review of high-concentration (8 per cent) capsaicin patches, a prescription treatment applied in clinic, found moderate-quality evidence of moderate or better pain relief for a minority of people with post-herpetic neuralgia, with about 12 people needing treatment for one extra person to benefit. That is a real, licensed medical use. It is a different dose, route and product from a capsicum capsule in a fat burner, and none of it transfers.',
+        refs: ['derry2017'],
+      },
+    ],
+    dosage:
+      'There is no single agreed oral dose. Trials of capsaicin for energy expenditure used widely varying amounts, from a few milligrams to more than 100 mg a day of capsaicin, often in food. The capsinoid trial used 6 mg a day. Branded capsicum extracts in supplements commonly provide 2 to 4 mg of capsaicinoids per serving, often from 100 to 200 mg of an extract standardised to about 2 per cent. Taking it with food reduces stomach irritation. If you want the appetite effect, it has only been shown when taken shortly before a meal.',
+    dosageGap:
+      'Most fat burners that include capsicum list it inside a proprietary blend, so you cannot tell how much capsaicinoid you are getting. Where the amount is listed, it is often an extract weight rather than the capsaicinoid content. "Capsicum annuum 100 mg" at 2 per cent is 2 mg of capsaicinoids. Check whether the label gives the standardisation. The bigger gap, though, is between the mechanism and the promise. Even a product dosed exactly as in the trials delivers an effect measured in tens of calories.',
+    safety:
+      'Capsaicin is safe in food amounts for most people, but concentrated extracts can cause stomach pain, burning, heartburn, nausea and diarrhoea, particularly on an empty stomach. People with reflux, gastritis, ulcers or irritable bowel syndrome are likely to find it uncomfortable. Because it raises sympathetic activity, it is usually combined in fat burners with caffeine and other stimulants, and the combination is harder on the heart than capsicum alone. Anyone with high blood pressure or a heart rhythm problem should look at the whole formula, not just this ingredient. Capsaicin may interact with blood thinners and some blood pressure medicines, although the evidence is limited. Keep the capsules away from eyes and broken skin, and wash your hands after opening one.',
+    faqs: [
+      {
+        question: 'Does capsaicin burn fat?',
+        answer:
+          'It increases energy expenditure and fat burning slightly: pooled trials put the extra energy burned at about 34 kcal a day. That is real but tiny, and a three-month trial found it did not stop people regaining weight after a diet. It is not a meaningful fat-loss tool on its own.',
+      },
+      {
+        question: 'Does it reduce appetite?',
+        answer:
+          'In short laboratory studies, taking capsaicinoids before a meal reduced intake by about 74 kcal at that meal. Nobody has shown this lasts over weeks or that people do not compensate later.',
+      },
+      {
+        question: 'Is eating chilli the same as taking a capsicum supplement?',
+        answer:
+          'Broadly, yes. Many trials used capsaicin in food or as red pepper. Supplements offer a measured dose and, in coated forms, less burning in the mouth. Neither delivers a large effect.',
+      },
+      {
+        question: 'What is Capsimax?',
+        answer:
+          'A branded capsicum extract in coated beadlets, designed to release in the gut so it does not burn the mouth and throat. The coating changes comfort, not the size of the effect.',
+      },
+      {
+        question: 'Are there side effects?',
+        answer:
+          'Stomach burning, heartburn, nausea and loose stools are common with concentrated extracts, especially on an empty stomach. People with reflux or a sensitive gut often cannot tolerate it. In fat burners it is usually combined with stimulants, so check the full label if you have heart or blood pressure problems.',
+      },
+      {
+        question: 'Does capsaicin help with pain?',
+        answer:
+          'As a high-strength skin patch prescribed for nerve pain, yes, for a minority of people. That evidence is about a medical treatment applied to the skin and has nothing to do with a capsicum capsule.',
+      },
+    ],
+    references: [
+      {
+        id: 'ludy2012',
+        text: 'Ludy MJ, Moore GE, Mattes RD (2012). The effects of capsaicin and capsiate on energy balance: critical review and meta-analyses of studies in humans. Chemical Senses 37(2):103-121 — small increases in energy expenditure and fat oxidation, greater at higher doses.',
+        url: 'https://academic.oup.com/chemse/article/37/2/103/273510',
+      },
+      {
+        id: 'zsiga2020',
+        text: '(2020). The effect of capsaicinoids or capsinoids in red pepper on thermogenesis in healthy adults: a systematic review and meta-analysis — resting metabolic rate increased by about 34 kcal a day against placebo.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33063385/',
+      },
+      {
+        id: 'whiting2014',
+        text: 'Whiting S, Derbyshire EJ, Tiwari B (2014). Could capsaicinoids help to support weight management? A systematic review and meta-analysis of energy intake data. Appetite 73 — ad libitum intake reduced by 309.9 kJ (74 kcal) at the meal after dosing.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/24246368/',
+      },
+      {
+        id: 'lejeune2003',
+        text: 'Lejeune MPGM, Kovacs EMR, Westerterp-Plantenga MS (2003). Effect of capsaicin on substrate oxidation and weight maintenance after modest body-weight loss in human subjects. British Journal of Nutrition 90(3):651-659 — 135 mg a day sustained fat oxidation but did not limit three-month weight regain.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/13129472/',
+      },
+      {
+        id: 'snitker2009',
+        text: 'Snitker S et al. (2009). Effects of novel capsinoid treatment on fatness and energy metabolism in humans: possible pharmacogenetic implications. American Journal of Clinical Nutrition 89(1):45-50 — 6 mg a day for 12 weeks; abdominal fat loss, no significant difference in body weight.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/19056576/',
+      },
+      {
+        id: 'efsa-capsaicin',
+        text: 'EFSA Panel on Dietetic Products, Nutrition and Allergies (2011). Scientific Opinion on the substantiation of health claims related to capsaicin and maintenance of body weight after weight loss, increase in carbohydrate oxidation, and contribution to normal hair growth. EFSA Journal 9(6):2210.',
+        url: 'https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/j.efsa.2011.2210',
+      },
+      {
+        id: 'derry2017',
+        text: 'Derry S et al. (2017). Topical capsaicin (high concentration) for chronic neuropathic pain in adults. Cochrane Database of Systematic Reviews — eight studies, 2,488 participants; NNT of about 12 for moderate relief in post-herpetic neuralgia.',
+        url: 'https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007393.pub4/full',
+      },
+    ],
+    editorNote:
+      'Capsicum is a good ingredient for learning to separate "does it do something" from "does it do enough". The answer to the first question is yes: capsaicin measurably raises energy expenditure, and most ingredients in the fat-burner aisle cannot say that much. The answer to the second is no. Thirty-odd calories a day is well inside the noise of an ordinary day’s eating. When a label says "thermogenic", it is making a true statement about a trivial effect. The number is the part worth remembering.',
+    related: ['green-tea-extract', 'gymnema-sylvestre', 'glucomannan'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Energy expenditure findings from the 2012 Chemical Senses meta-analyses and the 2020 thermogenesis meta-analysis; appetite from the 2014 Appetite meta-analysis; weight outcomes from the 2003 British Journal of Nutrition and 2009 AJCN trials and the 2011 EFSA opinion; topical use from the 2017 Cochrane review.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
+  {
+    slug: 'gymnema-sylvestre',
+    name: 'Gymnema sylvestre',
+    aliases: [
+      'gymnema sylvestre',
+      'gymnema sylvestre extract',
+      'gymnema leaf',
+      'gymnema',
+      'gymnemic acid',
+      'gymnemic acids',
+      'gurmar',
+    ],
+    category: 'Herbal extract',
+    grade: 'D',
+    quickAnswer:
+      'Gymnema sylvestre is a climbing plant used in Ayurvedic medicine, where its Hindi name, gurmar, means "sugar destroyer". Chewed or taken as a lozenge, it temporarily stops you tasting sweetness, and in controlled studies that cut how many sweets people ate. As a capsule for blood sugar, the trials are small, varied and of low quality. It can add to the effect of diabetes medicines, and there are published cases of liver injury.',
+    atAGlance: [
+      {
+        label: 'Sweet-taste block',
+        value: '30–60 minutes',
+        note: 'Gymnemic acids bind sweet receptors on the tongue. Only works if it touches the tongue — a swallowed capsule does not.',
+      },
+      {
+        label: 'Sweets eaten after a lozenge',
+        value: '44% less',
+        note: 'In a 67-person placebo-controlled experiment, total candy intake fell by 44%. A short-term laboratory result.',
+      },
+      {
+        label: 'Blood sugar trials',
+        value: '10 studies, 419 people',
+        note: 'A 2021 meta-analysis reported falls in glucose and HbA1c against baseline, but with extreme heterogeneity.',
+      },
+      {
+        label: 'Typical capsule dose',
+        value: '200–800 mg a day',
+        note: 'Of extract, usually standardised to about 25% gymnemic acids. Trial doses vary widely.',
+      },
+      {
+        label: 'Two real risks',
+        value: 'Low blood sugar, liver',
+        note: 'It can add to diabetes medicines, and there are case reports of drug-induced hepatitis.',
+      },
+    ],
+    whatIsIt:
+      'Gymnema sylvestre is a woody climbing plant native to the forests of India, Africa and Australia. Its leaves have been used in Ayurvedic medicine for centuries for what would now be called diabetes. The active compounds are a family of saponins called gymnemic acids. If you chew a gymnema leaf and then eat a spoonful of sugar, the sugar tastes like sand. That unusual effect is where the Hindi name gurmar, "sugar destroyer", comes from. Supplements come as capsules of dried leaf or extract, usually standardised to about 25 per cent gymnemic acids, and as lozenges, mints and teas designed to act on the tongue.',
+    mechanism:
+      'Gymnema has two separate proposed actions, and it matters which one a product relies on. The first is on the tongue. Gymnemic acids have a structure similar to glucose and bind to the sweet taste receptors, temporarily blocking them for roughly 30 to 60 minutes without affecting salty, sour, bitter or savoury tastes. This is well demonstrated in people, and it only happens if the gymnema touches your tongue. The second action, claimed for capsules, is on blood sugar. Laboratory and animal studies suggest gymnemic acids may slow sugar absorption from the gut and may support insulin release from the pancreas. The human evidence for this second action is far weaker than for the first.',
+    claims: [
+      {
+        claim: 'Blocking sweet taste and reducing sugar cravings',
+        grade: 'B',
+        body: 'This is the best-supported use, and it depends on the format. In a 2017 double-blind experiment published in the Journal of Psychopharmacology, 67 adults sucked either a gymnemic acid lozenge or a placebo after tasting their favourite sweets. The gymnema group was 31 per cent less likely to take the first offered serving, and total sweet intake fell by 44 per cent. Other studies of gymnema mints have found similar drops in desire and intake. The receptor mechanism is clearly established, which strengthens the case. B rather than A because the studies are short, mostly single sessions, and nobody has shown that the effect changes long-term sugar intake or weight. It also only works as a lozenge, mint or tea that touches the tongue, and taste returns within about an hour.',
+        refs: ['stice2017'],
+      },
+      {
+        claim: 'Lowering blood sugar in type 2 diabetes',
+        grade: 'C',
+        body: 'A 2021 meta-analysis in Phytotherapy Research pooled 10 studies with 419 participants. It reported reductions in fasting glucose, post-meal glucose and HbA1c. Before taking that at face value, look at how it was done: many comparisons were against the participants’ own starting values rather than a placebo group, and heterogeneity between studies was extreme, at 90 to 99 per cent. That means the trials disagreed so much that a single pooled number is hard to interpret. Several trials were small, unblinded or used gymnema alongside other herbs. There is a signal worth testing properly. There is not enough to treat gymnema as a diabetes therapy, and it must never replace prescribed medication.',
+        refs: ['devangan2021'],
+      },
+      {
+        claim: 'Weight loss',
+        grade: 'D',
+        body: 'Gymnema is often added to fat burners and "carb blocker" products on the strength of the two actions above. There is no good trial evidence that it causes weight loss. A capsule cannot block sweet taste because it is swallowed, and the effect on sugar absorption in people is unproven. At best, a lozenge might help someone skip a dessert.',
+      },
+    ],
+    dosage:
+      'Trials of gymnema for blood sugar have used widely varying doses, commonly 200 to 800 mg a day of extract standardised to about 25 per cent gymnemic acids, split across meals, and some older studies used more. For the sweet-taste effect the dose matters less than the format: a lozenge, mint or strong tea held in the mouth for a minute before eating something sweet. The effect lasts about 30 to 60 minutes.',
+    dosageGap:
+      'The biggest gap is the format. Many products are capsules marketed for "sugar cravings", but a swallowed capsule never touches your taste buds and cannot deliver the one effect gymnema has reliably shown. The second gap is standardisation. A label listing gymnema leaf powder without a gymnemic acid percentage cannot be compared with trials that used standardised extracts. Third, in multi-ingredient fat burners gymnema is often a small part of a proprietary blend at an undisclosed dose.',
+    safety:
+      'The most important risk is low blood sugar in people who take diabetes medicines. If gymnema lowers glucose even modestly, it adds to the effect of insulin, sulfonylureas and other glucose-lowering drugs, and the combination could cause hypoglycaemia. Anyone with diabetes should discuss it with their prescriber before starting, and monitor glucose closely if they do. There are also published case reports of drug-induced liver injury, including a 60-year-old woman who developed acute hepatitis within one to two weeks of starting a gymnema tea; she recovered after stopping it and receiving treatment. Liver injury appears to be rare, but anyone who develops fatigue, dark urine, pale stools or yellowing skin while taking gymnema should stop and see a doctor. Stomach upset is the commonest minor side effect. It should be stopped before surgery because of the blood sugar effect, and there is not enough safety data for pregnancy or breastfeeding.',
+    faqs: [
+      {
+        question: 'Does gymnema stop sugar cravings?',
+        answer:
+          'As a lozenge, mint or tea that touches your tongue, it temporarily blocks sweet taste for 30 to 60 minutes. In one controlled experiment that cut sweet intake by 44 per cent in a single session. A swallowed capsule does not touch your taste buds, so it cannot have this effect.',
+      },
+      {
+        question: 'Does gymnema lower blood sugar?',
+        answer:
+          'Possibly, modestly. A 2021 meta-analysis of 10 small studies reported reductions in glucose and HbA1c, but many comparisons were against starting values rather than placebo, and the studies disagreed hugely. It is not a substitute for diabetes treatment.',
+      },
+      {
+        question: 'Can I take gymnema with metformin or insulin?',
+        answer:
+          'Only after talking to your prescriber. If gymnema lowers blood sugar, it adds to your medicines, which could cause hypoglycaemia. If you are given the go-ahead, monitor your glucose more closely than usual when you start.',
+      },
+      {
+        question: 'Will gymnema help me lose weight?',
+        answer:
+          'There is no good evidence that it does. Its reliable effect is blocking sweet taste for up to an hour, which might help you skip a dessert. That is not the same as a weight-loss effect.',
+      },
+      {
+        question: 'Is gymnema safe for the liver?',
+        answer:
+          'Liver injury appears rare, but there are published cases of drug-induced hepatitis. Stop taking it and see a doctor if you develop tiredness, dark urine, pale stools or yellowing of the skin or eyes.',
+      },
+      {
+        question: 'How long does the sweet-blocking effect last?',
+        answer:
+          'Usually 30 to 60 minutes. It affects only sweetness; salty, sour, bitter and savoury tastes are unchanged.',
+      },
+    ],
+    references: [
+      {
+        id: 'stice2017',
+        text: 'Stice E, Yokum S, Gau JM (2017). Gymnemic acids lozenge reduces short-term consumption of high-sugar food: a placebo controlled experiment. Journal of Psychopharmacology — 67 adults; 31% fewer took the first offered serving and total candy intake fell 44%.',
+        url: 'https://journals.sagepub.com/doi/10.1177/0269881117728541',
+      },
+      {
+        id: 'devangan2021',
+        text: 'The effect of Gymnema sylvestre supplementation on glycemic control in type 2 diabetes patients: a systematic review and meta-analysis. Phytotherapy Research, 2021 — 10 studies, 419 participants; reductions versus baseline with heterogeneity of 80 to 99 per cent.',
+        url: 'https://onlinelibrary.wiley.com/doi/10.1002/ptr.7265',
+      },
+      {
+        id: 'gymnema-sweet-review',
+        text: 'Consuming Gymnema sylvestre reduces the desire for high-sugar sweet foods. Nutrients, 2020 — mint study and summary of the sweet-taste receptor mechanism.',
+        url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7230589/',
+      },
+      {
+        id: 'shiyovich2010',
+        text: 'Shiyovich A et al. (2010). Toxic hepatitis induced by Gymnema sylvestre, a natural remedy for type 2 diabetes mellitus. American Journal of the Medical Sciences.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/20856101/',
+      },
+    ],
+    editorNote:
+      'Gymnema does something few supplements can claim: you can feel it working. Chew a leaf, eat some sugar, and the sweetness is gone. The frustrating part is that the most common products throw that effect away by putting the herb in a capsule that goes straight past the tongue. If you want to try it for sugar cravings, a lozenge or tea before dessert is the format with the evidence. For blood sugar the picture is much less clear, and the interaction with diabetes medicines is the reason to involve your prescriber rather than experiment alone.',
+    related: ['capsicum-annuum', 'glucomannan', 'psyllium-husk'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Sweet-taste findings from the 2017 Journal of Psychopharmacology experiment and the 2020 Nutrients mint study; blood sugar findings from the 2021 Phytotherapy Research meta-analysis; liver caution from the 2010 case report.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
+  {
+    slug: 'gaba',
+    name: 'GABA',
+    aliases: [
+      'gaba',
+      'gamma-aminobutyric acid',
+      'gamma aminobutyric acid',
+      'γ-aminobutyric acid',
+      'pharmagaba',
+    ],
+    category: 'Amino acid / neurotransmitter',
+    grade: 'D',
+    quickAnswer:
+      'GABA (gamma-aminobutyric acid) is the brain’s main calming chemical messenger, which is why it is sold as a supplement for stress and sleep. The catch is that it is not clear how much swallowed GABA reaches the brain at all. A 2020 systematic review of 14 placebo-controlled trials found limited evidence for stress and very limited evidence for sleep. It appears safe at typical doses, but it is not a supplement equivalent of the calming medicines that act on the GABA system.',
+    atAGlance: [
+      {
+        label: 'Typical dose',
+        value: '100–300 mg',
+        note: 'Most human trials used amounts in this range, often from fermentation-derived GABA.',
+      },
+      {
+        label: 'Trials reviewed',
+        value: '14 studies',
+        note: 'A 2020 systematic review of placebo-controlled human trials on stress and sleep.',
+      },
+      {
+        label: 'Verdict on stress',
+        value: 'Limited evidence',
+        note: 'Some small studies report lower stress markers; others do not.',
+      },
+      {
+        label: 'Verdict on sleep',
+        value: 'Very limited',
+        note: 'A few small trials, mostly short, some funded by manufacturers.',
+      },
+      {
+        label: 'Reaches the brain?',
+        value: 'Disputed',
+        note: 'Whether oral GABA crosses the blood–brain barrier in meaningful amounts is unresolved.',
+      },
+    ],
+    whatIsIt:
+      'GABA is an amino acid that the brain makes for itself from glutamate. It is the main inhibitory neurotransmitter: it damps down nerve signalling, which is why drugs that increase its effect, such as benzodiazepines, calm and sedate. GABA also occurs naturally in foods such as fermented products, tea, tomatoes and some grains, and some Japanese "GABA tea" and chocolate products are enriched with it. Supplements are either synthetic or produced by bacterial fermentation. PharmaGABA, a fermented form made with Lactobacillus hilgardii, is the ingredient used in many of the trials. A GABA supplement is not the same as a medicine that acts on the GABA system; the two work in completely different ways.',
+    mechanism:
+      'The obvious theory is that taking GABA tops up the brain’s supply and calms it. The problem is the blood–brain barrier, which controls what passes from the bloodstream into the brain. It has long been thought that GABA crosses it poorly. A 2015 review in Frontiers in Psychology concluded that the studies on this question are contradictory and methodologically varied, so the issue is genuinely unresolved rather than settled either way. The authors also raised another possibility: that any effect comes through the gut’s own nervous system, which uses GABA too and communicates with the brain through the vagus nerve. That is plausible, but it has not been demonstrated in people. In short, there is no established mechanism by which a GABA capsule would reliably calm the brain.',
+    claims: [
+      {
+        claim: 'Reducing stress and anxiety',
+        grade: 'D',
+        body: 'A 2020 systematic review in Frontiers in Neuroscience examined 14 placebo-controlled human studies of oral GABA and concluded there was limited evidence for stress benefits. Some small trials reported lower stress markers, such as changes in brainwave patterns, heart rate variability or salivary stress hormones, during a laboratory stress task. Others found nothing. Trials were small and short, used different doses and outcome measures, and several were funded by GABA manufacturers. Given the unresolved question of whether GABA reaches the brain, and the mixed results, D is the fair grade. There is no evidence that GABA helps with a diagnosed anxiety disorder, and it should not replace treatment for one.',
+        refs: ['hepsomali2020', 'boonstra2015'],
+      },
+      {
+        claim: 'Improving sleep',
+        grade: 'D',
+        body: 'The same 2020 review found very limited evidence for sleep. A few small trials reported that GABA shortened the time it took to fall asleep or improved self-rated sleep quality, but the studies were small, often short and not always well blinded. GABA is also a common ingredient in multi-ingredient sleep blends, usually at an undisclosed dose alongside melatonin, magnesium and other herbs, so any benefit from those products cannot be credited to GABA.',
+        refs: ['hepsomali2020'],
+      },
+      {
+        claim: 'Working like calming medicines that act on GABA',
+        grade: 'F',
+        body: 'Sometimes implied, never supported. Benzodiazepines and similar drugs do not supply GABA; they make the brain’s existing GABA receptors respond more strongly. A GABA supplement does something entirely different, and may not reach the brain at all. There is no evidence that it produces comparable calming or sedative effects, and anyone taking one of those medicines should not assume a GABA supplement can replace it or help them come off it.',
+        refs: ['boonstra2015'],
+      },
+    ],
+    dosage:
+      'Most human trials used 100 to 300 mg of GABA, taken once, either before a stress task or about an hour before bed. Some sleep studies used daily dosing for a few weeks. Many trials used fermentation-derived GABA. There is no established optimal dose, and higher doses have not been shown to work better.',
+    dosageGap:
+      'The dose on a single-ingredient GABA product is usually within the studied range, so the gap is elsewhere. In multi-ingredient sleep and stress blends, GABA is frequently hidden inside a proprietary blend with no stated amount. The larger gap is between what the label implies and what the evidence shows: a product sold as "calming" or "for restful sleep" on the strength of GABA’s role in the brain is borrowing the reputation of a neurotransmitter, not the results of trials of the supplement.',
+    safety:
+      'GABA appears to be well tolerated at the doses used in trials. Reported side effects are uncommon and mild, and include stomach upset, headache, drowsiness and a tingling sensation. Because some studies suggest it may lower blood pressure slightly, people taking blood pressure medicines should monitor their readings. Take care about combining it with alcohol or sedative medicines, including sleeping tablets, benzodiazepines and some antidepressants and anti-epileptic drugs, until you have checked with a pharmacist, and do not drive if it makes you drowsy. There is not enough safety information for pregnancy, breastfeeding or children. If you are struggling with anxiety or insomnia that affects your daily life, speak to a clinician; both conditions have treatments with far stronger evidence than this.',
+    faqs: [
+      {
+        question: 'Does GABA supplement cross into the brain?',
+        answer:
+          'It is genuinely unclear. It has long been thought that GABA crosses the blood–brain barrier poorly, but a 2015 review found the studies contradictory and concluded the question is unresolved. Any effect might instead act through the gut’s nervous system, but that has not been shown in people.',
+      },
+      {
+        question: 'Does GABA help with anxiety?',
+        answer:
+          'There is limited evidence it may reduce some measures of stress in small, short laboratory studies. There is no evidence it treats an anxiety disorder, and it should not replace proper treatment.',
+      },
+      {
+        question: 'Does GABA help you sleep?',
+        answer:
+          'The evidence is very limited. A few small trials reported slightly faster sleep onset or better self-rated sleep, but a 2020 systematic review judged the overall evidence very limited.',
+      },
+      {
+        question: 'Is GABA the same as Valium or other sedatives?',
+        answer:
+          'No. Those medicines make the brain’s GABA receptors respond more strongly; they do not supply GABA. A GABA supplement works in a different way, if it works, and there is no evidence of similar effects.',
+      },
+      {
+        question: 'How much GABA should I take?',
+        answer:
+          'Trials mostly used 100 to 300 mg, taken before a stressful task or about an hour before bed. There is no evidence that higher doses work better.',
+      },
+      {
+        question: 'Is GABA safe?',
+        answer:
+          'It appears safe at typical doses, with mild and uncommon side effects. Check with a pharmacist before combining it with alcohol, sleeping tablets or other sedating medicines, and monitor your blood pressure if you take medication for it.',
+      },
+    ],
+    references: [
+      {
+        id: 'hepsomali2020',
+        text: 'Hepsomali P, Groeger JA, Nishihira J, Scholey A (2020). Effects of oral gamma-aminobutyric acid (GABA) administration on stress and sleep in humans: a systematic review. Frontiers in Neuroscience 14:923 — 14 placebo-controlled studies; limited evidence for stress, very limited for sleep.',
+        url: 'https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2020.00923/full',
+      },
+      {
+        id: 'boonstra2015',
+        text: 'Boonstra E et al. (2015). Neurotransmitters as food supplements: the effects of GABA on brain and behavior. Frontiers in Psychology 6:1520 — evidence on blood–brain barrier passage contradictory; mechanism unclear.',
+        url: 'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2015.01520/full',
+      },
+    ],
+    editorNote:
+      'GABA is the clearest case of a supplement sold on the reputation of a molecule rather than the results of a trial. It is a real, important neurotransmitter, and the brain relies on it to calm itself. That is exactly why the label is persuasive, and why it tells you nothing. The questions that matter, whether a swallowed dose reaches the brain and whether it changes how people feel or sleep, have weak or contested answers. Nobody should expect much from it, and it should never stand in for a proper assessment of anxiety or insomnia.',
+    related: ['l-theanine', 'maca-root'],
+    history: [
+      {
+        date: '2026-09-24',
+        note: 'First published with per-claim evidence grades. Stress and sleep findings from the 2020 Frontiers in Neuroscience systematic review; blood–brain barrier and mechanism discussion from the 2015 Frontiers in Psychology review.',
+      },
+    ],
+    updated: '2026-09-24',
+  },
 ];
 
 export function getIngredient(slug: string) {
