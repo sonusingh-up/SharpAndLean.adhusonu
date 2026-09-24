@@ -62,7 +62,9 @@ export default function EvidenceGradingPage() {
 
         <header className="page-top">
           <SectionLabel>The scoring criteria</SectionLabel>
-          <h1 className="page-title">How we grade evidence.</h1>
+          <h1 className="page-title">
+            How we grade <em>evidence.</em>
+          </h1>
           <p className="page-intro">
             Every ingredient claim on this site carries a letter grade. A grade nobody can audit is
             worth less than no grade at all, so here are the exact bands, applied the same way every

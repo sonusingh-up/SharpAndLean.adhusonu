@@ -13,6 +13,18 @@ import { siteUrl, demoMode } from '@/lib/config';
 import { categoryGuides, informationPages as info } from '@/lib/editorial-content';
 import { authors } from '@/lib/author';
 export const revalidate = 3600;
+// Plain-text titles get the same treatment as the hand-written headings: the
+// last word set in the italic serif.
+function accentLast(title: string) {
+  const i = title.trimEnd().lastIndexOf(' ');
+  if (i < 0) return title;
+  return (
+    <>
+      {title.slice(0, i + 1)}
+      <em>{title.slice(i + 1)}</em>
+    </>
+  );
+}
 export async function generateStaticParams() {
   return [
     ...categories.map((c) => ({ section: c.slug })),
@@ -49,7 +61,10 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
     about:
       'How a label overview is produced: which figures come from the Supplement Facts panel, how the evidence is weighed, and who signs which kind of page.',
   };
-  const title = c?.seoTitle || seoTitles[section] || info[section]?.title || 'Page';
+  const title = c?.seoTitle || seoTitles[section] || info[section]?.title;
+  // Unknown sections render the 404 page; without this they would stream a
+  // generic "Page" title and a canonical pointing at the missing address.
+  if (!title) return { title: 'Page not found', robots: { index: false, follow: false } };
   const description =
     c?.seoDescription ||
     seoDescriptions[section] ||
@@ -199,7 +214,15 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           <header className="page-top">
             <SectionLabel>{section === 'best' ? 'The shortlists' : 'Side by side'}</SectionLabel>
             <h1 className="page-title">
-              {section === 'best' ? 'Shortlists, and the reasoning.' : 'Same category. Same units.'}
+              {section === 'best' ? (
+                <>
+                  Shortlists, <em>and the reasoning.</em>
+                </>
+              ) : (
+                <>
+                  Same category. <em>Same units.</em>
+                </>
+              )}
             </h1>
             <p className="page-intro">
               {section === 'best'
@@ -340,7 +363,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
             <SectionLabel>Let’s talk</SectionLabel>
             <h1 className="page-title">
               A question.
-              <br />A correction. A hello.
+              <br />A correction. <em>A hello.</em>
             </h1>
             <p className="page-intro">
               Corrections, product suggestions, press questions and thoughtful feedback are welcome.
@@ -422,7 +445,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           <Breadcrumb items={[{ label: 'Our approach' }]} />
           <header className="page-top">
             <SectionLabel>The Sharp &amp; Lean standard</SectionLabel>
-            <h1 className="page-title">{about.title}</h1>
+            <h1 className="page-title">{accentLast(about.title)}</h1>
             <p className="page-intro">{about.intro}</p>
           </header>
 
@@ -519,7 +542,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
           <SectionLabel>
             {section === 'about' ? 'The Sharp & Lean standard' : 'The details'}
           </SectionLabel>
-          <h1 className="page-title">{content.title}</h1>
+          <h1 className="page-title">{accentLast(content.title)}</h1>
           <p className="page-intro">{content.intro}</p>
         </header>
         <RichText html={content.body} />
