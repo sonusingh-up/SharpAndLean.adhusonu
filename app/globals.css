@@ -4549,3 +4549,178 @@ table {
     flex: 1 1 auto;
   }
 }
+
+/* ---------- Link mentions ----------
+   A source chip that opens a preview card on hover or keyboard focus. The card
+   renders in a portal, so it is styled here rather than under its parent. */
+.mention {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 6px 1px 4px;
+  border-radius: 5px;
+  vertical-align: bottom;
+  color: var(--ink);
+  line-height: 1.6;
+  text-decoration: none;
+  transition: background-color 100ms ease;
+}
+.mention:hover,
+.mention:focus-visible {
+  background: var(--chip-bg);
+}
+.mention:focus-visible {
+  outline: 2px solid var(--accent-sage);
+  outline-offset: 1px;
+}
+.mention-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--ink);
+  color: var(--frame-bg);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+img.mention-icon {
+  background: none;
+}
+.mention-icon-lg {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+}
+.mention-site,
+.mention-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mention-site {
+  color: var(--muted);
+}
+.mention-title {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: #14141459;
+  text-underline-offset: 3px;
+}
+.mention-invalid {
+  color: #b42318;
+  font-size: 13px;
+}
+/* References set every link underlined; the chip underlines only its label. */
+.article-box-body a.mention {
+  text-decoration: none;
+}
+.mention-preview {
+  z-index: 60;
+  max-width: calc(100vw - 32px);
+  transform-origin: var(--radix-hover-card-content-transform-origin);
+}
+.mention-preview[data-state='open'] {
+  animation: mention-in 150ms ease-out;
+}
+.mention-preview[data-state='closed'] {
+  animation: mention-out 150ms ease-in forwards;
+}
+@keyframes mention-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+@keyframes mention-out {
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.95);
+  }
+}
+.mention-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--frame-bg);
+  box-shadow: 0 14px 36px #1414141f;
+  text-align: left;
+}
+.mention-card-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  background: var(--chip-bg);
+}
+.mention-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px 18px;
+}
+.mention-card-title,
+.mention-card-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mention-card-title {
+  -webkit-line-clamp: 2;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.mention-card-desc {
+  -webkit-line-clamp: 3;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.mention-card-note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.mention-card-meta {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.mention-card-meta > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mention-skeleton {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--chip-bg) 25%, #e7e7e0 50%, var(--chip-bg) 75%);
+  background-size: 200% 100%;
+  animation: mention-shimmer 1.2s linear infinite;
+}
+@keyframes mention-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mention-preview[data-state],
+  .mention-skeleton {
+    animation: none;
+  }
+}
