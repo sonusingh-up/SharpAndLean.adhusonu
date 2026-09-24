@@ -1136,6 +1136,19 @@ summary::-webkit-details-marker {
   color: #7a7e75;
   line-height: 1.8;
 }
+.footer-preferred {
+  margin-top: 22px;
+}
+/* Google's script sizes this box before it knows whether it can render the
+   button, so an ineligible domain or a blocked request leaves a 40px hole.
+   Collapse it until the button actually has content; !important because the
+   script sets display inline-flex inline. */
+.footer-preferred > [google-add-preferred-source-btn]:empty {
+  display: none !important;
+}
+.footer-preferred:has(> [google-add-preferred-source-btn]:empty) {
+  margin-top: 0;
+}
 .footer-links {
   display: flex;
   gap: 58px;
