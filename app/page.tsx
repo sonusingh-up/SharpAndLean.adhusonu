@@ -11,13 +11,14 @@ import {
   ListOrdered,
   ShieldCheck,
   Microscope,
-  ScanLine,
+  Award,
   CircleHelp,
 } from 'lucide-react';
 import { Header, Footer, SectionLabel, ButtonLink } from '@/components/site';
 import { ReviewCard } from '@/components/review-card';
 import { Newsletter } from '@/components/newsletter';
 import { getReviews } from '@/lib/data';
+import { linkRel } from '@/lib/link-rel';
 import { pageMeta, OrganizationSchema, WebSiteSchema, FaqSchema } from '@/components/seo';
 export const revalidate = 3600;
 // The root segment does not inherit the title template from its own layout, so
@@ -40,6 +41,10 @@ export default async function Home() {
     .sort((a, b) => (b.score as number) - (a.score as number))
     .slice(0, 3);
   const topRatedIds = new Set(topRated.map((r) => r.id));
+  // The hero card features the single highest score, so it follows the same rule.
+  const best = topRated[0];
+  const bestPath = best ? `/${best.category_slug}/${best.slug}` : '';
+  const scoredCount = all.filter((r) => r.score !== null).length;
   // Everything else, so the page does not show the same product twice.
   const reviews = all.filter((r) => !topRatedIds.has(r.id)).slice(0, 4);
   return (
@@ -122,28 +127,54 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <aside className="floating-note">
-            <div className="note-top">
-              <span className="tiny-label">A LITTLE CLARITY</span>
-              <ScanLine size={22} strokeWidth={1} />
-            </div>
-            <h3>
-              Is the dose
-              <br />
-              even on there?
-            </h3>
-            <p>
-              A proprietary blend lists
-              <br />
-              ingredients but hides amounts.
-            </p>
-            <Link href="/about">
-              Our review approach{' '}
-              <span className="circle">
-                <ArrowUpRight size={17} />
-              </span>
-            </Link>
-          </aside>
+          {best ? (
+            <aside className="floating-note">
+              <div className="note-top">
+                <span className="tiny-label">OUR TOP-RATED PICK</span>
+                <Award size={22} strokeWidth={1} />
+              </div>
+              {best.featured_image_url ? (
+                // A div, not a direct <a>: the card styles its direct links as the
+                // price button. The link duplicates the name below, so it is hidden
+                // from keyboard and screen-reader users rather than announced twice.
+                <div className="note-product">
+                  <Link href={bestPath} tabIndex={-1} aria-hidden="true">
+                    <Image
+                      src={best.featured_image_url}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 64px, 200px"
+                    />
+                  </Link>
+                </div>
+              ) : null}
+              <h3>
+                <Link href={bestPath}>{best.title}</Link>
+              </h3>
+              <p>
+                Scored {(best.score as number).toFixed(1)}/10 — the highest of the {scoredCount}{' '}
+                products we have scored.
+              </p>
+              {best.affiliate_url ? (
+                <a href={best.affiliate_url} target="_blank" rel={linkRel(best.affiliate_url)}>
+                  <span>
+                    Check the price
+                    <small>Affiliate link</small>
+                  </span>
+                  <span className="circle">
+                    <ArrowUpRight size={17} />
+                  </span>
+                </a>
+              ) : (
+                <Link href={bestPath}>
+                  Read the review{' '}
+                  <span className="circle">
+                    <ArrowUpRight size={17} />
+                  </span>
+                </Link>
+              )}
+            </aside>
+          ) : null}
           <div className="hero-bottom">
             <span>
               <ShieldCheck size={16} /> Doses checked against the research
