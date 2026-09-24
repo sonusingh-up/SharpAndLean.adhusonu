@@ -24,3 +24,25 @@ export function linkRel(href?: string) {
   if (isPaidLink(href)) return 'sponsored nofollow noopener noreferrer';
   return /^https?:\/\//i.test(href) ? 'nofollow noopener noreferrer' : 'noopener noreferrer';
 }
+
+/**
+ * The absolute URL a body link should preview, or undefined for none.
+ *
+ * In-page jumps, mail and phone links stay plain, and so do affiliate links:
+ * previewing one means the server requesting it, which registers a click
+ * nobody made. Site-relative links preview the site's own page, resolved
+ * against `origin` — pass the canonical origin, not the browser's, which is
+ * localhost in development.
+ */
+export function previewTarget(href: string | undefined, origin: string) {
+  if (!href || href.startsWith('#') || isPaidLink(href)) return undefined;
+  if (/^https?:\/\//i.test(href)) return href;
+  if (href.startsWith('/') && !href.startsWith('//')) {
+    try {
+      return new URL(href, origin).href;
+    } catch {
+      return undefined;
+    }
+  }
+  return undefined;
+}
