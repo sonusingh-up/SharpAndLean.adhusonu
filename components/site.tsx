@@ -113,12 +113,15 @@ export function Footer() {
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="site-frame">
-      {/* Publisher and site identity, referenced by @id from every page node. */}
-      <OrganizationSchema />
-      <WebSiteSchema />
       <Header />
       <main id="main">{children}</main>
       <Footer />
+      {/* Publisher and site identity, referenced by @id from every page node.
+          Rendered last on purpose: Google's swg-basic.js mutates whichever
+          ld+json block comes first in the document, and when that was the
+          Organization node it typed the publisher as an article. */}
+      <OrganizationSchema />
+      <WebSiteSchema />
     </div>
   );
 }

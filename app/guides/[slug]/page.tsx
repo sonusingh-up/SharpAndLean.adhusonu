@@ -3,7 +3,14 @@ import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { KeyTakeaways, ExpertNote, TableOfContents } from '@/components/evidence';
-import { pageMeta, JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from '@/components/seo';
+import {
+  pageMeta,
+  JsonLd,
+  BreadcrumbSchema,
+  FaqSchema,
+  publisherRef,
+  ExtendedAccess,
+} from '@/components/seo';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { guides, getGuide } from '@/lib/guides';
 import { siteUrl } from '@/lib/config';
@@ -37,6 +44,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <SiteShell>
+      <ExtendedAccess headline={g.title} path={`/guides/${g.slug}`} />
       <article className="page-section info-page guide-page">
         <BreadcrumbSchema
           items={[

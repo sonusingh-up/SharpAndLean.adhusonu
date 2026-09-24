@@ -6,7 +6,7 @@ import { categories } from '@/lib/sample';
 import { SiteShell, Breadcrumb, SectionLabel } from './site';
 import { RichText } from './rich-text';
 import { ReviewCard } from './review-card';
-import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from './seo';
+import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef, ExtendedAccess } from './seo';
 import { authorProfile, teamProfile, getAuthorBySlug } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
 import { hasSupabase } from '@/lib/config';
@@ -124,6 +124,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
       : null;
   return (
     <SiteShell>
+      <ExtendedAccess headline={r.title} path={`/${r.category_slug}/${r.slug}`} />
       <article className="page-section">
         <Breadcrumb
           items={[{ label: category.name, href: `/${category.slug}` }, { label: r.title }]}

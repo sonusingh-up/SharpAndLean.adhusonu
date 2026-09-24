@@ -13,7 +13,7 @@ import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { authorProfile, teamProfile } from '@/lib/author';
-import { BreadcrumbSchema, JsonLd, pageMeta } from '@/components/seo';
+import { BreadcrumbSchema, JsonLd, pageMeta, ExtendedAccess } from '@/components/seo';
 import { demoMode, siteUrl } from '@/lib/config';
 import type { Review } from '@/lib/types';
 export const revalidate = 3600;
@@ -456,6 +456,7 @@ export default async function DetailPage({
           .filter((r): r is Review => !!r);
   return (
     <SiteShell>
+      <ExtendedAccess headline={row.title} path={`/${section}/${row.slug}`} />
       <article className="page-section">
         <Breadcrumb
           items={[
