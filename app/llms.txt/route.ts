@@ -1,7 +1,7 @@
 import { siteUrl, demoMode } from '@/lib/config';
 import { getReviews, getCollections } from '@/lib/data';
-import { ingredients } from '@/lib/ingredients';
-import { guides } from '@/lib/guides';
+import { liveIngredients } from '@/lib/ingredients';
+import { liveGuides } from '@/lib/guides';
 
 export const revalidate = 3600;
 
@@ -13,6 +13,8 @@ export const revalidate = 3600;
  * reviews, and the few that do rest on first-hand use say whose use it was.
  */
 export async function GET() {
+  const ingredients = liveIngredients();
+  const guides = liveGuides();
   if (demoMode) {
     return new Response('# SharpAndLean\n\nPreview deployment. Not for indexing.\n', {
       headers: { 'Content-Type': 'text/plain; charset=utf-8' },

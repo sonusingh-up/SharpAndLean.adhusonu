@@ -3,8 +3,8 @@ import { create, insertMultiple, search as oramaSearch } from '@orama/orama';
 import { getReviews, getCollections } from './data';
 import { categories } from './sample';
 import { informationPages, categoryGuides } from './editorial-content';
-import { ingredients } from './ingredients';
-import { guides } from './guides';
+import { liveIngredients } from './ingredients';
+import { liveGuides } from './guides';
 
 export type SearchHit = {
   title: string;
@@ -42,6 +42,8 @@ const strip = (html: string) =>
     .trim();
 
 async function collectDocuments() {
+  const ingredients = liveIngredients();
+  const guides = liveGuides();
   // Articles are deliberately excluded: the sitemap maps them to /learn/<slug>,
   // but no such route exists, so indexing them would produce results that 404.
   const [reviews, bestLists, comparisons] = await Promise.all([
