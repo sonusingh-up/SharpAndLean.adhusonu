@@ -10,6 +10,7 @@ import {
   sniffImageType,
   verifyAsset,
 } from '../lib/link-preview';
+import { previewTarget } from '../lib/link-rel';
 
 test('link previews refuse private, loopback, link-local and wrapped addresses', () => {
   for (const address of [
@@ -151,4 +152,25 @@ test('bot-challenge pages and empty pages are not presented as the source', () =
   assert.equal(isUsablePreview({ title: 'pubmed.ncbi.nlm.nih.gov' }, 'pubmed.ncbi.nlm.nih.gov'), false);
   assert.equal(isUsablePreview({ title: 'Questions and Answers on Dietary Supplements' }, 'fda.gov'), true);
   assert.equal(isUsablePreview({ title: 'fda.gov', description: 'A real description' }, 'fda.gov'), true);
+});
+
+test('body links preview outbound and site pages, but never affiliate links or in-page jumps', () => {
+  const origin = 'https://sharpandlean.com';
+  assert.equal(previewTarget('https://www.fda.gov/x', origin), 'https://www.fda.gov/x');
+  assert.equal(previewTarget('/learn/glp-1', origin), 'https://sharpandlean.com/learn/glp-1');
+  for (const href of [
+    undefined,
+    '',
+    '#ref-depommier-2019',
+    'mailto:team@sharpandlean.com',
+    'tel:+440000',
+    '//evil.example/x',
+    'javascript:alert(1)',
+    '/recommended/calocurb',
+    'https://sharpandlean.com/recommended/kinetica-whey-uk',
+    'https://amzn.to/4dr7gR2',
+    'https://www.amazon.com/dp/B0CGJWF7SN?tag=site-20',
+  ]) {
+    assert.equal(previewTarget(href, origin), undefined, String(href));
+  }
 });
