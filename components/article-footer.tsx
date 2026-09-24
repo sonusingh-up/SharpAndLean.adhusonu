@@ -1,5 +1,5 @@
 import type { Citation } from '@/lib/ingredients';
-import { linkRel } from '@/lib/content';
+import { NotionMentionLink } from './notion-mention-link';
 
 export type HistoryEntry = {
   date: string;
@@ -42,13 +42,13 @@ export function ReferenceBox({ references }: { references: Citation[] }) {
         <ol>
           {references.map((r) => (
             <li key={r.id} id={`ref-${r.id}`}>
+              {r.text}
               {r.url ? (
-                <a href={r.url} target="_blank" rel={linkRel(r.url)}>
-                  {r.text}
-                </a>
-              ) : (
-                r.text
-              )}
+                <>
+                  {' '}
+                  <NotionMentionLink url={r.url} label="domain" prefetch="hover" />
+                </>
+              ) : null}
             </li>
           ))}
         </ol>
