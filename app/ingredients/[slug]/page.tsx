@@ -4,7 +4,14 @@ import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { ReviewCard } from '@/components/review-card';
 import { EvidenceBadge, QuickAnswer, ExpertNote, TableOfContents } from '@/components/evidence';
-import { pageMeta, JsonLd, BreadcrumbSchema, FaqSchema, publisherRef } from '@/components/seo';
+import {
+  pageMeta,
+  JsonLd,
+  BreadcrumbSchema,
+  FaqSchema,
+  publisherRef,
+  ExtendedAccess,
+} from '@/components/seo';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { ingredients, getIngredient, findIngredientByName } from '@/lib/ingredients';
 import { getReviews } from '@/lib/data';
@@ -56,6 +63,11 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
 
   return (
     <SiteShell>
+      <ExtendedAccess
+        headline={ing.name}
+        path={`/ingredients/${ing.slug}`}
+        dateModified={ing.updated}
+      />
       <article className="page-section ingredient-page">
         <BreadcrumbSchema
           items={[

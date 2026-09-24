@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { siteUrl } from '@/lib/config';
 import type { Metadata } from 'next';
 
@@ -9,6 +10,89 @@ export const SITE_ID = `${siteUrl}/#website`;
 export const publisherRef = { '@id': ORG_ID };
 
 export const defaultOgImage = '/images/hero.png';
+
+/**
+ * Google Extended Access (Subscribe with Google Basic).
+ *
+ * Declares a page as an article belonging to the site's Publisher Center
+ * product. The product is registered as open access, so this is metadata — it
+ * gates nothing and changes nothing a reader sees.
+ *
+ * It renders its own article node deliberately. swg-basic.js does not create
+ * one: it mutates whichever `application/ld+json` block appears first in the
+ * document, appending "NewsArticle" to its @type and injecting isPartOf. Left
+ * to itself it reached the site-wide Organization node — the entity every page
+ * references by @id as its publisher — and declared the publisher an article.
+ * Giving it a correct node to find first is what stops that, which is also why
+ * SiteShell renders this ahead of the identity schema.
+ *
+ * Goes on editorial content only. On a category listing or the privacy policy
+ * it would declare those pages articles, which they are not.
+ */
+export function ExtendedAccess({
+  headline,
+  path,
+  datePublished,
+  dateModified,
+  image,
+  author,
+}: {
+  headline?: string;
+  path?: string;
+  datePublished?: string | null;
+  dateModified?: string | null;
+  image?: string;
+  author?: { name: string; slug: string };
+}) {
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@type': 'NewsArticle',
+          ...(headline ? { headline } : {}),
+          ...(path
+            ? { url: new URL(path, siteUrl).href, mainEntityOfPage: new URL(path, siteUrl).href }
+            : {}),
+          // Google News reads these four on the article node. Without dates it
+          // cannot place a story in time, and without an image it has nothing to
+          // show alongside it.
+          ...(datePublished ? { datePublished } : {}),
+          ...(dateModified ? { dateModified } : {}),
+          ...(image
+            ? { image: image.startsWith('http') ? image : new URL(image, siteUrl).href }
+            : {}),
+          ...(author
+            ? {
+                author: {
+                  '@type': 'Organization',
+                  name: author.name,
+                  url: new URL(`/author/${author.slug}`, siteUrl).href,
+                },
+              }
+            : {}),
+          // What "openaccess" means, stated in the markup rather than implied.
+          isAccessibleForFree: true,
+          publisher: { '@id': `${siteUrl}/#organization` },
+        }}
+      />
+      <Script
+        async
+        src="https://news.google.com/swg/js/v1/swg-basic.js"
+        strategy="afterInteractive"
+      />
+      <Script id="swg-basic-init" strategy="afterInteractive">
+        {`(self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+  basicSubscriptions.init({
+    type: "NewsArticle",
+    isPartOfType: ["Product"],
+    isPartOfProductId: "CAow9M-jDA:openaccess",
+    clientOptions: { theme: "light", lang: "en" },
+  });
+});`}
+      </Script>
+    </>
+  );
+}
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 import { ArrowUpRight, Plus, ArrowRight } from 'lucide-react';
 import { AuthControls, AuthMenuControls } from '@/components/auth-controls';
 import { SiteSearch } from '@/components/site-search';
@@ -64,6 +65,16 @@ export function Footer() {
             A little more clarity.
             <br />A more informed choice.
           </p>
+          {/* Google's own Preferred Sources button: readers who add us see more of
+              our work in Search, and the overlay returns them to the page rather
+              than navigating away. Loaded lazily so a third-party script on every
+              page cannot touch LCP, and the button labels itself in the reader's
+              language — so there is no heading to be left stranded if the script
+              is blocked. Requires the domain to be registered in Publisher Center. */}
+          <div className="footer-preferred">
+            <Script src="https://news.google.com/swg/js/v1/publisher.js" strategy="lazyOnload" />
+            <div google-add-preferred-source-btn="" data-theme="light" data-lang="en" />
+          </div>
         </div>
         <div className="footer-links">
           <div>
@@ -102,12 +113,15 @@ export function Footer() {
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="site-frame">
-      {/* Publisher and site identity, referenced by @id from every page node. */}
-      <OrganizationSchema />
-      <WebSiteSchema />
       <Header />
       <main id="main">{children}</main>
       <Footer />
+      {/* Publisher and site identity, referenced by @id from every page node.
+          Rendered last on purpose: Google's swg-basic.js mutates whichever
+          ld+json block comes first in the document, and when that was the
+          Organization node it typed the publisher as an article. */}
+      <OrganizationSchema />
+      <WebSiteSchema />
     </div>
   );
 }
