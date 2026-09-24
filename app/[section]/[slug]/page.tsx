@@ -456,7 +456,14 @@ export default async function DetailPage({
           .filter((r): r is Review => !!r);
   return (
     <SiteShell>
-      <ExtendedAccess headline={row.title} path={`/${section}/${row.slug}`} />
+      <ExtendedAccess
+        headline={row.seo_title || row.title}
+        path={`/${section}/${row.slug}`}
+        datePublished={row.published_at}
+        dateModified={row.updated_at}
+        image={row.figure?.src}
+        author={{ name: teamProfile.name, slug: teamProfile.slug }}
+      />
       <article className="page-section">
         <Breadcrumb
           items={[

@@ -29,9 +29,15 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       { userAgent: '*', allow: '/', disallow },
+      // Named explicitly rather than left to the wildcard: Googlebot-News is the
+      // crawler that decides News eligibility, and an ambiguous rule is the most
+      // common reason a site is silently absent from it.
+      { userAgent: 'Googlebot-News', allow: '/', disallow },
       ...aiCrawlers.map((userAgent) => ({ userAgent, allow: '/', disallow })),
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    // The news sitemap is a second entry rather than a replacement: it carries
+    // only the last two days, so it cannot stand in for the full sitemap.
+    sitemap: [`${siteUrl}/sitemap.xml`, `${siteUrl}/news-sitemap.xml`],
     host: siteUrl,
   };
 }

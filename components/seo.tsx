@@ -29,14 +29,47 @@ export const defaultOgImage = '/images/hero.png';
  * Goes on editorial content only. On a category listing or the privacy policy
  * it would declare those pages articles, which they are not.
  */
-export function ExtendedAccess({ headline, path }: { headline?: string; path?: string }) {
+export function ExtendedAccess({
+  headline,
+  path,
+  datePublished,
+  dateModified,
+  image,
+  author,
+}: {
+  headline?: string;
+  path?: string;
+  datePublished?: string | null;
+  dateModified?: string | null;
+  image?: string;
+  author?: { name: string; slug: string };
+}) {
   return (
     <>
       <JsonLd
         data={{
           '@type': 'NewsArticle',
           ...(headline ? { headline } : {}),
-          ...(path ? { url: new URL(path, siteUrl).href } : {}),
+          ...(path
+            ? { url: new URL(path, siteUrl).href, mainEntityOfPage: new URL(path, siteUrl).href }
+            : {}),
+          // Google News reads these four on the article node. Without dates it
+          // cannot place a story in time, and without an image it has nothing to
+          // show alongside it.
+          ...(datePublished ? { datePublished } : {}),
+          ...(dateModified ? { dateModified } : {}),
+          ...(image
+            ? { image: image.startsWith('http') ? image : new URL(image, siteUrl).href }
+            : {}),
+          ...(author
+            ? {
+                author: {
+                  '@type': 'Organization',
+                  name: author.name,
+                  url: new URL(`/author/${author.slug}`, siteUrl).href,
+                },
+              }
+            : {}),
           // What "openaccess" means, stated in the markup rather than implied.
           isAccessibleForFree: true,
           publisher: { '@id': `${siteUrl}/#organization` },

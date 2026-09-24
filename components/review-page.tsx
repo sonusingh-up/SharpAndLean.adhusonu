@@ -124,7 +124,14 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
       : null;
   return (
     <SiteShell>
-      <ExtendedAccess headline={r.title} path={`/${r.category_slug}/${r.slug}`} />
+      <ExtendedAccess
+        headline={r.seo_title || r.title}
+        path={`/${r.category_slug}/${r.slug}`}
+        datePublished={r.published_at}
+        dateModified={r.updated_at}
+        image={r.featured_image_url || undefined}
+        author={{ name: writtenBy.name, slug: writtenBy.slug }}
+      />
       <article className="page-section">
         <Breadcrumb
           items={[{ label: category.name, href: `/${category.slug}` }, { label: r.title }]}

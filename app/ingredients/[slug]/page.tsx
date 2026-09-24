@@ -63,7 +63,11 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
 
   return (
     <SiteShell>
-      <ExtendedAccess headline={ing.name} path={`/ingredients/${ing.slug}`} />
+      <ExtendedAccess
+        headline={ing.name}
+        path={`/ingredients/${ing.slug}`}
+        dateModified={ing.updated}
+      />
       <article className="page-section ingredient-page">
         <BreadcrumbSchema
           items={[

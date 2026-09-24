@@ -44,7 +44,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <SiteShell>
-      <ExtendedAccess headline={g.title} path={`/guides/${g.slug}`} />
+      <ExtendedAccess
+        headline={g.title}
+        path={`/guides/${g.slug}`}
+        datePublished={g.published}
+        dateModified={g.updated}
+      />
       <article className="page-section info-page guide-page">
         <BreadcrumbSchema
           items={[
