@@ -187,7 +187,7 @@ const collectionDrafts: CollectionDraft[] = [
     title: 'GLP-1, explained properly',
     slug: 'glp-1',
     published_at: '2026-09-22T00:00:00Z',
-    updated_at: '2026-09-23T00:00:00Z',
+    updated_at: '2026-09-25T00:00:00Z',
     seo_title: 'What Is GLP-1? Drugs, Supplements and the Real Numbers',
     seo_desc:
       'Semaglutide lost 15%, tirzepatide 21%, the best-evidenced supplement 4.3%. Every GLP-1 figure traced to its trial — plus what happens when you stop.',
@@ -289,6 +289,10 @@ const collectionDrafts: CollectionDraft[] = [
     ],
     history: [
       {
+        date: '2026-09-25',
+        note: 'Pendulum’s BMJ Open Diabetes Research & Care trial is now quoted from its abstract — 76 participants, a primary outcome at p = 0.0500, HbA1c 0.6 points lower — rather than the 33 per cent figure from press coverage, matching our Pendulum Akkermansia review.',
+      },
+      {
         date: '2026-09-23',
         note: 'Rewritten for an international readership and re-researched from primary sources. The earlier draft treated the UK as the default and recommended protein and vitamin D; access by country is now one section among several, and the product block carries supplements actually marketed for GLP-1. Added a contents sidebar, a to-scale figure comparing the trial results, and the full source list below.',
       },
@@ -315,7 +319,7 @@ const collectionDrafts: CollectionDraft[] = [
         name: 'GLP-1 Probiotic (Akkermansia muciniphila)',
         brand: 'Pendulum',
         evidence: 'Human trial for blood glucose; GLP-1 claim preclinical',
-        note: 'The best-known probiotic sold for GLP-1, built on Akkermansia muciniphila plus butyrate-producing strains — the idea being that butyrate stimulates L-cells to release GLP-1. Pendulum does have a published human trial in BMJ Open Diabetes Research & Care, but its endpoints were glycaemic: a 0.6 per cent HbA1c reduction and 33 per cent smaller post-meal glucose spikes in type 2 diabetes at 12 weeks. That is a real result for a real outcome. It is not weight loss, and the health journalism watchdog Gary Schwitzer has pointed out that the company’s GLP-1 claims specifically rest on preclinical studies rather than studies in people.',
+        note: 'The best-known probiotic sold for GLP-1, built on Akkermansia muciniphila plus butyrate-producing strains — the idea being that butyrate stimulates L-cells to release GLP-1. Pendulum does have a published human trial in BMJ Open Diabetes Research & Care, but its endpoints were glycaemic: in 76 people with type 2 diabetes over 12 weeks, post-meal glucose improved against placebo at p = 0.0500 — exactly on the conventional threshold — with HbA1c 0.6 points lower. That is a real, if marginal, result for a real outcome. It is not weight loss, and the health journalism watchdog Gary Schwitzer has pointed out that the company’s GLP-1 claims specifically rest on preclinical studies rather than studies in people.',
         url: 'https://www.amazon.com/Pendulum-Akkermansia-Probiotic-Supplement-Increases/dp/B0B3GF96C3',
         image: 'https://m.media-amazon.com/images/I/613AuyXrzVL._AC_SX569_.jpg',
       },
@@ -424,7 +428,7 @@ const collectionDrafts: CollectionDraft[] = [
 <p>Two caveats matter. The research programme originates with the New Zealand institute that developed the extract and licenses it commercially, which is a real interest to declare. And the comparison that puts it in perspective: 3.77 kg over 24 weeks is roughly a quarter of what the drugs deliver. It is a genuine effect at a much smaller scale — which is a far more useful description than either "natural Ozempic" or "snake oil".</p>
 <h3>The probiotics: a real trial, for a different outcome</h3>
 <p>Products built on <em>Akkermansia muciniphila</em> and butyrate-producing strains are the second-biggest segment. The logic is sound: butyrate stimulates L-cells to release GLP-1.</p>
-<p>Pendulum, the best-known, does have a published human trial in <em>BMJ Open Diabetes Research & Care</em> — a 0.6 per cent HbA1c reduction and 33 per cent smaller post-meal glucose spikes at 12 weeks in type 2 diabetes. That is a real result. It is also a glycaemic result, not a weight-loss one. The health journalism watchdog Gary Schwitzer has specifically noted that the company's GLP-1 claims rest on preclinical studies rather than studies in people — a distinction the marketing does not make.</p>
+<p>Pendulum, the best-known, does have a published human trial in <em>BMJ Open Diabetes Research & Care</em> — in 76 people with type 2 diabetes over 12 weeks, post-meal glucose improved against placebo at p = 0.0500, exactly on the conventional threshold, with HbA1c 0.6 points lower. That is a real, if marginal, result. It is also a glycaemic result, not a weight-loss one. The health journalism watchdog Gary Schwitzer has specifically noted that the company's GLP-1 claims rest on preclinical studies rather than studies in people — a distinction the marketing does not make.</p>
 <h3>The fibre drinks: mechanism yes, magnitude no</h3>
 <p>Prebiotic fibre products are the third segment, and the mechanism is the best documented of any of them. Fermentable fibre reaches the colon, gut bacteria ferment it into short-chain fatty acids — acetate, propionate, butyrate — and those activate FFAR2 and FFAR3 receptors on L-cells, releasing GLP-1. Propionate is the most potent.</p>
 <p>The magnitude is where it falls down. A 2026 scoping review pooled 52 studies in 1,085 participants and found the results mixed: only certain fibre types raised GLP-1 consistently, and — the part that matters — studies reporting a GLP-1 increase showed only a <em>non-significant</em> tendency to also report increased satiety, with a confidence interval including the null. Raising the hormone on a blood test did not reliably translate into eating less.</p>

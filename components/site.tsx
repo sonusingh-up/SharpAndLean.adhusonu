@@ -127,10 +127,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 }
 export function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="eyebrow">
-      <Plus size={13} />
-      {children}
-    </div>
+    <div className="eyebrow">{children}</div>
   );
 }
 export function ButtonLink({

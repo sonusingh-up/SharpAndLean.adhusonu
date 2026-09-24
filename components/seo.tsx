@@ -9,7 +9,8 @@ export const SITE_ID = `${siteUrl}/#website`;
 /** Reference to the publisher, for use inside Article/Review/Product schemas. */
 export const publisherRef = { '@id': ORG_ID };
 
-export const defaultOgImage = '/images/hero.png';
+/** 1200×630, the size link previews expect. JPEG because not every platform accepts WebP. */
+export const defaultOgImage = '/images/og-default.jpg';
 
 /**
  * Google Extended Access (Subscribe with Google Basic).
@@ -220,6 +221,11 @@ export function pageMeta(
   options?: { publishedTime?: string; modifiedTime?: string; type?: 'website' | 'article' },
 ): Metadata {
   const ogImage = image || defaultOgImage;
+  // Dimensions are only known for the default card. A page-supplied image gets
+  // none rather than a guess, because wrong dimensions distort the preview.
+  const ogImageEntry = image
+    ? { url: ogImage, alt: title }
+    : { url: ogImage, width: 1200, height: 630, alt: title };
   return {
     title,
     description,
@@ -231,7 +237,7 @@ export function pageMeta(
       siteName: 'SharpAndLean',
       locale: 'en_US',
       type: options?.type || 'website',
-      images: [{ url: ogImage, width: 1672, height: 941, alt: title }],
+      images: [ogImageEntry],
       ...(options?.publishedTime ? { publishedTime: options.publishedTime } : {}),
       ...(options?.modifiedTime ? { modifiedTime: options.modifiedTime } : {}),
     },

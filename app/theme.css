@@ -1,0 +1,656 @@
+/*
+ * SharpAndLean theme layer.
+ *
+ * Loaded after globals.css, so it restyles the whole site without rewriting
+ * the rules underneath it: warm cream and paper surfaces, a deep pine for
+ * emphasis, terracotta and ochre accents, light DM Sans headings with one
+ * italic serif word, rounded cards and soft peach-to-teal washes.
+ *
+ * Tokens first. Existing rules already read --ink, --muted, --line and
+ * friends, so retuning them carries most of the site with it.
+ */
+
+:root {
+  --page-bg: #ece6dc;
+  --frame-bg: #fbf9f5;
+  --ink: #1c2a28;
+  --ink-soft: #3d4c48;
+  --muted: #5d6865;
+  --line: #1c2a281a;
+  --chip-bg: #f3efe7;
+  /* Kept for the rules that still read it: borders and underlines now use teal. */
+  --accent-sage: #2f7c72;
+
+  --pine: #183b37;
+  --pine-2: #22504a;
+  --cream: #f3efe7;
+  --cream-deep: #e8e1d5;
+  --paper: #fbf9f5;
+  --terracotta: #e07a5f;
+  --peach: #f3b596;
+  --ochre: #a9813c;
+  --ochre-light: #d8b876;
+  --teal: #2f7c72;
+
+  --wash:
+    radial-gradient(80% 90% at 0% 100%, #f2a07f 0%, #f2a07f00 58%),
+    radial-gradient(60% 80% at 100% 0%, #2c6b64 0%, #2c6b6400 60%),
+    linear-gradient(140deg, #f7f1e8 20%, #e7eee8 80%);
+  --wash-soft:
+    radial-gradient(70% 120% at 0% 100%, #f5c3ab 0%, #f5c3ab00 62%),
+    radial-gradient(60% 100% at 100% 0%, #b9d5cf 0%, #b9d5cf00 62%),
+    #f5f0e8;
+}
+
+/* ---------- Base ---------- */
+
+body {
+  /* Defined here, not on :root: next/font puts --font-serif on <body>, and a
+     custom property that references an undefined variable is invalid, which
+     would silently drop every italic serif word back to the sans. */
+  --serif: var(--font-serif), Georgia, serif;
+  background: var(--page-bg);
+  color: var(--ink);
+}
+.site-frame {
+  background: var(--paper);
+  border-color: #1c2a2812;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-dm), sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+h3 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+h1 em,
+h2 em,
+h3 em,
+.page-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+::selection {
+  background: #f3c9b6;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-color: var(--teal);
+}
+/* Places that used the old display face directly. */
+.prose h3,
+.category-links a,
+.initial-avatar,
+.admin-stats strong {
+  font-family: var(--font-dm), sans-serif;
+}
+.score-ring strong {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Header ---------- */
+
+.navbar {
+  height: 84px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  color: var(--pine);
+}
+.desktop-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color 0.16s ease;
+}
+.desktop-nav a:hover {
+  color: var(--teal);
+}
+.nav-about {
+  padding: 10px 16px;
+  border: 1.5px solid var(--pine);
+  border-radius: 8px;
+  color: var(--pine);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+.nav-about:hover {
+  background: var(--pine);
+  color: #fff;
+}
+.search-toggle,
+.menu summary {
+  border-color: #183b3740;
+  background: var(--paper);
+  color: var(--pine);
+}
+.search-toggle:hover,
+.menu summary:hover {
+  border-color: var(--pine);
+  background: #fff;
+}
+.menu summary span {
+  background: var(--pine);
+}
+.menu nav {
+  border-radius: 18px;
+  border-color: var(--cream-deep);
+  background: var(--paper);
+  box-shadow: 0 18px 50px #1c2a282a;
+}
+.menu nav a:hover {
+  background: var(--cream);
+  color: var(--pine);
+}
+
+/* ---------- Labels, links, buttons ---------- */
+
+.eyebrow {
+  gap: 0;
+  color: var(--ochre);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+.eyebrow svg {
+  display: none;
+}
+.button {
+  gap: 12px;
+  min-height: 46px;
+  padding: 14px 22px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--pine);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.button:hover {
+  background: var(--pine-2);
+  transform: translateY(-2px);
+}
+.button-light {
+  background: var(--cream);
+  color: var(--pine);
+}
+.button-light:hover {
+  background: #fff;
+}
+.text-link {
+  gap: 8px;
+  border-bottom: 1.5px solid var(--terracotta);
+  color: var(--pine);
+  font-weight: 500;
+}
+.text-link:hover {
+  color: var(--teal);
+}
+.tag {
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--pine);
+}
+.breadcrumb {
+  color: var(--muted);
+}
+.breadcrumb a:hover {
+  color: var(--teal);
+}
+.breadcrumb [aria-current='page'] {
+  color: var(--pine);
+}
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Inner-page shell ---------- */
+
+.page-section {
+  padding-top: 24px;
+}
+/* The page header becomes the rounded, washed hero card every inner page shares. */
+.page-top {
+  position: relative;
+  margin-bottom: 48px;
+  padding: 56px 56px 48px;
+  border-radius: 28px;
+  background: var(--wash);
+  overflow: hidden;
+}
+.page-title {
+  margin-top: 14px;
+  font-size: clamp(36px, 4.6vw, 60px);
+  line-height: 1.06;
+}
+.page-title .muted {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--pine);
+}
+.page-intro {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.page-top .text-link {
+  border-bottom-color: var(--pine);
+}
+.section-heading h2,
+.reading-section > h2 {
+  font-size: clamp(28px, 3.2vw, 42px);
+}
+
+/* ---------- Cards ---------- */
+
+.review-card,
+.collection-card,
+.ingredient-card {
+  border: 0;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 6px 0 0 var(--card-edge, var(--cream-deep));
+  transition: transform 0.18s ease;
+}
+.review-card:hover,
+.collection-card:hover,
+.ingredient-card:hover {
+  transform: translateY(-4px);
+  background: #fff;
+}
+.review-card {
+  --card-edge: var(--teal);
+}
+.collection-card {
+  --card-edge: var(--ochre);
+}
+.ingredient-card {
+  --card-edge: var(--pine);
+}
+.review-art {
+  margin: 12px 12px 0;
+  border-radius: 16px;
+  background: var(--cream);
+}
+.art-chip {
+  border-radius: 999px;
+  background: #fffffff0;
+  color: var(--pine);
+}
+.review-meta span:last-child {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--teal);
+}
+.review-card h3 {
+  font-weight: 300;
+}
+.review-card-bottom a {
+  color: var(--pine);
+  font-weight: 600;
+}
+.circle {
+  border-color: #183b3733;
+  color: var(--pine);
+}
+
+/* ---------- Content blocks ---------- */
+
+.summary-box {
+  border: 0;
+  border-radius: 22px;
+  background: var(--wash-soft);
+}
+.prose a {
+  color: var(--pine);
+  text-decoration-color: var(--terracotta);
+}
+.prose h2 {
+  font-weight: 300;
+}
+.prose blockquote {
+  border-left-color: var(--terracotta);
+  font-family: var(--serif);
+  font-style: italic;
+}
+.prose table {
+  overflow: hidden;
+  border-radius: 14px;
+}
+.prose thead th,
+.prose th {
+  background: var(--pine);
+  color: #fff;
+}
+.prose tbody tr:nth-child(even) td {
+  background: var(--cream);
+}
+.faq-list details {
+  border-color: var(--cream-deep);
+}
+.faq-list summary {
+  font-weight: 400;
+}
+.article-box {
+  border: 1px solid var(--cream-deep);
+  border-radius: 18px;
+  background: var(--paper);
+}
+.article-box-title {
+  font-weight: 600;
+  color: var(--pine);
+}
+.toc a:hover {
+  color: var(--teal);
+}
+.notice {
+  border-radius: 16px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--pine);
+  color: #dfe7e3;
+}
+.footer .logo {
+  color: #fff;
+}
+.footer-top > div > p {
+  color: #cfd9d4;
+}
+.footer-links span {
+  color: var(--ochre-light);
+  letter-spacing: 0.16em;
+}
+.footer-links a {
+  color: #e9efeb;
+}
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-bottom {
+  border-top-color: #ffffff1f;
+  color: #b8c7c1;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 640px) {
+  .page-top {
+    padding: 36px 22px 30px;
+    border-radius: 22px;
+  }
+  .nav-about {
+    padding: 8px 12px;
+  }
+}
+
+/* Ingredient pages: the contents box and body share the 780px reading column
+   the FAQ and product sections below them already use. */
+.ingredient-page > .toc,
+.ingredient-page > .ingredient-body {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+/* ---------- Review pages ---------- */
+
+/* The review header joins the same washed card as every other page header,
+   with the at-a-glance panel sitting inside it as a white card. */
+.review-page-hero {
+  padding: 48px;
+  border-radius: 28px;
+  background: var(--wash);
+}
+.review-page-hero .page-title {
+  margin-top: 14px;
+}
+.featured-product {
+  border: 0;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 44px #1c2a2818;
+}
+.featured-product-label {
+  color: var(--ochre);
+  letter-spacing: 0.16em;
+}
+.glance-price strong {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pine);
+}
+.glance-facts > div {
+  border-radius: 12px;
+  background: var(--cream);
+}
+.byline-role {
+  color: var(--ochre);
+}
+@media (max-width: 900px) {
+  .review-page-hero {
+    padding: 32px 24px;
+  }
+}
+@media (max-width: 640px) {
+  .review-page-hero {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+}
+
+/* ---------- Long-form reading (overrides editorial.css) ---------- */
+
+.page-section .reading-section > h2,
+.info-page .prose h2,
+.collection-body .prose h2,
+.review-body .prose h2 {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--pine);
+}
+.prose h3 {
+  font-weight: 500;
+  color: var(--pine);
+}
+.prose,
+.page-section .reading-section > p,
+.page-section .reading-section > ul,
+.page-section .reading-section > ol {
+  color: var(--ink-soft);
+}
+.prose a {
+  color: var(--pine);
+  text-decoration-color: var(--terracotta);
+}
+.faq-list summary {
+  font-weight: 500;
+  color: var(--pine);
+}
+.faq-list details p {
+  color: var(--ink-soft);
+}
+.page-section .reading-section,
+.prose h2:not(:first-child),
+.faq-list,
+.faq-list details {
+  border-color: var(--cream-deep);
+}
+
+/* ---------- Review page furniture ---------- */
+
+.rating-row {
+  border-bottom-color: var(--cream-deep);
+}
+.rating-row meter {
+  accent-color: var(--teal);
+}
+.ingredient {
+  border: 1px solid var(--cream-deep);
+  border-radius: 18px;
+  background: #fff;
+}
+.ingredient > p {
+  color: var(--ink-soft);
+}
+.pros-cons > div,
+.pros-cons > div:nth-child(2) {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 6px 0 0 var(--teal);
+}
+.pros-cons > div:nth-child(2) {
+  box-shadow: 0 6px 0 0 var(--terracotta);
+}
+.pros-cons p {
+  color: var(--ink-soft);
+}
+
+/* Author pages have their own header container; it joins the washed card too. */
+.author-hero {
+  padding: 48px 48px 44px;
+  border-bottom: 0;
+  border-radius: 28px;
+  background: var(--wash);
+}
+.author-title {
+  color: var(--pine);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+}
+@media (max-width: 640px) {
+  .author-hero {
+    padding: 30px 20px;
+    border-radius: 22px;
+  }
+}
+
+/* On narrow screens the text runs the full width of the card, so the deep teal
+   corner of the wash would sit behind it. Use a lighter wash there. */
+@media (max-width: 900px) {
+  :root {
+    --wash:
+      radial-gradient(90% 60% at 0% 100%, #f5b397 0%, #f5b39700 60%),
+      radial-gradient(80% 50% at 100% 0%, #a9cdc5 0%, #a9cdc500 62%),
+      linear-gradient(160deg, #f7f1e8 20%, #edf2ee 80%);
+  }
+}
+
+/* Score meters: the browser picks the state from low/high/optimum on the
+   element; these give each state the site's colour for that band. */
+.rating-row meter {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--cream-deep);
+}
+.rating-row meter::-webkit-meter-bar {
+  height: 8px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--cream-deep);
+}
+.rating-row meter::-webkit-meter-optimum-value {
+  border-radius: 99px;
+  background: var(--teal);
+}
+.rating-row meter::-webkit-meter-suboptimum-value {
+  border-radius: 99px;
+  background: var(--ochre);
+}
+.rating-row meter::-webkit-meter-even-less-good-value {
+  border-radius: 99px;
+  background: var(--terracotta);
+}
+.rating-row meter:-moz-meter-optimum::-moz-meter-bar {
+  background: var(--teal);
+}
+.rating-row meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: var(--ochre);
+}
+.rating-row meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: var(--terracotta);
+}
+.rating-row > strong,
+.rating-row > span:last-child {
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+/* The verdict in the narrow sidebar box: lighter and a size smaller, so it
+   reads as a pull quote rather than a wall of heavy type. */
+.summary-box h3 {
+  margin: 12px 0 14px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--pine);
+}
+.summary-box p {
+  color: var(--ink-soft);
+}
+
+/* ---------- Comparison tables ---------- */
+
+.comparison-table {
+  border: 1px solid var(--cream-deep);
+  border-radius: 18px;
+  background: #fff;
+}
+.comparison-table thead,
+.comparison-table thead th {
+  background: var(--pine);
+  color: #fff;
+}
+.comparison-table thead th a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #ffffff55;
+  text-underline-offset: 3px;
+}
+.comparison-table thead th:first-child {
+  color: var(--ochre-light);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.comparison-table tbody tr:nth-child(even) {
+  background: var(--cream);
+}
+.comparison-table tbody th {
+  color: var(--pine);
+}
+.comparison-table th,
+.comparison-table td {
+  border-color: var(--cream-deep);
+}

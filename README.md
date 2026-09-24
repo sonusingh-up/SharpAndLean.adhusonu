@@ -58,17 +58,18 @@ The Supabase project and migrations 001–003 are live, the Vercel production de
 
 ## Artwork
 
-`public/images/hero.png` is original artwork generated with built-in ImageGen. Prompt: “Sophisticated abstract biotech architectural 3D render, wide landscape 16:9 composition. Sculptural translucent frosted glass ribbons curve through rounded capsule-like architectural forms, with delicate botanical silhouettes visible through glass. Airy spatial depth, serene minimalist architecture, softly layered translucent planes. Pale sage, warm cream, muted blue-gray, delicate white highlights. Broad landscape artwork that crops well to a shallow banner; flowing forms occupy the middle band. Soft daylight, quiet refined editorial design, subtle refraction and matte plaster. Artwork only; no people, pills on a table, text, letters, logos, UI, or watermark.”
+The homepage hero was an original ImageGen render of glass architecture until September 2026, when it was replaced with product photography that shows what the site is actually about. `public/images/og-default.jpg`, the default link-preview image, is a 1200×630 crop of the same photograph.
 
 The photography is from [Unsplash](https://unsplash.com/), used under the Unsplash License, which permits commercial use without permission. Attribution is not required but is recorded here for provenance:
 
-| File                             | Photographer                                           | Unsplash ID                        |
-| -------------------------------- | ------------------------------------------------------ | ---------------------------------- |
-| `public/images/trust-panel.webp` | [Carmen Alarcón](https://unsplash.com/@carmen_alarcon) | `photo-1658934475116-990b909c3038` |
-| `public/images/card-fat.webp`    | [Tim Chow](https://unsplash.com/@rkdamedia)            | `photo-1546387903-6d82d96ccca6`    |
-| `public/images/card-best.webp`   | [Diana Polekhina](https://unsplash.com/@diana_pole)    | `photo-1611255552402-4f772d00621b` |
+| File                                  | Photographer                                           | Unsplash ID                        |
+| ------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
+| `public/images/trust-panel.webp`      | [Carmen Alarcón](https://unsplash.com/@carmen_alarcon) | `photo-1658934475116-990b909c3038` |
+| `public/images/card-fat.webp`         | [Tim Chow](https://unsplash.com/@rkdamedia)            | `photo-1546387903-6d82d96ccca6`    |
+| `public/images/card-best.webp`        | [Diana Polekhina](https://unsplash.com/@diana_pole)    | `photo-1611255552402-4f772d00621b` |
+| `public/images/hero-supplements.webp` | [Supliful](https://unsplash.com/@supliful)             | `photo-1664956618021-73c47736845e` |
 
-Each was fetched as WebP from the Unsplash CDN and is served locally rather than hotlinked. Unsplash+ (`plus.unsplash.com/premium_photo-*`) assets are deliberately avoided because they require a paid subscription.
+Each was fetched from the Unsplash CDN, converted to WebP where it was not already, and is served locally rather than hotlinked. Unsplash+ (`plus.unsplash.com/premium_photo-*`) assets are deliberately avoided because they require a paid subscription.
 
 Visual reference: [Biotech Landing Page by Levi Wilson / QClay](https://dribbble.com/shots/22610094-Biotech-Landing-Page). The site uses original code and artwork rather than copied reference assets.
 

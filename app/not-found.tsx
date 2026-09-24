@@ -5,7 +5,9 @@ export default function NotFound() {
   return (
     <SiteShell>
       <div className="page-section not-found-page">
-        <h1 className="page-title">That page isn&rsquo;t on the shelf.</h1>
+        <h1 className="page-title">
+          That page isn&rsquo;t <em>on the shelf.</em>
+        </h1>
         <p className="page-intro">
           The address may have changed, or the overview may not be published yet. Nothing here is
           deleted quietly &mdash; if a page you had bookmarked has moved, tell us and we will point

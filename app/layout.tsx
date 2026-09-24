@@ -1,16 +1,19 @@
 import { AuthProvider } from '@/components/auth-provider';
 import type { Metadata } from 'next';
-import { DM_Sans, Syne } from 'next/font/google';
+import { DM_Sans, Newsreader } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { Consent } from '@/components/consent';
 import { demoMode, gaId, siteUrl } from '@/lib/config';
 import './globals.css';
 import './editorial.css';
+import './theme.css';
 const dm = DM_Sans({ subsets: ['latin'], variable: '--font-dm' });
-const syne = Syne({
+// The italic serif used for the one emphasised word in a heading.
+const serif = Newsreader({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-syne',
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
+  variable: '--font-serif',
 });
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${dm.variable} ${syne.variable}`}>
+      <body className={`${dm.variable} ${serif.variable}`}>
         <AuthProvider>
           <a href="#main" className="skip-link">
             Skip to content

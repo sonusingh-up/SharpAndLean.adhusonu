@@ -157,11 +157,19 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             <SectionLabel>{category.name} / A closer look</SectionLabel>
             <h1 className="page-title">
               {r.title}
-              {isLabelOverview
-                ? ' — label overview'
-                : !r.title.toLowerCase().includes('review')
-                  ? ' review'
-                  : ''}
+              {/* The suffix is the heading's one italic serif word. The text is
+                  unchanged, so the title reads the same to search engines. */}
+              {isLabelOverview ? (
+                <>
+                  {' — '}
+                  <em>label overview</em>
+                </>
+              ) : !r.title.toLowerCase().includes('review') ? (
+                <>
+                  {' '}
+                  <em>review</em>
+                </>
+              ) : null}
             </h1>
             <p className="page-intro">{r.summary}</p>
 
@@ -480,7 +488,9 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 {Object.entries(r.score_breakdown).map(([name, score]) => (
                   <div className="rating-row" key={name}>
                     <span>{name}</span>
-                    <meter value={score} min={0} max={10} />
+                    {/* low/high match the site's score bands (7+ good, 5-6.9 fair, under 5
+                        poor), so the browser colours each state and the theme maps them. */}
+                    <meter value={score} min={0} max={10} low={5} high={7} optimum={10} />
                     <strong>{score}/10</strong>
                   </div>
                 ))}
