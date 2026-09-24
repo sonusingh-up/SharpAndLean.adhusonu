@@ -1,7 +1,6 @@
 import type { FAQ } from './types';
 import type { Citation } from './ingredients';
 import type { HistoryEntry } from '@/components/article-footer';
-import { isLive } from './schedule';
 
 export type GuideBlock =
   | { type: 'p'; text: string }
@@ -24,10 +23,6 @@ export type Guide = {
   blocks: GuideBlock[];
   faqs: FAQ[];
   related: string[];
-  /**
-   * When the guide goes live: a date for past guides, slot(date, n) from
-   * lib/schedule for scheduled ones. Until then it is a 404 and in no list.
-   */
   published: string;
   updated: string;
   /** What actually changed, when this is an update rather than a first publish. */
@@ -184,11 +179,6 @@ export const guides: Guide[] = [
   },
 ];
 
-/** Guides whose publish time has passed. Read this, not `guides`, anywhere a reader can see. */
-export function liveGuides(now: number = Date.now()) {
-  return guides.filter((g) => isLive(g.published, now));
-}
-
 export function getGuide(slug: string) {
-  return liveGuides().find((g) => g.slug === slug);
+  return guides.find((g) => g.slug === slug);
 }

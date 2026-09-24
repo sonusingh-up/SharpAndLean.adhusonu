@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { EvidenceBadge } from '@/components/evidence';
 import { pageMeta, JsonLd, BreadcrumbSchema } from '@/components/seo';
-import { liveIngredients } from '@/lib/ingredients';
+import { ingredients } from '@/lib/ingredients';
 import { siteUrl } from '@/lib/config';
 
 export const revalidate = 3600;
@@ -15,7 +15,6 @@ export const metadata = pageMeta(
 );
 
 export default function IngredientsIndex() {
-  const ingredients = liveIngredients();
   return (
     <SiteShell>
       <div className="page-section">

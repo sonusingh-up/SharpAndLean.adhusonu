@@ -31,28 +31,6 @@ export const exampleProduct: ProductArticle = {
 
 The URL is `/<category>/<slug>`.
 
-## Scheduling
-
-Any article, ingredient page or guide can be merged ahead of time and go live on
-its own. Give it a publish time from one of the four daily slots — 09:00, 13:00,
-17:00 and 21:00 IST:
-
-```ts
-import { slot } from '../schedule';
-
-published: slot('2026-09-27', 2), // 13:00 IST on 27 September
-```
-
-Until that moment the page is a 404 and appears in no list, sitemap, search
-result, `llms.txt` or related-links block. Links to it from other pages show as
-plain text and become links when it goes live. A GitHub Actions workflow
-refreshes the site at each slot; if it fails, the page still appears within the
-hour. Leaving `published` out means live now. The slots and time zone live in
-`lib/schedule.ts`, and a test fails if the workflow's cron times drift from them.
-
-To publish four a day, merge the batch with one piece per slot. To delay or
-cancel a piece, change or remove its time.
-
 ## Slugs
 
 A review's slug is `<product-name>-review`, e.g. `kinetica-whey-protein-review`.
