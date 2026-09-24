@@ -4469,3 +4469,70 @@ table {
   line-height: 1.6;
   color: #737b6b;
 }
+.cookie-consent {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  background: var(--frame-bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px #14141422;
+}
+.cookie-consent-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px;
+}
+.cookie-consent-text {
+  margin: 0;
+  flex: 1 1 340px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.cookie-consent-text strong {
+  color: var(--ink);
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* Refusing has to be as easy as accepting, so Reject is a real button beside
+   Accept rather than a link buried in the text. */
+.cookie-consent-actions .button,
+.cookie-consent-reject {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.cookie-consent-reject {
+  border: 1px solid var(--line);
+  background: var(--chip-bg);
+  color: var(--ink);
+}
+.cookie-consent-actions a {
+  font-size: 13px;
+  color: var(--muted);
+}
+@media (max-width: 560px) {
+  .cookie-consent-inner {
+    padding: 16px;
+  }
+  .cookie-consent-actions {
+    width: 100%;
+  }
+  .cookie-consent-actions .button,
+  .cookie-consent-reject {
+    flex: 1 1 auto;
+  }
+}

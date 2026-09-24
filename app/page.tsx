@@ -24,7 +24,7 @@ export const revalidate = 3600;
 // the homepage has to carry the brand itself or it ships a title with no brand
 // and no category term in it.
 export const metadata = pageMeta(
-  'Evidence-Graded Supplement Research | SharpAndLean',
+  'Evidence-Graded Supplement Research & Review | SharpAndLean',
   'Ingredient-level supplement research, evidence graded A-F by a clinical nutritionist. Fat burners, nootropics, wellness. Independently funded, never sponsored.',
   '/',
 );
