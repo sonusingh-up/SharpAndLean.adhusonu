@@ -290,7 +290,7 @@ const collectionDrafts: CollectionDraft[] = [
     history: [
       {
         date: '2026-09-25',
-        note: 'Added Lemme to the supplement section. The Pendulum GLP-1 Probiotic and Supergut cards now link to full reviews, and the Pendulum card points to the GLP-1 Probiotic listing rather than the single-strain Akkermansia product it previously linked to. Supergut’s product is now named GLP-1 Daily Support. Linked the new ranking of GLP-1 supplements.',
+        note: 'Added Lemme to the supplement section. The Pendulum GLP-1 Probiotic and Supergut cards now link to full reviews, and the Pendulum card points to the GLP-1 Probiotic listing rather than the single-strain Akkermansia product it previously linked to. Supergut’s product is now named GLP-1 Daily Support. Linked the new ranking of GLP-1 supplements and the guide to natural GLP-1 alternatives.',
       },
       {
         date: '2026-09-25',
@@ -457,6 +457,7 @@ const collectionDrafts: CollectionDraft[] = [
 <h2>So what should you actually do?</h2>
 <p><strong>If you are considering a prescription:</strong> that conversation is with a doctor. Useful questions are what the side-effect profile means for your life, what happens when you stop, what it costs over years rather than months, and whether you are eligible under your country's rules. Do not buy from a site that does not require a prescription.</p>
 <p><strong>If you are already taking one:</strong> protein intake and resistance training are the two things most within your control, for the lean mass reason above. Constipation affects around a quarter of users and responds to fibre and fluid — raise fibre gradually and mention it to your prescriber, since these drugs already slow gastric emptying.</p>
+<p><strong>If you want to try without a prescription:</strong> the free habits come first — our guide to <a href="/learn/natural-glp-1-alternatives">natural GLP-1 alternatives</a> ranks food, protein, eating order and pace alongside the supplements.</p>
 <p><strong>If you are looking at a supplement:</strong> read the panel first. If it will not tell you how much of each ingredient it contains, stop there. If it will, then ask what human evidence exists for that specific ingredient at that specific amount — and note that "clinically studied" frequently refers to a trial at a different dose, in a different population, or measuring something other than weight.</p>
 <p>The products below are the best-known things sold in this category. They are listed because people are buying them and deserve an accurate account of what is behind each one, not because any of them replaces a prescription. Each has now been reviewed and scored in full, and each card links to its review. Our <a href="/best/glp-1-supplements-for-weight-loss">ranking of every GLP-1 supplement we have reviewed</a> puts them side by side.</p>
 `,
@@ -655,7 +656,7 @@ const collectionDrafts: CollectionDraft[] = [
 
 <h2>The cheaper route to try first</h2>
 <p>Much of what these products offer — a little more fullness, steadier eating, better digestion — is what plain fibre does, for a fraction of the price. <a href="/fat-burners/now-glucomannan-575-mg">NOW Glucomannan</a> costs 45 to 90 cents a day and has better evidence for cholesterol than for weight. <a href="/fat-burners/now-psyllium-husk-powder">Plain psyllium powder</a> is cheaper still and well evidenced for regularity.</p>
-<p>Neither is a GLP-1 product, and neither will match the drugs. But if the realistic goal is a modest nudge to appetite alongside diet and exercise, start there before paying $2 to $4 a day for a label.</p>
+<p>Neither is a GLP-1 product, and neither will match the drugs. But if the realistic goal is a modest nudge to appetite alongside diet and exercise, start there before paying $2 to $4 a day for a label. Our guide to <a href="/learn/natural-glp-1-alternatives">natural GLP-1 alternatives</a> ranks the free habits — food, protein, eating order and pace — alongside the supplements.</p>
 
 <h2>How to judge any GLP-1 supplement yourself</h2>
 <ul>
@@ -666,6 +667,262 @@ const collectionDrafts: CollectionDraft[] = [
 <li><strong>What does the small print say?</strong> "Based on preclinical studies" and "not intended for weight loss" are answers, not disclaimers.</li>
 <li><strong>What does a day cost at the directed dose?</strong> Divide the price by days of supply, not by the serving count on the front.</li>
 </ul>
+`,
+  },
+  {
+    id: 'natural-glp-1-alternatives',
+    kind: 'articles' as const,
+    title: 'The best natural GLP-1 alternatives, ranked by what actually works',
+    slug: 'natural-glp-1-alternatives',
+    published_at: '2026-09-25T00:00:00Z',
+    updated_at: '2026-09-25T00:00:00Z',
+    seo_title: 'Best Natural GLP-1 Alternatives (2026): Ranked by Evidence',
+    seo_desc:
+      'There is no natural Ozempic, but some foods, habits and a few supplements do raise GLP-1 or curb appetite. Eight options ranked by trial evidence, from free to $4 a day.',
+    summary:
+      'There is no natural Ozempic. But some foods, eating habits and a few supplements measurably raise your own GLP-1 or make you eat less — and the best of them cost nothing. Eight options, ranked by what the trials show, with the numbers kept honest.',
+    verdict:
+      'Start with the free habits: eating mostly unprocessed food cut intake by about 500 kcal a day in a controlled trial, and putting protein first has 24 trials behind it. If you want a supplement, Amarasate (Calocurb) is the only natural extract with weight-loss trials, and viscous fibre is the cheap runner-up. None of it comes close to the drugs.',
+    takeaways: [
+      'Nothing natural works like semaglutide or tirzepatide, which produced about 15 and 21 per cent weight loss in their trials. Natural options work in single kilograms.',
+      'The strongest evidence is free: people ate about 500 kcal a day less on an unprocessed diet than on an ultra-processed one, in a controlled inpatient trial.',
+      'Protein at meals raises GLP-1, improves fullness and protects muscle; 24 trials found slightly more fat loss on higher-protein diets.',
+      'Eating carbohydrate last raised GLP-1 by about 38 per cent, and eating a meal over 30 minutes rather than 5 raised it by about 41 per cent — both in small, short studies.',
+      'Among supplements, only Amarasate has weight-loss trials on the extract itself. Viscous fibre is cheaper and modest; berberine is not a GLP-1 agonist; the apple cider vinegar trial was retracted.',
+    ],
+    productsIntro: {
+      label: 'If you want it in a tub',
+      heading: 'The products we have reviewed for these.',
+      text: 'Each has a full review on this site, with its score and what its label actually contains. They come after the free habits above for a reason, and none is a substitute for a prescribed medicine.',
+    },
+    items: [
+      {
+        review_id: reviewId('myprotein-impact-whey-review'),
+        rank: 1,
+        why_it_made_the_list:
+          'For the protein-first habit. The cheapest defensible whey we have reviewed, at about £1.10 a serving in the UK — but any plain whey does the same job. The diet trials worked through total protein, not a brand, and the pre-meal whey study used a large 50 g dose.',
+      },
+      {
+        review_id: reviewId('now-glucomannan-575-mg'),
+        rank: 2,
+        why_it_made_the_list:
+          'Viscous fibre in capsules, fully labelled, at 45 to 90 cents a day. Take it with a full glass of water before meals, as the EU-authorised claim specifies. Expect a small effect at most: a 2014 analysis of eight trials found no significant weight difference.',
+      },
+      {
+        review_id: reviewId('now-psyllium-husk-powder'),
+        rank: 3,
+        why_it_made_the_list:
+          'The cheapest way to test viscous fibre: plain powder, with 7 g of fibre in a 9 g serving. Weight results are mixed; the more favourable 2023 analysis found about 2.1 kg over nearly five months at around 10.8 g a day.',
+      },
+      {
+        review_id: reviewId('calocurb-review'),
+        rank: 4,
+        why_it_made_the_list:
+          'The only natural extract with trials measuring GLP-1 and weight on the extract itself: 3.77 kg against 0.40 kg on placebo over 24 weeks. At about $4 a day it is the most expensive option here, which is why it sits after the free habits.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the best natural alternative to Ozempic?',
+        answer:
+          'Nothing natural does what Ozempic does. The best-evidenced natural approach is eating mostly unprocessed food, which cut intake by about 500 kcal a day in a controlled trial, followed by putting protein at every meal. If you want a supplement, Amarasate (sold as Calocurb) is the only natural extract with weight-loss trials, at about 3.4 kg more than placebo over 24 weeks.',
+      },
+      {
+        question: 'What foods increase GLP-1 naturally?',
+        answer:
+          'Protein raises GLP-1 after a meal, and whey taken before a meal raised it sharply in a small trial. Fermentable fibre — legumes, oats, green bananas, cooked-and-cooled starches — feeds gut bacteria that stimulate GLP-1. How you eat matters too: eating carbohydrate last and eating more slowly both raised GLP-1 in controlled studies.',
+      },
+      {
+        question: 'Is there a natural supplement that works like a GLP-1 drug?',
+        answer:
+          'No. Supplements can at most nudge your own GLP-1, which the body breaks down in about two minutes; the drugs keep the signal active for a week. The best supplement result we have found is about 4 per cent of body weight over six months, against about 15 per cent for semaglutide in STEP 1.',
+      },
+      {
+        question: 'Is berberine a natural GLP-1?',
+        answer:
+          'No. Berberine acts mainly through the AMPK enzyme, closer to metformin, and does not act on the GLP-1 receptor. A 2026 meta-analysis of 23 trials found a weight difference of just under 1 kg, and the authors flagged weak blinding and reporting. It also interacts with diabetes medicines and other drugs.',
+      },
+      {
+        question: 'Does apple cider vinegar help weight loss?',
+        answer:
+          'The trial that made the claim famous — 120 young people in Lebanon, reporting 6 to 8 kg lost — was retracted in September 2025 after the journal found its analyses could not be replicated and its data showed patterns inconsistent with random allocation. There is no good evidence left behind it.',
+      },
+      {
+        question: 'Can natural approaches stop weight coming back after a GLP-1 drug?',
+        answer:
+          'None has been shown to. When people stopped semaglutide in the STEP 1 extension, they regained about two-thirds of their lost weight within a year. The habits here — unprocessed food, protein, fibre — are sensible to build while on treatment, and protein with resistance training helps protect muscle, but they are not a proven substitute for staying on it.',
+      },
+      {
+        question: 'Are GLP-1 supplements natural alternatives?',
+        answer:
+          'Most are plant or bacterial products, so in that sense yes, but most do not do what their labels imply. Our ranking of the five GLP-1 supplements we have reviewed in full found one with real weight-loss trials, one well-dosed formula whose GLP-1 ingredient did not change weight, and three we would not buy to lose weight.',
+      },
+    ],
+    references: [
+      {
+        id: 'nat-hall-2019',
+        text: 'Hall KD et al. (2019). Ultra-processed diets cause excess calorie intake and weight gain: an inpatient randomized controlled trial of ad libitum food intake. Cell Metabolism 30(1):67-77 — 20 adults, two weeks on each diet; 508 kcal a day more eaten on the ultra-processed diet; 0.9 kg gained against 0.9 kg lost.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31105044/',
+      },
+      {
+        id: 'nat-hall-2019-hormones',
+        text: 'Hall KD et al. (2019), full text — fasting PYY rose and ghrelin fell on the unprocessed diet; fasting active GLP-1 was lower than baseline on the ultra-processed diet (1.25 against 1.88 pg/ml, p = 0.027).',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7946062/',
+      },
+      {
+        id: 'nat-wycherley-2012',
+        text: 'Wycherley TP et al. (2012). Effects of energy-restricted high-protein, low-fat compared with standard-protein, low-fat diets: a meta-analysis of randomized controlled trials. American Journal of Clinical Nutrition 96(6):1281-1298 — 24 trials, 1,063 people; −0.79 kg weight, −0.87 kg fat mass, 0.43 kg more lean mass kept.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23097268/',
+      },
+      {
+        id: 'nat-jakubowicz-2014',
+        text: 'Jakubowicz D et al. (2014). Incretin, insulinotropic and glucose-lowering effects of whey protein pre-load in type 2 diabetes: a randomised clinical trial. Diabetologia 57(9):1807-1811 — 15 people, 50 g whey before breakfast; total GLP-1 +141 per cent, glucose −28 per cent.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/25005331/',
+      },
+      {
+        id: 'nat-shukla-2017',
+        text: 'Shukla AP et al. (2017). Carbohydrate-last meal pattern lowers postprandial glucose and insulin excursions in type 2 diabetes. BMJ Open Diabetes Research & Care 5(1):e000440 — 16 people; glucose iAUC 53 per cent lower and GLP-1 iAUC higher (3,488 against 2,519 pg/mL×min) with carbohydrate last.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28989726/',
+      },
+      {
+        id: 'nat-kokkinos-2010',
+        text: 'Kokkinos A et al. (2010). Eating slowly increases the postprandial response of the anorexigenic gut hormones, peptide YY and glucagon-like peptide-1. Journal of Clinical Endocrinology & Metabolism 95(1):333-337 — 17 men; GLP-1 AUC 8,794 against 6,219 pmol/L·min when the same meal took 30 minutes rather than 5.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/19875483/',
+      },
+      {
+        id: 'nat-slyper-2021',
+        text: 'Slyper A (2021). Oral processing, satiation and obesity: overview and hypotheses. Diabetes, Metabolic Syndrome and Obesity 14:3399-3415 — eating speed as a risk factor for obesity in observational research.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34345176/',
+      },
+      {
+        id: 'nat-amarasate',
+        text: 'Amarasate — overview of the bitter hops extract sold as Calocurb and its human trials, including the 24-week trial of 150 adults reported in Obesity Pillars in July 2026. We were unable to open that paper; its figures come from the institute and trade reporting of it.',
+        url: 'https://en.wikipedia.org/wiki/Amarasate',
+      },
+      {
+        id: 'nat-walker-2022',
+        text: 'Walker EG et al. (2022). An extract of hops modulates gut peptide hormone secretion and reduces energy intake in healthy weight men: a randomised, cross-over clinical trial. American Journal of Clinical Nutrition 115(3):925-940.',
+        url: 'https://www.medrxiv.org/content/10.1101/2021.06.25.21259514v2.full',
+      },
+      {
+        id: 'nat-onakpoya-2014',
+        text: 'Onakpoya I, Posadzki P, Ernst E (2014). The efficacy of glucomannan supplementation in overweight and obesity: a systematic review and meta-analysis of randomized clinical trials. Journal of the American College of Nutrition 33(1):70-78 — eight RCTs, −0.22 kg, not significant.',
+        url: 'https://www.tandfonline.com/doi/abs/10.1080/07315724.2014.870013',
+      },
+      {
+        id: 'nat-efsa-glucomannan',
+        text: 'EU-authorised glucomannan weight claim (EFSA opinions 2009-2010): in the context of an energy-restricted diet, at least 3 g a day in three 1 g doses with 1-2 glasses of water before meals.',
+        url: 'https://www.nutraingredients.com/Article/2011/10/11/UK-researcher-EFSA-voodoo-lily-weight-loss-approval-is-strange/',
+      },
+      {
+        id: 'nat-psyllium-2019',
+        text: 'Systematic review and meta-analysis of psyllium supplementation and body weight in randomised trials — no significant overall effect.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30880409/',
+      },
+      {
+        id: 'nat-psyllium-2023',
+        text: '2023 systematic review and meta-analysis of psyllium for weight loss with narrower selection criteria — about 2.1 kg at an average 10.8 g a day over roughly 4.8 months.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10389520/',
+      },
+      {
+        id: 'nat-li-2024',
+        text: 'Li H et al. (2024). Resistant starch intake facilitates weight loss in humans by reshaping the gut microbiota. Nature Metabolism 6(3):578-597 — 37 people, 40 g a day for eight weeks, 2.8 kg against control starch.',
+        url: 'https://www.nature.com/articles/s42255-024-00988-y',
+      },
+      {
+        id: 'nat-fibre-review',
+        text: 'Dietary fibers to boost endogenous GLP-1 secretion and satiety: a scoping review (2026). Frontiers in Endocrinology — 52 studies, 1,085 participants; GLP-1 rises showed only a non-significant tendency toward increased satiety.',
+        url: 'https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full',
+      },
+      {
+        id: 'nat-berberine-2026',
+        text: 'Elahi Vahed I et al. (2026). The effect of berberine on obesity indices: a systematic review and meta-analysis. International Journal of Obesity 50(1):53-73 — 23 trials; body weight −0.88 kg; the authors call for better blinding, randomisation and reporting of purity and dose.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/41310257/',
+      },
+      {
+        id: 'nat-berberine-ucla',
+        text: 'UCLA Health. What to know about berberine, the so-called “nature’s Ozempic” — the AMPK mechanism, limited trial evidence and drug interactions.',
+        url: 'https://www.uclahealth.org/news/article/what-know-about-berberine-so-called-natures-ozempic',
+      },
+      {
+        id: 'nat-acv-retraction',
+        text: 'BMJ Group (September 2025). BMJ Group retracts trial on apple cider vinegar and weight loss — analyses could not be replicated, and the dataset showed patterns inconsistent with random allocation.',
+        url: 'https://bmjgroup.com/bmj-group-retracts-trial-on-apple-cider-vinegar-and-weight-loss/',
+      },
+      {
+        id: 'nat-step1',
+        text: 'Wilding JPH et al. (2021). Once-weekly semaglutide in adults with overweight or obesity. STEP 1 — about 15 per cent mean weight loss over 68 weeks.',
+        url: 'https://www.nejm.org/doi/full/10.1056/NEJMoa2032183',
+      },
+      {
+        id: 'nat-surmount1',
+        text: 'Jastreboff AM et al. (2022). Tirzepatide once weekly for the treatment of obesity. SURMOUNT-1 — 20.9 per cent mean weight loss on 15 mg at 72 weeks.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/35658024/',
+      },
+      {
+        id: 'nat-step1-extension',
+        text: 'Wilding JPH et al. (2022). Weight regain and cardiometabolic effects after withdrawal of semaglutide: the STEP 1 trial extension — a mean 11.6 percentage points regained over 52 weeks off treatment.',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9542252/',
+      },
+    ],
+    history: [
+      {
+        date: '2026-09-25',
+        note: 'First published. Every trial figure was read from its PubMed abstract, and the Hall 2019 hormone results from the full text. The ranking weighs evidence for eating less or losing weight first, then direct GLP-1 evidence, then cost and risk.',
+      },
+    ],
+    body: `
+<h2>What a natural alternative can and cannot do</h2>
+<p>GLP-1 drugs work mainly by making you less hungry. They keep a gut hormone's signal switched on for a week at a time, slow the stomach, and quiet appetite in the brain, so people eat less without fighting themselves. In the trials that produced about 15 per cent weight loss for semaglutide and 20.9 per cent for tirzepatide, that is what was happening.</p>
+<p>A natural alternative can do two things. It can raise your own GLP-1 a little — through food, fibre or the way you eat — or it can make you eat less by some other route. It cannot do what the drugs do, because your own GLP-1 is broken down within about two minutes. So the useful question is not "which one is nature's Ozempic" but "which ones measurably reduce how much people eat, or how much they weigh, in trials".</p>
+<p>That is what this page ranks. The effects are real, and they are measured in single kilograms, not in percentages of body weight. Nothing here is medical advice, and if you are considering the drugs, that conversation belongs with a doctor. Our <a href="/learn/glp-1">GLP-1 explainer</a> covers what they do and what happens when you stop.</p>
+
+<h2>How we ranked them</h2>
+<p>Evidence first: randomised trials measuring what people ate or what they weighed count for more than trials measuring a hormone, and those count for more than theory. Then cost and risk: a free habit with good evidence ranks above a supplement with similar evidence, because it is free and cannot interact with your medicines. Where a number is from a small or short study, we say so.</p>
+
+<h2>1. Eat mostly unprocessed food</h2>
+<p>The single strongest piece of evidence on this page did not involve a supplement. In 2019, researchers at the US National Institutes of Health admitted 20 adults to a clinical centre and gave them two weeks of ultra-processed meals and two weeks of unprocessed meals, in random order. The menus were matched for calories offered, sugar, fat, fibre and protein. People could eat as much or as little as they liked.</p>
+<p>On the ultra-processed diet they ate about <strong>508 kcal a day more</strong>, and gained 0.9 kg. On the unprocessed diet they lost 0.9 kg. The hormone results fit: on the unprocessed diet the appetite-suppressing hormone PYY rose and the hunger hormone ghrelin fell, and during the ultra-processed fortnight fasting active GLP-1 dropped below its starting level.</p>
+<p>It was a small, short trial, and eating in a research ward is not eating at home. But it is causal evidence that the kind of food on the plate changes how much people eat without their trying. That is the closest thing on this page to what the drugs do, and it costs nothing extra.</p>
+
+<h2>2. Put protein at every meal</h2>
+<p>Protein is the macronutrient most consistently linked to fullness, and eating it raises GLP-1. A 2012 meta-analysis of 24 weight-loss trials in 1,063 people compared higher-protein and standard-protein diets with the same calories. The higher-protein diets produced slightly more weight loss (0.79 kg) and fat loss (0.87 kg), kept 0.43 kg more lean mass, and were reported as more filling in three of the five trials that asked.</p>
+<p>Taking protein before a meal has a sharper, shorter effect. In a small 2014 trial in 15 people with type 2 diabetes, 50 g of whey 30 minutes before breakfast raised total GLP-1 by 141 per cent and cut the post-meal glucose rise by 28 per cent. That is a large dose of whey, in people with diabetes, measured over one morning — a mechanism shown clearly, not a weight-loss result.</p>
+<p>The practical version is unglamorous: a real source of protein at each meal, from food where you can. A whey shake is a convenient way to get there, not a necessary one. Protein matters more if you are losing weight quickly, because it helps protect muscle.</p>
+
+<h2>3. Eat vegetables and protein before the carbohydrate</h2>
+<p>The order you eat a meal in changes its hormone response. In a 2017 study, 16 people with type 2 diabetes ate the same meal three ways on different days. When they ate the carbohydrate last — ten minutes after the protein and vegetables — the post-meal glucose rise was <strong>53 per cent smaller</strong> than when they ate it first, and GLP-1 was about <strong>38 per cent higher</strong>.</p>
+<p>It is a small study, in people with diabetes, over single meals, and there is no long-term weight trial of eating this way. But it costs nothing, it measured GLP-1 directly, and it works with any diet.</p>
+
+<h2>4. Slow down</h2>
+<p>In a 2010 study, 17 healthy men ate the same 675 kcal bowl of ice cream on two occasions, once in 5 minutes and once over 30. Over the 30-minute meal, GLP-1 was about <strong>41 per cent higher</strong> and PYY about 27 per cent higher, with a trend towards feeling fuller afterwards.</p>
+<p>Like eating order, it is a small acute study with no weight outcome. Eating fast is also linked to weight gain in observational research, which cannot prove cause. As a free habit that measurably raises the body's own GLP-1, it earns its place.</p>
+
+<h2>5. Amarasate (Calocurb): the one natural extract with weight trials</h2>
+<p>If you want a supplement, this is the one with the evidence. Amarasate is a bitter hops extract in a delayed-release capsule that triggers bitter receptors in the small intestine, releasing GLP-1, CCK and PYY. A crossover trial in the <em>American Journal of Clinical Nutrition</em> measured those hormones rising and found people ate less at the next meal. A 24-week trial of 150 adults, reported in 2026, found <strong>3.77 kg lost against 0.40 kg on placebo</strong>.</p>
+<p>The research comes from the institute that developed and licenses the extract, and we could not open the 24-week paper itself. It also costs about $4 a day at the label's target dose — which, with an effect of about 3.4 kg over six months, is why it ranks below four free habits. Our <a href="/fat-burners/calocurb-review">Calocurb review</a> goes through every trial.</p>
+
+<h2>6. Viscous fibre before meals</h2>
+<p>Viscous fibres such as glucomannan (from konjac) and psyllium thicken in the stomach, slow emptying and can make a meal more filling. The evidence for weight is modest and mixed. A 2014 meta-analysis of eight glucomannan trials found a difference of 0.22 kg that was not statistically significant. For psyllium, one systematic review found no significant overall effect, while a 2023 analysis with narrower criteria found about 2.1 kg over nearly five months at around 10.8 g a day.</p>
+<p>The EU does authorise a glucomannan weight claim — at 3 g a day, in three 1 g doses with one or two glasses of water before meals, alongside a calorie-restricted diet. That dose and the water matter: both fibres must be taken with plenty of liquid because of the choking risk. Our reviews of <a href="/fat-burners/now-glucomannan-575-mg">NOW Glucomannan</a> and <a href="/fat-burners/now-psyllium-husk-powder">NOW Psyllium</a> cover the labels and doses.</p>
+
+<h2>7. Resistant starch — but only at a real dose</h2>
+<p>Fermentable fibres, resistant starch especially, feed gut bacteria that produce short-chain fatty acids, and those stimulate the cells that release GLP-1. The mechanism is well established. The magnitude is the problem: a 2026 scoping review of 52 studies found that where fibre raised GLP-1, people did not reliably feel fuller.</p>
+<p>There is one encouraging trial. In a 2024 study in <em>Nature Metabolism</em>, 37 people with excess weight took 40 g of resistant starch a day for eight weeks and lost 2.8 kg against a control starch. But 40 g is a large amount of a purified high-amylose maize starch, and fibre products sold for GLP-1 can contain a small fraction of it — our <a href="/fat-burners/supergut-glp-1-booster-review">Supergut review</a> found 6 g of mixed fibre a scoop. Cooked-and-cooled potatoes and rice, green bananas, oats and legumes are sensible foods; they are not a trial dose.</p>
+
+<h2>8. Berberine: popular, and not a GLP-1 alternative</h2>
+<p>Berberine is the most-shared "nature's Ozempic". It is a plant alkaloid that acts mainly through the AMPK enzyme, which makes it closer to metformin than to semaglutide, and it does not act on the GLP-1 receptor. A 2026 meta-analysis of 23 trials found <strong>0.88 kg</strong> of weight loss against control, and its authors called for better blinding, randomisation and reporting of what was actually in the capsules.</p>
+<p>It can also lower blood sugar alongside diabetes medicines and interacts with other drugs. We have not reviewed a berberine product. On the evidence, it ranks last of the eight, and the nickname should go.</p>
+
+<h2>What to skip</h2>
+<p><strong>Apple cider vinegar.</strong> The 2024 trial behind the claim — 120 young people in Lebanon, reporting 6 to 8 kg lost — was retracted in September 2025 after the journal found the analyses could not be replicated and the data showed patterns inconsistent with random allocation. Nothing solid remains behind it.</p>
+<p><strong>Probiotics sold for GLP-1.</strong> The one randomised trial of <em>Akkermansia</em> to measure GLP-1 found no significant change, at a hundred times the dose in Pendulum's products. Our reviews of <a href="/wellness/pendulum-akkermansia-review">Pendulum Akkermansia</a> and <a href="/fat-burners/pendulum-glp-1-probiotic-review">Pendulum GLP-1 Probiotic</a> go through it.</p>
+<p><strong>Extracts sold as GLP-1 boosters.</strong> Raising GLP-1 on a blood test is not the same as losing weight. The lemon extract in <a href="/fat-burners/lemme-glp-1-daily-review">Lemme Reset</a> raised GLP-1 in its trial without changing weight. Our <a href="/best/glp-1-supplements-for-weight-loss">ranking of GLP-1 supplements</a> covers the five best-known products.</p>
+<p><strong>Anything with a proprietary blend.</strong> If the label will not say how much of each ingredient is inside, there is no way to compare it with a trial.</p>
+
+<h2>The honest scale</h2>
+<p>Put the numbers side by side. Unprocessed food: about 500 kcal a day less eaten, over two weeks. Higher protein: about 0.8 kg more weight loss. Amarasate: about 3.4 kg more than placebo over six months. Berberine: under 1 kg. Semaglutide: about 15 per cent of body weight. Tirzepatide: about 21 per cent.</p>
+<p>The natural options are worth doing because they are cheap, safe and add up — the food and eating habits especially, which you can use together. They are not a substitute for a prescription if you qualify for one and want the results the drug trials showed. And no natural approach has been shown to stop the weight returning after someone stops a GLP-1 drug: in the STEP 1 extension, people regained about two-thirds of their loss within a year of stopping.</p>
 `,
   },
 ];

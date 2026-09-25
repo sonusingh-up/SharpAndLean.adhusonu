@@ -101,6 +101,12 @@ export type Collection = {
   product_b_id?: string;
   /** Figure published under the intro, same shape as a review's result image. */
   figure?: { src: string; alt: string; caption: string };
+  /**
+   * The heading block above a /learn/ article's product cards. Defaults to the
+   * wording the GLP-1 explainer uses, which describes supplements marketed for
+   * GLP-1 — wrong for an article whose cards are, say, protein and fibre.
+   */
+  productsIntro?: { label: string; heading: string; text: string };
   /** Sources every figure on the page can be checked against. */
   references?: { id: string; text: string; url?: string }[];
   /** What changed and when. Real publication events only. */
