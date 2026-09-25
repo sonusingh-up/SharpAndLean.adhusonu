@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { getReviews, getCollections, getAuthor } from '@/lib/data';
 import { authors, getAuthorBySlug } from '@/lib/author';
@@ -15,7 +15,17 @@ import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { authorProfile, teamProfile } from '@/lib/author';
 import { BreadcrumbSchema, JsonLd, pageMeta, ExtendedAccess } from '@/components/seo';
 import { demoMode, siteUrl } from '@/lib/config';
-import type { Review } from '@/lib/types';
+import type { Collection, Review } from '@/lib/types';
+import { ComparisonReport } from '@/components/comparison';
+import { ComparePairPage } from '@/components/compare-page';
+import {
+  allComparePairs,
+  buildComparison,
+  comparisonTitle,
+  productName,
+  resolveComparison,
+} from '@/lib/compare';
+import { canonicalCompareSlug } from '@/lib/compare-path';
 export const revalidate = 3600;
 export async function generateStaticParams() {
   const [reviews, best, compare, articles] = await Promise.all([
@@ -28,9 +38,25 @@ export async function generateStaticParams() {
     ...reviews.map((r) => ({ section: r.category_slug, slug: r.slug })),
     ...best.map((r) => ({ section: 'best', slug: r.slug })),
     ...compare.map((r) => ({ section: 'compare', slug: r.slug })),
+    // Pairs are prebuilt; three-way comparisons render on first request.
+    ...allComparePairs(reviews)
+      .map((pair) => canonicalCompareSlug(pair.map((r) => r.slug)))
+      .filter((slug) => !compare.some((c) => c.slug === slug))
+      .map((slug) => ({ section: 'compare', slug })),
     ...articles.map((r) => ({ section: 'learn', slug: r.slug })),
     ...authors.map((a) => ({ section: 'author', slug: a.slug })),
   ];
+}
+/**
+ * The editorial comparison, if one covers exactly these products. A generated
+ * page for the same pair would compete with it in search, so it redirects.
+ */
+function editorialFor(reviews: Review[], collections: Collection[]) {
+  const ids = new Set(reviews.map((r) => r.id));
+  return collections.find((c) => {
+    const pair = [c.product_a_id, c.product_b_id].filter(Boolean);
+    return pair.length === ids.size && pair.every((id) => ids.has(id as string));
+  });
 }
 export async function generateMetadata({
   params,
@@ -55,6 +81,17 @@ export async function generateMetadata({
           section === 'best' ? 'best_lists' : section === 'learn' ? 'articles' : 'comparisons',
         )
       ).find((r) => r.slug === slug);
+  if (!row && section === 'compare') {
+    const found = resolveComparison(slug, await getReviews());
+    if (!found) return { title: 'Page not found' };
+    const c = buildComparison(found.reviews);
+    return pageMeta(
+      comparisonTitle(c.names),
+      c.headline.length > 158 ? `${c.headline.slice(0, 155).replace(/\s+\S*$/, '')}…` : c.headline,
+      `/compare/${found.canonical}`,
+      found.reviews[0].og_image_url || found.reviews[0].featured_image_url || undefined,
+    );
+  }
   return row
     ? pageMeta(
         row.seo_title || row.title,
@@ -437,6 +474,20 @@ export default async function DetailPage({
     section === 'best' ? 'best_lists' : section === 'compare' ? 'comparisons' : 'articles';
   const collections = await getCollections(kind);
   const row = collections.find((r) => r.slug === slug);
+  if (!row && section === 'compare') {
+    const found = resolveComparison(slug, all);
+    if (!found) notFound();
+    const editorial = editorialFor(found.reviews, collections);
+    if (editorial) permanentRedirect(`/compare/${editorial.slug}`);
+    if (found.canonical !== slug) permanentRedirect(`/compare/${found.canonical}`);
+    return (
+      <ComparePairPage
+        reviews={found.reviews}
+        all={all}
+        title={comparisonTitle(found.reviews.map(productName))}
+      />
+    );
+  }
   if (!row) notFound();
   // Same anchored-heading pass RichText performs, so the contents list and the
   // ids it points at cannot drift apart.
@@ -561,7 +612,11 @@ export default async function DetailPage({
             ))}
           </nav>
         )}
-        {picks.length > 0 && section !== 'learn' && <CompareTable reviews={picks} />}
+        {section === 'compare' && picks.length > 1 ? (
+          <ComparisonReport reviews={picks} />
+        ) : (
+          picks.length > 0 && section !== 'learn' && <CompareTable reviews={picks} />
+        )}
         {/* A long explainer earns a contents list; a two-product comparison does
             not, so the sidebar is opt-in on length rather than on section. */}
         <div className={toc.length > 3 ? 'review-layout collection-layout' : ''}>

@@ -18,6 +18,9 @@ import { articleContent, safeUrl } from '@/lib/content';
 import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
 import { amazonLink } from '@/lib/amazon';
+import { CompareToggle } from './compare-tray';
+import { comparePartners, productName } from '@/lib/compare';
+import { comparePath } from '@/lib/compare-path';
 /**
  * What a commercial button says.
  *
@@ -69,6 +72,9 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             .filter((v): v is Review => Boolean(v))
         : all.filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
     ).slice(0, 3);
+  // Every product this one can be lined up against, for the compare section
+  // and the tray button. Crawlable links, so each comparison page is reachable.
+  const partners = r.is_sample ? [] : comparePartners(r, all);
   const { toc } = articleContent(r.body);
   // Body headings are anchored with a positional suffix, so resolve the sources
   // section from the generated table of contents rather than guessing its id.
@@ -345,6 +351,12 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 <a className="button featured-product-cta" href="#where-to-buy">
                   Where to buy <ArrowUpRight size={15} />
                 </a>
+              )}
+              {!r.is_sample && partners.length > 0 && (
+                <div className="glance-compare">
+                  <CompareToggle slug={r.slug} name={productName(r)} category={r.category_slug} />
+                  <a href="#compare-with">See comparisons</a>
+                </div>
               )}
 
               {market && (
@@ -647,6 +659,26 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           }
         />
 
+        {partners.length > 0 && (
+          <section className="reading-section compare-with" id="compare-with">
+            <h2>Compare it with</h2>
+            <p>
+              Side by side on the five scores, the dose against the studied amount, the cost per
+              serving and what each label discloses.
+            </p>
+            <ul className="compare-with-list">
+              {partners.map((p) => (
+                <li key={p.id}>
+                  <Link href={comparePath([r.slug, p.slug])}>
+                    {productName(r)} <em>vs</em> {productName(p)}
+                    <ArrowUpRight size={15} />
+                  </Link>
+                  <span>{p.score === null ? 'Not scored' : `${p.score.toFixed(1)}/10`}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         {related.length > 0 && (
           <section className="related">
             <h2>Keep asking good questions.</h2>

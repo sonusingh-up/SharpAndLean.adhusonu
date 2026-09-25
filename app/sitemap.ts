@@ -4,6 +4,8 @@ import { getReviews, getCollections } from '@/lib/data';
 import { authors } from '@/lib/author';
 import { ingredients } from '@/lib/ingredients';
 import { guides } from '@/lib/guides';
+import { allComparePairs } from '@/lib/compare';
+import { comparePath } from '@/lib/compare-path';
 export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (demoMode) return [];
@@ -43,6 +45,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/${r.category_slug}/${r.slug}`,
       lastModified: r.updated_at,
     })),
+    // Generated head-to-heads. A pair an editorial page already covers
+    // redirects there, so it is left out rather than listed twice.
+    ...allComparePairs(reviews.filter((r) => !r.is_sample))
+      .filter(
+        (pair) =>
+          !comparisons.some((c) =>
+            pair.every((r) => r.id === c.product_a_id || r.id === c.product_b_id),
+          ),
+      )
+      .map((pair) => ({
+        url: siteUrl + comparePath(pair.map((r) => r.slug)),
+        lastModified: pair
+          .map((r) => r.updated_at)
+          .sort()
+          .at(-1),
+      })),
     ...[...best, ...comparisons, ...articles].map((c) => ({
       url: `${siteUrl}/${c.kind === 'best_lists' ? 'best' : c.kind === 'comparisons' ? 'compare' : 'learn'}/${c.slug}`,
       lastModified: c.updated_at,

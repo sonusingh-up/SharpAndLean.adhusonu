@@ -58,6 +58,16 @@ export type ClaimEvidence = {
   refs?: string[];
 };
 
+export type StudiedDose = {
+  min: number;
+  max: number;
+  unit: 'mcg' | 'mg' | 'g';
+  /** Whether the range describes one sitting or a whole day. */
+  per: 'dose' | 'day';
+  /** What the range is, in a few words, e.g. "Trial range" or "RDA to upper limit". */
+  basis: string;
+};
+
 export type IngredientPage = {
   slug: string;
   name: string;
@@ -78,6 +88,13 @@ export type IngredientPage = {
   mechanism: string;
   claims: ClaimEvidence[];
   dosage: string;
+  /**
+   * The range in `dosage`, as numbers, so comparison pages can place a
+   * product's serving against it. Only set where the prose states a range in
+   * the same unit a label uses: an extract weighed as catechins, or bacteria
+   * counted in a different unit, is left out rather than converted by guess.
+   */
+  studiedDose?: StudiedDose;
   /** Where commercial products commonly diverge from the studied amount. */
   dosageGap: string;
   safety: string;
@@ -123,6 +140,7 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'Studied doses cluster at 100–200 mg, most often as a single dose taken with caffeine for acute effects, or 200 mg daily in the stress and sleep trials. Higher intakes have been used in research without notable problems, but there is no evidence that more produces more effect, and the acute studies that found benefits used the lower end of that range.',
+    studiedDose: { min: 100, max: 200, unit: 'mg', per: 'dose', basis: 'Studied dose' },
     dosageGap:
       'The common commercial problem is not underdosing — 100–200 mg per capsule is typical and matches the research. It is what comes with it. Several popular products pair theanine with green tea extract or other actives and market the result as a theanine product, so the panel is worth reading in full rather than trusting the name on the front.',
     safety:
@@ -207,6 +225,7 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'Trials have generally used 1 to 4 g daily, divided across doses and taken shortly before meals with a large glass of water. Commercial capsule products frequently use a three-capsule serving to reach roughly 1.7 g, which is inside that range but at the lower end.',
+    studiedDose: { min: 1, max: 4, unit: 'g', per: 'day', basis: 'Trial range' },
     dosageGap:
       'The recurring problem here is not the dose, it is the arithmetic. A bottle labelled 575 mg on the front may define a serving as three capsules, so the serving is 1,725 mg and a 180-capsule bottle is 60 servings rather than 180. That turns an apparent six-month supply into two months, and it makes a per-bottle price comparison against a one-capsule-serving product meaningless.',
     safety:
@@ -292,6 +311,13 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'The recommended dietary allowance in the United States is 600 IU (15 mcg) daily for most adults and 800 IU (20 mcg) from age 71, with a tolerable upper intake level of 4,000 IU (100 mcg) daily for adults. Common supplement strengths are 1,000 IU (25 mcg) and 2,000 IU (50 mcg). Where deficiency has been diagnosed, clinicians often use substantially higher short-term repletion doses, which is a decision for them rather than for a label.',
+    studiedDose: {
+      min: 15,
+      max: 100,
+      unit: 'mcg',
+      per: 'day',
+      basis: 'US RDA to adult upper limit',
+    },
     dosageGap:
       'The problem in this category is unit confusion rather than underdosing. The same product may be described as 25 mcg on one line and 1,000 IU on another, and manufacturer pages sometimes contradict themselves between the two. Because the numbers differ by a factor of forty, a reader comparing a mcg figure against an IU figure can be badly wrong about relative strength. Always compare in the same unit, taken from the Supplement Facts panel.',
     safety:
@@ -381,6 +407,7 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'Trials for cholesterol generally use about 7 to 10 g of psyllium daily, divided across doses with meals — the FDA health claim is built around roughly 7 g of soluble fibre per day. For constipation, typical use is 5 to 10 g daily. A common powder serving is around 9 g of husk providing about 7 g of dietary fibre, which sits squarely in the studied range. Start at a fraction of the target dose and build up over a week or two.',
+    studiedDose: { min: 5, max: 10, unit: 'g', per: 'day', basis: 'Trial range' },
     dosageGap:
       'Psyllium is one of the rare ingredients where commercial products routinely hit the studied dose, because the effective amount is cheap and the product is mostly fibre. The more common mismatch is format: capsule versions often contain half a gram or less each, so reaching a 7 g dose means swallowing ten or more capsules, and the per-serving arithmetic on the label rarely makes that obvious. Compare grams of fibre per serving, not capsule counts.',
     safety:
@@ -1163,6 +1190,13 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'Two numbers govern this and they answer different questions. For the day, roughly 1.6 g of protein per kilogram of body weight is where the pooled benefit plateaued across 49 trials, with the confidence interval reaching about 2.2 g/kg; the British Nutrition Foundation cites American College of Sports Medicine figures of 1.2 to 2.0 g/kg for people training hard. For the sitting, the review of per-meal dosing concluded that about 0.4 g per kilogram across at least four meals is the distribution most consistent with the data — around 32 g four times a day for an 80 kg adult, from any source. A 20 to 25 g scoop is roughly the amount at which muscle protein synthesis is maximised in young adults from a fast-digesting protein, which is why almost every whey on the market lands there. Note what this means for buying: one scoop is a portion of a day’s protein, not a dose of a drug, and the right number of scoops is whatever closes the gap between what you eat and the target. For most UK adults that gap is zero — average intakes are 76 g a day against a Reference Nutrient Intake near 56 g for men and 45 g for women.',
+    studiedDose: {
+      min: 20,
+      max: 25,
+      unit: 'g',
+      per: 'dose',
+      basis: 'Where muscle protein synthesis maxes out',
+    },
     dosageGap:
       'The gap on a whey label is rarely underdosing — 20 to 25 g a scoop is close to universal — but there are four places the panel and the packaging drift apart. First, protein by weight: a powder at 73 per cent protein and one at 80 per cent look identical on a shelf, and a price per kilogram of powder is not a price per kilogram of protein. Convert to cost per 100 g of protein and the ranking between tubs moves. Second, the headline figure is often the best case across a flavour range — a front-of-pack “up to 23 g” can sit above the panel of the specific flavour in your basket. Third, protein content itself has a documented accuracy problem; the practice of inflating a protein reading with free amino acids has its own name, amino spiking, and its own certification programme in response, which tells you how real it is. Fourth, the intrinsic amino acid figures discussed above get promoted as features. None of these is hidden. All of them require reading the back rather than the front.',
     safety:
@@ -1930,6 +1964,7 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'Most human trials used 100 to 300 mg of GABA, taken once, either before a stress task or about an hour before bed. Some sleep studies used daily dosing for a few weeks. Many trials used fermentation-derived GABA. There is no established optimal dose, and higher doses have not been shown to work better.',
+    studiedDose: { min: 100, max: 300, unit: 'mg', per: 'dose', basis: 'Trial range' },
     dosageGap:
       'The dose on a single-ingredient GABA product is usually within the studied range, so the gap is elsewhere. In multi-ingredient sleep and stress blends, GABA is frequently hidden inside a proprietary blend with no stated amount. The larger gap is between what the label implies and what the evidence shows: a product sold as "calming" or "for restful sleep" on the strength of GABA’s role in the brain is borrowing the reputation of a neurotransmitter, not the results of trials of the supplement.',
     safety:
@@ -2269,6 +2304,7 @@ export const ingredients: IngredientPage[] = [
     ],
     dosage:
       'The dose attached to the EU regularity claim is 12 g of native chicory inulin a day. Trials generally use 5 to 20 g a day, and a broader fibre meta-analysis found that doses above 10 g and courses of at least four weeks were where benefits on stool frequency appeared. Starting low and building up over a week or two is the practical advice, because the gut bacteria that ferment it adjust over time and the wind is worst at the start. The US National Center for Complementary and Integrative Health notes that prebiotics taken in large amounts — more than 20 g a day for an adult — can cause gas, bloating, abdominal pain, cramps and diarrhoea.',
+    studiedDose: { min: 5, max: 20, unit: 'g', per: 'day', basis: 'Trial range' },
     dosageGap:
       'The gap is not subtle. Inulin turns up in probiotic capsules as a “prebiotic” at 200 to 500 mg — Pendulum’s single-strain Akkermansia contains 276 mg, about one forty-third of the 12 g behind the only authorised claim. At that amount it can only be doing one job: acting as a carrier and food source for the bacteria in the capsule, a role for which there is no human evidence at that dose. If you actually want inulin’s effects, it is sold as a plain powder, and a teaspoon costs a fraction of a capsule. The label that says “with prebiotic fibre” is telling you what is in it, not that there is enough of it to matter.',
     safety:
