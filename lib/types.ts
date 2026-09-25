@@ -76,6 +76,9 @@ export type Review = {
   product_name: string;
 };
 export type Collection = {
+  authors?: { name: string; slug: string; type: 'Person' | 'Organization' }[];
+  /** False until a named evidence reviewer has actually reviewed this article. */
+  evidenceReviewed?: boolean;
   id: string;
   kind: 'best_lists' | 'comparisons' | 'articles';
   title: string;

@@ -231,9 +231,11 @@ export type StudiedCost = {
 export function studiedDoseCost(r: Review, cell: DoseCell, range: StudiedDose): StudiedCost {
   const cost = servingCost(r);
   if (!cost || cell.status !== 'present' || !cell.amount) return null;
+  // A labelled serving is discrete. Round up instead of reporting a
+  // fractional serving that a reader cannot actually take as labelled.
   const servingsNeeded = Math.max(
     1,
-    inMcg({ value: range.min, unit: range.unit }) / inMcg(cell.amount),
+    Math.ceil(inMcg({ value: range.min, unit: range.unit }) / inMcg(cell.amount)),
   );
   return { servingsNeeded, cost: servingsNeeded * cost.perServing, currency: cost.currency };
 }
@@ -395,7 +397,14 @@ function headlineFor(reviews: Review[], names: string[], criteria: CriterionRow[
           .join(', ')}.`
       : '';
   if (first.score === second.score) {
-    return `${list(scored.map((s) => s.name))} score level on ${formatScore(first.score)}/10, so the choice turns on the criteria below rather than the total.${gap}`;
+    const tied = scored.filter((s) => s.score === first.score);
+    const lower = scored.filter((s) => s.score < first.score);
+    if (!lower.length) {
+      return `${list(tied.map((s) => s.name))} score level on ${formatScore(first.score)}/10, so the choice turns on the criteria below rather than the total.${gap}`;
+    }
+    return `${list(tied.map((s) => s.name))} score level on ${formatScore(first.score)}/10, while ${list(
+      lower.map((s) => `${s.name} scores ${formatScore(s.score)}/10`),
+    )}.${gap}`;
   }
   const rest = scored.slice(1).map((s) => `${s.name}'s ${formatScore(s.score)}`);
   return `${first.name} scores ${formatScore(first.score)}/10 against ${list(rest)}.${gap}`;
@@ -469,11 +478,12 @@ export function buildComparison(reviews: Review[]): Comparison {
 }
 
 export function comparisonTitle(names: string[]) {
-  // Search results cut titles at around 60 characters, so the descriptive
-  // suffix steps down as the product names get longer.
+  // The root layout appends " | SharpAndLean". Keep the page-specific title
+  // short enough that the rendered title remains close to 60 characters.
+  const maxTitleText = 44;
   const base = names.join(' vs ');
   for (const suffix of [': Dose, Cost and Label Compared', ' Compared']) {
-    if (base.length + suffix.length <= 62) return base + suffix;
+    if (base.length + suffix.length <= maxTitleText) return base + suffix;
   }
-  return base;
+  return `${base.slice(0, maxTitleText - 1).trimEnd()}…`;
 }

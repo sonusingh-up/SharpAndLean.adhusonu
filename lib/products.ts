@@ -1,6 +1,8 @@
 import type { Collection } from './types';
 import { articles } from './articles';
 import { toReview } from './articles/to-review';
+import { getInShapeMen } from './editorials/get-in-shape-men';
+import { getInShapeWomen } from './editorials/get-in-shape-women';
 
 /*
  * Product pages are assembled from lib/articles/*.ts — one file per article,
@@ -46,6 +48,8 @@ function reviewId(slug: string): string {
 }
 
 const collectionDrafts: CollectionDraft[] = [
+  getInShapeWomen,
+  getInShapeMen,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,

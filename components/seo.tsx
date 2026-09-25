@@ -13,6 +13,27 @@ export const publisherRef = { '@id': ORG_ID };
 export const defaultOgImage = '/images/og-default.jpg';
 
 /**
+ * Structured data needs absolute URLs. Product images stored under /images/
+ * are relative, and Google reports a relative `image` as an invalid URL.
+ */
+export function absoluteUrl(src: string) {
+  return src.startsWith('http') ? src : new URL(src, siteUrl).href;
+}
+
+/** The person a page credits as its evidence reviewer. */
+export type ReviewerRef = { slug: string; name: string; title?: string };
+
+export function personRef(p: ReviewerRef) {
+  return {
+    '@type': 'Person',
+    '@id': `${siteUrl}/author/${p.slug}#person`,
+    name: p.name,
+    ...(p.title ? { jobTitle: p.title } : {}),
+    url: `${siteUrl}/author/${p.slug}`,
+  };
+}
+
+/**
  * Google Extended Access (Subscribe with Google Basic).
  *
  * Declares a page as an article belonging to the site's Publisher Center
@@ -31,6 +52,7 @@ export const defaultOgImage = '/images/og-default.jpg';
  * it would declare those pages articles, which they are not.
  */
 export function ExtendedAccess({
+  id,
   headline,
   path,
   datePublished,
@@ -38,18 +60,27 @@ export function ExtendedAccess({
   image,
   author,
 }: {
+  /**
+   * Shared with any other article node on the page, so search engines read
+   * the two blocks as one article rather than two competing ones.
+   */
+  id?: string;
   headline?: string;
   path?: string;
   datePublished?: string | null;
   dateModified?: string | null;
   image?: string;
-  author?: { name: string; slug: string };
+  /** A desk byline is an Organization; a named writer is a Person. */
+  author?:
+    | { name: string; slug: string; type?: 'Organization' | 'Person' }
+    | { name: string; slug: string; type?: 'Organization' | 'Person' }[];
 }) {
   return (
     <>
       <JsonLd
         data={{
           '@type': 'NewsArticle',
+          ...(id ? { '@id': id } : {}),
           ...(headline ? { headline } : {}),
           ...(path
             ? { url: new URL(path, siteUrl).href, mainEntityOfPage: new URL(path, siteUrl).href }
@@ -59,16 +90,14 @@ export function ExtendedAccess({
           // show alongside it.
           ...(datePublished ? { datePublished } : {}),
           ...(dateModified ? { dateModified } : {}),
-          ...(image
-            ? { image: image.startsWith('http') ? image : new URL(image, siteUrl).href }
-            : {}),
+          ...(image ? { image: absoluteUrl(image) } : {}),
           ...(author
             ? {
-                author: {
-                  '@type': 'Organization',
-                  name: author.name,
-                  url: new URL(`/author/${author.slug}`, siteUrl).href,
-                },
+                author: (Array.isArray(author) ? author : [author]).map((a) => ({
+                  '@type': a.type ?? 'Organization',
+                  name: a.name,
+                  url: new URL(`/author/${a.slug}`, siteUrl).href,
+                })),
               }
             : {}),
           // What "openaccess" means, stated in the markup rather than implied.
@@ -183,31 +212,61 @@ export function FaqSchema({ faqs }: { faqs: { question: string; answer: string }
   );
 }
 
-/** Generic page node. `type` narrows it to AboutPage, ContactPage, etc. */
+/**
+ * Generic page node. `type` narrows it to AboutPage, ContactPage, etc.
+ *
+ * It is also where an evidence reviewer belongs: schema.org defines
+ * `reviewedBy` and `lastReviewed` on WebPage, not on Product, Review or
+ * Article, so validators flag them anywhere else.
+ */
 export function WebPageSchema({
   type = 'WebPage',
   name,
   description,
   path,
+  datePublished,
   dateModified,
+  reviewedBy,
+  lastReviewed,
+  about,
+  mainEntity,
+  image,
 }: {
   type?: string;
   name: string;
   description: string;
   path: string;
-  dateModified?: string;
+  datePublished?: string | null;
+  dateModified?: string | null;
+  reviewedBy?: ReviewerRef | null;
+  lastReviewed?: string | null;
+  /** @id of the thing the page is about, such as a reviewed product. */
+  about?: string;
+  /** @id of the page's primary entity, such as its article. */
+  mainEntity?: string;
+  image?: string;
 }) {
+  const url = new URL(path, siteUrl).href;
   return (
     <JsonLd
       data={{
         '@type': type,
+        '@id': `${url}#webpage`,
         name,
         description,
-        url: new URL(path, siteUrl).href,
+        url,
         inLanguage: 'en-US',
         isPartOf: { '@id': SITE_ID },
         publisher: publisherRef,
+        ...(image
+          ? { primaryImageOfPage: { '@type': 'ImageObject', url: absoluteUrl(image) } }
+          : {}),
+        ...(datePublished ? { datePublished } : {}),
         ...(dateModified ? { dateModified } : {}),
+        ...(reviewedBy ? { reviewedBy: personRef(reviewedBy) } : {}),
+        ...(lastReviewed ? { lastReviewed: lastReviewed.slice(0, 10) } : {}),
+        ...(about ? { about: { '@id': about } } : {}),
+        ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
       }}
     />
   );
