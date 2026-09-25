@@ -116,6 +116,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   const headline = r.ingredients.find((i) => i.evidence_rating !== 'none') || r.ingredients[0];
   const keyFigure = headline ? `${headline.dose}` : '';
   const market = r.marketplace;
+  // Product rich results need offers, review or aggregateRating; these gate
+  // the two we can state honestly.
+  const hasOffer = Boolean(market && r.affiliate_url);
+  const hasReview = !isLabelOverview && r.score !== null;
   const perServing =
     market?.servings && market.servings > 0
       ? new Intl.NumberFormat('en-US', { style: 'currency', currency: market.currency }).format(
@@ -656,134 +660,129 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
         <TrustBar published={all.length} years={15} />
       </article>
       {/* Label overviews carry no score and are explicitly not reviews, so they
-          get Product and FAQ schema but never Review schema. */}
+          get Product and FAQ schema but never a nested Review. */}
       {!r.is_sample && (
         <>
-          <JsonLd
-            data={{
-              '@type': 'Product',
-              name: r.product_name || r.title,
-              description: r.summary,
-              // Mirrors the visible byline so the structured data makes the
-              // same attribution the page does.
-              ...(reviewedBy
-                ? {
-                    reviewedBy: {
-                      '@type': 'Person',
-                      '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
-                      name: reviewedBy.name,
-                      jobTitle: reviewedBy.title,
-                      url: `${siteUrl}/author/${reviewedBy.slug}`,
-                    },
-                  }
-                : {}),
-              url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
-              ...(r.featured_image_url ? { image: r.featured_image_url } : {}),
-              ...(r.brand ? { brand: { '@type': 'Brand', name: r.brand } } : {}),
-              ...(r.asin ? { sku: r.asin, productID: `asin:${r.asin}` } : {}),
-              ...(r.ingredients.length
-                ? {
-                    additionalProperty: r.ingredients.map((i) => ({
-                      '@type': 'PropertyValue',
-                      name: i.name,
-                      value: i.dose,
-                    })),
-                  }
-                : {}),
-              // Priced from the retailer listing on a known date. priceValidUntil
-              // bounds it so a stale figure expires rather than being asserted
-              // indefinitely. No aggregateRating: the rating is the retailer's,
-              // not ours, and marking it up would misstate who collected it.
-              ...(market && r.affiliate_url
-                ? {
-                    offers: {
-                      '@type': 'Offer',
-                      price: market.price,
-                      priceCurrency: market.currency,
-                      url: r.affiliate_url,
-                      availability: 'https://schema.org/InStock',
-                      priceValidUntil: new Date(new Date(market.checkedAt).getTime() + 30 * 864e5)
-                        .toISOString()
-                        .slice(0, 10),
-                      seller: { '@type': 'Organization', name: market.source },
-                    },
-                  }
-                : {}),
-            }}
-          />
-          <FaqSchema faqs={r.faqs} />
-        </>
-      )}
-      {/* Review markup needs a rating to mean anything, and label overviews
-          carry no score, so the gate is "a scored review" rather than "not
-          editorial". */}
-      {!r.is_sample && !isLabelOverview && r.score !== null && (
-        <>
-          <JsonLd
-            data={{
-              '@type': 'Review',
-              headline: r.title,
-              publisher: publisherRef,
-              reviewBody: r.summary,
-              datePublished: r.published_at,
-              dateModified: r.updated_at,
-              // Mirrors the visible byline rather than crediting the clinician
-              // for prose she reviewed but did not write.
-              author:
-                writtenBy.slug === teamProfile.slug
-                  ? {
-                      '@type': 'Organization',
-                      '@id': `${siteUrl}/author/${teamProfile.slug}#team`,
-                      name: teamProfile.name,
-                      url: new URL(`/author/${teamProfile.slug}`, siteUrl).href,
-                    }
-                  : {
-                      '@type': 'Person',
-                      '@id': `${siteUrl}/author/${writtenBy.slug}#person`,
-                      name: writtenBy.name,
-                      url: new URL(`/author/${writtenBy.slug}`, siteUrl).href,
-                    },
-              ...(reviewedBy
-                ? {
-                    reviewedBy: {
-                      '@type': 'Person',
-                      '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
-                      name: reviewedBy.name,
-                      jobTitle: reviewedBy.title,
-                      url: `${siteUrl}/author/${reviewedBy.slug}`,
-                    },
-                  }
-                : {}),
-              // contributor rather than a second author: he supplied the use
-              // notes, he did not write or sign off the assessment.
-              ...(testedBy
-                ? {
-                    contributor: {
-                      '@type': 'Person',
-                      '@id': `${siteUrl}/author/${testedBy.slug}#person`,
-                      name: testedBy.name,
-                      jobTitle: testedBy.title,
-                      url: `${siteUrl}/author/${testedBy.slug}`,
-                    },
-                  }
-                : {}),
-              itemReviewed: {
+          {/* Google rejects a Product with none of offers, review or
+              aggregateRating, so an unpriced, unscored page gets no Product. */}
+          {(hasOffer || hasReview) && (
+            <JsonLd
+              data={{
                 '@type': 'Product',
                 name: r.product_name || r.title,
+                description: r.summary,
+                // Mirrors the visible byline so the structured data makes the
+                // same attribution the page does.
+                ...(reviewedBy
+                  ? {
+                      reviewedBy: {
+                        '@type': 'Person',
+                        '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
+                        name: reviewedBy.name,
+                        jobTitle: reviewedBy.title,
+                        url: `${siteUrl}/author/${reviewedBy.slug}`,
+                      },
+                    }
+                  : {}),
+                url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
                 ...(r.featured_image_url ? { image: r.featured_image_url } : {}),
-              },
-              ...(r.score !== null
-                ? {
-                    reviewRating: {
-                      '@type': 'Rating',
-                      ratingValue: r.score,
-                      bestRating: 10,
-                      worstRating: 0,
-                    },
-                  }
-                : {}),
-            }}
-          />
+                ...(r.brand ? { brand: { '@type': 'Brand', name: r.brand } } : {}),
+                ...(r.asin ? { sku: r.asin, productID: `asin:${r.asin}` } : {}),
+                ...(r.ingredients.length
+                  ? {
+                      additionalProperty: r.ingredients.map((i) => ({
+                        '@type': 'PropertyValue',
+                        name: i.name,
+                        value: i.dose,
+                      })),
+                    }
+                  : {}),
+                // Priced from the retailer listing on a known date. priceValidUntil
+                // bounds it so a stale figure expires rather than being asserted
+                // indefinitely. No aggregateRating: the rating is the retailer's,
+                // not ours, and marking it up would misstate who collected it.
+                ...(market && hasOffer
+                  ? {
+                      offers: {
+                        '@type': 'Offer',
+                        price: market.price,
+                        priceCurrency: market.currency,
+                        url: r.affiliate_url,
+                        availability: 'https://schema.org/InStock',
+                        priceValidUntil: new Date(new Date(market.checkedAt).getTime() + 30 * 864e5)
+                          .toISOString()
+                          .slice(0, 10),
+                        seller: { '@type': 'Organization', name: market.source },
+                      },
+                    }
+                  : {}),
+                // The review sits inside the Product rather than beside it. A
+                // separate Review node needs its own itemReviewed Product, and
+                // that second Product, carrying neither offers nor a rating, is
+                // what Search Console flagged as an invalid product snippet.
+                // Label overviews carry no score, so they get no review here.
+                ...(hasReview
+                  ? {
+                      review: {
+                        '@type': 'Review',
+                        headline: r.title,
+                        publisher: publisherRef,
+                        reviewBody: r.summary,
+                        datePublished: r.published_at,
+                        dateModified: r.updated_at,
+                        // Mirrors the visible byline rather than crediting the clinician
+                        // for prose she reviewed but did not write.
+                        author:
+                          writtenBy.slug === teamProfile.slug
+                            ? {
+                                '@type': 'Organization',
+                                '@id': `${siteUrl}/author/${teamProfile.slug}#team`,
+                                name: teamProfile.name,
+                                url: new URL(`/author/${teamProfile.slug}`, siteUrl).href,
+                              }
+                            : {
+                                '@type': 'Person',
+                                '@id': `${siteUrl}/author/${writtenBy.slug}#person`,
+                                name: writtenBy.name,
+                                url: new URL(`/author/${writtenBy.slug}`, siteUrl).href,
+                              },
+                        ...(reviewedBy
+                          ? {
+                              reviewedBy: {
+                                '@type': 'Person',
+                                '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
+                                name: reviewedBy.name,
+                                jobTitle: reviewedBy.title,
+                                url: `${siteUrl}/author/${reviewedBy.slug}`,
+                              },
+                            }
+                          : {}),
+                        // contributor rather than a second author: he supplied the use
+                        // notes, he did not write or sign off the assessment.
+                        ...(testedBy
+                          ? {
+                              contributor: {
+                                '@type': 'Person',
+                                '@id': `${siteUrl}/author/${testedBy.slug}#person`,
+                                name: testedBy.name,
+                                jobTitle: testedBy.title,
+                                url: `${siteUrl}/author/${testedBy.slug}`,
+                              },
+                            }
+                          : {}),
+                        reviewRating: {
+                          '@type': 'Rating',
+                          ratingValue: r.score,
+                          bestRating: 10,
+                          worstRating: 0,
+                        },
+                      },
+                    }
+                  : {}),
+              }}
+            />
+          )}
+          <FaqSchema faqs={r.faqs} />
         </>
       )}
     </SiteShell>
