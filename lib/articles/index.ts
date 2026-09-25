@@ -14,6 +14,7 @@ import { sodameltReview } from './sodamelt-review';
 import { yuSleepReview } from './yu-sleep-review';
 import { calocurbReview } from './calocurb-review';
 import { pendulumAkkermansiaReview } from './pendulum-akkermansia-review';
+import { medviWeightLossReview } from './medvi-weight-loss-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -37,6 +38,7 @@ export const articles: ProductArticle[] = [
   yuSleepReview,
   calocurbReview,
   pendulumAkkermansiaReview,
+  medviWeightLossReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and
