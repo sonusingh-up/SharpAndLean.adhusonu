@@ -72,6 +72,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
             .filter((v): v is Review => Boolean(v))
         : all.filter((v) => v.category_slug === r.category_slug && v.id !== r.id)
     ).slice(0, 3);
+  // That same empty list leaves the comparison block out altogether. The "will
+  // appear as this category grows" placeholder only fits the same-category
+  // fallback; here it would promise reviews the article has ruled out.
+  const showComparison = !(Array.isArray(r.alternative_slugs) && r.alternative_slugs.length === 0);
   // Every product this one can be lined up against, for the compare section
   // and the tray button. Crawlable links, so each comparison page is reachable.
   const partners = r.is_sample ? [] : comparePartners(r, all);
@@ -512,101 +516,103 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 ))}
               </section>
             )}
-            <section id="compare" aria-labelledby="compare-heading">
-              <h2 id="compare-heading">How does it compare?</h2>
-              {related.length ? (
-                <>
-                  <p className="comparison-intro">
-                    A closer look at the alternatives. Compare the ingredients and serving sizes,
-                    then explore the full review.
-                  </p>
-                  <div className="comparison-grid">
-                    {related.map((v) => {
-                      const name = v.product_name || v.title;
-                      const ingredient = v.ingredients.find(
-                        (item) => item.evidence_rating !== 'none',
-                      );
-                      return (
-                        <article className="comparison-card" key={v.id}>
-                          <Link
-                            className="comparison-image"
-                            href={`/${v.category_slug}/${v.slug}`}
-                            aria-label={`Read review of ${name}`}
-                          >
-                            {v.featured_image_url ? (
-                              <Image
-                                src={v.featured_image_url}
-                                alt={name}
-                                fill
-                                sizes="(max-width: 700px) 80vw, 400px"
-                              />
-                            ) : (
-                              <span className="comparison-placeholder">
-                                <HeroIcon size={48} strokeWidth={1} />
-                                Product overview
-                              </span>
-                            )}
-                          </Link>
-                          <div className="comparison-content">
-                            <span className="comparison-eyebrow">An alternative to consider</span>
-                            <h3>{name}</h3>
-                            <p>{v.summary}</p>
-                            {ingredient && (
-                              <div className="comparison-dose">
-                                <span>Per serving</span>
-                                <strong>{ingredient.dose}</strong>
-                              </div>
-                            )}
-                            <div className="comparison-actions">
-                              {/* Only offer a commercial link the alternative
+            {showComparison && (
+              <section id="compare" aria-labelledby="compare-heading">
+                <h2 id="compare-heading">How does it compare?</h2>
+                {related.length ? (
+                  <>
+                    <p className="comparison-intro">
+                      A closer look at the alternatives. Compare the ingredients and serving sizes,
+                      then explore the full review.
+                    </p>
+                    <div className="comparison-grid">
+                      {related.map((v) => {
+                        const name = v.product_name || v.title;
+                        const ingredient = v.ingredients.find(
+                          (item) => item.evidence_rating !== 'none',
+                        );
+                        return (
+                          <article className="comparison-card" key={v.id}>
+                            <Link
+                              className="comparison-image"
+                              href={`/${v.category_slug}/${v.slug}`}
+                              aria-label={`Read review of ${name}`}
+                            >
+                              {v.featured_image_url ? (
+                                <Image
+                                  src={v.featured_image_url}
+                                  alt={name}
+                                  fill
+                                  sizes="(max-width: 700px) 80vw, 400px"
+                                />
+                              ) : (
+                                <span className="comparison-placeholder">
+                                  <HeroIcon size={48} strokeWidth={1} />
+                                  Product overview
+                                </span>
+                              )}
+                            </Link>
+                            <div className="comparison-content">
+                              <span className="comparison-eyebrow">An alternative to consider</span>
+                              <h3>{name}</h3>
+                              <p>{v.summary}</p>
+                              {ingredient && (
+                                <div className="comparison-dose">
+                                  <span>Per serving</span>
+                                  <strong>{ingredient.dose}</strong>
+                                </div>
+                              )}
+                              <div className="comparison-actions">
+                                {/* Only offer a commercial link the alternative
                                   actually has. The old fallback sent every card
                                   to an amazon.com search, which is the wrong
                                   marketplace for a product sold in the UK. */}
-                              {v.affiliate_url && safeUrl(v.affiliate_url) ? (
-                                <a
-                                  className="button"
-                                  href={v.affiliate_url}
-                                  target="_blank"
-                                  rel="sponsored nofollow noopener noreferrer"
-                                  aria-label={`Check the price of ${name}`}
+                                {v.affiliate_url && safeUrl(v.affiliate_url) ? (
+                                  <a
+                                    className="button"
+                                    href={v.affiliate_url}
+                                    target="_blank"
+                                    rel="sponsored nofollow noopener noreferrer"
+                                    aria-label={`Check the price of ${name}`}
+                                  >
+                                    Check the price <ArrowUpRight size={15} />
+                                  </a>
+                                ) : v.asin ? (
+                                  <a
+                                    className="button"
+                                    href={amazonLink(v.asin)}
+                                    target="_blank"
+                                    rel="sponsored nofollow noopener noreferrer"
+                                    aria-label={`Buy ${name} on Amazon`}
+                                  >
+                                    Buy on Amazon <ArrowUpRight size={15} />
+                                  </a>
+                                ) : null}
+                                <Link
+                                  className="text-link"
+                                  href={`/${v.category_slug}/${v.slug}`}
+                                  aria-label={`Read review of ${name}`}
                                 >
-                                  Check the price <ArrowUpRight size={15} />
-                                </a>
-                              ) : v.asin ? (
-                                <a
-                                  className="button"
-                                  href={amazonLink(v.asin)}
-                                  target="_blank"
-                                  rel="sponsored nofollow noopener noreferrer"
-                                  aria-label={`Buy ${name} on Amazon`}
-                                >
-                                  Buy on Amazon <ArrowUpRight size={15} />
-                                </a>
-                              ) : null}
-                              <Link
-                                className="text-link"
-                                href={`/${v.category_slug}/${v.slug}`}
-                                aria-label={`Read review of ${name}`}
-                              >
-                                Read review <ArrowUpRight size={15} />
-                              </Link>
+                                  Read review <ArrowUpRight size={15} />
+                                </Link>
+                              </div>
                             </div>
-                          </div>
-                        </article>
-                      );
-                    })}
-                  </div>
-                  {related.some((v) => v.affiliate_url || v.asin) && (
-                    <p className="comparison-disclosure">
-                      Affiliate links: we may earn a commission at no extra cost to you. Prices and
-                      availability change — check the seller before buying.
-                    </p>
-                  )}
-                </>
-              ) : (
-                <p className="muted">Related reviews will appear as this category grows.</p>
-              )}
-            </section>
+                          </article>
+                        );
+                      })}
+                    </div>
+                    {related.some((v) => v.affiliate_url || v.asin) && (
+                      <p className="comparison-disclosure">
+                        Affiliate links: we may earn a commission at no extra cost to you. Prices
+                        and availability change — check the seller before buying.
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p className="muted">Related reviews will appear as this category grows.</p>
+                )}
+              </section>
+            )}
             <section id="where-to-buy">
               <h2>Where to buy</h2>
               <AffiliateButton review={r} fallback={sourcesLink} />
