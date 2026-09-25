@@ -630,7 +630,9 @@ export default async function DetailPage({
                   </a>
                 ))}
                 {(row.recommendations?.length || picks.length > 0) && (
-                  <a href="#recommended">What is actually sold</a>
+                  <a href="#recommended">
+                    {row.productsIntro?.heading.replace(/\.$/, '') ?? 'What is actually sold'}
+                  </a>
                 )}
                 {row.faqs?.length ? <a href="#faqs">Your questions</a> : null}
               </nav>
@@ -641,13 +643,14 @@ export default async function DetailPage({
             {section === 'learn' && (picks.length > 0 || row.recommendations?.length) && (
               <div className="section-heading" id="recommended">
                 <div>
-                  <SectionLabel>The products people are buying</SectionLabel>
-                  <h2>What is actually sold.</h2>
+                  <SectionLabel>
+                    {row.productsIntro?.label ?? 'The products people are buying'}
+                  </SectionLabel>
+                  <h2>{row.productsIntro?.heading ?? 'What is actually sold.'}</h2>
                 </div>
                 <p>
-                  The best-known supplements marketed for GLP-1, with what the evidence behind each
-                  one supports. None is a substitute for a prescribed medicine. Where we have
-                  reviewed one in full, its card links to the review and its score.
+                  {row.productsIntro?.text ??
+                    'The best-known supplements marketed for GLP-1, with what the evidence behind each one supports. None is a substitute for a prescribed medicine. Where we have reviewed one in full, its card links to the review and its score.'}
                 </p>
               </div>
             )}
