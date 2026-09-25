@@ -290,6 +290,10 @@ const collectionDrafts: CollectionDraft[] = [
     history: [
       {
         date: '2026-09-25',
+        note: 'Added Lemme to the supplement section. The Pendulum GLP-1 Probiotic and Supergut cards now link to full reviews, and the Pendulum card points to the GLP-1 Probiotic listing rather than the single-strain Akkermansia product it previously linked to. Supergut’s product is now named GLP-1 Daily Support. Linked the new ranking of GLP-1 supplements.',
+      },
+      {
+        date: '2026-09-25',
         note: 'Pendulum’s BMJ Open Diabetes Research & Care trial is now quoted from its abstract — 76 participants, a primary outcome at p = 0.0500, HbA1c 0.6 points lower — rather than the 33 per cent figure from press coverage, matching our Pendulum Akkermansia review.',
       },
       {
@@ -319,17 +323,19 @@ const collectionDrafts: CollectionDraft[] = [
         name: 'GLP-1 Probiotic (Akkermansia muciniphila)',
         brand: 'Pendulum',
         evidence: 'Human trial for blood glucose; GLP-1 claim preclinical',
-        note: 'The best-known probiotic sold for GLP-1, built on Akkermansia muciniphila plus butyrate-producing strains — the idea being that butyrate stimulates L-cells to release GLP-1. Pendulum does have a published human trial in BMJ Open Diabetes Research & Care, but its endpoints were glycaemic: in 76 people with type 2 diabetes over 12 weeks, post-meal glucose improved against placebo at p = 0.0500 — exactly on the conventional threshold — with HbA1c 0.6 points lower. That is a real, if marginal, result for a real outcome. It is not weight loss, and the health journalism watchdog Gary Schwitzer has pointed out that the company’s GLP-1 claims specifically rest on preclinical studies rather than studies in people.',
-        url: 'https://www.amazon.com/Pendulum-Akkermansia-Probiotic-Supplement-Increases/dp/B0B3GF96C3',
-        image: 'https://m.media-amazon.com/images/I/613AuyXrzVL._AC_SX569_.jpg',
+        note: 'The best-known probiotic sold for GLP-1, built on Akkermansia muciniphila plus butyrate-producing strains — the idea being that butyrate stimulates L-cells to release GLP-1. Pendulum does have a published human trial in BMJ Open Diabetes Research & Care, but its endpoints were glycaemic: in 76 people with type 2 diabetes over 12 weeks, post-meal glucose improved against placebo at p = 0.0500 — exactly on the conventional threshold — with HbA1c 0.6 points lower. That is a real, if marginal, result for a real outcome. It is not weight loss, and Pendulum’s own footnotes say the GLP-1 claims rest on preclinical studies and that the product is not intended for weight loss.',
+        url: 'https://www.amazon.com/dp/B0CY3VZDYP',
+        image: 'https://m.media-amazon.com/images/I/61X-PbaZxpL._AC_SL1500_.jpg',
+        reviewSlug: 'fat-burners/pendulum-glp-1-probiotic-review',
       },
       {
-        name: 'GLP-1 Booster prebiotic fibre blend',
+        name: 'GLP-1 Daily Support (formerly GLP-1 Booster) prebiotic fibre blend',
         brand: 'Supergut',
         evidence: 'Mechanism established; effect on appetite inconsistent',
-        note: 'A prebiotic fibre drink built on resistant starch and other fermentable fibres. The mechanism is genuinely well documented: fermentable fibre reaches the colon, gut bacteria convert it to short-chain fatty acids, and those activate receptors on L-cells that release GLP-1. The problem is magnitude. A 2026 scoping review pooling 52 studies in 1,085 participants found only some fibre types raised GLP-1 consistently, and studies showing a GLP-1 rise had only a non-significant tendency to also report increased satiety. Worth eating as fibre. Not a drug, and priced well above plain psyllium.',
-        url: 'https://www.amazon.com/s?k=supergut+glp-1+booster+fiber',
+        note: 'A prebiotic fibre drink built on resistant starch and other fermentable fibres, with 6 g of fibre a scoop. The mechanism is genuinely well documented: fermentable fibre reaches the colon, gut bacteria convert it to short-chain fatty acids, and those activate receptors on L-cells that release GLP-1. The problem is magnitude. A 2026 scoping review pooling 52 studies in 1,085 participants found only some fibre types raised GLP-1 consistently, and studies showing a GLP-1 rise had only a non-significant tendency to also report increased satiety. Worth eating as fibre. Not a drug, and priced well above plain psyllium.',
+        url: 'https://www.amazon.com/dp/B0DRWLTRHB',
         image: 'https://m.media-amazon.com/images/I/71cTbhrU5tL._AC_UL320_.jpg',
+        reviewSlug: 'fat-burners/supergut-glp-1-booster-review',
       },
     ],
     faqs: [
@@ -426,6 +432,8 @@ const collectionDrafts: CollectionDraft[] = [
 <p>Amarasate is a bitter hops extract developed in New Zealand and sold as Calocurb. The mechanism is unusual and plausible: an enteric-coated capsule carries the bitter compounds past the stomach into the small intestine, where bitter taste receptors — the same family found on the tongue — trigger release of GLP-1, CCK and PYY.</p>
 <p>Unlike almost everything else in this aisle, it has been tested in people. Early trials were small: 30 fasted men in 2019, 19 healthy-weight men in 2022, 30 women in 2024, reporting 25 to 40 per cent reductions in hunger and cravings and 14 to 18 per cent reductions in energy intake. Then a 24-week double-blind placebo-controlled trial of 150 adults with a BMI of 25 to 35, reported in <em>Obesity Pillars</em> in July 2026, found participants lost <strong>3.77 kg against 0.40 kg on placebo</strong>, with lean mass preserved.</p>
 <p>Two caveats matter. The research programme originates with the New Zealand institute that developed the extract and licenses it commercially, which is a real interest to declare. And the comparison that puts it in perspective: 3.77 kg over 24 weeks is roughly a quarter of what the drugs deliver. It is a genuine effect at a much smaller scale — which is a far more useful description than either "natural Ozempic" or "snake oil".</p>
+<h3>The citrus-and-saffron capsule: Lemme</h3>
+<p>The best-known product in the category, Lemme GLP-1 Daily — now sold as Lemme Reset — combines three extracts, each at the dose used in its own trial. Its GLP-1 ingredient, Eriomin lemon extract, raised GLP-1 by about 15 per cent in people with prediabetes; the same trial found no change in weight or BMI. The weight evidence comes instead from its blood-orange extract, Morosil. Our <a href="/fat-burners/lemme-glp-1-daily-review">full review</a> goes through all three.</p>
 <h3>The probiotics: a real trial, for a different outcome</h3>
 <p>Products built on <em>Akkermansia muciniphila</em> and butyrate-producing strains are the second-biggest segment. The logic is sound: butyrate stimulates L-cells to release GLP-1.</p>
 <p>Pendulum, the best-known, does have a published human trial in <em>BMJ Open Diabetes Research & Care</em> — in 76 people with type 2 diabetes over 12 weeks, post-meal glucose improved against placebo at p = 0.0500, exactly on the conventional threshold, with HbA1c 0.6 points lower. That is a real, if marginal, result. It is also a glycaemic result, not a weight-loss one. The health journalism watchdog Gary Schwitzer has specifically noted that the company's GLP-1 claims rest on preclinical studies rather than studies in people — a distinction the marketing does not make.</p>
@@ -450,7 +458,214 @@ const collectionDrafts: CollectionDraft[] = [
 <p><strong>If you are considering a prescription:</strong> that conversation is with a doctor. Useful questions are what the side-effect profile means for your life, what happens when you stop, what it costs over years rather than months, and whether you are eligible under your country's rules. Do not buy from a site that does not require a prescription.</p>
 <p><strong>If you are already taking one:</strong> protein intake and resistance training are the two things most within your control, for the lean mass reason above. Constipation affects around a quarter of users and responds to fibre and fluid — raise fibre gradually and mention it to your prescriber, since these drugs already slow gastric emptying.</p>
 <p><strong>If you are looking at a supplement:</strong> read the panel first. If it will not tell you how much of each ingredient it contains, stop there. If it will, then ask what human evidence exists for that specific ingredient at that specific amount — and note that "clinically studied" frequently refers to a trial at a different dose, in a different population, or measuring something other than weight.</p>
-<p>The products below are the best-known things sold in this category. They are listed because people are buying them and deserve an accurate account of what is behind each one, not because any of them replaces a prescription. None has been reviewed and scored here yet, and each card says so.</p>
+<p>The products below are the best-known things sold in this category. They are listed because people are buying them and deserve an accurate account of what is behind each one, not because any of them replaces a prescription. Each has now been reviewed and scored in full, and each card links to its review. Our <a href="/best/glp-1-supplements-for-weight-loss">ranking of every GLP-1 supplement we have reviewed</a> puts them side by side.</p>
+`,
+  },
+  {
+    id: 'best-glp-1-supplements',
+    kind: 'best_lists' as const,
+    title: 'The best GLP-1 supplements for weight loss in 2026, ranked',
+    slug: 'glp-1-supplements-for-weight-loss',
+    published_at: '2026-09-25T00:00:00Z',
+    updated_at: '2026-09-25T00:00:00Z',
+    seo_title: 'Best GLP-1 Supplements 2026: 5 Ranked by the Evidence',
+    seo_desc:
+      'Five GLP-1 supplements reviewed in full and ranked. One has weight trials on its own extract, one has honest doses, and three we would not buy to lose weight.',
+    summary:
+      'Every GLP-1 supplement we have reviewed in full, ranked by the same five criteria as our reviews. One has randomised trials measuring both GLP-1 and weight on its own extract — and even that one does roughly a quarter of what the drugs do.',
+    verdict:
+      'Our pick is Calocurb, the only one with weight-loss trials of the extract itself: 3.77 kg against 0.40 kg on placebo over 24 weeks. Lemme Reset is a distant but defensible second. The other three are ranked for completeness — we would not buy any of them to lose weight.',
+    takeaways: [
+      'Calocurb (6.6/10) is the only GLP-1 supplement we have found with randomised trials of its own extract measuring the hormones and, separately, the weight: 3.77 kg against 0.40 kg on placebo over 24 weeks.',
+      'Lemme Reset, formerly GLP-1 Daily (6.2/10), has the best-dosed label in the aisle — but the ingredient behind its GLP-1 claim did not change weight in its own trial.',
+      'Pendulum Akkermansia (4.0), Supergut GLP-1 Daily Support (3.8) and Pendulum GLP-1 Probiotic (3.2) rest on preclinical work, a different product’s trial, or a customer survey.',
+      'The best supplement result is about 4 per cent of body weight. Semaglutide produced about 15 per cent and tirzepatide 20.9 per cent in their trials.',
+      'At the directed doses these cost about $1.50 to $4.00 a day. Plain fibre does part of the same job for well under a dollar.',
+    ],
+    items: [
+      {
+        review_id: reviewId('calocurb-review'),
+        rank: 1,
+        why_it_made_the_list:
+          'Best evidenced, by a distance. The only product here with randomised human trials of its own extract measuring GLP-1, CCK and PYY and, separately, weight — 3.77 kg against 0.40 kg on placebo over 24 weeks — at exactly the dose on the label. The catch is price: about $4 a day at the label’s target dose, because a “one month” bottle lasts 22 days.',
+      },
+      {
+        review_id: reviewId('lemme-glp-1-daily-review'),
+        rank: 2,
+        why_it_made_the_list:
+          'Best-dosed label. Three extracts, each at the amount used in its own trial, on a panel you can read. But the lemon extract that raised GLP-1 did not change weight in its trial, the combination has never been tested, and class actions challenge the GLP-1 marketing. The blood-orange extract did the most: 4.2 per cent weight loss against 2.2 per cent on placebo over six months, alongside diet and exercise.',
+      },
+      {
+        review_id: reviewId('pendulum-akkermansia-review'),
+        rank: 3,
+        why_it_made_the_list:
+          'Honest label, wrong job. A clean single-strain panel from the company that pioneered live Akkermansia, at about a hundredth of the studied dose. The carton says it increases GLP-1 production; the one human trial that measured GLP-1 found no significant change. Buy it for gut health if at all, not for weight.',
+      },
+      {
+        review_id: reviewId('supergut-glp-1-booster-review'),
+        rank: 4,
+        why_it_made_the_list:
+          'Decent fibre, borrowed claim. A low-FODMAP resistant-starch powder with a real mechanism, and a company trial that lowered HbA1c — of a meal-replacement shake, in type 2 diabetes. A scoop holds 6 g of fibre; the weight research on resistant starch used 40 g a day. The brand’s own non-GLP-1 fibre costs $10 less a tub.',
+      },
+      {
+        review_id: reviewId('pendulum-glp-1-probiotic-review'),
+        rank: 5,
+        why_it_made_the_list:
+          'Preclinical, by its own label. Pendulum footnotes its GLP-1 claims as based on preclinical studies and says the product is not intended for weight loss. The cravings figures come from an uncontrolled survey of 274 customers, and a comparable Akkermansia product costs about a ninth as much.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the best GLP-1 supplement?',
+        answer:
+          'Of the five we have reviewed in full, Calocurb. It is the only one with randomised human trials of its own extract that measured both appetite hormones including GLP-1 and, in a 24-week trial of 150 adults, weight: 3.77 kg lost against 0.40 kg on placebo. It is also the most expensive, at about $4 a day at the label’s target dose.',
+      },
+      {
+        question: 'Do GLP-1 supplements actually work?',
+        answer:
+          'A few have modest evidence; most have very little. The best result we have found is about 4 per cent of body weight over six months. Several products raise GLP-1 in a trial or in theory without any measured effect on weight, and some rest on animal studies or customer surveys. None contains GLP-1 or acts like the prescription drugs.',
+      },
+      {
+        question: 'Are GLP-1 supplements as good as Ozempic or Wegovy?',
+        answer:
+          'No. Semaglutide, sold as Ozempic and Wegovy, produced about 15 per cent weight loss over 68 weeks in STEP 1, and tirzepatide 20.9 per cent over 72 weeks in SURMOUNT-1. The best supplement result is roughly a quarter of that. The drugs keep GLP-1 signalling active for a week; a supplement can at most nudge your own hormone, which lasts about two minutes.',
+      },
+      {
+        question: 'Is Lemme GLP-1 Daily worth it?',
+        answer:
+          'It has the best-dosed label of the products we ranked, and its blood-orange extract has a six-month trial behind it. But its GLP-1 ingredient did not change weight in its own trial, the product itself has never been tested, and it faces class actions over its GLP-1 marketing. At about $2 to $2.70 a day, we rank it a distant second.',
+      },
+      {
+        question: 'Are GLP-1 supplements safe?',
+        answer:
+          'The five we ranked are generally well tolerated; the common effects are digestive, especially while starting fibre or probiotics. Two lower blood glucose in trials, so people on diabetes medicines should check with their prescriber. Supplements are not approved by the FDA for safety or effectiveness before sale, and anyone pregnant should ask first.',
+      },
+      {
+        question: 'Is berberine a GLP-1 supplement?',
+        answer:
+          'Not really. Berberine is often called nature’s Ozempic, but it acts mainly through the AMPK enzyme, closer to metformin than to semaglutide, and does not act on the GLP-1 receptor. Small trials report modest weight changes. It interacts with diabetes medicines and some other drugs. We have not reviewed a berberine product, so it is not ranked here.',
+      },
+      {
+        question: 'How much do GLP-1 supplements cost?',
+        answer:
+          'At the directed doses and prices checked on 25 September 2026: Calocurb about $4.00 a day, Pendulum GLP-1 Probiotic $2.97 bought once, Pendulum Akkermansia $2.83, Lemme Reset $2.67 and Supergut $1.50 to $3.00 depending on one or two scoops. Subscriptions cut most of these by 15 to 35 per cent.',
+      },
+    ],
+    references: [
+      {
+        id: 'best-glp1-amarasate',
+        text: 'Amarasate — overview of the bitter hops extract sold as Calocurb and its published human trials, including the 24-week C4 trial of 150 adults reported in Obesity Pillars in July 2026. We were unable to open that paper; its figures come from the institute and trade reporting of it.',
+        url: 'https://en.wikipedia.org/wiki/Amarasate',
+      },
+      {
+        id: 'best-glp1-walker',
+        text: 'Walker EG et al. (2022). An extract of hops modulates gut peptide hormone secretion and reduces energy intake in healthy weight men: a randomised, cross-over clinical trial. American Journal of Clinical Nutrition 115(3):925-940.',
+        url: 'https://www.medrxiv.org/content/10.1101/2021.06.25.21259514v2.full',
+      },
+      {
+        id: 'best-glp1-eriomin',
+        text: 'Ribeiro CB et al. (2019). Effectiveness of Eriomin in managing hyperglycemia and reversal of prediabetes condition. Phytotherapy Research 33(7):1921-1933 — GLP-1 +15 per cent; no effect on anthropometric variables.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31183921/',
+      },
+      {
+        id: 'best-glp1-morosil',
+        text: 'Briskey D, Malfa GA, Rao A (2022). Effectiveness of “Moro” blood orange standardized extract on weight loss in overweight but otherwise healthy men and women. Nutrients 14(3):427 — 4.2 against 2.2 per cent over six months; 98 of 180 completed.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/35276783/',
+      },
+      {
+        id: 'best-glp1-depommier',
+        text: 'Depommier C et al. (2019). Supplementation with Akkermansia muciniphila in overweight and obese human volunteers. Nature Medicine 25:1096-1103 — 10^10 bacteria daily; plasma GLP-1 did not change significantly.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31263284/',
+      },
+      {
+        id: 'best-glp1-frias',
+        text: 'Frias JP et al. (2023). A microbiome-targeting fibre-enriched nutritional formula improves quality of life and haemoglobin A1c in type 2 diabetes. Diabetes, Obesity and Metabolism 25(5):1203-1212 — the Supergut shake trial.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/36594522/',
+      },
+      {
+        id: 'best-glp1-li',
+        text: 'Li H et al. (2024). Resistant starch intake facilitates weight loss in humans by reshaping the gut microbiota. Nature Metabolism 6(3):578-597 — 40 g a day, 2.8 kg over eight weeks.',
+        url: 'https://www.nature.com/articles/s42255-024-00988-y',
+      },
+      {
+        id: 'best-glp1-fibre-review',
+        text: 'Dietary fibers to boost endogenous GLP-1 secretion and satiety: a scoping review (2026). Frontiers in Endocrinology — 52 studies, 1,085 participants; GLP-1 rises showed only a non-significant tendency toward increased satiety.',
+        url: 'https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full',
+      },
+      {
+        id: 'best-glp1-step1',
+        text: 'Wilding JPH et al. (2021). Once-weekly semaglutide in adults with overweight or obesity. STEP 1 — about 15 per cent mean weight loss over 68 weeks.',
+        url: 'https://www.nejm.org/doi/full/10.1056/NEJMoa2032183',
+      },
+      {
+        id: 'best-glp1-surmount1',
+        text: 'Jastreboff AM et al. (2022). Tirzepatide once weekly for the treatment of obesity. SURMOUNT-1 — 20.9 per cent mean weight loss on 15 mg at 72 weeks.',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/35658024/',
+      },
+      {
+        id: 'best-glp1-berberine',
+        text: 'UCLA Health. What to know about berberine, the so-called “nature’s Ozempic” — the AMPK mechanism, the limited trial evidence and the drug interactions.',
+        url: 'https://www.uclahealth.org/news/article/what-know-about-berberine-so-called-natures-ozempic',
+      },
+      {
+        id: 'best-glp1-fda',
+        text: 'US Food and Drug Administration. Questions and answers on dietary supplements — supplements are not approved by the FDA for safety or effectiveness before sale.',
+        url: 'https://www.fda.gov/food/information-consumers-using-dietary-supplements/questions-and-answers-dietary-supplements',
+      },
+    ],
+    history: [
+      {
+        date: '2026-09-25',
+        note: 'First published, ranking the five GLP-1 supplements reviewed in full on this site by their published scores. Full reviews of Lemme Reset, Supergut GLP-1 Daily Support and Pendulum GLP-1 Probiotic were written for this ranking rather than listing them unreviewed. Prices checked on this date.',
+      },
+    ],
+    body: `
+<h2>The short answer</h2>
+<p>If you want one GLP-1 supplement with real evidence behind it, it is <a href="/fat-burners/calocurb-review">Calocurb</a>. Its bitter hops extract has been tested in randomised human trials that measured the gut hormones it claims to release and, separately, the weight people lost — at exactly the dose on the label. It is expensive, and its effect is modest. It is also the only product in this aisle where the GLP-1 claim and the weight claim come from trials of the same extract.</p>
+<p>If you want a cheaper, well-dosed appetite formula and can accept that its GLP-1 claim is the weakest part of it, <a href="/fat-burners/lemme-glp-1-daily-review">Lemme Reset</a> is a defensible second. We would not buy the other three to lose weight, and their own small print increasingly says the same.</p>
+<p>Keep the scale in mind. The best supplement result here — 3.77 kg over 24 weeks — is about 4 per cent of body weight. Semaglutide produced about 15 per cent in STEP 1 and tirzepatide 20.9 per cent in SURMOUNT-1. Our <a href="/learn/glp-1">GLP-1 explainer</a> charts the difference to scale. No supplement is a substitute for those drugs.</p>
+
+<h2>How we ranked them</h2>
+<p>Every product here has a full review on this site, scored against the same <a href="/evidence-grading">five published criteria</a>: evidence for the marketed claim, dose against the studied amount, label transparency, value against the generic equivalent, and safety. The ranking is simply the score. Nothing was re-scored for this page.</p>
+<p>We only rank products we have reviewed in full. Three of the five were reviewed specifically for this page, because a list that ranks products nobody has examined is a list of guesses. Products we have not reviewed — including berberine and the many unbranded capsules titled "GLP-1 supplement" — are discussed below but not ranked.</p>
+<p>These are desk reviews: we read the labels, the retailer listings and the trials, and nobody here took the products. Prices were checked on 25 September 2026. Where a product has a commercial link, we may earn a commission. The scores were set in the reviews, and the second-ranked product has no commercial link at all.</p>
+
+<h2>What "GLP-1 supplement" means on a label</h2>
+<p>None of these products contains GLP-1, and none acts like the drugs. Your own GLP-1 is released by the gut after eating and broken down within about two minutes; semaglutide is engineered to last a week. A supplement can at most encourage your gut to release a little more of its own hormone.</p>
+<p>The products here try to do that in three ways. Calocurb uses bitter compounds that trigger receptors in the small intestine. Lemme uses a lemon flavonoid that raised GLP-1 in a trial. Supergut and Pendulum use fibre and bacteria that feed the short-chain fatty acid pathway. The question for each is the same: in people, at the dose on the label, does anything measurable happen to appetite or weight?</p>
+
+<h2>1. Calocurb: the one with the evidence</h2>
+<p>Calocurb's active is Amarasate, a New Zealand hops extract in a delayed-release capsule. A crossover trial in the <em>American Journal of Clinical Nutrition</em> found it raised GLP-1, CCK and PYY and cut how much people ate at the next meal. A 24-week trial of 150 adults, reported in 2026, found 3.77 kg of weight loss against 0.40 kg on placebo. The four-capsule daily dose on the label is the dose in the trials.</p>
+<p>The caveats are real. The research comes from the institute that developed and licenses the extract, the early trials were small, and we could not open the 24-week paper itself. And the price is steep: at the label's target dose the "one month" bottle lasts 22 days, which puts it at about $4 a day. Our <a href="/fat-burners/calocurb-review">full review</a> scores it 6.6 out of 10.</p>
+
+<h2>2. Lemme Reset: the right doses, the wrong mechanism</h2>
+<p>Lemme's product, launched as GLP-1 Daily and now sold as Lemme Reset, is the best-known name in the category and the best-dosed label: Eriomin lemon extract, Supresa saffron and Morosil blood orange, each at the amount used in its own trial.</p>
+<p>The trouble is the ingredient in the name. Eriomin raised GLP-1 by about 15 per cent in people with prediabetes, and the same trial found no change in weight or BMI. The weight evidence comes from Morosil — 4.2 per cent against 2.2 per cent on placebo over six months, with dieting and exercise, in a trial where only 98 of 180 finished. The combination has never been tested, and class actions filed in 2025 and 2026 challenge the GLP-1 marketing. Our <a href="/fat-burners/lemme-glp-1-daily-review">full review</a> scores it 6.2.</p>
+
+<h2>3 to 5: three we would not buy to lose weight</h2>
+<p><strong><a href="/wellness/pendulum-akkermansia-review">Pendulum Akkermansia</a> (4.0)</strong> is an honestly labelled single-strain probiotic whose carton says it increases GLP-1 production. The one randomised human trial that measured GLP-1 after <em>Akkermansia</em> found no significant change, using a hundred times the amount in this capsule.</p>
+<p><strong><a href="/fat-burners/supergut-glp-1-booster-review">Supergut GLP-1 Daily Support</a> (3.8)</strong>, formerly GLP-1 Booster, is a pleasant, low-FODMAP resistant-starch fibre with a real mechanism behind it. The company's trial tested a meal-replacement shake in type 2 diabetes and reported blood sugar, and the resistant-starch weight trial used 40 g a day against the 6 g of mixed fibre in a scoop.</p>
+<p><strong><a href="/fat-burners/pendulum-glp-1-probiotic-review">Pendulum GLP-1 Probiotic</a> (3.2)</strong> is footnoted by Pendulum itself: the GLP-1 claims are based on preclinical studies, and the product is not intended for weight loss. The cravings figures come from an uncontrolled survey of 274 customers.</p>
+<p>All three may have a place — as a probiotic, as a fibre — for someone who wants those things. None earns its GLP-1 label.</p>
+
+<h2>What we left out, and why</h2>
+<p><strong>Berberine</strong> is the most common "nature's Ozempic" on social media. It acts mainly through the AMPK enzyme, closer to metformin than to semaglutide, and does not act on the GLP-1 receptor. Small trials report modest weight changes, and it interacts with diabetes medicines and other drugs. We have not reviewed a berberine product, so it is not ranked.</p>
+<p><strong>Unbranded "GLP-1" capsules</strong> now fill marketplace search results. Many use proprietary blends that do not state how much of anything is inside. Where a label will not give amounts, no assessment is possible — we have reviewed products of that shape, with <a href="/fat-burners/slimset-review">one disclosed dose out of five</a> and <a href="/fat-burners/sodamelt-review">none at all</a>.</p>
+<p><strong>Prescription GLP-1 drugs</strong> are not supplements and are not ranked here. If you are considering them through an online service, our <a href="/fat-burners/medvi-weight-loss-review">Medvi review</a> covers what to check, including the difference between compounded and FDA-approved versions and what the approved drugs now cost bought direct.</p>
+
+<h2>The cheaper route to try first</h2>
+<p>Much of what these products offer — a little more fullness, steadier eating, better digestion — is what plain fibre does, for a fraction of the price. <a href="/fat-burners/now-glucomannan-575-mg">NOW Glucomannan</a> costs 45 to 90 cents a day and has better evidence for cholesterol than for weight. <a href="/fat-burners/now-psyllium-husk-powder">Plain psyllium powder</a> is cheaper still and well evidenced for regularity.</p>
+<p>Neither is a GLP-1 product, and neither will match the drugs. But if the realistic goal is a modest nudge to appetite alongside diet and exercise, start there before paying $2 to $4 a day for a label.</p>
+
+<h2>How to judge any GLP-1 supplement yourself</h2>
+<ul>
+<li><strong>Is there a trial of the product, or only of its ingredients?</strong> "Clinically studied ingredients" usually means the second.</li>
+<li><strong>Did the trial measure weight, or only GLP-1 or blood sugar?</strong> A hormone rising on a blood test is not the same as losing weight.</li>
+<li><strong>Is the dose on the label the dose in the trial?</strong> Check the panel, and look for a proprietary blend that hides the amounts.</li>
+<li><strong>Who ran it, and in whom?</strong> Supplier-funded trials in people with diabetes or prediabetes tell you less about a healthy buyer.</li>
+<li><strong>What does the small print say?</strong> "Based on preclinical studies" and "not intended for weight loss" are answers, not disclaimers.</li>
+<li><strong>What does a day cost at the directed dose?</strong> Divide the price by days of supply, not by the serving count on the front.</li>
+</ul>
 `,
   },
 ];

@@ -646,8 +646,8 @@ export default async function DetailPage({
                 </div>
                 <p>
                   The best-known supplements marketed for GLP-1, with what the evidence behind each
-                  one supports. None is a substitute for a prescribed medicine, and none has been
-                  scored here yet.
+                  one supports. None is a substitute for a prescribed medicine. Where we have
+                  reviewed one in full, its card links to the review and its score.
                 </p>
               </div>
             )}
