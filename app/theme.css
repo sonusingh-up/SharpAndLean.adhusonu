@@ -336,17 +336,95 @@ select:focus-visible {
   font-family: var(--serif);
   font-style: italic;
 }
+/* Tables in article bodies. The typography plugin zeroes the first column's
+   inline padding and never styles body <th> at all, which left row labels
+   jammed against a dark fill. Row labels now sit on cream, values on paper,
+   and every cell shares one padding and one top alignment.
+
+   globals.css sets `display: block` for horizontal scrolling, but the
+   rounded-corner clip below would hide the overflow instead of scrolling it,
+   so the table stays a real table and phones get a stacked layout. */
 .prose table {
-  overflow: hidden;
+  display: table;
+  width: 100%;
+  margin: 28px 0 32px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--cream-deep);
   border-radius: 14px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.prose th,
+.prose td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
 }
 .prose thead th,
-.prose th {
+.prose thead td {
   background: var(--pine);
   color: #fff;
+  font-weight: 600;
+  vertical-align: bottom;
 }
-.prose tbody tr:nth-child(even) td {
+.prose tbody th {
+  width: 26%;
   background: var(--cream);
+  color: var(--pine);
+  font-weight: 600;
+}
+.prose tbody th ~ td {
+  width: 37%;
+}
+.prose tbody td {
+  color: var(--ink-soft);
+}
+.prose tbody tr + tr > * {
+  border-top: 1px solid var(--cream-deep);
+}
+.prose tbody td + td,
+.prose tbody th + td {
+  border-left: 1px solid var(--cream-deep);
+}
+
+/* Phones: a three-column table leaves each value a word or two wide. Tables
+   with row labels restack so the label spans the row and the values sit
+   side by side beneath it; the empty corner cell has nothing to label. */
+@media (max-width: 640px) {
+  .prose table:has(tbody th) {
+    display: block;
+  }
+  .prose table:has(tbody th) :is(thead, tbody) {
+    display: block;
+  }
+  .prose table:has(tbody th) tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .prose table:has(tbody th) :is(th, td) {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    padding-inline: 12px;
+  }
+  .prose table:has(tbody th) thead tr > :first-child {
+    display: none;
+  }
+  .prose table:has(tbody th) tbody th {
+    flex-basis: 100%;
+    padding-block: 9px;
+  }
+  .prose table:has(tbody th) tbody th + td {
+    border-left: 0;
+  }
+  .prose table:has(tbody th) tbody tr + tr {
+    border-top: 1px solid var(--cream-deep);
+  }
+  .prose table:has(tbody th) tbody tr + tr > * {
+    border-top: 0;
+  }
 }
 .faq-list details {
   border-color: var(--cream-deep);

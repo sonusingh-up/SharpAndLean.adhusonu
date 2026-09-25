@@ -129,7 +129,7 @@ const collectionDrafts: CollectionDraft[] = [
 
 <h2>The two labels, side by side</h2>
 <table>
-<thead><tr><th>Read on 22 September 2026</th><th>ON Gold Standard 100% Whey</th><th>Myprotein Impact Whey</th></tr></thead>
+<thead><tr><td></td><th>ON Gold Standard 100% Whey</th><th>Myprotein Impact Whey</th></tr></thead>
 <tbody>
 <tr><th scope="row">Pack compared</th><td>900 g unflavoured, 30 servings</td><td>900 g, 30 servings</td></tr>
 <tr><th scope="row">Serving</th><td>30 g scoop</td><td>30 g scoop</td></tr>
