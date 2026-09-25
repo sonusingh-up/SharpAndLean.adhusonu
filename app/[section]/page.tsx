@@ -12,6 +12,9 @@ import { getReviews, getCollections, getCategoryData } from '@/lib/data';
 import { siteUrl, demoMode } from '@/lib/config';
 import { categoryGuides, informationPages as info } from '@/lib/editorial-content';
 import { authors } from '@/lib/author';
+import { allComparePairs, productName } from '@/lib/compare';
+import { comparePath } from '@/lib/compare-path';
+import { CompareToggle } from '@/components/compare-tray';
 export const revalidate = 3600;
 // Plain-text titles get the same treatment as the hand-written headings: the
 // last word set in the italic serif.
@@ -179,6 +182,8 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
   }
   if (section === 'best' || section === 'compare') {
     const list = await getCollections(section === 'best' ? 'best_lists' : 'comparisons');
+    const reviews = section === 'compare' ? (await getReviews()).filter((r) => !r.is_sample) : [];
+    const pairs = allComparePairs(reviews);
     return (
       <SiteShell>
         <div className="page-section">
@@ -248,6 +253,54 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               title="New guides are being prepared."
               description="Each guide needs a complete review before it goes live."
             />
+          )}
+          {section === 'compare' && reviews.length > 1 && (
+            <section className="reading-section compare-builder" id="build">
+              <h2>Build your own comparison</h2>
+              <p>
+                Add two or three products from the same category to the tray, then open the
+                comparison. Each one lines up the published scores, the dose against the studied
+                amount, the cost per serving and what each label leaves out.
+              </p>
+              {categories.map((cat) => {
+                const inCat = reviews.filter((r) => r.category_slug === cat.slug);
+                if (!inCat.length) return null;
+                return (
+                  <div className="compare-builder-group" key={cat.slug}>
+                    <h3>{cat.name}</h3>
+                    <ul>
+                      {inCat.map((r) => (
+                        <li key={r.id}>
+                          <Link href={`/${r.category_slug}/${r.slug}`}>{productName(r)}</Link>
+                          <span className="compare-builder-score">
+                            {r.score === null ? 'Not scored' : `${r.score.toFixed(1)}/10`}
+                          </span>
+                          <CompareToggle
+                            slug={r.slug}
+                            name={productName(r)}
+                            category={r.category_slug}
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+              {pairs.length > 0 && (
+                <details className="compare-all-pairs">
+                  <summary>Every head-to-head ({pairs.length})</summary>
+                  <ul>
+                    {pairs.map((pair) => (
+                      <li key={pair.map((r) => r.slug).join('+')}>
+                        <Link href={comparePath(pair.map((r) => r.slug))}>
+                          {productName(pair[0])} <em>vs</em> {productName(pair[1])}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+            </section>
           )}
           {section === 'best' ? (
             <>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowUpRight, FlaskConical, Brain, Leaf, Flame } from 'lucide-react';
 import type { Review } from '@/lib/types';
 import { categories } from '@/lib/sample';
+import { CompareToggle } from './compare-tray';
 export function ReviewCard({ review }: { review: Review }) {
   // Unscored pages are label overviews. Calling them reviews on the card
   // contradicts the page they open and the count above the grid.
@@ -64,6 +65,13 @@ export function ReviewCard({ review }: { review: Review }) {
             {isOverview ? 'Read the label' : 'Read review'} <ArrowUpRight size={15} />
           </Link>
         </div>
+        {!review.is_sample && (
+          <CompareToggle
+            slug={review.slug}
+            name={review.product_name || review.title}
+            category={review.category_slug}
+          />
+        )}
       </div>
     </article>
   );

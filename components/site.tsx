@@ -4,6 +4,7 @@ import { ArrowUpRight, Plus, ArrowRight } from 'lucide-react';
 import { AuthControls, AuthMenuControls } from '@/components/auth-controls';
 import { SiteSearch } from '@/components/site-search';
 import { OrganizationSchema, WebSiteSchema } from '@/components/seo';
+import { CompareTray } from '@/components/compare-tray';
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="SharpAndLean home">
@@ -116,6 +117,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <Header />
       <main id="main">{children}</main>
       <Footer />
+      <CompareTray />
       {/* Publisher and site identity, referenced by @id from every page node.
           Rendered last on purpose: Google's swg-basic.js mutates whichever
           ld+json block comes first in the document, and when that was the
