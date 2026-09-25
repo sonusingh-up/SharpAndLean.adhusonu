@@ -21,7 +21,13 @@ export function safeUrl(url: string) {
 }
 export function cleanHtml(html: string) {
   return sanitizeHtml(html, {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      'img',
+      'figure',
+      'figcaption',
+      'details',
+      'summary',
+    ]),
     allowedAttributes: {
       a: ['href', 'rel', 'target'],
       img: ['src', 'alt', 'width', 'height'],

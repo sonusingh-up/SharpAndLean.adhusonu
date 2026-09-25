@@ -39,7 +39,7 @@ export async function generateStaticParams() {
     ...best.map((r) => ({ section: 'best', slug: r.slug })),
     ...compare.map((r) => ({ section: 'compare', slug: r.slug })),
     // Pairs are prebuilt; three-way comparisons render on first request.
-    ...allComparePairs(reviews)
+    ...allComparePairs(reviews.filter((r) => !r.is_sample))
       .map((pair) => canonicalCompareSlug(pair.map((r) => r.slug)))
       .filter((slug) => !compare.some((c) => c.slug === slug))
       .map((slug) => ({ section: 'compare', slug })),
@@ -82,22 +82,26 @@ export async function generateMetadata({
         )
       ).find((r) => r.slug === slug);
   if (!row && section === 'compare') {
-    const found = resolveComparison(slug, await getReviews());
+    const found = resolveComparison(
+      slug,
+      (await getReviews()).filter((r) => !r.is_sample),
+    );
     if (!found) return { title: 'Page not found' };
     const c = buildComparison(found.reviews);
-    return pageMeta(
+    const metadata = pageMeta(
       comparisonTitle(c.names),
       c.headline.length > 158 ? `${c.headline.slice(0, 155).replace(/\s+\S*$/, '')}…` : c.headline,
       `/compare/${found.canonical}`,
       found.reviews[0].og_image_url || found.reviews[0].featured_image_url || undefined,
     );
+    return metadata;
   }
   return row
     ? pageMeta(
         row.seo_title || row.title,
         row.seo_desc || row.summary,
         `/${section}/${slug}`,
-        'og_image_url' in row ? row.og_image_url : undefined,
+        'og_image_url' in row ? row.og_image_url : 'figure' in row ? row.figure?.src : undefined,
       )
     : { title: 'Page not found' };
 }
@@ -475,7 +479,10 @@ export default async function DetailPage({
   const collections = await getCollections(kind);
   const row = collections.find((r) => r.slug === slug);
   if (!row && section === 'compare') {
-    const found = resolveComparison(slug, all);
+    const found = resolveComparison(
+      slug,
+      all.filter((r) => !r.is_sample),
+    );
     if (!found) notFound();
     const editorial = editorialFor(found.reviews, collections);
     if (editorial) permanentRedirect(`/compare/${editorial.slug}`);
@@ -513,7 +520,7 @@ export default async function DetailPage({
         datePublished={row.published_at}
         dateModified={row.updated_at}
         image={row.figure?.src}
-        author={{ name: teamProfile.name, slug: teamProfile.slug }}
+        author={row.authors ?? { name: teamProfile.name, slug: teamProfile.slug }}
       />
       <article className="page-section">
         <Breadcrumb
@@ -552,28 +559,51 @@ export default async function DetailPage({
               is the page most likely to be read before a medical decision. */}
           {section === 'learn' && (
             <div className="byline-block">
+              {(row.authors ?? [teamProfile]).map((writer) => {
+                const profile = getAuthorBySlug(writer.slug);
+                return (
+                  <div className="byline-person byline-reviewer" key={writer.slug}>
+                    {profile?.photo_url && (
+                      <Image
+                        className="byline-avatar"
+                        src={profile.photo_url}
+                        alt=""
+                        width={34}
+                        height={34}
+                      />
+                    )}
+                    <span>
+                      <span className="byline-role">Written by</span>
+                      <Link href={`/author/${writer.slug}`}>{writer.name}</Link>
+                      {profile && <span className="byline-credential">{profile.title}</span>}
+                    </span>
+                  </div>
+                );
+              })}
+              {row.evidenceReviewed !== false && (
+                <div className="byline-person byline-reviewer">
+                  {authorProfile.photo_url && (
+                    <Image
+                      className="byline-avatar"
+                      src={authorProfile.photo_url}
+                      alt=""
+                      width={34}
+                      height={34}
+                    />
+                  )}
+                  <span>
+                    <span className="byline-role">Evidence reviewed by</span>
+                    <Link href={`/author/${authorProfile.slug}`}>{authorProfile.name}</Link>
+                    <span className="byline-credential">{authorProfile.title}</span>
+                  </span>
+                </div>
+              )}
               <div className="byline-person">
-                <span className="byline-role">Written by</span>
-                <Link href={`/author/${teamProfile.slug}`}>{teamProfile.name}</Link>
-              </div>
-              <div className="byline-person byline-reviewer">
-                {authorProfile.photo_url && (
-                  <Image
-                    className="byline-avatar"
-                    src={authorProfile.photo_url}
-                    alt=""
-                    width={34}
-                    height={34}
-                  />
-                )}
-                <span>
-                  <span className="byline-role">Evidence reviewed by</span>
-                  <Link href={`/author/${authorProfile.slug}`}>{authorProfile.name}</Link>
-                  <span className="byline-credential">{authorProfile.title}</span>
+                <span className="byline-role">
+                  {row.evidenceReviewed === false
+                    ? 'Updated · clinical review pending'
+                    : 'Last reviewed'}
                 </span>
-              </div>
-              <div className="byline-person">
-                <span className="byline-role">Last reviewed</span>
                 <span className="byline-date">
                   {new Date(row.updated_at).toLocaleDateString('en-GB', {
                     day: 'numeric',
@@ -772,12 +802,18 @@ export default async function DetailPage({
             inLanguage: 'en-US',
             datePublished: row.published_at,
             dateModified: row.updated_at,
-            author: {
-              '@type': 'Organization',
-              name: 'SharpAndLean',
-              '@id': `${siteUrl}/#organization`,
-            },
-            ...(section === 'learn'
+            author: row.authors
+              ? row.authors.map((writer) => ({
+                  '@type': writer.type,
+                  name: writer.name,
+                  url: new URL(`/author/${writer.slug}`, siteUrl).href,
+                }))
+              : {
+                  '@type': 'Organization',
+                  name: 'SharpAndLean',
+                  '@id': `${siteUrl}/#organization`,
+                },
+            ...(section === 'learn' && row.evidenceReviewed !== false
               ? {
                   reviewedBy: {
                     '@type': 'Person',

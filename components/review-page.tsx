@@ -6,7 +6,15 @@ import { categories } from '@/lib/sample';
 import { SiteShell, Breadcrumb, SectionLabel } from './site';
 import { RichText } from './rich-text';
 import { ReviewCard } from './review-card';
-import { JsonLd, BreadcrumbSchema, FaqSchema, publisherRef, ExtendedAccess } from './seo';
+import {
+  JsonLd,
+  BreadcrumbSchema,
+  FaqSchema,
+  publisherRef,
+  ExtendedAccess,
+  WebPageSchema,
+  absoluteUrl,
+} from './seo';
 import { authorProfile, teamProfile, getAuthorBySlug } from '@/lib/author';
 import { findIngredientByName } from '@/lib/ingredients';
 import { hasSupabase } from '@/lib/config';
@@ -130,6 +138,9 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   // the two we can state honestly.
   const hasOffer = Boolean(market && r.affiliate_url);
   const hasReview = !isLabelOverview && r.score !== null;
+  const pagePath = `/${r.category_slug}/${r.slug}`;
+  const pageUrl = new URL(pagePath, siteUrl).href;
+  const productId = `${pageUrl}#product`;
   const perServing =
     market?.servings && market.servings > 0
       ? new Intl.NumberFormat('en-US', { style: 'currency', currency: market.currency }).format(
@@ -139,12 +150,17 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   return (
     <SiteShell>
       <ExtendedAccess
+        id={`${pageUrl}#article`}
         headline={r.seo_title || r.title}
-        path={`/${r.category_slug}/${r.slug}`}
+        path={pagePath}
         datePublished={r.published_at}
         dateModified={r.updated_at}
         image={r.featured_image_url || undefined}
-        author={{ name: writtenBy.name, slug: writtenBy.slug }}
+        author={{
+          name: writtenBy.name,
+          slug: writtenBy.slug,
+          type: writtenBy.slug === teamProfile.slug ? 'Organization' : 'Person',
+        }}
       />
       <article className="page-section">
         <Breadcrumb
@@ -701,29 +717,34 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           get Product and FAQ schema but never a nested Review. */}
       {!r.is_sample && (
         <>
+          {/* The page itself, carrying the evidence-review credit the byline
+              shows. schema.org defines reviewedBy and lastReviewed on WebPage
+              only; on the Product or the Review they were invalid properties. */}
+          <WebPageSchema
+            name={r.seo_title || r.title}
+            description={r.seo_desc || r.summary}
+            path={pagePath}
+            datePublished={r.published_at}
+            dateModified={r.updated_at}
+            reviewedBy={reviewedBy}
+            lastReviewed={reviewedBy ? r.updated_at : null}
+            about={hasOffer || hasReview ? productId : undefined}
+            mainEntity={`${pageUrl}#article`}
+            image={r.featured_image_url || undefined}
+          />
           {/* Google rejects a Product with none of offers, review or
               aggregateRating, so an unpriced, unscored page gets no Product. */}
           {(hasOffer || hasReview) && (
             <JsonLd
               data={{
                 '@type': 'Product',
+                '@id': productId,
                 name: r.product_name || r.title,
                 description: r.summary,
-                // Mirrors the visible byline so the structured data makes the
-                // same attribution the page does.
-                ...(reviewedBy
-                  ? {
-                      reviewedBy: {
-                        '@type': 'Person',
-                        '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
-                        name: reviewedBy.name,
-                        jobTitle: reviewedBy.title,
-                        url: `${siteUrl}/author/${reviewedBy.slug}`,
-                      },
-                    }
-                  : {}),
-                url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
-                ...(r.featured_image_url ? { image: r.featured_image_url } : {}),
+                url: pageUrl,
+                // Absolute: images under /images/ are stored relative, and a
+                // relative image URL is invalid in structured data.
+                ...(r.featured_image_url ? { image: absoluteUrl(r.featured_image_url) } : {}),
                 ...(r.brand ? { brand: { '@type': 'Brand', name: r.brand } } : {}),
                 ...(r.asin ? { sku: r.asin, productID: `asin:${r.asin}` } : {}),
                 ...(r.ingredients.length
@@ -784,17 +805,6 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                                 name: writtenBy.name,
                                 url: new URL(`/author/${writtenBy.slug}`, siteUrl).href,
                               },
-                        ...(reviewedBy
-                          ? {
-                              reviewedBy: {
-                                '@type': 'Person',
-                                '@id': `${siteUrl}/author/${reviewedBy.slug}#person`,
-                                name: reviewedBy.name,
-                                jobTitle: reviewedBy.title,
-                                url: `${siteUrl}/author/${reviewedBy.slug}`,
-                              },
-                            }
-                          : {}),
                         // contributor rather than a second author: he supplied the use
                         // notes, he did not write or sign off the assessment.
                         ...(testedBy

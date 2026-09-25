@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from './site';
 import { BreadcrumbSchema, JsonLd } from './seo';
 import { ComparisonReport } from './comparison';
-import { comparePartners, productName } from '@/lib/compare';
+import { buildComparison, comparePartners, productName } from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
 import { siteUrl } from '@/lib/config';
 import type { Review } from '@/lib/types';
@@ -25,6 +25,7 @@ export function ComparePairPage({
   title: string;
 }) {
   const names = reviews.map(productName);
+  const comparison = buildComparison(reviews);
   const path = comparePath(reviews.map((r) => r.slug));
   const updated = reviews
     .map((r) => r.updated_at)
@@ -96,8 +97,11 @@ export function ComparePairPage({
       <JsonLd
         data={{
           '@type': 'WebPage',
+          '@id': `${siteUrl}${path}#webpage`,
           name: title,
+          description: comparison.headline,
           url: new URL(path, siteUrl).href,
+          mainEntityOfPage: new URL(path, siteUrl).href,
           inLanguage: 'en-US',
           ...(updated ? { dateModified: updated } : {}),
           isPartOf: { '@id': `${siteUrl}/#website` },

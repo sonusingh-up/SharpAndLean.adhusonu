@@ -15,12 +15,21 @@ export function RichText({ html }: { html: string }) {
   const options: HTMLReactParserOptions = {
     replace(node) {
       if (!(node instanceof Element)) return;
+      if (node.name === 'details') {
+        return (
+          <details className="article-disclosure">
+            {domToReact(node.children as DOMNode[], options)}
+          </details>
+        );
+      }
       if (node.name === 'img') {
         const src = node.attribs.src || '';
-        if (!/^https:\/\/[^/]+\.supabase\.co\//.test(src)) return <span />;
+        const local = /^\/images\/[a-zA-Z0-9/_-]+\.(png|jpg|jpeg|webp|gif|svg)$/.test(src);
+        if (!local && !/^https:\/\/[^/]+\.supabase\.co\//.test(src)) return <span />;
         return (
           <Image
             src={src}
+            unoptimized={src.endsWith('.gif')}
             alt={node.attribs.alt || ''}
             width={Number(node.attribs.width) || 1000}
             height={Number(node.attribs.height) || 650}
