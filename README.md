@@ -50,6 +50,8 @@ Keep keys out of Git and out of `NEXT_PUBLIC_` variables. Restart local developm
 
 Resend API references: [Contacts](https://resend.com/docs/api-reference/contacts/create-contact), [Segments](https://resend.com/docs/api-reference/contacts/add-contact-to-segment), [Email](https://resend.com/docs/api-reference/emails/send-email).
 
+The four published Resend dashboard templates (subscriber alert, newsletter welcome, contact confirmation, contact alert) are designed in `scripts/resend-templates.mjs`. Run `node scripts/resend-templates.mjs --check` to compare the account with the local source, or `--publish` to update those existing templates. The templates are not currently called by the website: the contact form sends a plain-text editorial email, and subscribing does not trigger a welcome or internal alert. Publishing template changes alone does not start new email flows. When integrating dynamic internal templates later, HTML-escape visitor-supplied values before inserting them into email HTML.
+
 Import this directory as a Next.js project, set the environment variables and run the SQL setup before publishing. Add sharpandlean.com in the existing Vercel project and configure the domain's DNS there. No domain or live project changes are made merely by running the local preview.
 
 ## Checks
