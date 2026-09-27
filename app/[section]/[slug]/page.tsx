@@ -569,7 +569,7 @@ export default async function DetailPage({
                   : section === 'compare'
                     ? 'Comparisons'
                     : 'Learn',
-              ...(section !== 'learn' ? { href: `/${section}` } : {}),
+              href: `/${section}`,
             },
             { label: row.title },
           ]}

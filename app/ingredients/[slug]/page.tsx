@@ -20,6 +20,20 @@ import { teamProfile } from '@/lib/author';
 
 export const revalidate = 3600;
 
+/** A prose field as paragraphs: a blank line in the source starts a new one. */
+function Paras({ text, lead }: { text: string; lead?: string }) {
+  return text
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((p, i) => (
+      <p key={i}>
+        {i === 0 && lead ? <strong>{lead} </strong> : null}
+        {p}
+      </p>
+    ));
+}
+
 export async function generateStaticParams() {
   return ingredients.map((i) => ({ slug: i.slug }));
 }
@@ -29,8 +43,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ing = getIngredient(slug);
   if (!ing) return pageMeta('Ingredient', 'Ingredient reference', `/ingredients/${slug}`);
   return pageMeta(
-    `${ing.name}: evidence, dosage and safety`,
-    ing.quickAnswer.slice(0, 155),
+    ing.seoTitle ?? `${ing.name}: evidence, dosage and safety`,
+    ing.seoDescription ?? ing.quickAnswer.slice(0, 155),
     `/ingredients/${ing.slug}`,
     undefined,
     { type: 'article', modifiedTime: ing.updated },
@@ -52,6 +66,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
     { id: 'what-is-it', title: `What is ${ing.name}?` },
     { id: 'mechanism', title: 'How it works' },
     { id: 'research', title: 'What the research shows' },
+    ...(ing.whoShouldTake ? [{ id: 'who', title: 'Who should take it' }] : []),
     { id: 'dosage', title: 'Effective dosage' },
     { id: 'safety', title: 'Safety and interactions' },
     ...(reviews.length ? [{ id: 'products', title: 'Products containing it' }] : []),
@@ -127,10 +142,10 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
 
         <div className="prose ingredient-body">
           <h2 id="what-is-it">What is {ing.name}?</h2>
-          <p>{ing.whatIsIt}</p>
+          <Paras text={ing.whatIsIt} />
 
           <h2 id="mechanism">How it works</h2>
-          <p>{ing.mechanism}</p>
+          <Paras text={ing.mechanism} />
 
           <h2 id="research">What the research actually shows</h2>
           <p>
@@ -144,7 +159,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
                 <h3>{c.claim}</h3>
                 <EvidenceBadge grade={c.grade} size="sm" />
               </div>
-              <p>{c.body}</p>
+              <Paras text={c.body} />
               {c.refs?.length ? (
                 <p className="claim-refs">
                   Sources:{' '}
@@ -163,14 +178,19 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
             </div>
           ))}
 
+          {ing.whoShouldTake ? (
+            <>
+              <h2 id="who">Who should take it</h2>
+              <Paras text={ing.whoShouldTake} />
+            </>
+          ) : null}
+
           <h2 id="dosage">Effective dosage</h2>
-          <p>{ing.dosage}</p>
-          <p>
-            <strong>Where products diverge from the research.</strong> {ing.dosageGap}
-          </p>
+          <Paras text={ing.dosage} />
+          <Paras text={ing.dosageGap} lead="Where products diverge from the research." />
 
           <h2 id="safety">Safety, side effects and interactions</h2>
-          <p>{ing.safety}</p>
+          <Paras text={ing.safety} />
           <p>
             None of this is medical advice. See the{' '}
             <Link href="/medical-disclaimer">medical disclaimer</Link> for what that means before

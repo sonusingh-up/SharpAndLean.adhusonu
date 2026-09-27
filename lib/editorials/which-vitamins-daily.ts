@@ -10,6 +10,7 @@ export const whichVitaminsDaily: Collection = {
   id: 'which-vitamins-daily',
   kind: 'articles',
   slug: 'which-vitamins-should-you-take-daily',
+  topic: 'vitamins',
   title: 'Which vitamins should you take every day?',
   seo_title: 'Which Vitamins Should You Take Daily? The Essential Few',
   seo_desc:
