@@ -52,13 +52,22 @@ export class ResendClient {
     }
   }
 
-  async subscribe(email: string, segmentId: string): Promise<void> {
+  /** Returns true only when this request newly joins the newsletter segment. */
+  async subscribe(email: string, segmentId: string): Promise<boolean> {
     const existing = await this.findContact(email);
     // A public form cannot prove ownership of an address. Never undo an opt-out.
-    if (existing?.unsubscribed) return;
+    if (existing?.unsubscribed) return false;
     if (existing) {
+      const memberships = await this.request(`/contacts/${encodeURIComponent(existing.id)}/segments`);
+      if (!Array.isArray(memberships.data)) throw new ResendError(502);
+      const alreadyJoined = memberships.data.some((row) =>
+        typeof row === 'object' && row !== null && (row as { id?: unknown }).id === segmentId,
+      );
+      if (alreadyJoined) return false;
       await this.request(`/contacts/${encodeURIComponent(existing.id)}/segments/${encodeURIComponent(segmentId)}`, 'POST');
-      return;
+      // If the response is paginated, membership might be beyond this page.
+      // Join safely, but do not risk a duplicate welcome.
+      return memberships.has_more !== true;
     }
     // Omitting unsubscribed also avoids resetting an opt-out if a contact is
     // created concurrently. Resend subscribes newly created contacts by default.
@@ -67,6 +76,37 @@ export class ResendClient {
       segments: [{ id: segmentId }],
     });
     if (typeof result.id !== 'string') throw new ResendError(502);
+    return true;
+  }
+
+  async sendWelcome(email: string, from: string): Promise<void> {
+    const payload = { from, to: [email], template: { id: 'newsletter-welcome' } };
+    const key = createHash('sha256').update(email.toLowerCase()).digest('hex');
+    const result = await this.request('/emails', 'POST', payload, `welcome/${key}`);
+    if (typeof result.id !== 'string') throw new ResendError(502);
+  }
+
+  async sendWeeklyDigest(input: {
+    name: string; from: string; segmentId: string; subject: string; html: string; text: string;
+  }): Promise<boolean> {
+    const listing = await this.request('/broadcasts?limit=100');
+    if (!Array.isArray(listing.data)) throw new ResendError(502);
+    if (listing.data.some((row) =>
+      typeof row === 'object' && row !== null &&
+      (row as { name?: unknown; segment_id?: unknown }).name === input.name &&
+      (row as { segment_id?: unknown }).segment_id === input.segmentId,
+    )) return false;
+    const result = await this.request('/broadcasts', 'POST', {
+      name: input.name,
+      from: input.from,
+      segment_id: input.segmentId,
+      subject: input.subject,
+      html: input.html,
+      text: input.text,
+      send: true,
+    });
+    if (typeof result.id !== 'string') throw new ResendError(502);
+    return true;
   }
 
   async sendContact(input: ContactMessage, from: string, to: string): Promise<void> {
@@ -74,8 +114,15 @@ export class ResendClient {
       from,
       to: [to],
       reply_to: input.email,
-      subject: `SharpAndLean enquiry: ${input.subject}`,
-      text: `Name: ${input.name}\nEmail: ${input.email}\n\n${input.message}`,
+      template: {
+        id: 'contact-notification',
+        variables: {
+          SENDER_NAME: input.name,
+          SENDER_EMAIL: input.email,
+          MESSAGE_SUBJECT: input.subject,
+          MESSAGE_BODY: input.message,
+        },
+      },
     };
     const key = createHash('sha256').update(JSON.stringify(payload)).digest('hex');
     const result = await this.request('/emails', 'POST', payload, `contact/${key}`);

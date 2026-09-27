@@ -36,7 +36,7 @@ Create your test account using the site's **Sign up** button. To grant editorial
 
 ### Resend email setup
 
-The contact form at `/contact` sends through Resend to the server-configured inbox. Newsletter sign-ups save consent in Supabase and then sync to a dedicated Resend segment. A failed sync returns an error so a retry can complete it. Existing Resend opt-outs are preserved; rejoining requires a verified request to the editorial team. Use Resend Broadcasts with the unsubscribe link to send newsletters; the admin subscriber table contains consent records, not current delivery permissions. Old database subscribers are not automatically imported or emailed.
+The contact form at `/contact` sends the branded notification through Resend to the server-configured inbox. Newsletter sign-ups save consent in Supabase and then sync to a dedicated Resend segment. Newly joined, non-unsubscribed segment members receive the published welcome template; repeat submissions and existing opt-outs do not. A failed sync returns an error so a retry can complete it. Existing Resend opt-outs are preserved; rejoining requires a verified request to the editorial team. The admin subscriber table contains consent records, not current delivery permissions. Old database subscribers are not automatically imported or emailed.
 
 Configure these server-only variables in `.env.local` and the Vercel environments that will accept submissions:
 
@@ -44,13 +44,16 @@ Configure these server-only variables in `.env.local` and the Vercel environment
 - `RESEND_FROM_EMAIL`: `SharpAndLean <website@sharpandlean.com>`; the domain must remain verified.
 - `CONTACT_TO_EMAIL`: the editorial inbox, currently `sharpnlean@gmail.com`.
 - `RESEND_NEWSLETTER_SEGMENT_ID`: `8daf016e-2ad0-4cb1-abd6-cc763b30f85e` (SharpAndLean Newsletter).
+- `CRON_SECRET`: a random server-only secret of at least 16 characters, configured in Vercel Production. Without it, the weekly digest endpoint refuses all requests.
 - `SUPABASE_SERVICE_ROLE_KEY` or `SUPABASE_SECRET_KEY`: required for durable rate limiting and consent storage, alongside the public Supabase URL/key.
 
-Keep keys out of Git and out of `NEXT_PUBLIC_` variables. Restart local development or redeploy after changing the environment. With missing configuration the forms return 503 rather than claiming delivery. After credentials are set, test one contact submission to an approved test inbox and one opt-in with an address you control, verify the email/contact in Resend, then verify that submitting an already-unsubscribed address does not re-enable it. This integration does not send automatic welcome messages or newsletters.
+Keep keys out of Git and out of `NEXT_PUBLIC_` variables. Restart local development or redeploy after changing the environment. With missing configuration the forms return 503 rather than claiming delivery. After credentials are set, test one contact submission to an approved test inbox and one opt-in with an address you control, verify the email/contact in Resend, then verify that submitting an already-unsubscribed address does not re-enable it.
+
+`vercel.json` runs `/api/cron/newsletter-digest` each Sunday at 08:00 UTC in production. The endpoint requires Vercel's `Authorization: Bearer <CRON_SECRET>` header. It selects up to six published articles, reviews and guides from the preceding seven days. If there is nothing new, it sends nothing. Otherwise it creates one Resend Broadcast for the newsletter segment, with Resend's per-recipient unsubscribe URL in both HTML and text. Before sending, it checks for the same week's broadcast name to avoid ordinary retries. Do not manually call this endpoint or trigger it in tests against the live segment; a successful invocation can email every subscribed contact. Resend is the source of truth for opt-outs. The weekly lookback does not backfill older publications after downtime.
 
 Resend API references: [Contacts](https://resend.com/docs/api-reference/contacts/create-contact), [Segments](https://resend.com/docs/api-reference/contacts/add-contact-to-segment), [Email](https://resend.com/docs/api-reference/emails/send-email).
 
-The four published Resend dashboard templates (subscriber alert, newsletter welcome, contact confirmation, contact alert) are designed in `scripts/resend-templates.mjs`. Run `node scripts/resend-templates.mjs --check` to compare the account with the local source, or `--publish` to update those existing templates. The templates are not currently called by the website: the contact form sends a plain-text editorial email, and subscribing does not trigger a welcome or internal alert. Publishing template changes alone does not start new email flows. When integrating dynamic internal templates later, HTML-escape visitor-supplied values before inserting them into email HTML.
+The four published Resend dashboard templates (subscriber alert, newsletter welcome, contact confirmation, contact alert) are designed in `scripts/resend-templates.mjs`. Run `node scripts/resend-templates.mjs --check` to compare the account with the local source, or `--publish` to update those existing templates. The website uses the contact alert and welcome templates; the subscriber alert and contact confirmation remain unused. Publishing template changes alone does not start new email flows. HTML-escape visitor-supplied values before inserting them into email HTML.
 
 Import this directory as a Next.js project, set the environment variables and run the SQL setup before publishing. Add sharpandlean.com in the existing Vercel project and configure the domain's DNS there. No domain or live project changes are made merely by running the local preview.
 
@@ -68,7 +71,7 @@ Import this directory as a Next.js project, set the environment variables and ru
 
 ## Still needed for public launch
 
-Verified review copy, ingredient research and affiliate URLs; Sumita's complete approved biography and credentials; operator contact and completed legal pages. Sumita's supplied portrait and LinkedIn URL are already included. Resend form integration requires the email environment variables above and a delivery test before launch. The form backend accepts either `SUPABASE_SERVICE_ROLE_KEY` or the Vercel integration's `SUPABASE_SECRET_KEY`. Welcome emails and newsletter campaigns are not automatically sent.
+Verified review copy, ingredient research and affiliate URLs; Sumita's complete approved biography and credentials; operator contact and completed legal pages. Sumita's supplied portrait and LinkedIn URL are already included. Resend form integration requires the email environment variables above and a delivery test before launch. The form backend accepts either `SUPABASE_SERVICE_ROLE_KEY` or the Vercel integration's `SUPABASE_SECRET_KEY`. The weekly digest requires `CRON_SECRET` in Production and a deployed `vercel.json` schedule.
 
 ## Configured
 

@@ -4,7 +4,8 @@
  * `node scripts/resend-templates.mjs --check` validates local content and
  * reports remote status without writing. `--publish` updates and publishes
  * all four existing template IDs. The credential comes only from .env.local.
- * The website does not currently invoke these templates automatically.
+ * The contact form invokes the published contact-notification template.
+ * The other templates are not currently invoked by the website.
  */
 import nextEnv from '@next/env';
 const { loadEnvConfig } = nextEnv;
@@ -19,7 +20,7 @@ const colors = {
 };
 
 function logo() {
-  return `<table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="padding-right:10px;vertical-align:middle"><table role="presentation" cellpadding="0" cellspacing="2"><tr><td width="8" height="8" bgcolor="${colors.pine}"></td><td width="8" height="8" bgcolor="${colors.teal}"></td></tr><tr><td width="8" height="8" bgcolor="${colors.peach}"></td><td width="8" height="8" bgcolor="${colors.pine}"></td></tr></table></td><td style="font-family:Arial,Helvetica,sans-serif;font-size:22px;letter-spacing:-1.2px;font-weight:700;color:${colors.pine}">Sharp<span style="color:${colors.teal}">&amp;</span>Lean</td></tr></table>`;
+  return `<table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="padding-right:12px;vertical-align:middle"><img src="${SITE}/images/logo.png" width="42" height="42" alt="SharpAndLean logo" style="display:block;width:42px;height:42px;border:0;border-radius:9px"></td><td style="font-family:Arial,Helvetica,sans-serif;font-size:22px;letter-spacing:-1.2px;font-weight:700;color:${colors.pine}">Sharp<span style="color:${colors.teal}">&amp;</span>Lean</td></tr></table>`;
 }
 
 function button(label, url) {

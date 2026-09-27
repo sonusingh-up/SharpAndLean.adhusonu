@@ -9,8 +9,9 @@ function client() {
 
 export function newsletterEmail() {
   const segment = process.env.RESEND_NEWSLETTER_SEGMENT_ID;
-  if (!segment) throw new Error('Service is not configured.');
-  return { client: client(), segment };
+  const from = process.env.RESEND_FROM_EMAIL;
+  if (!segment || !from) throw new Error('Service is not configured.');
+  return { client: client(), segment, from };
 }
 
 export function contactEmail() {
