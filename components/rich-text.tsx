@@ -6,15 +6,24 @@ import parse, {
   type HTMLReactParserOptions,
 } from 'html-react-parser';
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { articleContent } from '@/lib/content';
 import { siteUrl } from '@/lib/config';
 import { previewTarget } from '@/lib/link-rel';
 import { LinkPreview } from './notion-mention-link';
 
-export function RichText({ html }: { html: string }) {
+/**
+ * `tools` places interactive components inside an article: the body marks the
+ * spot with `<div data-tool="name"></div>` and the page supplies the component
+ * for that name. An unknown name renders nothing.
+ */
+export function RichText({ html, tools }: { html: string; tools?: Record<string, ReactNode> }) {
   const options: HTMLReactParserOptions = {
     replace(node) {
       if (!(node instanceof Element)) return;
+      if (node.name === 'div' && node.attribs['data-tool']) {
+        return <>{tools?.[node.attribs['data-tool']] ?? null}</>;
+      }
       if (node.name === 'details') {
         return (
           <details className="article-disclosure">

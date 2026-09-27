@@ -3,6 +3,8 @@ import { articles } from './articles';
 import { toReview } from './articles/to-review';
 import { getInShapeMen } from './editorials/get-in-shape-men';
 import { getInShapeWomen } from './editorials/get-in-shape-women';
+import { proteinForBeginners } from './editorials/protein-for-beginners';
+import { whichVitaminsDaily } from './editorials/which-vitamins-daily';
 
 /*
  * Product pages are assembled from lib/articles/*.ts — one file per article,
@@ -50,6 +52,8 @@ function reviewId(slug: string): string {
 const collectionDrafts: CollectionDraft[] = [
   getInShapeWomen,
   getInShapeMen,
+  proteinForBeginners,
+  whichVitaminsDaily,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,

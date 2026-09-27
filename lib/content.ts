@@ -29,6 +29,9 @@ export function cleanHtml(html: string) {
       'summary',
     ]),
     allowedAttributes: {
+      // Marks where an interactive tool renders; RichText swaps it for a
+      // component registered by name, so the value can never inject markup.
+      div: ['data-tool'],
       a: ['href', 'rel', 'target'],
       img: ['src', 'alt', 'width', 'height'],
       th: ['colspan', 'rowspan'],
