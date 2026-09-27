@@ -5,6 +5,7 @@ export const medviWeightLossReview: ProductArticle = {
   name: 'MEDVi Weight Loss',
   brand: 'MEDVi',
   category: 'fat-burners',
+  goalTags: ['weight-loss'],
   summary:
     'Medvi is a telehealth storefront for GLP-1 weight-loss drugs. The molecules are among the best-evidenced in medicine; the compounded versions it leads with are not FDA-evaluated, its tablets have no published human evidence, and its record includes an FDA warning letter addressed to the company, deepfaked ads and an F from the BBB.',
   verdict:

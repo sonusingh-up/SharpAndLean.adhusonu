@@ -5,6 +5,7 @@ export const lemmeGlp1DailyReview: ProductArticle = {
   name: 'Lemme Reset (formerly GLP-1 Daily)',
   brand: 'Lemme',
   category: 'fat-burners',
+  goalTags: ['weight-loss'],
   summary:
     'The best-dosed label in the GLP-1 supplement aisle: three branded extracts, each at the amount used in its own trial. The catch is the part in the name — the lemon extract that raised GLP-1 in its trial did not change anyone’s weight.',
   verdict:

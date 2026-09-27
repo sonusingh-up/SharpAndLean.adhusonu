@@ -197,6 +197,8 @@ export default async function Home() {
       href: path(review),
       category: CATEGORY[review.category_slug] || 'Review',
       goalTags: review.goal_tags ?? [],
+      image: review.featured_image_url || undefined,
+      score: review.score,
     }));
   const lowest = scored[scored.length - 1];
   const latest = [...all]
@@ -366,20 +368,17 @@ export default async function Home() {
 
         {/* ── Goal-based product discovery ─────────────────────── */}
         <section className={`${s.section} ${s.goalSection}`} aria-labelledby="goal-finder-title">
-          <div className={s.goalPanel}>
-            <div className={s.goalIntro}>
-              <p className={s.eyebrow}>Find coverage by goal</p>
-              <h2 className={s.h2} id="goal-finder-title">
-                Start with what you want to <em>understand.</em>
-              </h2>
-              <p>
-                Search a goal or choose one to find related product reviews and ingredient evidence.
-                Matches show what we cover—not a personalized prescription or a promised result.
-              </p>
-              <span className={s.goalTrust}>Independent reviews · evidence before claims</span>
-            </div>
-            <GoalFinder reviews={goalReviews} />
-          </div>
+          <GoalFinder reviews={goalReviews}>
+            <p className={s.eyebrow}>Find coverage by goal</p>
+            <h2 className={s.h2} id="goal-finder-title">
+              Start with what you want to <em>understand.</em>
+            </h2>
+            <p>
+              Search a goal or choose one to find related product reviews and ingredient evidence.
+              Matches show what we cover—not a personalized prescription or a promised result.
+            </p>
+            <span className={s.goalTrust}>Independent reviews · evidence before claims</span>
+          </GoalFinder>
         </section>
 
         {/* ── Top rated ────────────────────────────────────────── */}

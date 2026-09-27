@@ -5,6 +5,7 @@ export const supergutGlp1BoosterReview: ProductArticle = {
   name: 'Supergut GLP-1 Daily Support (formerly GLP-1 Booster)',
   brand: 'Supergut',
   category: 'fat-burners',
+  goalTags: ['weight-loss', 'probiotics'],
   summary:
     'A pleasant, low-FODMAP resistant-starch fibre powder with a real mechanism behind it and a published trial behind the company. The trial was of a different product, in type 2 diabetes, and measured blood sugar rather than GLP-1 — and a scoop holds 6 g of fibre where the weight-loss research used 40.',
   verdict:

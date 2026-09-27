@@ -7,6 +7,8 @@ export const natureMadeVitaminD31000Iu: ProductArticle = {
   name: 'Nature Made Vitamin D3 1000 IU',
   brand: 'Nature Made',
   category: 'wellness',
+  // No goal in lib/goals.ts covers vitamin D yet.
+  goalTags: [],
   summary:
     'One active ingredient, its strength given in both units, USP verified for potency, and about six cents a day. The best-value product we have reviewed — on a manufacturer page that still contradicts its own label by a factor of two.',
   verdict:
