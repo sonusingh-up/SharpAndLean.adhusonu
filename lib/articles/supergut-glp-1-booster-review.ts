@@ -30,9 +30,9 @@ export const supergutGlp1BoosterReview: ProductArticle = {
     // adjust. Fibre can slow absorption of some medicines if taken together.
     'Safety and tolerability': 7,
   },
-  seoTitle: 'Supergut GLP-1 Booster Review: Real Fibre, Borrowed Claim',
+  seoTitle: 'Supergut GLP-1 Booster Review: Good Fibre, Weak Claim',
   seoDescription:
-    'Supergut GLP-1 Booster, now GLP-1 Daily Support, is decent resistant-starch fibre. Its trial was a different product, and a scoop holds 6 g where studies used 40 g.',
+    'Supergut GLP-1 Booster, now GLP-1 Daily Support, is good resistant-starch fibre. Its trial tested another product; a scoop has 6 g where studies used 40 g.',
   asin: 'B0DRWLTRHB',
   listing: '20 servings, unflavored',
   image: 'https://m.media-amazon.com/images/I/71cTbhrU5tL._AC_SL1500_.jpg',

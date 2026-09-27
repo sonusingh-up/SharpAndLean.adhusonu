@@ -41,9 +41,9 @@ export const medviWeightLossReview: ProductArticle = {
     // Prescribing follows an online questionnaire, with the clinician visit after payment.
     'Safety and tolerability': 4,
   },
-  seoTitle: 'MEDVi Review 2026: GLP-1 Prices, FDA Letter and Lawsuits',
+  seoTitle: 'MEDVi Review 2026: Prices, FDA Letter, Lawsuits',
   seoDescription:
-    'Medvi sells compounded GLP-1s from $149. We checked its prices against Wegovy and Zepbound bought direct, its FDA warning letter, the lawsuits and its refund terms.',
+    'Medvi sells compounded GLP-1s from $149. We compared its prices with Wegovy and Zepbound bought direct, and checked its FDA letter, lawsuits and refund terms.',
   // Medvi's own render for its compounded injections, from the GLP-1 sign-up page.
   image: '/images/medvi-weight-loss.webp',
   alternatives: [],

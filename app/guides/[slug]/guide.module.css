@@ -1,0 +1,395 @@
+/*
+ * Guide page. Only the two pieces that are specific to guides are styled here:
+ * the hero and the Supplement Facts illustration. Everything else on the page —
+ * sidebar, body, tables, callouts, editorial note, FAQs, author cards — uses the
+ * same global classes as the site's reviews and explainers, so a guide reads as
+ * part of the site rather than as a separate design.
+ */
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 40px;
+  align-items: start;
+  margin-top: 8px;
+  padding: 52px 52px 48px;
+  border-radius: 30px;
+  background: var(--wash);
+}
+
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--pine);
+  color: var(--cream);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.kickerTime {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title {
+  margin: 18px 0 0;
+  font-size: clamp(34px, 4.4vw, 58px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.dek {
+  margin: 22px 0 0;
+  max-width: 62ch;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(28, 42, 40, 0.14);
+}
+.avatars {
+  display: inline-flex;
+  flex: none;
+}
+.avatars img {
+  border-radius: 50%;
+  border: 2px solid var(--paper);
+  background: var(--cream);
+  object-fit: cover;
+}
+.avatars img + img {
+  margin-left: -12px;
+}
+.bylineText {
+  display: grid;
+  gap: 3px;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.bylineText a {
+  color: var(--pine);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--terracotta);
+  text-underline-offset: 3px;
+}
+.bylineDates {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.heroCard {
+  padding: 26px 26px 22px;
+  border-radius: 22px;
+  background: rgba(251, 249, 245, 0.88);
+  box-shadow: 0 18px 40px -28px rgba(24, 59, 55, 0.45);
+  backdrop-filter: blur(6px);
+}
+.heroCardLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.heroCardLabel {
+  color: var(--teal);
+}
+.heroCard ol {
+  display: grid;
+  gap: 4px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.heroCard li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--cream-deep);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.heroCard li:first-child {
+  border-top: 0;
+}
+.heroCard li a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.heroCard li a:hover {
+  color: var(--teal);
+}
+.heroNum {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--terracotta);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Standard layout, two guide-specific touches ---------- */
+
+/* The checklist inside the standard summary box: numbered, in the box's own
+   small muted type, with the numbers set in the site's accent colour. */
+.checks {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: check;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.checks li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 6px;
+  counter-increment: check;
+}
+.checks li::before {
+  content: counter(check) '.';
+  font-weight: 600;
+  color: var(--teal);
+}
+
+/* Author cards, references and history share the body column. */
+.column {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+/* A .text-link draws its own bottom rule. Inside .prose every link is also
+   underlined, so the callout's link showed two lines. Keep the site's rule,
+   drop the underline, and close the gap the prose paragraph margin left. */
+.layout :global(.guide-callout) :global(.text-link) {
+  text-decoration: none;
+  margin-top: 8px;
+}
+.layout :global(.guide-callout) p {
+  margin: 0;
+}
+
+/* Matches the global .guide-table caption, which it replaces. */
+.tableCaption {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 10px;
+}
+
+/* .review-sidebar is designed to stick, but the site frame's overflow: hidden
+   makes it a scroll container and stops position: sticky from working.
+   overflow: clip clips the rounded frame the same way without that side
+   effect. Scoped to guide pages, whose sidebar is short enough to pin. */
+.layout {
+  position: relative;
+}
+:global(.site-frame):has(.layout) {
+  overflow: clip;
+}
+
+/* ---------- Annotated label ---------- */
+
+.anatomy {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin: 10px 0 34px;
+}
+.panelWrap {
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--cream);
+}
+.panel {
+  position: relative;
+  padding: 14px 16px 10px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #111;
+}
+.panelTag {
+  position: absolute;
+  top: -11px;
+  right: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--ochre);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.panelTitle {
+  margin: 0;
+  padding-bottom: 4px;
+  border-bottom: 9px solid #111;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.panelRows {
+  margin: 0;
+}
+.panelRow {
+  display: grid;
+  grid-template-columns: 1fr auto 26px;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid #111;
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+.panelRow:first-child {
+  border-top: 0;
+}
+.panelRow dt {
+  font-weight: 600;
+}
+.panelRow dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+.panelIndent {
+  padding-left: 14px;
+  border-top-style: dotted;
+}
+.panelIndent dt {
+  font-weight: 400;
+}
+.panelBlank {
+  color: #9a9a9a;
+}
+.marked {
+  background: linear-gradient(90deg, rgba(243, 181, 150, 0.35), rgba(243, 181, 150, 0.12));
+}
+.marker {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: #fff;
+  font-family: var(--font-dm), sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.panelRow .marker {
+  justify-self: end;
+}
+.anatomyKey {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 4px 0 0;
+  list-style: none;
+}
+.anatomyKey li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.anatomyKey strong {
+  display: block;
+  color: var(--ink);
+}
+.anatomy figcaption {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* The illustration sits inside the site's standard .prose body, whose paragraph,
+   definition-list and list spacing would otherwise pull the panel apart. These
+   resets are scoped to the figure and outrank the prose rules. */
+.anatomy .panel p.panelTitle {
+  margin: 0;
+}
+.anatomy .panel dl,
+.anatomy .panel dt,
+.anatomy .panel dd {
+  margin: 0;
+  padding: 0;
+}
+.anatomy ol.anatomyKey {
+  margin: 0;
+  padding: 4px 0 0;
+  list-style: none;
+}
+.anatomy ol.anatomyKey li {
+  margin: 0;
+  padding: 0;
+}
+.anatomy ol.anatomyKey li::marker {
+  content: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    max-width: 20ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 32px 22px 28px;
+    border-radius: 24px;
+  }
+  .dek {
+    font-size: 16.5px;
+  }
+  .anatomy {
+    grid-template-columns: 1fr;
+  }
+  .panelWrap {
+    padding: 14px;
+  }
+}

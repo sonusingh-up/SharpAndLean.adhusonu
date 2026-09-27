@@ -473,7 +473,7 @@ const collectionDrafts: CollectionDraft[] = [
     slug: 'glp-1-supplements-for-weight-loss',
     published_at: '2026-09-25T00:00:00Z',
     updated_at: '2026-09-25T00:00:00Z',
-    seo_title: 'Best GLP-1 Supplements 2026: 5 Ranked by the Evidence',
+    seo_title: 'Best GLP-1 Supplements 2026: 5 Ranked by Evidence',
     seo_desc:
       'Five GLP-1 supplements reviewed in full and ranked. One has weight trials on its own extract, one has honest doses, and three we would not buy to lose weight.',
     summary:
@@ -680,9 +680,9 @@ const collectionDrafts: CollectionDraft[] = [
     slug: 'natural-glp-1-alternatives',
     published_at: '2026-09-25T00:00:00Z',
     updated_at: '2026-09-25T00:00:00Z',
-    seo_title: 'Best Natural GLP-1 Alternatives (2026): Ranked by Evidence',
+    seo_title: 'Best Natural GLP-1 Alternatives, Ranked (2026)',
     seo_desc:
-      'There is no natural Ozempic, but some foods, habits and a few supplements do raise GLP-1 or curb appetite. Eight options ranked by trial evidence, from free to $4 a day.',
+      'There is no natural Ozempic, but some foods, habits and supplements do raise GLP-1 or curb appetite. Eight options ranked by trial evidence, free to $4 a day.',
     summary:
       'There is no natural Ozempic. But some foods, eating habits and a few supplements measurably raise your own GLP-1 or make you eat less — and the best of them cost nothing. Eight options, ranked by what the trials show, with the numbers kept honest.',
     verdict:
