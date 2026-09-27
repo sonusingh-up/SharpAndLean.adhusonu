@@ -16,6 +16,8 @@ import type { HistoryEntry } from '@/components/article-footer';
 export type ProductArticle = {
   /** URL segment. Must be unique across all articles. */
   slug: string;
+  /** Explicit editorial goal tags; never inferred from marketing copy. */
+  goalTags?: string[];
   name: string;
   category: Category;
   summary: string;

@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const kineticaWheyProtein: ProductArticle = {
   slug: 'kinetica-whey-protein-review',
+  goalTags: ['weight-gain'],
   name: 'Kinetica Whey Protein',
   brand: 'Kinetica',
   category: 'wellness',

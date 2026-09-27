@@ -3,8 +3,12 @@ import { withSentryConfig } from '@sentry/nextjs/config';
 
 const config: NextConfig = {
   images: {
+    qualities: [75, 90],
     remotePatterns: [
       { protocol: 'https', hostname: 'www.nowfoods.com', pathname: '/sites/default/files/**' },
+      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/photo-1633354129320-163fb10dd288' },
+      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/photo-1745329532589-4f33352c4b10' },
+      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/photo-1731341400836-baaa5535b8d5' },
       { protocol: 'https', hostname: '*.supabase.co' },
       // Amazon product media. Note that the Associates Operating Agreement
       // expects product imagery to come through the Product Advertising API

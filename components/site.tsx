@@ -99,6 +99,30 @@ export function Footer() {
             <Link href="/privacy-policy">Privacy policy</Link>
             <Link href="/terms">Terms of use</Link>
           </div>
+          <div>
+            <div className="footer-social-row">
+              <div className="footer-social-copy">
+                <span>FOLLOW ALONG</span>
+                <strong>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle className="footer-social-dot" cx="17.75" cy="6.5" r="1" />
+                  </svg>
+                  @sharpandlean
+                </strong>
+              </div>
+              <a
+                className="footer-social-follow"
+                href="https://www.instagram.com/sharpandlean/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow SharpAndLean on Instagram (opens in a new tab)"
+              >
+                Follow <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div className="footer-bottom">

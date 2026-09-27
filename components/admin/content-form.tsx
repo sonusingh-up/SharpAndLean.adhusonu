@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { Plus, Trash2, ArrowUp, ArrowDown } from 'lucide-react';
 import { Editor } from './editor';
 import { saveContent } from '@/app/admin/actions';
+import { goalProfiles } from '@/lib/goals';
 const slugify = (value: string) =>
   value
     .toLowerCase()
@@ -57,6 +58,7 @@ export function ContentForm({
     is_published: false,
     who_for: '',
     who_avoid: '',
+    goal_tags: [],
     score_breakdown: {},
     ...initial,
   });
@@ -195,6 +197,24 @@ export function ContentForm({
             <>
               <section className="admin-panel">
                 <h2>Product details</h2>
+                <fieldset className="field">
+                  <legend>Goal finder tags</legend>
+                  <p className="muted">Select only goals this review is editorially relevant to. This controls where it appears in the homepage finder.</p>
+                  {goalProfiles.map((goal) => {
+                    const selected = (record.goal_tags as string[]).includes(goal.id);
+                    return (
+                      <label className="publish-toggle" key={goal.id}>
+                        <input
+                          type="checkbox"
+                          checked={selected}
+                          onChange={(event) => update('goal_tags', event.target.checked
+                            ? [...(record.goal_tags as string[]), goal.id]
+                            : (record.goal_tags as string[]).filter((id) => id !== goal.id))}
+                        />{' '}{goal.label}
+                      </label>
+                    );
+                  })}
+                </fieldset>
                 {input('product_name', 'Product name')}
                 <div className="field-row">
                   {input('verdict', 'Verdict')}

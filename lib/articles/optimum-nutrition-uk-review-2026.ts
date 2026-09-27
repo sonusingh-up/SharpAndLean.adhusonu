@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const optimumNutritionUkReview2026: ProductArticle = {
   slug: 'optimum-nutrition-uk-review-2026',
+  goalTags: ['weight-gain'],
   name: 'Optimum Nutrition Gold Standard 100% Whey',
   brand: 'Optimum Nutrition',
   category: 'wellness',

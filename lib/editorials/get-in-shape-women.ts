@@ -19,10 +19,10 @@ export const getInShapeWomen: Collection = {
   published_at: '2026-09-25T00:00:00Z',
   updated_at: '2026-09-25T00:00:00Z',
   figure: {
-    src: '/images/fitness/first-eight-weeks.png',
-    alt: 'Eight-week beginner fitness framework: learn movements, repeat the routine, then gradually increase the challenge.',
+    src: 'https://images.unsplash.com/photo-1633354129320-163fb10dd288?auto=format&fit=crop&w=3840&h=2160&q=85',
+    alt: 'Woman performing a dumbbell squat in a gym.',
     caption:
-      'A suggested progression, not a promise of a particular body shape or result by week eight.',
+      'Photo by Benjamin Klaver on Unsplash, used under the Unsplash License. The pictured variation is illustrative; choose an exercise level that suits your experience.',
   },
   takeaways: [
     'Start with two full-body strength sessions each week and build aerobic activity gradually.',

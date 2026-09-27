@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const myproteinImpactWhey: ProductArticle = {
   slug: 'myprotein-impact-whey-review',
+  goalTags: ['weight-gain'],
   name: 'Myprotein Impact Whey Protein',
   brand: 'Myprotein',
   category: 'wellness',

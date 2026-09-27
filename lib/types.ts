@@ -44,6 +44,8 @@ export type Review = {
   is_sample?: boolean;
   /** Defined in code rather than stored in the database. */
   is_editorial?: boolean;
+  /** Explicit editorial intent tags used by the homepage goal finder. */
+  goal_tags?: string[];
   /** Records what a manufacturer published; explicitly not a review. */
   is_label_overview?: boolean;
   /** Desk byline: the team, or the clinician writing in her own name. */

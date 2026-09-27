@@ -38,6 +38,7 @@ export function toReview(a: ProductArticle, index: number): Review {
     product_name: a.name,
     title: a.name,
     slug: a.slug,
+    goal_tags: a.goalTags ?? [],
     category_slug: a.category,
     // Derived from the breakdown so the printed number always adds up.
     score: a.score ?? (a.scoreBreakdown ? overallScore(a.scoreBreakdown) : null),

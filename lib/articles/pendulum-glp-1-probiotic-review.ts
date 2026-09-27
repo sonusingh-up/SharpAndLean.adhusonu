@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const pendulumGlp1ProbioticReview: ProductArticle = {
   slug: 'pendulum-glp-1-probiotic-review',
+  goalTags: ['weight-loss', 'probiotics'],
   name: 'Pendulum GLP-1 Probiotic',
   brand: 'Pendulum',
   category: 'fat-burners',
