@@ -3,6 +3,7 @@ import { contentFromSupabase, hasSupabase } from './config';
 import type { Review, Collection } from './types';
 import { publicClient } from './supabase/server';
 import { amazonLink, hasAmazonTag } from './amazon';
+import { isUuid } from './ids';
 export async function getReviews(): Promise<Review[]> {
   // With no partner tag configured the affiliate slot stays empty rather than
   // showing an untagged commercial link.
@@ -75,7 +76,9 @@ export async function getAuthor() {
   return data;
 }
 export async function getCommunity(id: string) {
-  if (!hasSupabase) return [];
+  // File-backed reviews use IDs such as `editorial-product-2`. Supabase's
+  // community_reviews.review_id is a UUID, so don't send those IDs to Postgres.
+  if (!hasSupabase || !isUuid(id)) return [];
   const { data } = await publicClient()
     .from('community_reviews')
     .select('id,reviewer_name,rating,review_text,created_at')
