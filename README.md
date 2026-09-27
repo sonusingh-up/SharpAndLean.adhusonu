@@ -34,6 +34,22 @@ Create your test account using the site's **Sign up** button. To grant editorial
 
 ## Vercel
 
+### Resend email setup
+
+The contact form at `/contact` sends through Resend to the server-configured inbox. Newsletter sign-ups save consent in Supabase and then sync to a dedicated Resend segment. A failed sync returns an error so a retry can complete it. Existing Resend opt-outs are preserved; rejoining requires a verified request to the editorial team. Use Resend Broadcasts with the unsubscribe link to send newsletters; the admin subscriber table contains consent records, not current delivery permissions. Old database subscribers are not automatically imported or emailed.
+
+Configure these server-only variables in `.env.local` and the Vercel environments that will accept submissions:
+
+- `RESEND_API_KEY`: a Resend Full access key (Sending access cannot manage contacts).
+- `RESEND_FROM_EMAIL`: `SharpAndLean <website@sharpandlean.com>`; the domain must remain verified.
+- `CONTACT_TO_EMAIL`: the editorial inbox, currently `sharpnlean@gmail.com`.
+- `RESEND_NEWSLETTER_SEGMENT_ID`: `8daf016e-2ad0-4cb1-abd6-cc763b30f85e` (SharpAndLean Newsletter).
+- `SUPABASE_SERVICE_ROLE_KEY` or `SUPABASE_SECRET_KEY`: required for durable rate limiting and consent storage, alongside the public Supabase URL/key.
+
+Keep keys out of Git and out of `NEXT_PUBLIC_` variables. Restart local development or redeploy after changing the environment. With missing configuration the forms return 503 rather than claiming delivery. After credentials are set, test one contact submission to an approved test inbox and one opt-in with an address you control, verify the email/contact in Resend, then verify that submitting an already-unsubscribed address does not re-enable it. This integration does not send automatic welcome messages or newsletters.
+
+Resend API references: [Contacts](https://resend.com/docs/api-reference/contacts/create-contact), [Segments](https://resend.com/docs/api-reference/contacts/add-contact-to-segment), [Email](https://resend.com/docs/api-reference/emails/send-email).
+
 Import this directory as a Next.js project, set the environment variables and run the SQL setup before publishing. Add sharpandlean.com in the existing Vercel project and configure the domain's DNS there. No domain or live project changes are made merely by running the local preview.
 
 ## Checks
@@ -50,7 +66,7 @@ Import this directory as a Next.js project, set the environment variables and ru
 
 ## Still needed for public launch
 
-Verified review copy, ingredient research and affiliate URLs; Sumita's complete approved biography and credentials; operator contact and completed legal pages. Sumita's supplied portrait and LinkedIn URL are already included. Email delivery and the post-launch automation hooks are not connected. `SUPABASE_SERVICE_ROLE_KEY` is unset in Vercel, so `lib/public-api.ts` cannot run; the Supabase integration supplies that same secret under the name `SUPABASE_SECRET_KEY`.
+Verified review copy, ingredient research and affiliate URLs; Sumita's complete approved biography and credentials; operator contact and completed legal pages. Sumita's supplied portrait and LinkedIn URL are already included. Resend form integration requires the email environment variables above and a delivery test before launch. The form backend accepts either `SUPABASE_SERVICE_ROLE_KEY` or the Vercel integration's `SUPABASE_SECRET_KEY`. Welcome emails and newsletter campaigns are not automatically sent.
 
 ## Configured
 

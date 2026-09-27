@@ -6,6 +6,7 @@ import { SiteShell, Breadcrumb, Empty, SectionLabel } from '@/components/site';
 import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
 import { Newsletter } from '@/components/newsletter';
+import { ContactForm } from '@/components/contact-form';
 import { pageMeta, JsonLd, BreadcrumbSchema, WebPageSchema } from '@/components/seo';
 import { categories } from '@/lib/sample';
 import { getReviews, getCollections, getCategoryData } from '@/lib/data';
@@ -449,6 +450,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               >
                 Find Sumita on LinkedIn <ArrowUpRight size={16} />
               </a>
+              <ContactForm />
             </div>
             <div>
               <h2>Before you write</h2>

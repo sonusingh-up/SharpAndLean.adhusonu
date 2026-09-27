@@ -43,6 +43,41 @@
 
 /* ---------- Base ---------- */
 
+.contact-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.contact-form > label:not(.consent) {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.contact-form > input:not(.honeypot),
+.contact-form > textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+}
+.contact-form > textarea { resize: vertical; }
+.contact-form > input:focus-visible,
+.contact-form > textarea:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+.contact-form .consent { align-items: flex-start; }
+.contact-form .consent a { text-decoration: underline; }
+.contact-form .button { justify-self: start; margin-top: 8px; }
+.contact-form .button:disabled { opacity: .6; cursor: wait; }
+.contact-form .form-message:empty { display: none; }
+
 body {
   /* Defined here, not on :root: next/font puts --font-serif on <body>, and a
      custom property that references an undefined variable is invalid, which

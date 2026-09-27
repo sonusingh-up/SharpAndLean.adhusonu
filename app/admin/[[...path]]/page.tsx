@@ -144,6 +144,7 @@ export default async function AdminPage({ params }: { params: Promise<{ path?: s
           <div>
             <h1>Subscribers</h1>
             <p>Newsletter sign-ups and consent records. Latest 1,000 entries.</p>
+            <p>Send newsletters from Resend’s SharpAndLean Newsletter segment. Resend holds current unsubscribe preferences; these consent records are not a mailing list.</p>
           </div>
         </header>
         <div className="admin-panel table-scroll">
