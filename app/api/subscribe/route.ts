@@ -14,7 +14,8 @@ export async function POST(request: Request) {
       );
     if (error) throw error;
     // Always retry the Resend sync, even when consent was previously saved.
-    await email.client.subscribe(input.email, email.segment);
+    const joined = await email.client.subscribe(input.email, email.segment);
+    if (joined) await email.client.sendWelcome(input.email, email.from);
     return Response.json({ message: 'Thank you. Your request has been processed. If you previously unsubscribed, contact us to rejoin.' });
   } catch (error) {
     return apiFailure(error);
