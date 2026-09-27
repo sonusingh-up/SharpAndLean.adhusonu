@@ -9,6 +9,7 @@ export const proteinForBeginners: Collection = {
   id: 'protein-for-beginners',
   kind: 'articles',
   slug: 'how-much-protein-should-a-beginner-eat',
+  topic: 'fitness',
   title: 'How much protein should a beginner eat in a day?',
   seo_title: 'How Much Protein Should a Beginner Eat a Day? (Calculator)',
   seo_desc:

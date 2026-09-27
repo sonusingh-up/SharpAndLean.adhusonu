@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Script from 'next/script';
 import { ArrowUpRight, Plus, ArrowRight } from 'lucide-react';
 import { AuthControls, AuthMenuControls } from '@/components/auth-controls';
 import { SiteSearch } from '@/components/site-search';
 import { OrganizationSchema, WebSiteSchema } from '@/components/seo';
 import { CompareTray } from '@/components/compare-tray';
+import notes from './footer-notes.module.css';
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="SharpAndLean home">
@@ -26,6 +28,7 @@ export function Header({ hero = false }: { hero?: boolean }) {
         <Link href="/fat-burners">Fat Burners</Link>
         <Link href="/nootropics">Nootropics</Link>
         <Link href="/wellness">Wellness</Link>
+        <Link href="/learn">Learn</Link>
       </nav>
       <div className="nav-right">
         <AuthControls />
@@ -42,6 +45,7 @@ export function Header({ hero = false }: { hero?: boolean }) {
             <Link href="/fat-burners">Fat Burners</Link>
             <Link href="/nootropics">Nootropics</Link>
             <Link href="/wellness">Wellness</Link>
+            <Link href="/learn">Learn</Link>
             <Link href="/ingredients">Ingredients</Link>
             <Link href="/guides">Guides</Link>
             <Link href="/best">Best-of lists</Link>
@@ -80,6 +84,7 @@ export function Footer() {
         <div className="footer-links">
           <div>
             <span>EXPLORE</span>
+            <Link href="/learn">Learn</Link>
             <Link href="/ingredients">Ingredients</Link>
             <Link href="/guides">Guides</Link>
             <Link href="/fat-burners">Fat Burners</Link>
@@ -123,6 +128,68 @@ export function Footer() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div className={notes.band}>
+        <div>
+          <span className={notes.label}>Our brand</span>
+          <a
+            className={notes.brand}
+            href="https://www.nakedcompound.in/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Naked Compound, our sister publication for India (opens in a new tab)"
+          >
+            <span className={notes.lockup}>
+              <Image
+                className={notes.mark}
+                src="/images/naked-compound-mark.png"
+                alt=""
+                width={44}
+                height={44}
+              />
+              <span className={notes.wordmark}>
+                <strong>
+                  Naked<span aria-hidden="true">·</span>Compound
+                </strong>
+                <small>Strip the label. See the science.</small>
+              </span>
+            </span>
+            <span className={notes.brandText}>
+              Our sister publication for India: independent supplement research, ingredient
+              explainers and product scores.
+            </span>
+            <span className={notes.brandCta}>
+              Visit nakedcompound.in <ArrowUpRight size={13} aria-hidden="true" />
+            </span>
+          </a>
+        </div>
+        <div className={notes.notice}>
+          <span className={notes.label}>Medical disclaimer</span>
+          <p>
+            SharpAndLean explains supplement evidence for general education. It is not medical
+            advice, and it does not replace a doctor, pharmacist or dietitian who knows your health.
+          </p>
+          <p>
+            Speak to one before starting a supplement, especially if you are pregnant, take
+            medicines or have a health condition. Supplements are not approved by the FDA for safety
+            or effectiveness before they are sold.
+          </p>
+          <Link href="/medical-disclaimer">
+            Read the medical disclaimer <ArrowUpRight size={12} aria-hidden="true" />
+          </Link>
+        </div>
+        <div className={notes.notice}>
+          <span className={notes.label}>Affiliate disclosure</span>
+          <p>
+            Some links on this site are affiliate links. If you buy through one, we may earn a
+            commission at no extra cost to you. Commission never buys a review, a score or a place
+            on a list.
+          </p>
+          <p>As an Amazon Associate, SharpAndLean earns from qualifying purchases.</p>
+          <Link href="/affiliate-disclosure">
+            Read the affiliate disclosure <ArrowUpRight size={12} aria-hidden="true" />
+          </Link>
         </div>
       </div>
       <div className="footer-bottom">

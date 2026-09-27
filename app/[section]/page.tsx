@@ -15,6 +15,8 @@ import { authors } from '@/lib/author';
 import { allComparePairs, productName } from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
 import { CompareToggle } from '@/components/compare-tray';
+import { LearnHub } from '@/components/learn-hub';
+import { guides } from '@/lib/guides';
 export const revalidate = 3600;
 // Plain-text titles get the same treatment as the hand-written headings: the
 // last word set in the italic serif.
@@ -34,6 +36,7 @@ export async function generateStaticParams() {
     ...[
       'best',
       'compare',
+      'learn',
       'about',
       'contact',
       'affiliate-disclosure',
@@ -52,6 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
   const seoTitles: Record<string, string> = {
     best: 'Supplement Shortlists: How to Build One',
     compare: 'Compare Supplements Without Mixing Up Doses',
+    learn: 'Learn: Protein, Vitamins and GLP-1 Explained',
     contact: 'Contact the Editorial Desk',
     about: 'How We Read a Supplement Label',
   };
@@ -59,6 +63,8 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
     best: 'How to narrow a supplement category yourself: define the job, match disclosed doses to the research, then compare the real cost of a labelled serving.',
     compare:
       'Two products are only comparable once servings, strengths and forms line up. These guides do that arithmetic before drawing any conclusion.',
+    learn:
+      'Plain, sourced answers on protein, vitamins, training and GLP-1, with a protein calculator and a vitamin checker to work out your own numbers.',
     contact:
       'Corrections, product suggestions, press questions and privacy requests. Send the page address and what differs, and we will check it against the source.',
     about:
@@ -177,6 +183,60 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
             },
           }}
         />
+      </SiteShell>
+    );
+  }
+  if (section === 'learn') {
+    const articles = (await getCollections('articles')).filter((a) => a.is_published);
+    return (
+      <SiteShell>
+        <div className="page-section">
+          <JsonLd
+            data={{
+              '@type': 'CollectionPage',
+              name: 'Learn',
+              description:
+                'Plain, sourced answers on protein, vitamins, training and GLP-1, with tools to work out your own numbers.',
+              url: `${siteUrl}/learn`,
+              inLanguage: 'en-US',
+              isPartOf: { '@id': `${siteUrl}/#website` },
+              publisher: { '@id': `${siteUrl}/#organization` },
+              mainEntity: {
+                '@type': 'ItemList',
+                numberOfItems: articles.length,
+                itemListElement: articles.map((a, i) => ({
+                  '@type': 'ListItem',
+                  position: i + 1,
+                  name: a.title,
+                  url: `${siteUrl}/learn/${a.slug}`,
+                })),
+              },
+            }}
+          />
+          <BreadcrumbSchema items={[{ label: 'Learn', path: '/learn' }]} />
+          <Breadcrumb items={[{ label: 'Learn' }]} />
+          <header className="page-top">
+            <SectionLabel>Learn</SectionLabel>
+            <h1 className="page-title">
+              Learn.
+              <br />
+              <span className="muted">Plain answers, with the evidence.</span>
+            </h1>
+            <p className="page-intro">
+              The questions people ask before they buy anything — how much protein, which vitamins,
+              what GLP-1 actually does — answered from the research, with every figure linked to its
+              source.
+            </p>
+          </header>
+          {articles.length ? (
+            <LearnHub articles={articles} guides={guides} />
+          ) : (
+            <Empty
+              title="The first articles are on their way."
+              description="Each one is checked against its sources before it goes live."
+            />
+          )}
+        </div>
       </SiteShell>
     );
   }

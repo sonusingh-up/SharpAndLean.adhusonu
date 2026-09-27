@@ -4,6 +4,7 @@ export const getInShapeMen: Collection = {
   id: 'get-in-shape-men',
   kind: 'articles',
   slug: 'how-to-get-in-shape-fast-men',
+  topic: 'fitness',
   title: 'How to Get in Shape Fast for Men: Your First 8 Weeks',
   seo_title: 'How to Get in Shape Fast for Men: 8-Week Plan',
   seo_desc:

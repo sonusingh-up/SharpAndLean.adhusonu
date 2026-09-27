@@ -4,6 +4,7 @@ export const getInShapeWomen: Collection = {
   id: 'get-in-shape-women',
   kind: 'articles',
   slug: 'how-to-get-in-shape-fast-women',
+  topic: 'fitness',
   title: 'How to Get in Shape Fast for Women: Stronger in 8 Weeks',
   seo_title: 'How to Get in Shape Fast for Women: 8-Week Plan',
   seo_desc:

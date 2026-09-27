@@ -94,6 +94,12 @@ export type Collection = {
    * comparison pages normally lead with their table instead.
    */
   takeaways?: string[];
+  /**
+   * The section of the /learn hub a /learn article is listed under. Articles
+   * without one are listed under "More reading", so a new article is never
+   * left off the hub.
+   */
+  topic?: 'fitness' | 'vitamins' | 'weight-loss';
   category_id?: string;
   is_published: boolean;
   seo_title: string;
