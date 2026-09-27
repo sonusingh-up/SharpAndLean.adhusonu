@@ -34,9 +34,9 @@ export const pendulumGlp1ProbioticReview: ProductArticle = {
     // probiotics in serious gut disease apply.
     'Safety and tolerability': 6,
   },
-  seoTitle: 'Pendulum GLP-1 Probiotic Review: Preclinical, by Its Own Label',
+  seoTitle: 'Pendulum GLP-1 Probiotic Review: Preclinical Claims',
   seoDescription:
-    'Pendulum GLP-1 Probiotic footnotes its GLP-1 claims as preclinical and “not intended for weight loss”. What the strains, the dose and a $2–$3 daily price add up to.',
+    'Pendulum GLP-1 Probiotic footnotes its GLP-1 claims as preclinical and not for weight loss. What its strains, dose and $2–$3 a day actually add up to.',
   asin: 'B0CY3VZDYP',
   listing: '30 capsules, one-month supply',
   image: 'https://m.media-amazon.com/images/I/61X-PbaZxpL._AC_SL1500_.jpg',

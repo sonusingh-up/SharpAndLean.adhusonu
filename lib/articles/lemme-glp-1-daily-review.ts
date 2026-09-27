@@ -34,9 +34,9 @@ export const lemmeGlp1DailyReview: ProductArticle = {
     // brand itself advises asking a practitioner in pregnancy.
     'Safety and tolerability': 7,
   },
-  seoTitle: 'Lemme GLP-1 Daily (Reset) Review: Right Doses, Wrong Claim',
+  seoTitle: 'Lemme GLP-1 Daily Review: Right Doses, Wrong Claim',
   seoDescription:
-    'Lemme GLP-1 Daily, now Lemme Reset, puts three extracts at their studied doses. But its GLP-1 ingredient did not change weight in its own trial. Two lawsuits, $80 a bottle.',
+    'Lemme GLP-1 Daily, now Lemme Reset, doses three extracts as studied, but its GLP-1 ingredient did not change weight in its trial. Two lawsuits; $80 a bottle.',
   listing: '60 capsules, 30 servings',
   image: '/images/lemme-reset.webp',
   alternatives: ['calocurb-review', 'supergut-glp-1-booster-review', 'pendulum-glp-1-probiotic-review'],

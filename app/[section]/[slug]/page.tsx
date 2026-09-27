@@ -13,7 +13,16 @@ import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
 import { authorProfile, teamProfile } from '@/lib/author';
-import { BreadcrumbSchema, JsonLd, pageMeta, ExtendedAccess } from '@/components/seo';
+import {
+  BreadcrumbSchema,
+  JsonLd,
+  pageMeta,
+  ExtendedAccess,
+  FaqSchema,
+  WebPageSchema,
+  absoluteUrl,
+  defaultOgImage,
+} from '@/components/seo';
 import { demoMode, siteUrl } from '@/lib/config';
 import type { Collection, Review } from '@/lib/types';
 import { ComparisonReport } from '@/components/comparison';
@@ -96,12 +105,19 @@ export async function generateMetadata({
     );
     return metadata;
   }
+  // Reviews and editorial pages are articles to link previews and to crawlers
+  // reading Open Graph, with the same dates the page and its JSON-LD show.
   return row
     ? pageMeta(
         row.seo_title || row.title,
         row.seo_desc || row.summary,
         `/${section}/${slug}`,
         'og_image_url' in row ? row.og_image_url : 'figure' in row ? row.figure?.src : undefined,
+        {
+          type: 'article',
+          publishedTime: row.published_at ?? undefined,
+          modifiedTime: row.updated_at ?? undefined,
+        },
       )
     : { title: 'Page not found' };
 }
@@ -512,15 +528,28 @@ export default async function DetailPage({
           .sort((a, b) => a.rank - b.rank)
           .map((i) => all.find((r) => r.id === i.review_id))
           .filter((r): r is Review => !!r);
+  // One article entity across both JSON-LD blocks: the NewsArticle node Extended
+  // Access needs and the Article node below share an @id, a headline, an author
+  // and an image, so search engines merge them rather than see two articles.
+  const pagePath = `/${section}/${row.slug}`;
+  const pageUrl = new URL(pagePath, siteUrl).href;
+  const articleId = `${pageUrl}#article`;
+  const articleHeadline = row.seo_title || row.title;
+  const articleImage = row.figure?.src ?? defaultOgImage;
+  const articleAuthors = row.authors ?? [
+    { name: teamProfile.name, slug: teamProfile.slug, type: 'Organization' as const },
+  ];
+  const evidenceReviewed = section === 'learn' && row.evidenceReviewed !== false;
   return (
     <SiteShell>
       <ExtendedAccess
-        headline={row.seo_title || row.title}
-        path={`/${section}/${row.slug}`}
+        id={articleId}
+        headline={articleHeadline}
+        path={pagePath}
         datePublished={row.published_at}
         dateModified={row.updated_at}
-        image={row.figure?.src}
-        author={row.authors ?? { name: teamProfile.name, slug: teamProfile.slug }}
+        image={articleImage}
+        author={articleAuthors}
       />
       <article className="page-section">
         <Breadcrumb
@@ -794,37 +823,45 @@ export default async function DetailPage({
         )}
       </article>
       {!demoMode && (
+        <>
+          {/* reviewedBy and lastReviewed are WebPage properties in schema.org;
+              on the Article they were flagged as unknown. */}
+          <WebPageSchema
+            name={articleHeadline}
+            description={row.seo_desc || row.summary}
+            path={pagePath}
+            datePublished={row.published_at}
+            dateModified={row.updated_at}
+            reviewedBy={
+              evidenceReviewed
+                ? { slug: authorProfile.slug, name: authorProfile.name, title: authorProfile.title }
+                : null
+            }
+            lastReviewed={evidenceReviewed ? row.updated_at : null}
+            mainEntity={articleId}
+            image={articleImage}
+          />
+          {row.faqs?.length ? <FaqSchema faqs={row.faqs} /> : null}
+        </>
+      )}
+      {!demoMode && (
         <JsonLd
           data={{
             '@type': 'Article',
-            headline: row.title,
+            '@id': articleId,
+            headline: articleHeadline,
             description: row.summary,
-            url: new URL(`/${section}/${row.slug}`, siteUrl).href,
+            url: pageUrl,
+            mainEntityOfPage: pageUrl,
+            image: absoluteUrl(articleImage),
             inLanguage: 'en-US',
             datePublished: row.published_at,
             dateModified: row.updated_at,
-            author: row.authors
-              ? row.authors.map((writer) => ({
-                  '@type': writer.type,
-                  name: writer.name,
-                  url: new URL(`/author/${writer.slug}`, siteUrl).href,
-                }))
-              : {
-                  '@type': 'Organization',
-                  name: 'SharpAndLean',
-                  '@id': `${siteUrl}/#organization`,
-                },
-            ...(section === 'learn' && row.evidenceReviewed !== false
-              ? {
-                  reviewedBy: {
-                    '@type': 'Person',
-                    '@id': `${siteUrl}/author/${authorProfile.slug}#person`,
-                    name: authorProfile.name,
-                    jobTitle: authorProfile.title,
-                    url: `${siteUrl}/author/${authorProfile.slug}`,
-                  },
-                }
-              : {}),
+            author: articleAuthors.map((writer) => ({
+              '@type': writer.type,
+              name: writer.name,
+              url: new URL(`/author/${writer.slug}`, siteUrl).href,
+            })),
             ...(row.references?.length
               ? { citation: row.references.filter((c) => c.url).map((c) => c.url) }
               : {}),

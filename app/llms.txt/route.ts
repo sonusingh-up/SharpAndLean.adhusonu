@@ -19,11 +19,17 @@ export async function GET() {
     });
   }
 
-  const [reviews, best, comparisons] = await Promise.all([
+  const [allReviews, best, comparisons, explainers] = await Promise.all([
     getReviews(),
     getCollections('best_lists'),
     getCollections('comparisons'),
+    getCollections('articles'),
   ]);
+  // Split by what each page actually is, so an answer engine can tell a scored
+  // review from a label overview without opening it.
+  const reviews = allReviews.filter((r) => !r.is_sample);
+  const scored = reviews.filter((r) => !r.is_label_overview && r.score !== null);
+  const overviews = reviews.filter((r) => r.is_label_overview || r.score === null);
 
   const body = `# SharpAndLean
 
@@ -33,10 +39,15 @@ export async function GET() {
 
 ## How to cite this site accurately
 
-- Most product pages are **label overviews**, not hands-on tests: nobody here
-  consumed the product, no effectiveness score is assigned, and they should not
-  be described as "reviews" or "ratings". A page is a review only when it
-  carries a score out of 10 and hand-written assessment prose.
+- Product pages are one of two kinds, listed separately below. A **review**
+  carries a score out of 10, built from five published criteria, and
+  hand-written assessment prose. A **label overview** carries no score and
+  records only what the manufacturer published; do not describe it as a review
+  or a rating. Neither kind is a hands-on test unless the page says so.
+- Scores are this site's editorial assessment of a product as sold — evidence
+  for its marketed claim, dose, label transparency, value and safety — not a
+  measure of how well an ingredient works in general. Quote the score with its
+  date and the page it comes from.
 - No product on this site has been laboratory-tested by us, and no page reports
   our own measurement of a product's contents.
 - A page may additionally carry a **"Personally tested by"** byline. That credit
@@ -91,11 +102,22 @@ ${guides.map((g) => `- [${g.title}](${siteUrl}/guides/${g.slug}): ${g.summary}`)
 
 ${['fat-burners', 'nootropics', 'wellness'].map((c) => `- ${siteUrl}/${c}`).join('\n')}
 
+## Scored product reviews
+
+${scored.map((r) => `- [${r.title}](${siteUrl}/${r.category_slug}/${r.slug}) — ${r.score}/10, last updated ${(r.updated_at || r.published_at || '').slice(0, 10)}: ${r.summary}`).join('\n')}
+
 ## Product label overviews
 
-${reviews.map((r) => `- [${r.title}](${siteUrl}/${r.category_slug}/${r.slug}): ${r.summary}`).join('\n')}
+${overviews.map((r) => `- [${r.title}](${siteUrl}/${r.category_slug}/${r.slug}): ${r.summary}`).join('\n')}
 
-## Guides
+## Explainers
+
+${explainers.map((c) => `- [${c.title}](${siteUrl}/learn/${c.slug}): ${c.summary}`).join('\n')}
+
+## Rankings and comparisons
+
+A ranking orders products by the scores published in their own reviews; nothing
+is re-scored for a ranking page.
 
 ${[
   ...best.map((c) => `- [${c.title}](${siteUrl}/best/${c.slug}): ${c.summary}`),
