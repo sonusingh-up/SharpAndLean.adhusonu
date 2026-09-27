@@ -9,6 +9,8 @@ import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
 import { ReviewPage, AffiliateButton } from '@/components/review-page';
 import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
+import { ProteinCalculator } from '@/components/protein-calculator';
+import { VitaminChecker } from '@/components/vitamin-checker';
 import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
@@ -36,6 +38,12 @@ import {
 } from '@/lib/compare';
 import { canonicalCompareSlug } from '@/lib/compare-path';
 export const revalidate = 3600;
+/** Interactive tools an article body can place with `<div data-tool="name"></div>`. */
+const articleTools = {
+  'protein-calculator': <ProteinCalculator />,
+  'vitamin-checker': <VitaminChecker />,
+};
+
 export async function generateStaticParams() {
   const [reviews, best, compare, articles] = await Promise.all([
     getReviews(),
@@ -699,7 +707,7 @@ export default async function DetailPage({
             </aside>
           )}
           <div className="collection-body">
-            <RichText html={row.body} />
+            <RichText html={row.body} tools={articleTools} />
             {section === 'learn' && (picks.length > 0 || row.recommendations?.length) && (
               <div className="section-heading" id="recommended">
                 <div>
