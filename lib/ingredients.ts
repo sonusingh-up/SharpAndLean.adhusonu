@@ -1,5 +1,6 @@
 import type { FAQ } from './types';
 import type { HistoryEntry } from '@/components/article-footer';
+import { vitaminD, folicAcid, vitaminB12 } from './ingredient-pages/vitamins';
 
 /**
  * Transparent A–F evidence grading.
@@ -71,6 +72,10 @@ export type StudiedDose = {
 export type IngredientPage = {
   slug: string;
   name: string;
+  /** Search title, when "<name>: evidence, dosage and safety" is not the best one. */
+  seoTitle?: string;
+  /** Meta description, when the quick answer does not cut cleanly at 155 characters. */
+  seoDescription?: string;
   /** Names as they appear on labels, used to match product ingredient rows. */
   aliases: string[];
   category: string;
@@ -84,9 +89,19 @@ export type IngredientPage = {
    * keep it to four to six rows and put the figure in `value`.
    */
   atAGlance?: { label: string; value: string; note?: string }[];
+  /**
+   * The prose fields below — whatIsIt, mechanism, whoShouldTake, dosage,
+   * dosageGap, safety and each claim body — render a blank line as a new
+   * paragraph, so a long section does not have to be one block of text.
+   */
   whatIsIt: string;
   mechanism: string;
   claims: ClaimEvidence[];
+  /**
+   * Who public-health advice says should take it, for ingredients where that
+   * advice exists — vitamins, mostly. Rendered as its own section before dosage.
+   */
+  whoShouldTake?: string;
   dosage: string;
   /**
    * The range in `dosage`, as numbers, so comparison pages can place a
@@ -273,103 +288,9 @@ export const ingredients: IngredientPage[] = [
     ],
     updated: '2026-09-21',
   },
-  {
-    slug: 'vitamin-d3',
-    name: 'Vitamin D3',
-    aliases: ['vitamin d3', 'vitamin d', 'cholecalciferol', 'vitamin d3 (cholecalciferol)'],
-    category: 'Fat-soluble vitamin',
-    grade: 'A',
-    quickAnswer:
-      'Vitamin D3 (cholecalciferol) is the form of vitamin D your skin makes from sunlight. The evidence for correcting a documented deficiency is strong and uncontroversial. The evidence that supplementing benefits people who are not deficient is much weaker — the large VITAL trial found no reduction in cancer or cardiovascular events in a generally replete population. The useful question is not whether vitamin D matters, but whether your level is actually low, which requires a blood test rather than a guess.',
-    whatIsIt:
-      'Vitamin D3, or cholecalciferol, is the form of vitamin D produced in skin on exposure to UVB light and found in oily fish, egg yolk and fortified foods. It is fat-soluble, which means it is stored in the body rather than excreted freely, and that storage capacity is why excessive intake can accumulate to harm in a way most water-soluble vitamins cannot. D3 is generally more effective than D2 (ergocalciferol) at raising and maintaining blood levels.',
-    mechanism:
-      'Vitamin D is a prohormone rather than a vitamin in the classical sense. It is hydroxylated first in the liver to 25-hydroxyvitamin D — the form measured in a blood test — and then in the kidney to the active hormone calcitriol. Calcitriol regulates calcium and phosphate absorption in the gut and their handling in bone and kidney, which is the basis of its established role in bone health. Vitamin D receptors are present in many other tissues, which is the origin of the wide range of proposed benefits; presence of a receptor, however, is not evidence of a clinical effect from supplementation.',
-    claims: [
-      {
-        claim: 'For correcting a documented deficiency',
-        grade: 'A',
-        body: 'This is settled and not seriously disputed. Where blood levels are low, supplementation raises them, and correcting deficiency prevents rickets in children and osteomalacia in adults. This is the use vitamin D supplements exist for, and it depends on knowing your level.',
-        refs: ['ods-vitd'],
-      },
-      {
-        claim: 'For bone health and fracture risk',
-        grade: 'B',
-        body: 'Supported, but with important conditions. The benefit is clearest in older adults, in people who are deficient, and generally when taken with adequate calcium. In populations that are already replete, trials have been much less impressive, and very high intermittent doses have in some studies been associated with worse outcomes rather than better.',
-      },
-      {
-        claim: 'For preventing cancer or cardiovascular disease',
-        grade: 'D',
-        body: 'The VITAL trial randomised 25,871 adults to 2,000 IU of vitamin D3 daily or placebo and found no significant reduction in invasive cancer incidence or major cardiovascular events over roughly five years. Observational studies repeatedly associate low vitamin D with poor outcomes, but that association has not translated into benefit from supplementing people who are not deficient.',
-        refs: ['vital2019'],
-      },
-      {
-        claim: 'For immune function generally',
-        grade: 'C',
-        body: 'There is a real mechanistic basis and some trial evidence for a modest effect on respiratory infection, with the benefit concentrated in people who were deficient to begin with. Generalising that into a broad immune-support claim for everyone goes beyond what has been shown.',
-      },
-    ],
-    dosage:
-      'The recommended dietary allowance in the United States is 600 IU (15 mcg) daily for most adults and 800 IU (20 mcg) from age 71, with a tolerable upper intake level of 4,000 IU (100 mcg) daily for adults. Common supplement strengths are 1,000 IU (25 mcg) and 2,000 IU (50 mcg). Where deficiency has been diagnosed, clinicians often use substantially higher short-term repletion doses, which is a decision for them rather than for a label.',
-    studiedDose: {
-      min: 15,
-      max: 100,
-      unit: 'mcg',
-      per: 'day',
-      basis: 'US RDA to adult upper limit',
-    },
-    dosageGap:
-      'The problem in this category is unit confusion rather than underdosing. The same product may be described as 25 mcg on one line and 1,000 IU on another, and manufacturer pages sometimes contradict themselves between the two. Because the numbers differ by a factor of forty, a reader comparing a mcg figure against an IU figure can be badly wrong about relative strength. Always compare in the same unit, taken from the Supplement Facts panel.',
-    safety:
-      'Vitamin D is fat-soluble and accumulates, so excessive long-term intake can cause hypercalcaemia, with nausea, weakness, frequent urination, kidney stones and, in severe cases, kidney damage. The adult upper limit of 4,000 IU daily should not be exceeded without clinical supervision. It interacts with several medicines, including some diuretics, steroids, statins and weight-loss drugs that reduce fat absorption. Anyone with sarcoidosis, hyperparathyroidism, kidney disease or a history of kidney stones should not supplement without advice. Because the right dose depends on a measured blood level, this is one of the clearest cases where testing beats estimating.',
-    faqs: [
-      {
-        question: 'Is 25 mcg the same as 1,000 IU?',
-        answer:
-          'Yes. They are two units for the same amount of vitamin D, and 1 mcg equals 40 IU. Labels vary in which they lead with, which is exactly how cross-brand strength comparisons go wrong.',
-      },
-      {
-        question: 'Should I take vitamin D if I am not deficient?',
-        answer:
-          'The evidence for benefit in people who are already replete is weak. The large VITAL trial found no reduction in cancer or cardiovascular events at 2,000 IU daily in a generally sufficient population. Testing your level is a more useful step than supplementing on the assumption that you are low.',
-      },
-      {
-        question: 'What is the difference between D2 and D3?',
-        answer:
-          'D3 (cholecalciferol) is the form made in skin and is generally more effective at raising and sustaining blood levels than D2 (ergocalciferol). D2 is usually plant-derived and is the common choice in vegan products.',
-      },
-      {
-        question: 'Can you take too much vitamin D?',
-        answer:
-          'Yes, and this matters more than for most vitamins because it is stored rather than excreted. The adult tolerable upper intake level is 4,000 IU daily. Sustained intake above that without supervision can cause hypercalcaemia and kidney problems.',
-      },
-      {
-        question: 'Does vitamin D need to be taken with food?',
-        answer:
-          'It is fat-soluble, so absorption improves when it is taken with a meal containing some fat. This is a reasonable habit rather than a strict requirement.',
-      },
-    ],
-    references: [
-      {
-        id: 'ods-vitd',
-        text: 'NIH Office of Dietary Supplements. Vitamin D — Fact Sheet for Health Professionals.',
-        url: 'https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/',
-      },
-      {
-        id: 'vital2019',
-        text: 'Manson JE, Cook NR, Lee I-M, et al. Vitamin D Supplements and Prevention of Cancer and Cardiovascular Disease (VITAL). New England Journal of Medicine, 2019. n=25,871.',
-        url: 'https://pubmed.ncbi.nlm.nih.gov/30415629/',
-      },
-    ],
-    editorNote:
-      'Vitamin D is the ingredient people most often take on faith. It has the strongest evidence base on this site for one specific job — fixing a deficiency — and some of the weakest for the broad preventive claims it gets sold on. Those two facts sit together comfortably once you stop treating a nutrient as either good or bad. Get the blood test; it answers the question the label cannot.',
-    related: ['omega-3', 'psyllium-husk'],
-    history: [
-      { date: '2026-09-21', note: 'First published with per-claim evidence grades.' },
-      { date: '2026-09-21', note: 'Related-ingredient links extended as the reference set grew.' },
-    ],
-    updated: '2026-09-21',
-  },
+  vitaminD,
+  folicAcid,
+  vitaminB12,
   {
     slug: 'psyllium-husk',
     name: 'Psyllium husk',
