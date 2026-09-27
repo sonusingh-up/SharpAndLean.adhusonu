@@ -422,6 +422,85 @@
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
+
+/* The shelf: real packshots on the same cream the review cards use, with the
+   hero's white stat pills underneath. It restocks when a goal is chosen. */
+.goalShelf {
+  max-width: 460px;
+  margin-top: 28px;
+  padding: 22px 20px 18px;
+  border-radius: 22px;
+  background:
+    radial-gradient(70% 60% at 50% 100%, #ffffffa6, transparent 72%),
+    var(--cream);
+}
+.shelfStage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 180px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #183b371f;
+}
+.shelfItem {
+  position: relative;
+  flex: 0 1 31%;
+  height: 76%;
+  animation: shelfIn 560ms calc(var(--i, 0) * 90ms) cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.shelfItem:nth-child(2),
+.shelfItem:only-child {
+  flex-basis: 38%;
+  height: 100%;
+}
+/* Multiply drops a packshot's white box into the cream, as elsewhere on the
+   site; the soft floor shadow stands in for a drop shadow, which would trace
+   that box. */
+.shelfItem img {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  animation: shelfFloat 6s calc(var(--i, 0) * -2s) ease-in-out infinite;
+}
+.shelfItem::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -4px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #1c2a2826, transparent);
+}
+.shelfNotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.shelfStage + .shelfNotes {
+  margin-top: 16px;
+}
+.shelfNotes li {
+  padding: 7px 13px 7px 11px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 12.5px;
+  color: var(--ink);
+  box-shadow: 0 2px 10px #1c2a2814;
+  animation: rise 480ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.shelfNotes li + li {
+  animation-delay: 90ms;
+}
+.shelfNotes li::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 8px 1px 0;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
 .goalTool {
   min-width: 0;
   padding: clamp(18px, 2.7vw, 28px);
@@ -469,31 +548,84 @@
   margin: 19px 0 9px;
 }
 .goalChoices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.goalTile {
   display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-.goalChoice {
-  min-height: 34px;
-  padding: 0 11px;
-  border: 1px solid #173f3926;
-  border-radius: 999px;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 60px;
+  padding: 7px 10px 7px 7px;
+  border: 1px solid #173f3920;
+  border-radius: 14px;
   color: var(--pine);
-  background: transparent;
+  background: #fff;
   font: inherit;
-  font-size: 11px;
+  text-align: left;
   cursor: pointer;
-  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
 }
-.goalChoice:hover,
-.goalChoice[aria-pressed='true'] {
+.goalTile:hover {
+  transform: translateY(-2px);
+  border-color: #173f3955;
+  box-shadow: 0 10px 20px -14px #173f3966;
+}
+.goalTile[aria-pressed='true'] {
   border-color: var(--pine);
   color: #fff;
   background: var(--pine);
 }
-.goalChoice:focus-visible {
+.goalTile:focus-visible {
   outline: 2px solid var(--terracotta);
   outline-offset: 2px;
+}
+.goalTileImg {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--cream);
+}
+.goalTileImg img,
+.goalResultImg img {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 220ms ease;
+}
+.goalTileImg img {
+  padding: 5px;
+}
+.goalTile:hover .goalTileImg img {
+  transform: scale(1.08);
+}
+.goalTile[aria-pressed='true'] .goalTileImg {
+  background: #fff;
+}
+.goalTileText {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.goalTileText strong {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.goalTileText small {
+  color: var(--muted);
+  font-size: 11px;
+}
+.goalTile[aria-pressed='true'] .goalTileText small {
+  color: #ffffffb8;
 }
 .goalResults {
   min-height: 82px;
@@ -538,23 +670,80 @@
   margin-top: 13px;
 }
 .goalResultList li { min-width: 0; }
+.goalResultsInner {
+  animation: rise 420ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.goalResultList li {
+  animation: rise 460ms calc(var(--i, 0) * 60ms + 80ms) cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
 .goalResultLink {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 11px;
   height: 100%;
-  min-height: 59px;
-  padding: 10px 11px;
+  min-height: 68px;
+  padding: 7px 12px 7px 7px;
   border: 1px solid #173f3918;
-  border-radius: 10px;
+  border-radius: 12px;
   color: var(--ink);
   background: #fff;
-  transition: border-color 150ms ease, transform 150ms ease;
+  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 .goalResultLink:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: #173f3950;
+  box-shadow: 0 10px 20px -14px #173f3966;
+}
+.goalResultImg {
+  position: relative;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--cream);
+}
+.goalResultImg img {
+  padding: 6px;
+}
+.goalResultLink:hover .goalResultImg img {
+  transform: scale(1.08);
+}
+.goalResultText {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+  min-width: 0;
+}
+.goalResultScore {
+  flex: none;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-style: italic;
+  line-height: 1;
+  color: var(--tone, var(--pine));
+}
+.goalResultLink .goalResultScore small {
+  font-size: 10px;
+  font-style: normal;
+}
+.goalMore {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  color: var(--pine);
+  background: none;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #173f3945;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.goalMore:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
 }
 .goalResultLink:focus-visible,
 .goalRelated a:focus-visible,
@@ -562,17 +751,21 @@
   outline: 2px solid var(--terracotta);
   outline-offset: 2px;
 }
-.goalResultLink > span { display: grid; gap: 4px; min-width: 0; }
 .goalResultLink small {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .goalResultLink strong {
+  display: -webkit-box;
   overflow: hidden;
   color: var(--pine);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 500;
-  text-overflow: ellipsis;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .goalRelated {
   display: flex;
@@ -1067,6 +1260,26 @@
     transform: translateY(16px);
   }
 }
+@keyframes shelfIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+}
+@keyframes shelfFloat {
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Goal finder reveal. Only a panel the script has found below the fold is
+   held back; the server render and a no-JavaScript visit show it as is. */
+.goalPanel[data-phase='waiting'] .reveal {
+  opacity: 0;
+}
+.goalPanel[data-phase='shown'] .reveal {
+  animation: rise 700ms calc(var(--i, 0) * 70ms + 60ms) cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
 @media (prefers-reduced-motion: reduce) {
   .heroMain,
   .heroPhoto,
@@ -1171,6 +1384,29 @@
     padding: 17px 14px;
     border-radius: 16px;
   }
+  .goalShelf {
+    margin-top: 22px;
+    padding: 16px 14px 14px;
+    border-radius: 18px;
+  }
+  .shelfStage {
+    height: 140px;
+  }
+  .goalChoices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* Two narrow columns: the thumbnail goes above the label so the label gets
+     the tile's full width. */
+  .goalTile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 9px 10px 10px;
+  }
+  .goalTileImg {
+    width: 40px;
+    height: 40px;
+  }
   .goalResultList {
     grid-template-columns: 1fr;
   }
@@ -1209,8 +1445,21 @@
 
 @media (prefers-reduced-motion: reduce) {
   .goalSearch,
-  .goalChoice,
-  .goalResultLink {
+  .goalTile,
+  .goalTileImg img,
+  .goalResultLink,
+  .goalResultImg img {
     transition: none;
+  }
+  .goalPanel .reveal,
+  .shelfItem,
+  .shelfItem img,
+  .shelfNotes li,
+  .goalResultsInner,
+  .goalResultList li {
+    animation: none;
+  }
+  .goalPanel[data-phase='waiting'] .reveal {
+    opacity: 1;
   }
 }

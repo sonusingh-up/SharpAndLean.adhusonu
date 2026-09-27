@@ -21,6 +21,7 @@ export const exampleProduct: ProductArticle = {
   slug: 'example-product',
   name: 'Example Product',
   category: 'wellness',
+  goalTags: ['sleep'],
   summary: 'One sentence, used as the meta description and the page intro.',
   source: 'https://manufacturer.example/product',
   facts: 'What the Supplement Facts panel says.',
@@ -30,6 +31,19 @@ export const exampleProduct: ProductArticle = {
 ```
 
 The URL is `/<category>/<slug>`.
+
+## Goal tags
+
+`goalTags` puts the article in the homepage goal finder — its tile count, its
+results and the product shelf — with no other change needed. It is required:
+list every goal from `lib/goals.ts` the review can honestly be found under, or
+`[]` when none fits. The category does not decide it — NOW Psyllium sits in
+`fat-burners` but is tagged only `heart-health`, because its review finds the
+weight-loss evidence mixed. The tests reject a tag that is not a goal id.
+
+A new goal is added in `lib/goals.ts` and in the `goal_tags` enum in
+`lib/validation.ts` (the admin form saves against it); the tests fail until the
+two lists match.
 
 ## Slugs
 
@@ -54,7 +68,7 @@ records only what the manufacturer published. Supplying `body` replaces the
 template with your own HTML and the page becomes a review. Set `kind`
 explicitly only to override that inference.
 
-Everything else on `ProductArticle` is optional and defaults sensibly — see the
+Beyond those and `goalTags`, everything on `ProductArticle` is optional and defaults sensibly — see the
 field comments in `types.ts` and the defaults in `to-review.ts`. A short
 overview needs about eight fields; a long-form review with pros, cons,
 ingredients, FAQs, references and history uses about twenty-five.

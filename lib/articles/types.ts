@@ -16,8 +16,13 @@ import type { HistoryEntry } from '@/components/article-footer';
 export type ProductArticle = {
   /** URL segment. Must be unique across all articles. */
   slug: string;
-  /** Explicit editorial goal tags; never inferred from marketing copy. */
-  goalTags?: string[];
+  /**
+   * Explicit editorial goal tags, from the ids in `lib/goals.ts`; never inferred
+   * from marketing copy. They place the article in the homepage goal finder.
+   * Required so a new article cannot drop out of it by omission: use `[]` when
+   * no goal fits.
+   */
+  goalTags: string[];
   name: string;
   category: Category;
   summary: string;

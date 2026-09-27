@@ -5,6 +5,7 @@ export const sodameltReview: ProductArticle = {
   name: 'SodaMelt',
   brand: 'SodaMelt',
   category: 'fat-burners',
+  goalTags: ['weight-loss'],
   summary:
     'Sold as a daily “metabolic wellness” capsule for bloating, and built on a proprietary blend containing cascara sagrada, buckthorn and Chinese rhubarb — three stimulant laxatives — on a page that promises no harsh laxatives and recommends taking it every day for three to six months.',
   verdict:

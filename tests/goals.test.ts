@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { goalProfiles, findGoalProfile } from '../lib/goals';
 import { productReviews } from '../lib/products';
 import { ingredients } from '../lib/ingredients';
+import { reviewSchema } from '../lib/validation';
 
 test('goal finder understands common search phrasing and no-space terms', () => {
   assert.equal(findGoalProfile('weightloss')?.id, 'weight-loss');
@@ -31,4 +32,9 @@ test('every explicitly tagged product and ingredient destination exists', () => 
       assert.ok(goalProfiles.some((goal) => goal.id === goalId), `${review.slug}: unknown goal ${goalId}`);
     }
   }
+});
+
+test('the admin form accepts exactly the goals the finder shows', () => {
+  const accepted = reviewSchema.shape.goal_tags.unwrap().element.options;
+  assert.deepEqual([...accepted].sort(), goalProfiles.map((goal) => goal.id).sort());
 });

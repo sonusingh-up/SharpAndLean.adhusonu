@@ -5,6 +5,7 @@ export const colonbroomReview2026: ProductArticle = {
   name: 'ColonBroom Psyllium Fiber Powder',
   brand: 'ColonBroom',
   category: 'fat-burners',
+  goalTags: ['weight-loss'],
   summary:
     'ColonBroom puts a familiar fibre ingredient into a flavoured daily drink. We look at what psyllium can do, what a serving costs, and the label details to check before you buy.',
   verdict:
@@ -61,7 +62,7 @@ export const colonbroomReview2026: ProductArticle = {
 <p>This is a desk-based review of product information and published research. We have not taste-tested this tub, measured its contents or run a trial of the finished formula. Descriptions of flavour, texture and results should be read with that limitation in mind.</p>
 
 <h2>What exactly are you buying?</h2>
-<p>The listing linked here is ColonBroom Psyllium Fiber Powder in tropical fruits, with 50 servings. Keep that identity in mind when shopping: the brand also offers ColonBroom Premium, a GLP-1 Booster and other supplements. Claims or testimonials for one formula cannot automatically be applied to another.</p>
+<p>The listing linked here is ColonBroom Psyllium Fiber Powder in tropical fruits, with 50 servings. Keep that identity in mind when shopping: the brand also offers ColonBroom Premium, a <a href="/fat-burners/colonbroom-glp-1-booster-review">GLP-1 Booster</a> (a berberine capsule with no fibre in it) and other supplements. Claims or testimonials for one formula cannot automatically be applied to another.</p>
 <p>A familiar name on the front of a tub is only the starting point. Before ordering, match the flavour, serving count and ingredient panel to the seller’s listing. A bundle, a different formula or a different package size can change both the contents and the apparent value.</p>
 <p>The existing product record reports 3.6 g of psyllium husk per serving, attributed to an earlier Forbes Health review. We could not independently recheck that source during this update or confirm that amount against a readable panel for this exact tropical-fruits listing. We therefore keep it marked as reported, not verified. The same caution applies to the previously recorded supporting ingredients.</p>
 <p>That uncertainty matters most when you try to calculate an active-ingredient cost or compare the serving with a research dose. If the seller’s panel differs, use the panel for the product you will receive. Ask for a clear label photograph if the listing is hard to read.</p>

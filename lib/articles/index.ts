@@ -18,6 +18,7 @@ import { medviWeightLossReview } from './medvi-weight-loss-review';
 import { lemmeGlp1DailyReview } from './lemme-glp-1-daily-review';
 import { supergutGlp1BoosterReview } from './supergut-glp-1-booster-review';
 import { pendulumGlp1ProbioticReview } from './pendulum-glp-1-probiotic-review';
+import { colonbroomGlp1BoosterReview } from './colonbroom-glp-1-booster-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -45,6 +46,7 @@ export const articles: ProductArticle[] = [
   lemmeGlp1DailyReview,
   supergutGlp1BoosterReview,
   pendulumGlp1ProbioticReview,
+  colonbroomGlp1BoosterReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and
