@@ -2,6 +2,7 @@ import 'server-only';
 import { createHash } from 'node:crypto';
 import { serviceClient } from './supabase/server';
 import { siteUrl } from './config';
+import { ResendError } from './email/resend';
 export async function publicRequest(request: Request, scope: string) {
   const origin = request.headers.get('origin');
   if (origin && origin !== new URL(siteUrl).origin && origin !== new URL(request.url).origin)
@@ -18,6 +19,11 @@ export async function publicRequest(request: Request, scope: string) {
   return { db, body: JSON.parse(raw) };
 }
 export function apiFailure(error: unknown) {
+  if (error instanceof ResendError)
+    return Response.json(
+      { error: 'Our email service is temporarily unavailable. Please try again shortly.' },
+      { status: 503 },
+    );
   const message = error instanceof Error ? error.message : '';
   if (message === 'Service is not configured.')
     return Response.json(

@@ -20,11 +20,12 @@ export function publicClient() {
   });
 }
 export function serviceClient() {
-  if (!hasSupabase || !process.env.SUPABASE_SERVICE_ROLE_KEY)
+  const secret = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
+  if (!hasSupabase || !secret)
     throw new Error('Service is not configured.');
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY,
+    secret,
     { auth: { persistSession: false, autoRefreshToken: false } },
   );
 }

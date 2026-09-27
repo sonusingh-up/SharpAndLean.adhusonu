@@ -99,3 +99,12 @@ export const communitySchema = z.object({
   review_text: text.min(20).max(3000),
   website: z.string().max(0).optional(),
 });
+
+export const contactSchema = z.object({
+  name: z.string().trim().min(2).max(100).regex(/^[^\r\n]+$/),
+  email: z.string().trim().email().max(254).transform((value) => value.toLowerCase()),
+  subject: z.string().trim().min(3).max(160).regex(/^[^\r\n]+$/),
+  message: z.string().trim().min(10).max(5000),
+  consent: z.literal('yes'),
+  website: z.string().max(0).optional(),
+}).strict();
