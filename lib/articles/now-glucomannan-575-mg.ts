@@ -4,6 +4,7 @@ export const nowGlucomannan575Mg: ProductArticle = {
   // Slug unchanged: this page is already published and linked from outside the
   // site, so it keeps its address even though it is now a full review.
   slug: 'now-glucomannan-575-mg',
+  goalTags: ['weight-loss'],
   name: 'NOW Glucomannan 575 mg',
   brand: 'NOW Foods',
   category: 'fat-burners',

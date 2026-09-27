@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const nowPsylliumHuskPowder: ProductArticle = {
   slug: 'now-psyllium-husk-powder',
+  goalTags: ['heart-health'],
   name: 'NOW Psyllium Husk Powder',
   brand: 'NOW Foods',
   category: 'fat-burners',

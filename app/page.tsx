@@ -7,6 +7,7 @@ import { FaqSchema, pageMeta } from '@/components/seo';
 import { getReviews } from '@/lib/data';
 import { ingredients } from '@/lib/ingredients';
 import { authorProfile, teamProfile } from '@/lib/author';
+import { GoalFinder, type GoalReview } from '@/components/goal-finder';
 import type { Review } from '@/lib/types';
 import s from './home.module.css';
 
@@ -188,6 +189,15 @@ export default async function Home() {
     .filter((r): r is Review & { score: number } => r.score !== null)
     .sort((a, b) => b.score - a.score);
   const top = scored.slice(0, 3);
+  const goalReviews: GoalReview[] = all
+    .filter((review) => review.goal_tags?.length && review.is_published)
+    .map((review) => ({
+      slug: review.slug,
+      title: review.title,
+      href: path(review),
+      category: CATEGORY[review.category_slug] || 'Review',
+      goalTags: review.goal_tags ?? [],
+    }));
   const lowest = scored[scored.length - 1];
   const latest = [...all]
     .sort((a, b) => Date.parse(b.published_at ?? '') - Date.parse(a.published_at ?? ''))
@@ -352,6 +362,24 @@ export default async function Home() {
               See every ingredient
             </Link>
           </p>
+        </section>
+
+        {/* ── Goal-based product discovery ─────────────────────── */}
+        <section className={`${s.section} ${s.goalSection}`} aria-labelledby="goal-finder-title">
+          <div className={s.goalPanel}>
+            <div className={s.goalIntro}>
+              <p className={s.eyebrow}>Find coverage by goal</p>
+              <h2 className={s.h2} id="goal-finder-title">
+                Start with what you want to <em>understand.</em>
+              </h2>
+              <p>
+                Search a goal or choose one to find related product reviews and ingredient evidence.
+                Matches show what we cover—not a personalized prescription or a promised result.
+              </p>
+              <span className={s.goalTrust}>Independent reviews · evidence before claims</span>
+            </div>
+            <GoalFinder reviews={goalReviews} />
+          </div>
         </section>
 
         {/* ── Top rated ────────────────────────────────────────── */}

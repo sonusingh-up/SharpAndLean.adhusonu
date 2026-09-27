@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const yuSleepReview: ProductArticle = {
   slug: 'yu-sleep-review',
+  goalTags: ['sleep'],
   name: 'Yu Sleep',
   brand: 'Yu Sleep',
   category: 'wellness',

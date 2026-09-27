@@ -626,6 +626,7 @@ export default async function DetailPage({
               width={1200}
               height={720}
               sizes="(max-width: 900px) 90vw, 900px"
+              quality={90}
               style={{ width: '100%', height: 'auto' }}
             />
             <figcaption>{row.figure.caption}</figcaption>

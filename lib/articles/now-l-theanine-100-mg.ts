@@ -4,6 +4,7 @@ export const nowLTheanine100Mg: ProductArticle = {
   // Slug unchanged: this page is already published and linked from outside the
   // site, so it keeps its address even though it is now a full review.
   slug: 'now-l-theanine-100-mg',
+  goalTags: ['focus'],
   name: 'NOW L-Theanine 100 mg',
   brand: 'NOW Foods',
   category: 'nootropics',

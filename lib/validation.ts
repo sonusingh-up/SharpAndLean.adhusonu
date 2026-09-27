@@ -55,6 +55,7 @@ export const reviewSchema = z
     who_for: text.max(3000),
     who_avoid: text.max(3000),
     score_breakdown: z.record(text.max(80), z.number().min(0).max(10)),
+    goal_tags: z.array(z.enum(['weight-loss', 'weight-gain', 'probiotics', 'sleep', 'focus', 'heart-health'])).max(6).default([]),
     ingredients: z.array(ingredientSchema).max(80),
     faqs: z.array(faqSchema).max(40),
   })

@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const slimsetReview: ProductArticle = {
   slug: 'slimset-review',
+  goalTags: ['weight-loss'],
   name: 'SlimSet',
   brand: 'SlimSet',
   category: 'fat-burners',

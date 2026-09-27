@@ -4,6 +4,7 @@ export const nowOmega3MolecularlyDistilled: ProductArticle = {
   // Slug unchanged: this page is already published and linked from outside the
   // site, so it keeps its address even though it is now a full review.
   slug: 'now-omega-3-molecularly-distilled',
+  goalTags: ['heart-health'],
   name: 'NOW Omega-3 Molecularly Distilled',
   brand: 'NOW Foods',
   category: 'wellness',

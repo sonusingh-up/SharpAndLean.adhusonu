@@ -19,10 +19,10 @@ export const getInShapeMen: Collection = {
   published_at: '2026-09-25T00:00:00Z',
   updated_at: '2026-09-25T00:00:00Z',
   figure: {
-    src: '/images/fitness/chair-squat-realistic.png',
-    alt: 'Realistic AI-generated illustration of an adult man practising a chair squat at home.',
+    src: 'https://images.unsplash.com/photo-1745329532589-4f33352c4b10?auto=format&fit=crop&w=3840&h=2160&q=85',
+    alt: 'Man performing a dumbbell row in a gym.',
     caption:
-      'AI-generated fitness illustration. Use the exercise instructions below to guide your setup.',
+      'Photo by Jakub Klucký on Unsplash, used under the Unsplash License. The photo is illustrative, not a substitute for the exercise instructions.',
   },
   takeaways: [
     'Pick a main goal: lose excess fat, build muscle, or improve everyday fitness. Your food intake should reflect that choice.',
@@ -70,7 +70,7 @@ export const getInShapeMen: Collection = {
 <p>Before strength training, spend about five minutes moving gently and rehearsing easier versions of the movements. Begin with one set of each exercise if you are very deconditioned; otherwise try two. Rest around one to two minutes between sets, or longer until breathing and control have recovered. Finish each set with the sense that you could perform another two or three good repetitions.</p>
 
 <h2>Five exercises for your full-body sessions</h2>
-<p>These are simple starting options. Use stable equipment, a clear floor and a pain-free range. The realistic images are AI-generated illustrations; they cannot assess your individual technique. Ask a qualified trainer to check your setup if you are unsure.</p>
+<p>These are simple starting options. Use stable equipment, a clear floor and a pain-free range. Photos are illustrative and cannot assess your individual technique. Ask a qualified trainer to check your setup if you are unsure.</p>
 <h3>1. Chair squat: 6–10 repetitions</h3>
 <p>Place a sturdy, non-wheeled chair against a wall. Stand in front of it with feet about hip-to-shoulder width apart. Bend your hips and knees, sit back slowly, touch down gently and stand again. Let your knees follow the direction of your toes. Use a higher seat or light hand support if needed; do not drop into the chair.</p>
 <details><summary>Show the chair-squat GIF demonstration</summary><figure><img src="/images/fitness/chair-squat-loop.gif" width="1000" height="560" alt="Animated side view of a controlled chair squat: stand, lower to the chair, and stand again."/><figcaption>Looping schematic demonstration. Close this panel to hide the animation.</figcaption></figure></details>
@@ -82,7 +82,7 @@ export const getInShapeMen: Collection = {
 <p>Lie on your back with knees bent and feet flat. Gently brace your trunk and press through your feet to lift your hips. Stop before the movement turns into an exaggerated lower-back arch, then lower slowly. You should control both directions. Reduce the height if your back feels uncomfortable.</p>
 <h3>5. Bird dog: 5–8 repetitions each side</h3>
 <p>Begin on hands and knees. Reach one arm forward and the opposite leg back without rotating your trunk or lifting your lower back into an arch. Pause briefly and return. If balancing is difficult, move only an arm or a leg at first. Reaching farther is less useful than keeping the movement steady.</p>
-<figure><img src="/images/fitness/exercises-realistic.png" width="1402" height="1122" alt="Realistic AI-generated exercise illustrations of a man demonstrating wall push-up, supported dumbbell row, glute bridge and bird dog."/><figcaption>AI-generated exercise illustrations. Read the setup and technique instructions before starting.</figcaption></figure>
+<figure><img src="https://images.unsplash.com/photo-1731341400836-baaa5535b8d5?auto=format&amp;fit=crop&amp;w=3840&amp;h=2160&amp;q=85" width="3840" height="2160" alt="Man doing push-ups in a gym."/><figcaption>Photo by Gard Pro on <a href="https://unsplash.com/photos/a-man-doing-push-ups-in-a-gym-qlid9Lys8r0">Unsplash</a>, used under the Unsplash License. Follow the written setup cues above; this photo is illustrative.</figcaption></figure>
 
 <h2>How to progress through the eight weeks</h2>
 <p><strong>Weeks 1–2: establish a baseline.</strong> Learn the exercises, record what you do and find a walking duration you can repeat. If soreness disrupts your next session, reduce the starting workload. The first goal is a routine you can return to.</p>

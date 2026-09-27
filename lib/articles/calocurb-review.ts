@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const calocurbReview: ProductArticle = {
   slug: 'calocurb-review',
+  goalTags: ['weight-loss'],
   name: 'Calocurb (Amarasate)',
   brand: 'Calocurb',
   category: 'fat-burners',

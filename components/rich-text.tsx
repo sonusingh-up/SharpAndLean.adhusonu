@@ -25,7 +25,11 @@ export function RichText({ html }: { html: string }) {
       if (node.name === 'img') {
         const src = node.attribs.src || '';
         const local = /^\/images\/[a-zA-Z0-9/_-]+\.(png|jpg|jpeg|webp|gif|svg)$/.test(src);
-        if (!local && !/^https:\/\/[^/]+\.supabase\.co\//.test(src)) return <span />;
+        if (
+          !local &&
+          !/^https:\/\/[^/]+\.supabase\.co\//.test(src) &&
+          !/^https:\/\/images\.unsplash\.com\//.test(src)
+        ) return <span />;
         return (
           <Image
             src={src}
@@ -34,6 +38,7 @@ export function RichText({ html }: { html: string }) {
             width={Number(node.attribs.width) || 1000}
             height={Number(node.attribs.height) || 650}
             sizes="(max-width: 700px) 90vw, 700px"
+            quality={90}
             style={{ width: '100%', height: 'auto' }}
           />
         );

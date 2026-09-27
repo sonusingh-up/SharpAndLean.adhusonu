@@ -2,6 +2,7 @@ import type { ProductArticle } from './types';
 
 export const pendulumAkkermansiaReview: ProductArticle = {
   slug: 'pendulum-akkermansia-review',
+  goalTags: ['probiotics'],
   name: 'Pendulum Akkermansia',
   brand: 'Pendulum',
   category: 'wellness',

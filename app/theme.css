@@ -471,6 +471,66 @@ select:focus-visible {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0 0;
+  border-top: 1px solid #ffffff2c;
+}
+.footer-social-copy {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+.footer-links .footer-social-copy > span {
+  margin: 0;
+  color: #c5d2cc;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+.footer-social-copy strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #f7faf8;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.footer-social-copy svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+.footer-social-copy .footer-social-dot {
+  fill: currentColor;
+  stroke: none;
+}
+.footer-links a.footer-social-follow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 0 11px;
+  border: 1px solid #ffffff42;
+  border-radius: 999px;
+  font-size: 11px;
+  white-space: nowrap;
+  transition: background-color 160ms ease;
+}
+.footer-links a.footer-social-follow:hover {
+  background: #ffffff14;
+  text-decoration: none;
+}
+.footer-links a.footer-social-follow:focus-visible {
+  outline: 2px solid var(--ochre-light);
+  outline-offset: 3px;
+}
 .footer-bottom {
   border-top-color: #ffffff1f;
   color: #b8c7c1;
