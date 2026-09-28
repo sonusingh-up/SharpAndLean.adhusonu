@@ -38,6 +38,7 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
   // The other vegan protein we have reviewed, then the dairy proteins readers compare against.
   alternatives: [
     'myprotein-impact-vegan-protein-review',
+    'bulk-vegan-protein-powder-review',
     'optimum-nutrition-uk-review-2026',
     'myprotein-impact-whey-review',
     'myprotein-slow-release-casein-review',
@@ -91,7 +92,7 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
 <ul>
 <li><strong><a href="/wellness/myprotein-impact-vegan-protein-review">Myprotein Impact Vegan Protein</a></strong> (reviewed) — a pea and fava bean blend listed at up to 24 g of protein per serving, from the brand that usually leads on price. Compare the price per 100 g of protein on the day.</li>
-<li><strong>Bulk Vegan Protein Powder</strong> (not yet reviewed) — listed at 23 g of protein per serving and 28 servings per 1 kg, a larger pack than Optimum Nutrition’s.</li>
+<li><strong><a href="/wellness/bulk-vegan-protein-powder-review">Bulk Vegan Protein Powder</a></strong> (reviewed) — listed at 23 g of protein per serving and 28 servings per 1 kg, a larger pack than Optimum Nutrition’s.</li>
 <li><strong>Soya milk, tofu, tempeh and lentils</strong> — the food route. A 500 ml glass of soya milk gives roughly 15 to 18 g of protein, and most vegans can reach their daily target without a powder if they plan meals around these.</li>
 <li><strong><a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey</a></strong> (reviewed) — if you eat dairy, the sister product at a similar price per gram, and one a member of our team has used.</li>
 <li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if you eat dairy and want a value whey; it scores the same 7.6 as this product, with a higher mark for value.</li>
@@ -215,6 +216,10 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Bulk Vegan Protein Powder to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Added our full review of Myprotein Impact Vegan Protein to the best alternatives and the comparison block. The score is unchanged.',

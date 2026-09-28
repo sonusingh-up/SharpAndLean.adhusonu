@@ -38,6 +38,7 @@ export const myproteinImpactVeganProteinReview: ProductArticle = {
   // The other vegan protein we have reviewed, and the dairy proteins readers compare against.
   alternatives: [
     'optimum-nutrition-gold-standard-plant-protein-review',
+    'bulk-vegan-protein-powder-review',
     'myprotein-impact-whey-review',
   ],
   writtenBy: 'team',
@@ -90,7 +91,7 @@ export const myproteinImpactVeganProteinReview: ProductArticle = {
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
 <ul>
 <li><strong><a href="/wellness/optimum-nutrition-gold-standard-plant-protein-review">Optimum Nutrition Gold Standard 100% Plant</a></strong> (reviewed) — pea and rice rather than pea and fava, and Informed Sport registered, but about twice the price per gram and with about four times the salt. The better choice for drug-tested athletes and people with G6PD deficiency.</li>
-<li><strong>Bulk Vegan Protein Powder</strong> (not yet reviewed) — the other value-brand vegan powder, listed at 23 g of protein per serving and 28 servings per 1 kg.</li>
+<li><strong><a href="/wellness/bulk-vegan-protein-powder-review">Bulk Vegan Protein Powder</a></strong> (reviewed) — the other value-brand vegan powder, listed at 23 g of protein per serving and 28 servings per 1 kg.</li>
 <li><strong>Soya milk, tofu, tempeh and lentils</strong> — the food route. A 500 ml glass of soya milk gives roughly 15 to 18 g of protein, and most vegans can reach their target from planned meals.</li>
 <li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if you eat dairy, the whey equivalent from the same brand.</li>
 </ul>
@@ -200,6 +201,10 @@ export const myproteinImpactVeganProteinReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Bulk Vegan Protein Powder to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 8.2 out of 10 against the five published product criteria, the highest of the protein powders we have reviewed. The marks lost are for no banned-substance testing claim and a fava bean caution for people with G6PD deficiency.',
