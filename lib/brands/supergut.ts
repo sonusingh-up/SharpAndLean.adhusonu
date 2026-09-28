@@ -111,7 +111,7 @@ export const supergut = {
         { id: 'glp-1-appetite', title: 'A GLP-1 rise is not the same as eating less', html: `<p>A <a href="https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full">2026 scoping review in <em>Frontiers in Endocrinology</em></a> pooled 52 studies with 1,085 participants. Only some fibre types raised GLP-1 consistently, and studies that did find a rise showed only a non-significant tendency towards feeling fuller. A higher reading on a blood test did not reliably translate into eating less.</p>` },
         { id: 'dose', title: 'The dose gap', html: `<p>The strongest human evidence that resistant starch helps with weight is <a href="https://www.nature.com/articles/s42255-024-00988-y">a 2024 randomised crossover trial in <em>Nature Metabolism</em></a>: 37 people with excess weight took 40 g a day of resistant starch from high-amylose maize for eight weeks and lost a mean of 2.8 kg against a control starch, with better insulin sensitivity. That is roughly seven times the total fibre in a scoop of GLP-1 Daily Support, and the scoop’s resistant starch is only part of that.</p>`, slot: 'chart' },
         { id: 'solnul', title: 'One ingredient has its own trial', html: `<p>Supergut’s blends include Solnul, a resistant potato starch. In <a href="https://pubmed.ncbi.nlm.nih.gov/37049425/">a 2023 randomised trial</a> run for the ingredient’s maker, 3.5 g a day for four weeks increased <em>Bifidobacterium</em> and <em>Akkermansia</em> and improved stool consistency against placebo. That is a genuine prebiotic effect at a low dose. It did not measure GLP-1, appetite or weight, and the amount of Solnul in Supergut’s products is not disclosed.</p>` },
-        { id: 'fibre', title: 'Fibre itself is well supported', html: `<p>None of this makes fibre a bad idea. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found that people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer than those eating less. Guidance is similar around the world: the <a href="https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/">NHS recommends 30 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults, and most people eat well short of either. Adding fibre, from any source, is sound advice. What the evidence does not support is paying a premium for fibre sold as a GLP-1 product.</p>` },
+        { id: 'fibre', title: 'Fibre itself is well supported', html: `<p>None of this makes fibre a bad idea. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found that people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer than those eating less. Guidance is similar around the world: the <a href="https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates">World Health Organization advises at least 25 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults, and most people eat well short of either. Adding fibre, from any source, is sound advice. What the evidence does not support is paying a premium for fibre sold as a GLP-1 product.</p>` },
       ],
     },
     {
@@ -126,7 +126,7 @@ export const supergut = {
           html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. We have reviewed four Supergut products in full — every product in the core range: the everyday fibre powder, the meal-replacement shakes, the snack bars and the GLP-1-branded powder.</p>`,
           slot: 'reviews',
         },
-        { id: 'where-to-buy', title: 'Where to buy Supergut', html: `<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range — Healf in the UK, for example. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live.</p>
+        { id: 'where-to-buy', title: 'Where to buy Supergut', html: `<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range in other countries. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live.</p>
 <p>For most buyers, wherever they live, the cheaper and better-evidenced route to the same goal is food: oats, beans, lentils, slightly green bananas, and potatoes or rice cooked and cooled, which forms more resistant starch. If you want a powder, compare the price per gram of fibre with a plain fibre supplement such as psyllium — and if the low-FODMAP certification matters to you because of irritable bowel syndrome, that is a genuine reason to consider Supergut specifically.</p>` },
       ],
     },
@@ -205,7 +205,7 @@ export const supergut = {
     {
       question: 'Where can I buy Supergut?',
       answer:
-        'In the US, on Supergut’s own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Elsewhere, Supergut says it ships to most countries with some products restricted, and some local retailers stock part of the range, such as Healf in the UK. Add postage and import charges when ordering from abroad.',
+        'In the US, on Supergut’s own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Elsewhere, Supergut says it ships to most countries with some products restricted, and some local retailers in other countries stock part of the range. Add postage and import charges when ordering from abroad.',
     },
     {
       question: 'Is Supergut good for IBS?',
@@ -240,9 +240,9 @@ export const supergut = {
       url: 'https://pubmed.ncbi.nlm.nih.gov/30638909/',
     },
     {
-      id: 'sg-nhs-fibre',
-      text: 'NHS. How to get more fibre into your diet — the 30 g a day recommendation for adults.',
-      url: 'https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/',
+      id: 'sg-who-fibre',
+      text: 'World Health Organization (2023). Carbohydrate intake for adults and children: WHO guideline — at least 25 g of naturally occurring dietary fibre a day for adults.',
+      url: 'https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates',
     },
     {
       id: 'sg-funding-2025',
@@ -263,6 +263,10 @@ export const supergut = {
   history: [
     {
       date: '2026-09-28',
+      note: 'Made the guide global: removed references aimed at one country, named WHO fibre guidance alongside the US figure, and described stockists outside the US generally. No change to the score.',
+    },
+    {
+      date: '2026-09-28',
       note: 'Added our full review of the Prebiotic Shakes (5.2). Every product in the core range is now reviewed, so the unreviewed-range section is removed.',
     },
     {
@@ -271,7 +275,7 @@ export const supergut = {
     },
     {
       date: '2026-09-28',
-      note: 'Made the buying notes global rather than UK-only: where Supergut is sold in the US, how it ships internationally, and local stockists.',
+      note: 'Made the buying notes global: where Supergut is sold in the US, how it ships internationally, and local stockists.',
     },
     {
       date: '2026-09-28',

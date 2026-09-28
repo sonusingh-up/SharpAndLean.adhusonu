@@ -97,7 +97,7 @@ export const supergutFoundationalDailyFiberReview: ProductArticle = {
 <h3>The dose problem, again</h3>
 <p>The guar trial used 6 g of guar on its own. This scoop contains 6 g of fibre across four ingredients, so the guar is some fraction of that — we cannot tell how much. The same applies to Solnul. A second scoop helps, but the undisclosed blend means you are trusting the formulation rather than checking it.</p>
 <h3>Fibre itself is well supported</h3>
-<p>The case for more fibre does not depend on this product. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer than those eating less. Guidance is similar around the world: the <a href="https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/">NHS recommends 30 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults. Most people fall well short. A 6 g scoop is a useful top-up; it is not a substitute for fibre-rich food.</p>
+<p>The case for more fibre does not depend on this product. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer than those eating less. Guidance is similar around the world: the <a href="https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates">World Health Organization advises at least 25 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults. Most people fall well short. A 6 g scoop is a useful top-up; it is not a substitute for fibre-rich food.</p>
 <p>What this product does not claim, sensibly, is a GLP-1 or weight-loss effect. Our <a href="/guides/supergut">Supergut guide</a> covers why that claim does not hold up on the sister product.</p>
 
 <h2>Safety and tolerability</h2>
@@ -107,7 +107,7 @@ export const supergutFoundationalDailyFiberReview: ProductArticle = {
 <h2>Price: per gram of fibre</h2>
 <p>At $50 for 40 scoops of 6 g, the unflavoured tub works out at about $0.21 per gram of fibre, or $1.25 a scoop; at the $60 shown on another listing it is $0.25 a gram. The 20-serving canister at about $27 is roughly $0.23 a gram, flavoured tubs about $0.25, and the stick packs about $0.33.</p>
 <p>Against its sister product, it is the better buy: <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a> cost $60 for 40 scoops of the same 6 g on the day we checked, $10 more for a name. Against plain fibre such as <a href="/fat-burners/now-psyllium-husk-powder">psyllium husk</a>, it is generally dearer per gram; compare on the day.</p>
-<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range — Healf in the UK, for example. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live. We read these prices from listings rather than taking an order through checkout.</p>
+<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range in other countries. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live. We read these prices from listings rather than taking an order through checkout.</p>
 
 <h2>Best alternatives</h2>
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
@@ -120,7 +120,7 @@ export const supergutFoundationalDailyFiberReview: ProductArticle = {
 
 <h2>Who should skip it</h2>
 <p>Skip it if you already eat plenty of fibre, if you want the cheapest possible fibre supplement, or if you want a product with individual doses you can check. Anyone on regular medication should check spacing with a pharmacist first.</p>
-<p>Dietary supplements are not approved for safety or effectiveness before sale by regulators such as the US FDA or UK authorities, so the label is the manufacturer’s responsibility rather than a regulator’s endorsement.</p>
+<p>Dietary supplements are not approved for safety or effectiveness before sale by regulators in most countries, including the US FDA,, so the label is the manufacturer’s responsibility rather than a regulator’s endorsement.</p>
 
 <h2>Sources and shopping: our checklist</h2>
 <p>Before you order, choose unflavoured for the lowest price per gram, work out the delivered cost where you live, and compare it per gram of fibre with a plain fibre supplement. Start with half a scoop and judge it over three or four weeks: regularity, comfort and how full you feel.</p>
@@ -235,12 +235,16 @@ export const supergutFoundationalDailyFiberReview: ProductArticle = {
       url: 'https://pubmed.ncbi.nlm.nih.gov/30638909/',
     },
     {
-      id: 'sfdf-nhs-fibre',
-      text: 'NHS. How to get more fibre into your diet — the 30 g a day recommendation for adults.',
-      url: 'https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/',
+      id: 'sfdf-who-fibre',
+      text: 'World Health Organization (2023). Carbohydrate intake for adults and children: WHO guideline — at least 25 g of naturally occurring dietary fibre a day for adults.',
+      url: 'https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates',
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Made the review global: removed references aimed at one country, named WHO fibre guidance alongside the US figure, and described stockists outside the US generally. No change to the score.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 5.4 out of 10 against the five published product criteria. Modest claims and well-tolerated fibres. The marks lost are for a proprietary blend with no individual amounts, doses we cannot check against the trials, and a price per gram above plain fibre.',

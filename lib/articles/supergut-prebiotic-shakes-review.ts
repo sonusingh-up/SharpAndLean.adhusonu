@@ -7,7 +7,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
   brand: 'Supergut',
   category: 'wellness',
   summary:
-    'Supergut’s meal-replacement shake, reviewed against the research. Each serving gives 15 g of prebiotic fibre (20 g in Mocha Latte) and 15 g of protein with about 1 g of sugar, and it is the format closest to the product in Supergut’s own diabetes trial. But it is sold on GLP-1 claims that trial never measured, the fibre blend is undisclosed, and at about 90 kcal a serving it is too light to replace a meal on its own.',
+    'Supergut’s meal-replacement shake — also sold as GLP-1 Boosting Prebiotic Shakes — reviewed against the research. Each serving gives 15 g of prebiotic fibre (20 g in Mocha Latte) and 15 g of protein with about 1 g of sugar, and it is the format closest to the product in Supergut’s own diabetes trial. But it is sold on GLP-1 claims that trial never measured, the fibre blend is undisclosed, and at about 90 kcal a serving it is too light to replace a meal on its own.',
   verdict:
     'The best-evidenced product in the Supergut range and the cheapest per gram of fibre — but a light shake, not a meal, and not a GLP-1 product',
   // Scored against the five published criteria on /evidence-grading.
@@ -33,10 +33,10 @@ export const supergutPrebioticShakesReview: ProductArticle = {
   },
   seoTitle: 'Supergut Prebiotic Shakes Review 2026',
   seoDescription:
-    'Supergut Prebiotic Shakes reviewed: all six flavours, 15 g of fibre and protein a serving, the diabetes trial, the GLP-1 claim, the price per shake, and the best alternatives.',
-  listing: 'Bag of 14 servings, Chocolate',
-  // Amazon product image for ASIN B0C64H8H7F (the 14-serving Chocolate bag).
-  image: 'https://images-na.ssl-images-amazon.com/images/P/B0C64H8H7F.01.LZZZZZZZ.jpg',
+    'Supergut Prebiotic Shakes and GLP-1 Boosting Shakes reviewed: all six flavours, 15 g of fibre and protein a serving, the diabetes trial, the GLP-1 claim, the price per shake, and the best alternatives.',
+  listing: 'Canister of 472 g (16.6 oz), Chocolate',
+  // Pack photo supplied by the editor: the 472 g Chocolate canister.
+  image: '/images/supergut-prebiotic-shake-chocolate.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/supergut-prebiotic-shakes',
   // The other Supergut products we have reviewed.
   alternatives: [
@@ -74,7 +74,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
 <tr><td>Vegan Vanilla</td><td>Not confirmed</td><td>Not confirmed</td><td>Not confirmed</td><td>No</td></tr>
 </tbody>
 </table>
-<p>Listings give about 90 kcal and 1 g of sugar a serving for the dairy flavours mixed with water. The Chocolate 14-serving pack weighs 826 g, about 59 g a serving. We could not confirm the full panels for the vegan flavours, or whether Mocha Latte contains caffeine, so we leave those out rather than guess.</p>
+<p>Listings give about 90 kcal and 1 g of sugar a serving for the dairy flavours mixed with water. The Chocolate 14-serving pack weighs 826 g, about 59 g a serving, and the 472 g (16.6 oz) Chocolate canister pictured works out at about 8 servings on the same serving size. The canister front also claims to “Boost GLP-1”, “Control cravings” and “Manage weight”. We could not confirm the full panels for the vegan flavours, or whether Mocha Latte contains caffeine, so we leave those out rather than guess.</p>
 <p>The dairy versions are built in blends:</p>
 <ul>
 <li><strong>Milk protein concentrate:</strong> the protein source, giving 15 g of complete protein.</li>
@@ -85,12 +85,17 @@ export const supergutPrebioticShakesReview: ProductArticle = {
 </ul>
 <p>The vegan flavours replace the milk protein with a plant protein; we could not confirm which.</p>
 
+<h2>Prebiotic Shakes or “GLP-1 Boosting” Shakes?</h2>
+<p>You may see these shakes under two names. The original 14-serving bags are sold as Prebiotic Shakes, with “Boost GLP-1” in retailer titles. Newer 8-serving packs in Chocolate and Vanilla are sold as <strong>GLP-1 Boosting Prebiotic Shakes</strong>, sometimes shortened to GLP-1 Booster Shakes.</p>
+<p>On every listing we could read, the figures are the same: 15 g of prebiotic fibre, 15 g of protein, about 1 g of sugar and about 90 kcal a serving. We found no study of the renamed pack, so the new name adds a claim, not evidence — everything in this review applies to both. One retailer listing of the 8-serving Vanilla pack also names brown rice protein alongside milk protein, which may mean a small recipe change; we could not confirm it, so check the ingredient list on the pack you buy.</p>
+<p>Do not confuse these shakes with Supergut’s <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a>, a fibre powder that was also sold as “GLP-1 Booster”. It has 6 g of fibre a scoop and no protein.</p>
+
 <h2>What the evidence shows</h2>
 <h3>The trial is the closest match in the range</h3>
 <p>In the <a href="https://pubmed.ncbi.nlm.nih.gov/36594522/">Frias 2023 trial</a>, adults with type 2 diabetes took two packets a day of a fibre-enriched nutritional formula, with at least one replacing a meal, for 12 weeks. HbA1c — a measure of average blood sugar — fell by 0.64 points more than with placebo, and quality of life improved. That is a meaningful change for people with diabetes.</p>
 <p>Three caveats matter. The trial was in type 2 diabetes, not in healthy people buying a shake for gut health. It used two servings a day, not one. And we could not confirm that the formula tested is identical to the one on sale today.</p>
 <h3>Fibre and protein are well supported</h3>
-<p>A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer. Guidance is similar around the world: the <a href="https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/">NHS recommends 30 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults. One shake covers about half. Protein and fibre together are also the two nutrients most consistently linked to feeling full.</p>
+<p>A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer. Guidance is similar around the world: the <a href="https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates">World Health Organization advises at least 25 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults. One shake covers about half. Protein and fibre together are also the two nutrients most consistently linked to feeling full.</p>
 <h3>The GLP-1 claim is not</h3>
 <p>Fermentable fibre can nudge GLP-1 up a little, but the Supergut trial did not measure it. A <a href="https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full">2026 scoping review of 52 studies</a> found fibre-driven GLP-1 rises showed only a non-significant tendency towards feeling fuller. And <a href="https://www.nature.com/articles/s42255-024-00988-y">the resistant-starch trial that produced weight loss</a> used 40 g a day of resistant starch alone — more than two shakes’ total fibre. As our <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support review</a> explains, none of this is comparable to GLP-1 medicines.</p>
 
@@ -106,7 +111,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
 <h2>Price: per shake and per gram of fibre</h2>
 <p>In listings read on 28 September 2026, an 8-serving pack was $14.99 on Amazon.com with an on-page coupon, against a usual listed price of about $30. That is about $1.87 to $3.75 a shake, or $0.12 to $0.25 per gram of fibre. We could not confirm a current price for the 14-serving pack, so check it against the same sums.</p>
 <p>That makes the shakes the cheapest way to buy Supergut’s fibre — cheaper per gram than <a href="/wellness/supergut-foundational-daily-fiber-review">Foundational Daily Fiber</a> (about $0.21 to $0.25) and the <a href="/wellness/supergut-prebiotic-bars-review">bars</a> (about $0.23 to $0.33) — and you get the protein too. But a scoop of plain whey or plant protein with a bowl of oats or beans still costs far less for the same fibre and protein.</p>
-<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range — Healf in the UK, for example. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with shakes sold where you live. We read the US prices from listings rather than taking an order through checkout.</p>
+<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range in other countries. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with shakes sold where you live. We read the US prices from listings rather than taking an order through checkout.</p>
 
 <h2>Best alternatives</h2>
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
@@ -120,7 +125,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
 <h2>Who should skip it</h2>
 <p>Skip the dairy flavours if you have a milk allergy, and skip the shakes if allulose or large amounts of fibre upset your stomach. Anyone with diabetes on glucose-lowering medicines should talk to their clinician first, and anyone on regular medication should check spacing with a pharmacist.</p>
 <p>And skip them if you want a complete meal in a glass, or are buying for GLP-1 or weight loss: they are too light for the first, and the evidence does not support the second.</p>
-<p>Claims on meal replacements and supplements are the manufacturer’s responsibility; regulators such as the US FDA or UK authorities do not approve them for effectiveness before sale.</p>
+<p>Claims on meal replacements and supplements are the manufacturer’s responsibility; regulators in most countries, including the US FDA, do not approve them for effectiveness before sale.</p>
 
 <h2>Sources and shopping: our checklist</h2>
 <p>Before you buy, check the panel for your flavour, the delivered price per shake, and what else you will eat with it. If you try them, start with half a serving and build up over a week or two.</p>
@@ -184,6 +189,11 @@ export const supergutPrebioticShakesReview: ProductArticle = {
         'There is no good evidence that they do in any meaningful way. Supergut’s trial of a fibre-enriched shake improved blood sugar in type 2 diabetes, but it did not measure GLP-1 or appetite, and fibre-driven GLP-1 rises do not reliably reduce eating.',
     },
     {
+      question: 'Are GLP-1 Boosting Prebiotic Shakes different from Prebiotic Shakes?',
+      answer:
+        'Not on the figures we could read. The newer 8-serving “GLP-1 Boosting” packs list the same 15 g of fibre, 15 g of protein and about 1 g of sugar as the original Prebiotic Shakes. The new name is marketing, not new evidence. They are also different from GLP-1 Daily Support, the fibre powder once sold as “GLP-1 Booster”.',
+    },
+    {
       question: 'What flavours are there?',
       answer:
         'Chocolate, Vanilla, Strawberry and Mocha Latte made with milk protein, plus Vegan Chocolate and Vegan Vanilla. Mocha Latte has more fibre — about 20 g a serving against 15 g for the others.',
@@ -191,7 +201,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
     {
       question: 'Where can I buy Supergut shakes?',
       answer:
-        'In the US, on Supergut’s store, Amazon.com, Walmart, Target, GNC and Vitamin Shoppe. Outside the US, Supergut ships to most countries with some restrictions, and some retailers such as Healf in the UK stock part of the range. Compare the delivered cost per shake with a protein powder and oats bought locally.',
+        'In the US, on Supergut’s store, Amazon.com, Walmart, Target, GNC and Vitamin Shoppe. Outside the US, Supergut ships to most countries with some restrictions, and some retailers in other countries stock part of the range. Compare the delivered cost per shake with a protein powder and oats bought locally.',
     },
     {
       question: 'Will they upset my stomach?',
@@ -209,6 +219,11 @@ export const supergutPrebioticShakesReview: ProductArticle = {
       id: 'sps-amazon-chocolate',
       text: 'Amazon.com listing for Supergut Prebiotic Shakes, Chocolate, 14 servings — the “Boost GLP-1” meal-replacement description quoted here.',
       url: 'https://www.amazon.com/Supergut-Prebiotic-Protein-Shakes-Chocolate-Gut-Health/dp/B0C64H8H7F',
+    },
+    {
+      id: 'sps-amazon-glp1-boosting',
+      text: 'Amazon.com listing for Supergut GLP-1 Boosting Prebiotic Shakes, Chocolate, 8 servings — the renamed pack and its fibre, protein and net-carb figures quoted here.',
+      url: 'https://www.amazon.com/Supergut-Boosting-Prebiotic-Shakes-Chocolate/dp/B0DSR9G38L',
     },
     {
       id: 'sps-slickdeals',
@@ -241,12 +256,24 @@ export const supergutPrebioticShakesReview: ProductArticle = {
       url: 'https://pubmed.ncbi.nlm.nih.gov/30638909/',
     },
     {
-      id: 'sps-nhs-fibre',
-      text: 'NHS. How to get more fibre into your diet — the 30 g a day recommendation for adults.',
-      url: 'https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/',
+      id: 'sps-who-fibre',
+      text: 'World Health Organization (2023). Carbohydrate intake for adults and children: WHO guideline — at least 25 g of naturally occurring dietary fibre a day for adults.',
+      url: 'https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates',
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Replaced the product image with a photo of the 472 g Chocolate canister, and noted the claims printed on its front.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Made the review global: removed references aimed at one country, named WHO fibre guidance alongside the US figure, and described stockists outside the US generally. No change to the score.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Added a section on the “GLP-1 Boosting Prebiotic Shakes” packs, also called GLP-1 Booster Shakes, which list the same figures as the original shakes. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 5.2 out of 10 against the five published product criteria, second in the Supergut range behind Foundational Daily Fiber. The format closest to Supergut’s own trial, with 15 to 20 g of fibre and the lowest price per gram of fibre in the range. The marks lost are for a GLP-1 framing the evidence does not support, an undisclosed fibre blend and too few calories to replace a meal on its own.',

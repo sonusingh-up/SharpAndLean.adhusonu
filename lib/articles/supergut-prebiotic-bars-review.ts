@@ -35,8 +35,8 @@ export const supergutPrebioticBarsReview: ProductArticle = {
   seoDescription:
     'Supergut Prebiotic Bars reviewed: all three flavours, 10 g of fibre and protein a bar, the GLP-1 claim, the sweeteners, the price per bar, and the best alternatives.',
   listing: 'Box of 12 bars, Chocolate Brownie',
-  // Amazon product image for ASIN B0C63VPM9H (the 12-bar Chocolate Brownie box).
-  image: 'https://images-na.ssl-images-amazon.com/images/P/B0C63VPM9H.01.LZZZZZZZ.jpg',
+  // Pack photo supplied by the editor: a single Strawberry Almond bar.
+  image: '/images/supergut-prebiotic-bar-strawberry-almond.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/supergut-prebiotic-bars',
   // The other Supergut products we have reviewed: the same fibre blend in powder form.
   alternatives: [
@@ -68,10 +68,10 @@ export const supergutPrebioticBarsReview: ProductArticle = {
 <tbody>
 <tr><td>Chocolate Brownie</td><td>140 kcal</td><td>10 g</td><td>10 g</td><td>1 g</td><td>Milk, tree nuts</td></tr>
 <tr><td>Peanut Butter Chocolate</td><td>150 kcal</td><td>10 g</td><td>10 g</td><td>Under 2 g</td><td>Milk, peanuts, tree nuts (almond)</td></tr>
-<tr><td>Strawberry Almond</td><td>Not confirmed</td><td>10 g</td><td>10 g</td><td>Under 2 g</td><td>Milk, tree nuts (almond)</td></tr>
+<tr><td>Strawberry Almond</td><td>Not confirmed</td><td>10 g</td><td>10 g</td><td>2 g</td><td>Milk, tree nuts (almond)</td></tr>
 </tbody>
 </table>
-<p>A Chocolate Brownie bar weighs 1.62 oz, about 46 g. The Peanut Butter Chocolate panel lists 6 g of fat. We could not confirm the Strawberry Almond energy figure, so we leave it out rather than guess.</p>
+<p>A Chocolate Brownie bar weighs 1.62 oz, about 46 g. The Peanut Butter Chocolate panel lists 6 g of fat. The Strawberry Almond wrapper gives a net weight of 51 g and 2 g of sugar, and carries the same “Boost GLP-1, control cravings” badge. We could not confirm its energy figure, so we leave it out rather than guess.</p>
 <p>The ingredients are built in blends:</p>
 <ul>
 <li><strong>Supergut Resistant Starch Fiber Blend:</strong> soluble vegetable fibre (maize), green banana resistant starch, oat beta-glucan and resistant potato starch — the same four fibres as <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a>, in undisclosed amounts.</li>
@@ -84,7 +84,7 @@ export const supergutPrebioticBarsReview: ProductArticle = {
 <h2>What the evidence shows</h2>
 <h3>The fullness is real, and it is the fibre and protein</h3>
 <p>Protein and fibre are the two nutrients most consistently linked to feeling full, and a bar with 10 g of each will keep most people going longer than a sugary snack of the same calories. That is a real benefit, and it does not need a GLP-1 explanation.</p>
-<p>Fibre in general is well supported. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer. Guidance is similar around the world: the <a href="https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/">NHS recommends 30 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults. One bar is about a third of that.</p>
+<p>Fibre in general is well supported. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer. Guidance is similar around the world: the <a href="https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates">World Health Organization advises at least 25 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults. One bar is about a third of that.</p>
 <h3>The GLP-1 claim is not</h3>
 <p>Supergut’s <a href="https://pubmed.ncbi.nlm.nih.gov/36594522/">2023 randomised trial</a> tested a fibre-enriched meal-replacement shake in people with type 2 diabetes and lowered HbA1c by 0.64 points against placebo. It did not test these bars, and it did not report GLP-1 or appetite. A <a href="https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full">2026 scoping review of 52 studies</a> found fibre-driven GLP-1 rises showed only a non-significant tendency towards feeling fuller. And <a href="https://www.nature.com/articles/s42255-024-00988-y">the resistant-starch trial that produced weight loss</a> used 40 g a day — four times a bar’s total fibre, of which resistant starch is only part.</p>
 
@@ -97,7 +97,7 @@ export const supergutPrebioticBarsReview: ProductArticle = {
 <h2>Price: per bar and per gram of fibre</h2>
 <p>In listings read on 28 September 2026, a box of 12 was $40.00 on Supergut’s store and $39.99 at GNC — about $3.33 a bar — and Amazon.com offered $26.99 on a first subscription order, about $2.25 a bar. That is roughly $0.23 to $0.33 per gram of fibre.</p>
 <p>Supergut’s own <a href="/wellness/supergut-foundational-daily-fiber-review">Foundational Daily Fiber</a> works out at about $0.21 to $0.25 per gram, so the bars cost more for the same fibre — you are paying for the protein, the chocolate and the convenience. Fibre from food, such as oats, beans or lentils, costs a fraction of either.</p>
-<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range — Healf in the UK, for example. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live. We read the US prices from listings rather than taking an order through checkout.</p>
+<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range in other countries. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live. We read the US prices from listings rather than taking an order through checkout.</p>
 
 <h2>Best alternatives</h2>
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
@@ -111,7 +111,7 @@ export const supergutPrebioticBarsReview: ProductArticle = {
 <h2>Who should skip it</h2>
 <p>Skip the bars if you have a milk, peanut or tree nut allergy, are vegan, or know sugar alcohols upset your stomach. People with heart disease or a high clotting risk may prefer to avoid erythritol given the open question above. Anyone on regular medication should check spacing with a pharmacist.</p>
 <p>And skip them if you are buying for GLP-1 or weight loss: the fullness is real, but it comes from fibre and protein that cheaper foods provide.</p>
-<p>Claims on snack foods and supplements are the manufacturer’s responsibility; regulators such as the US FDA or UK authorities do not approve them for effectiveness before sale.</p>
+<p>Claims on snack foods and supplements are the manufacturer’s responsibility; regulators in most countries, including the US FDA, do not approve them for effectiveness before sale.</p>
 
 <h2>Sources and shopping: our checklist</h2>
 <p>Before you buy, check the allergens for your flavour, the delivered price per bar, and whether a fibre powder or ordinary food would do the same job for less. If you try them, start with one bar a day and give your gut a week or two to adjust.</p>
@@ -182,7 +182,7 @@ export const supergutPrebioticBarsReview: ProductArticle = {
     {
       question: 'Where can I buy Supergut bars?',
       answer:
-        'In the US, on Supergut’s store, Amazon.com, Walmart, Target, GNC and Vitamin Shoppe. Outside the US, Supergut ships to most countries with some restrictions, and some retailers stock the bars — Healf lists all three flavours in the UK. Compare the delivered cost per bar with a high-fibre snack from a local supermarket.',
+        'In the US, on Supergut’s store, Amazon.com, Walmart, Target, GNC and Vitamin Shoppe. Outside the US, Supergut ships to most countries with some restrictions, and some retailers in other countries stock the bars. Compare the delivered cost per bar with a high-fibre snack from a local supermarket.',
     },
     {
       question: 'Will they upset my stomach?',
@@ -212,11 +212,6 @@ export const supergutPrebioticBarsReview: ProductArticle = {
       url: 'https://www.amazon.com/Supergut-Prebiotic-Protein-Bars-Meal-Replacement-Energy-Snacks/dp/B0C63VPM9H',
     },
     {
-      id: 'spb-healf',
-      text: 'Healf listing for Supergut Gut Healthy Prebiotic Bar — an example of a stockist outside the US.',
-      url: 'https://healf.com/products/supergut-gut-healthy-prebiotic-bar-chocolate-brownie',
-    },
-    {
       id: 'spb-frias-2023',
       text: 'Frias JP et al. (2023). A microbiome-targeting fibre-enriched nutritional formula improves quality of life and haemoglobin A1c in type 2 diabetes. Diabetes, Obesity and Metabolism 25(5):1203-1212.',
       url: 'https://pubmed.ncbi.nlm.nih.gov/36594522/',
@@ -242,12 +237,20 @@ export const supergutPrebioticBarsReview: ProductArticle = {
       url: 'https://pubmed.ncbi.nlm.nih.gov/30638909/',
     },
     {
-      id: 'spb-nhs-fibre',
-      text: 'NHS. How to get more fibre into your diet — the 30 g a day recommendation for adults.',
-      url: 'https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/',
+      id: 'spb-who-fibre',
+      text: 'World Health Organization (2023). Carbohydrate intake for adults and children: WHO guideline — at least 25 g of naturally occurring dietary fibre a day for adults.',
+      url: 'https://www.who.int/news/item/17-07-2023-who-updates-guidelines-on-fats-and-carbohydrates',
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Replaced the product image with a photo of the Strawberry Almond bar, and added that flavour’s 51 g net weight and 2 g of sugar from the wrapper.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Made the review global: removed references aimed at one country, named WHO fibre guidance alongside the US figure, and described stockists outside the US generally. No change to the score.',
+    },
     {
       date: '2026-09-28',
       note: 'Linked our new review of Supergut Prebiotic Shakes in the best alternatives and the comparison cards.',
