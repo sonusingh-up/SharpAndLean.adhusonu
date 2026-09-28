@@ -64,6 +64,17 @@ export default function GuidesIndex() {
                 </span>
               </Link>
             ))}
+            <Link className="collection-card" href="/guides/supergut">
+              <span className="tag">Brand guide</span>
+              <h3>The complete Supergut guide</h3>
+              <p>
+                Our reviews, the company’s own trial, the resistant-starch research and how to use
+                the range well, in four stages.
+              </p>
+              <span className="circle">
+                <ArrowUpRight size={20} />
+              </span>
+            </Link>
           </div>
         ) : (
           <Empty

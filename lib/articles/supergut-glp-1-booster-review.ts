@@ -96,7 +96,7 @@ export const supergutGlp1BoosterReview: ProductArticle = {
 <li>If a subscription is cheaper, read the cancellation terms before starting one.</li>
 </ul>
 <p>Our commercial link points to the 20-serving unflavored tub on Amazon; it earns a commission at no extra cost to you and has not changed the score. If a GLP-1 mechanism is what you are after, our <a href="/fat-burners/calocurb-review">Calocurb review</a> covers the one supplement whose GLP-1 and weight claims come from trials of the actual extract.</p>
-<p>For the rest of Supergut’s range, the company behind it and the research on resistant starch in one place, see our <a href="/supergut">Supergut brand guide</a>.</p>
+<p>For the rest of Supergut’s range, the company behind it and the research on resistant starch in one place, see our <a href="/guides/supergut">Supergut guide</a>.</p>
 `,
   whoFor:
     'Someone who wants more fermentable fibre in their day in a mixable, low-FODMAP powder — for regularity, digestion or general gut health — and is happy to pay a little more for convenience. Particularly suited to people who react badly to inulin-heavy fibres.',
@@ -232,7 +232,7 @@ export const supergutGlp1BoosterReview: ProductArticle = {
   history: [
     {
       date: '2026-09-28',
-      note: 'Added a link to our Supergut brand guide. The score is unchanged.',
+      note: 'Added a link to our Supergut guide. The score is unchanged.',
     },
     {
       date: '2026-09-25',
