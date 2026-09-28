@@ -39,7 +39,7 @@ export const myproteinImpactCreatineReview: ProductArticle = {
   affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-creatine',
   // Every creatine we have fully reviewed. Serious Mass is left out: it is a gainer that
   // happens to contain creatine, not an alternative to a creatine powder.
-  alternatives: ['optimum-nutrition-micronised-creatine-review'],
+  alternatives: ['bulk-creatine-monohydrate-review', 'optimum-nutrition-micronised-creatine-review'],
   writtenBy: 'team',
   price: 'About £15.99 for 500 g on offer (£29.99 full price) on Myprotein’s UK store, £25.99–£34.99 for 1 kg, and £8–£12.60 for 150–170 g at supermarkets and pharmacies, in listings read on 28 September 2026',
   guarantee: 'Check the seller’s returns policy',
@@ -87,7 +87,7 @@ export const myproteinImpactCreatineReview: ProductArticle = {
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
 <ul>
 <li><strong><a href="/wellness/optimum-nutrition-micronised-creatine-review">Optimum Nutrition Micronised Creatine</a></strong> (reviewed) — the same compound at the same 3 g dose, from a bigger brand. It costs more per 100 g except when its own offers run, its product page contradicts itself on serving size, and it does not claim product-level testing.</li>
-<li><strong>Bulk Creatine Monohydrate</strong> (not yet reviewed) — the other main value brand. A price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g, and Bulk also sells a Creapure-branded version.</li>
+<li><strong><a href="/wellness/bulk-creatine-monohydrate-review">Bulk Creatine Monohydrate</a></strong> (reviewed) — the other main value brand. A price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g, and Bulk also sells a Creapure-branded version.</li>
 <li><strong>Myprotein THE Creatine and THE Creatine Elite</strong> (not yet reviewed) — Myprotein’s premium versions: one made with Creapure, the other sold as Informed Sport certified batch by batch. Worth the extra only if a named source or batch testing matters to you.</li>
 <li><strong>Myprotein Creatine Monohydrate Tablets</strong> (not yet reviewed) — the same ingredient in tablet form, for anyone who dislikes powder. Expect to pay more per gram and to take several tablets for 3 g.</li>
 </ul>
@@ -213,6 +213,10 @@ export const myproteinImpactCreatineReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Bulk Creatine Monohydrate to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 8.6 out of 10 against the five published product criteria, the highest of the creatines we have reviewed. The marks lost are for an unnamed creatine source, Informed Choice sampling rather than batch testing, and small high-street packs that cost over twice as much per gram.',

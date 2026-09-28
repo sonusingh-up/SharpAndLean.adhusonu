@@ -41,7 +41,7 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
   image: '/images/optimum-nutrition-micronised-creatine.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
   // Every other creatine we have fully reviewed.
-  alternatives: ['myprotein-impact-creatine-review'],
+  alternatives: ['myprotein-impact-creatine-review', 'bulk-creatine-monohydrate-review'],
   writtenBy: 'team',
   price: '£14.00–£40.00 at the brand’s GB store depending on pack size; £19.75–£27.41 for the 317 g tub across five UK retailers, checked 28 September 2026',
   guarantee: 'Check the seller’s returns policy',
@@ -109,7 +109,7 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
 <ul>
 <li><strong><a href="/wellness/myprotein-impact-creatine-review">Myprotein Impact Creatine</a></strong> (reviewed) — the cheapest mainstream unflavoured monohydrate on the day we looked: £15.99 for 500 g on offer, or £3.20 per 100 g, against £6.31 to £7.49 for Optimum Nutrition at list price. Same compound, same dose.</li>
-<li><strong>Bulk Creatine Monohydrate</strong> (not yet reviewed) — a price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g. Bulk also sells a Creapure-branded version for buyers who want a named source, at a higher price.</li>
+<li><strong><a href="/wellness/bulk-creatine-monohydrate-review">Bulk Creatine Monohydrate</a></strong> (reviewed) — a price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g. Bulk also sells a Creapure-branded version for buyers who want a named source, at a higher price.</li>
 <li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — only if you also need a lot of extra calories: each serving includes 3 g of creatine alongside about 1,250 kcal. For anyone who just wants creatine, it is the wrong tool.</li>
 <li><strong>A batch-tested creatine</strong> — if you compete under anti-doping rules, the best alternative is whichever monohydrate you can look up by batch in a certifier’s database, whatever the brand.</li>
 </ul>
@@ -241,6 +241,10 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Bulk Creatine Monohydrate to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Added a best-alternatives section, and our full review of Myprotein Impact Creatine to the comparison block. The score is unchanged.',
