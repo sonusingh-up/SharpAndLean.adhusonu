@@ -36,9 +36,9 @@ export const optimumNutritionAminoEnergyReview: ProductArticle = {
   listing: '270 g tub, Fruit Fusion, 30 servings',
   image: '/images/optimum-nutrition-amino-energy.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
-  // No other energy or caffeine product on the site has a full review yet, so the comparison
-  // block is suppressed rather than falling back to unrelated nootropics.
-  alternatives: [],
+  // No other energy drink powder has a full review yet. L-theanine is the evidence-backed
+  // partner for caffeine, and creatine the better buy for training.
+  alternatives: ['now-l-theanine-100-mg', 'optimum-nutrition-micronised-creatine-review'],
   writtenBy: 'team',
   price: 'About £19.75–£26.83 for the 270 g tub at mainstream UK retailers in search listings on 28 September 2026 — roughly 66p–89p a serving',
   guarantee: 'Check the seller’s returns policy',
@@ -104,6 +104,15 @@ export const optimumNutritionAminoEnergyReview: ProductArticle = {
 <p>If what you want is to feel more alert, a mug of coffee or tea delivers the same active ingredient for far less. If you want caffeine with fewer jitters, some research suggests pairing it with L-theanine, which occurs naturally in tea; our <a href="/ingredients/l-theanine">L-theanine page</a> sets out the evidence.</p>
 <p>If what you want is better training, the evidence points elsewhere: enough protein from food or a <a href="/wellness/optimum-nutrition-uk-review-2026">whey protein</a>, and <a href="/wellness/optimum-nutrition-micronised-creatine-review">creatine</a>, which has a much stronger evidence base than any amino acid drink. A larger caffeine dose of 3 to 6 mg per kilogram before training does improve performance for many people, but it is a dose to build up to cautiously, not one to reach with several scoops of this.</p>
 <p>And if you mostly drink Amino Energy because you like it — a cold, fruit-flavoured, sugar-free drink with a gentle lift — that is a reasonable reason to buy it, as long as you know that is what you are paying for.</p>
+
+<h2>Best alternatives</h2>
+<p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
+<ul>
+<li><strong>A mug of coffee or tea</strong> — the best alternative for most people. A mug of instant coffee has about the same 100 mg of caffeine for a few pence, and tea brings its own L-theanine.</li>
+<li><strong><a href="/nootropics/now-l-theanine-100-mg">NOW L-Theanine 100 mg</a></strong> (reviewed) — for anyone who finds caffeine makes them jittery, pairing a coffee with L-theanine is the combination with the best evidence for calm focus. Our review explains what else is in the capsule.</li>
+<li><strong>Plain caffeine tablets</strong> (not yet reviewed) — the cheapest measured dose of caffeine, useful if you want an exact amount before training without sweeteners or flavourings. Start low and count every other source of caffeine that day.</li>
+<li><strong><a href="/wellness/optimum-nutrition-micronised-creatine-review">Optimum Nutrition Micronised Creatine</a></strong> (reviewed) — if you bought Amino Energy hoping to train better, creatine has far stronger evidence for strength and power than any amino acid drink.</li>
+</ul>
 
 <h2>Sources and shopping: our UK buying checklist</h2>
 <p>Before you order, check the flavour and tub size, the delivered price and the seller. Divide the price by 30 to get the cost per serving, and compare it with what you would otherwise drink. Counterfeit sports nutrition is a documented problem on marketplaces, and a verifiable seller is the simplest protection. Be wary of listings far below the going rate, which can be short-dated stock.</p>
@@ -252,7 +261,7 @@ export const optimumNutritionAminoEnergyReview: ProductArticle = {
     },
     {
       date: '2026-09-28',
-      note: 'First published for the UK market. We could not open Optimum Nutrition’s GB product page, so the label figures, directions and warning come from UK retailer listings read via search on this date, and prices from search listings. This is a desk review: nobody on our team has used this product. The comparison block is left empty because no other energy product on the site has a full review yet.',
+      note: 'First published for the UK market. We could not open Optimum Nutrition’s GB product page, so the label figures, directions and warning come from UK retailer listings read via search on this date, and prices from search listings. This is a desk review: nobody on our team has used this product. No other energy drink powder on the site has a full review yet, so the comparison block shows our L-theanine and creatine reviews, and the other options are compared in a best-alternatives section.',
     },
   ],
   published: '2026-09-28T00:00:00Z',

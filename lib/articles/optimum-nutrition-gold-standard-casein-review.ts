@@ -36,7 +36,11 @@ export const optimumNutritionGoldStandardCaseinReview: ProductArticle = {
   image: '/images/optimum-nutrition-gold-standard-casein.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
   // Both are full reviews, and whey is the comparison readers are actually weighing casein against.
-  alternatives: ['optimum-nutrition-uk-review-2026', 'myprotein-impact-whey-review'],
+  alternatives: [
+    'optimum-nutrition-uk-review-2026',
+    'myprotein-impact-whey-review',
+    'kinetica-whey-protein-review',
+  ],
   writtenBy: 'team',
   price: 'About £36.95–£38.95 for the 924 g tub and £55.79–£64.99 for the 1.8 kg at UK retailers in search listings on 28 September 2026',
   guarantee: 'Check the seller’s returns policy',
@@ -102,6 +106,16 @@ export const optimumNutritionGoldStandardCaseinReview: ProductArticle = {
 <p>If you are short of protein and want a shake after training or during the day, whey is usually cheaper per gram and mixes more easily. Our <a href="/wellness/optimum-nutrition-uk-review-2026">Gold Standard whey</a> and <a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a> reviews cover the two most common choices.</p>
 <p>If you want a shake before bed or a filling snack between meals, casein’s slower digestion and thicker texture are a reasonable reason to choose it. Gold Standard Casein is a well-made example; the question is only whether you pay the brand price or find the same protein cheaper.</p>
 <p>And if you already reach your daily protein from food, neither is necessary. A bowl of Greek yoghurt or cottage cheese before bed gives you casein for less, with no scoop required. If you want one supplement with strong evidence for strength training, <a href="/wellness/optimum-nutrition-micronised-creatine-review">creatine</a> has a much clearer case than protein timing.</p>
+
+<h2>Best alternatives</h2>
+<p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
+<ul>
+<li><strong>Greek yoghurt, skyr or cottage cheese</strong> — the best alternative for most people. They are mostly casein, filling, and a 200 g pot gives roughly 15 to 25 g of protein before bed without a scoop.</li>
+<li><strong>Myprotein Slow-Release Casein</strong> (not yet reviewed) — the own-brand casein we priced against: 23 g of protein per 30 g scoop, about £3.91 per 100 g of protein on offer and £5.48 at full price.</li>
+<li><strong><a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey</a></strong> (reviewed) — if timing does not matter to you, whey does the same job for daily protein, mixes more easily and is usually cheaper per gram.</li>
+<li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — the value whey, and the cheapest way to add protein of the products we have reviewed.</li>
+<li><strong><a href="/wellness/kinetica-whey-protein-review">Kinetica Whey Protein</a></strong> (reviewed) — the most completely labelled whey we have reviewed, and the better choice for drug-tested athletes because of its banned-substance testing claim.</li>
+</ul>
 
 <h2>Sources and shopping: our UK buying checklist</h2>
 <p>Before you order, confirm the flavour, the pack size, the delivered price and the seller. On marketplaces, check that the seller is the brand or an authorised retailer — counterfeit sports nutrition is a documented problem, and a verifiable seller is the simplest protection. Then work out the cost per 100 g of protein: price ÷ (servings × 24) × 100.</p>
