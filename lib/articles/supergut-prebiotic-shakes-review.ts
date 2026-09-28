@@ -7,7 +7,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
   brand: 'Supergut',
   category: 'wellness',
   summary:
-    'Supergut’s meal-replacement shake, reviewed against the research. Each serving gives 15 g of prebiotic fibre (20 g in Mocha Latte) and 15 g of protein with about 1 g of sugar, and it is the format closest to the product in Supergut’s own diabetes trial. But it is sold on GLP-1 claims that trial never measured, the fibre blend is undisclosed, and at about 90 kcal a serving it is too light to replace a meal on its own.',
+    'Supergut’s meal-replacement shake — also sold as GLP-1 Boosting Prebiotic Shakes — reviewed against the research. Each serving gives 15 g of prebiotic fibre (20 g in Mocha Latte) and 15 g of protein with about 1 g of sugar, and it is the format closest to the product in Supergut’s own diabetes trial. But it is sold on GLP-1 claims that trial never measured, the fibre blend is undisclosed, and at about 90 kcal a serving it is too light to replace a meal on its own.',
   verdict:
     'The best-evidenced product in the Supergut range and the cheapest per gram of fibre — but a light shake, not a meal, and not a GLP-1 product',
   // Scored against the five published criteria on /evidence-grading.
@@ -33,7 +33,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
   },
   seoTitle: 'Supergut Prebiotic Shakes Review 2026',
   seoDescription:
-    'Supergut Prebiotic Shakes reviewed: all six flavours, 15 g of fibre and protein a serving, the diabetes trial, the GLP-1 claim, the price per shake, and the best alternatives.',
+    'Supergut Prebiotic Shakes and GLP-1 Boosting Shakes reviewed: all six flavours, 15 g of fibre and protein a serving, the diabetes trial, the GLP-1 claim, the price per shake, and the best alternatives.',
   listing: 'Bag of 14 servings, Chocolate',
   // Amazon product image for ASIN B0C64H8H7F (the 14-serving Chocolate bag).
   image: 'https://images-na.ssl-images-amazon.com/images/P/B0C64H8H7F.01.LZZZZZZZ.jpg',
@@ -84,6 +84,11 @@ export const supergutPrebioticShakesReview: ProductArticle = {
 <li><strong>Flavourings and a vitamin and mineral blend</strong> of 26 nutrients.</li>
 </ul>
 <p>The vegan flavours replace the milk protein with a plant protein; we could not confirm which.</p>
+
+<h2>Prebiotic Shakes or “GLP-1 Boosting” Shakes?</h2>
+<p>You may see these shakes under two names. The original 14-serving bags are sold as Prebiotic Shakes, with “Boost GLP-1” in retailer titles. Newer 8-serving packs in Chocolate and Vanilla are sold as <strong>GLP-1 Boosting Prebiotic Shakes</strong>, sometimes shortened to GLP-1 Booster Shakes.</p>
+<p>On every listing we could read, the figures are the same: 15 g of prebiotic fibre, 15 g of protein, about 1 g of sugar and about 90 kcal a serving. We found no study of the renamed pack, so the new name adds a claim, not evidence — everything in this review applies to both. One retailer listing of the 8-serving Vanilla pack also names brown rice protein alongside milk protein, which may mean a small recipe change; we could not confirm it, so check the ingredient list on the pack you buy.</p>
+<p>Do not confuse these shakes with Supergut’s <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a>, a fibre powder that was also sold as “GLP-1 Booster”. It has 6 g of fibre a scoop and no protein.</p>
 
 <h2>What the evidence shows</h2>
 <h3>The trial is the closest match in the range</h3>
@@ -184,6 +189,11 @@ export const supergutPrebioticShakesReview: ProductArticle = {
         'There is no good evidence that they do in any meaningful way. Supergut’s trial of a fibre-enriched shake improved blood sugar in type 2 diabetes, but it did not measure GLP-1 or appetite, and fibre-driven GLP-1 rises do not reliably reduce eating.',
     },
     {
+      question: 'Are GLP-1 Boosting Prebiotic Shakes different from Prebiotic Shakes?',
+      answer:
+        'Not on the figures we could read. The newer 8-serving “GLP-1 Boosting” packs list the same 15 g of fibre, 15 g of protein and about 1 g of sugar as the original Prebiotic Shakes. The new name is marketing, not new evidence. They are also different from GLP-1 Daily Support, the fibre powder once sold as “GLP-1 Booster”.',
+    },
+    {
       question: 'What flavours are there?',
       answer:
         'Chocolate, Vanilla, Strawberry and Mocha Latte made with milk protein, plus Vegan Chocolate and Vegan Vanilla. Mocha Latte has more fibre — about 20 g a serving against 15 g for the others.',
@@ -209,6 +219,11 @@ export const supergutPrebioticShakesReview: ProductArticle = {
       id: 'sps-amazon-chocolate',
       text: 'Amazon.com listing for Supergut Prebiotic Shakes, Chocolate, 14 servings — the “Boost GLP-1” meal-replacement description quoted here.',
       url: 'https://www.amazon.com/Supergut-Prebiotic-Protein-Shakes-Chocolate-Gut-Health/dp/B0C64H8H7F',
+    },
+    {
+      id: 'sps-amazon-glp1-boosting',
+      text: 'Amazon.com listing for Supergut GLP-1 Boosting Prebiotic Shakes, Chocolate, 8 servings — the renamed pack and its fibre, protein and net-carb figures quoted here.',
+      url: 'https://www.amazon.com/Supergut-Boosting-Prebiotic-Shakes-Chocolate/dp/B0DSR9G38L',
     },
     {
       id: 'sps-slickdeals',
@@ -247,6 +262,10 @@ export const supergutPrebioticShakesReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added a section on the “GLP-1 Boosting Prebiotic Shakes” packs, also called GLP-1 Booster Shakes, which list the same figures as the original shakes. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 5.2 out of 10 against the five published product criteria, second in the Supergut range behind Foundational Daily Fiber. The format closest to Supergut’s own trial, with 15 to 20 g of fibre and the lowest price per gram of fibre in the range. The marks lost are for a GLP-1 framing the evidence does not support, an undisclosed fibre blend and too few calories to replace a meal on its own.',
