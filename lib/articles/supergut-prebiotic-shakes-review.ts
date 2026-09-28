@@ -34,9 +34,9 @@ export const supergutPrebioticShakesReview: ProductArticle = {
   seoTitle: 'Supergut Prebiotic Shakes Review 2026',
   seoDescription:
     'Supergut Prebiotic Shakes and GLP-1 Boosting Shakes reviewed: all six flavours, 15 g of fibre and protein a serving, the diabetes trial, the GLP-1 claim, the price per shake, and the best alternatives.',
-  listing: 'Bag of 14 servings, Chocolate',
-  // Amazon product image for ASIN B0C64H8H7F (the 14-serving Chocolate bag).
-  image: 'https://images-na.ssl-images-amazon.com/images/P/B0C64H8H7F.01.LZZZZZZZ.jpg',
+  listing: 'Canister of 472 g (16.6 oz), Chocolate',
+  // Pack photo supplied by the editor: the 472 g Chocolate canister.
+  image: '/images/supergut-prebiotic-shake-chocolate.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/supergut-prebiotic-shakes',
   // The other Supergut products we have reviewed.
   alternatives: [
@@ -74,7 +74,7 @@ export const supergutPrebioticShakesReview: ProductArticle = {
 <tr><td>Vegan Vanilla</td><td>Not confirmed</td><td>Not confirmed</td><td>Not confirmed</td><td>No</td></tr>
 </tbody>
 </table>
-<p>Listings give about 90 kcal and 1 g of sugar a serving for the dairy flavours mixed with water. The Chocolate 14-serving pack weighs 826 g, about 59 g a serving. We could not confirm the full panels for the vegan flavours, or whether Mocha Latte contains caffeine, so we leave those out rather than guess.</p>
+<p>Listings give about 90 kcal and 1 g of sugar a serving for the dairy flavours mixed with water. The Chocolate 14-serving pack weighs 826 g, about 59 g a serving, and the 472 g (16.6 oz) Chocolate canister pictured works out at about 8 servings on the same serving size. The canister front also claims to “Boost GLP-1”, “Control cravings” and “Manage weight”. We could not confirm the full panels for the vegan flavours, or whether Mocha Latte contains caffeine, so we leave those out rather than guess.</p>
 <p>The dairy versions are built in blends:</p>
 <ul>
 <li><strong>Milk protein concentrate:</strong> the protein source, giving 15 g of complete protein.</li>
@@ -262,6 +262,10 @@ export const supergutPrebioticShakesReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Replaced the product image with a photo of the 472 g Chocolate canister, and noted the claims printed on its front.',
+    },
     {
       date: '2026-09-28',
       note: 'Made the review global: removed references aimed at one country, named WHO fibre guidance alongside the US figure, and described stockists outside the US generally. No change to the score.',

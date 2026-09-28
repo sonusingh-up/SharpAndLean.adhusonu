@@ -35,8 +35,8 @@ export const supergutPrebioticBarsReview: ProductArticle = {
   seoDescription:
     'Supergut Prebiotic Bars reviewed: all three flavours, 10 g of fibre and protein a bar, the GLP-1 claim, the sweeteners, the price per bar, and the best alternatives.',
   listing: 'Box of 12 bars, Chocolate Brownie',
-  // Amazon product image for ASIN B0C63VPM9H (the 12-bar Chocolate Brownie box).
-  image: 'https://images-na.ssl-images-amazon.com/images/P/B0C63VPM9H.01.LZZZZZZZ.jpg',
+  // Pack photo supplied by the editor: a single Strawberry Almond bar.
+  image: '/images/supergut-prebiotic-bar-strawberry-almond.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/supergut-prebiotic-bars',
   // The other Supergut products we have reviewed: the same fibre blend in powder form.
   alternatives: [
@@ -68,10 +68,10 @@ export const supergutPrebioticBarsReview: ProductArticle = {
 <tbody>
 <tr><td>Chocolate Brownie</td><td>140 kcal</td><td>10 g</td><td>10 g</td><td>1 g</td><td>Milk, tree nuts</td></tr>
 <tr><td>Peanut Butter Chocolate</td><td>150 kcal</td><td>10 g</td><td>10 g</td><td>Under 2 g</td><td>Milk, peanuts, tree nuts (almond)</td></tr>
-<tr><td>Strawberry Almond</td><td>Not confirmed</td><td>10 g</td><td>10 g</td><td>Under 2 g</td><td>Milk, tree nuts (almond)</td></tr>
+<tr><td>Strawberry Almond</td><td>Not confirmed</td><td>10 g</td><td>10 g</td><td>2 g</td><td>Milk, tree nuts (almond)</td></tr>
 </tbody>
 </table>
-<p>A Chocolate Brownie bar weighs 1.62 oz, about 46 g. The Peanut Butter Chocolate panel lists 6 g of fat. We could not confirm the Strawberry Almond energy figure, so we leave it out rather than guess.</p>
+<p>A Chocolate Brownie bar weighs 1.62 oz, about 46 g. The Peanut Butter Chocolate panel lists 6 g of fat. The Strawberry Almond wrapper gives a net weight of 51 g and 2 g of sugar, and carries the same “Boost GLP-1, control cravings” badge. We could not confirm its energy figure, so we leave it out rather than guess.</p>
 <p>The ingredients are built in blends:</p>
 <ul>
 <li><strong>Supergut Resistant Starch Fiber Blend:</strong> soluble vegetable fibre (maize), green banana resistant starch, oat beta-glucan and resistant potato starch — the same four fibres as <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a>, in undisclosed amounts.</li>
@@ -243,6 +243,10 @@ export const supergutPrebioticBarsReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Replaced the product image with a photo of the Strawberry Almond bar, and added that flavour’s 51 g net weight and 2 g of sugar from the wrapper.',
+    },
     {
       date: '2026-09-28',
       note: 'Made the review global: removed references aimed at one country, named WHO fibre guidance alongside the US figure, and described stockists outside the US generally. No change to the score.',
