@@ -40,9 +40,8 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
   listing: '317 g tub, unflavoured, 93 servings',
   image: '/images/optimum-nutrition-micronised-creatine.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
-  // No other creatine on the site has a full review yet, so the comparison block is
-  // suppressed rather than falling back to same-category whey, fish oil and vitamin D.
-  alternatives: [],
+  // Every other creatine we have fully reviewed.
+  alternatives: ['myprotein-impact-creatine-review', 'bulk-creatine-monohydrate-review'],
   writtenBy: 'team',
   price: '£14.00–£40.00 at the brand’s GB store depending on pack size; £19.75–£27.41 for the 317 g tub across five UK retailers, checked 28 September 2026',
   guarantee: 'Check the seller’s returns policy',
@@ -101,16 +100,16 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
 <p>Anyone with kidney disease, anyone taking medicines that affect the kidneys, and anyone pregnant or breastfeeding should talk to their GP or pharmacist before starting. Food supplements sold in Great Britain are not approved by a regulator for safety or effectiveness before sale, so the label is the manufacturer’s responsibility rather than a regulator’s endorsement.</p>
 
 <h2>Optimum Nutrition, plain creatine, or none?</h2>
-<p>The closest comparison is any unflavoured creatine monohydrate from a reputable seller, such as Myprotein’s Impact Creatine. The ingredient is the same compound at the same dose, so the differences are pack size, price, mixability and testing claims. We have not written a full review of any other creatine yet, so we name these for price comparison only; do not read this as a recommendation of one over the other.</p>
+<p>The closest comparison is any unflavoured creatine monohydrate from a reputable seller, such as Myprotein’s Impact Creatine, which we have <a href="/wellness/myprotein-impact-creatine-review">reviewed in full</a>. The ingredient is the same compound at the same dose, so the differences are pack size, price, mixability and testing claims.</p>
 <p>Some creatines advertise a named branded source of creatine monohydrate and cost considerably more. That can be a reasonable choice if traceability matters to you, but it is a claim about supply chain rather than about a better result: the trials were run on creatine monohydrate, not on a brand of it.</p>
 <p>Newer forms — creatine HCl, buffered creatine, creatine ethyl ester — are usually more expensive and have far less research behind them. The ISSN position stand treats monohydrate as the reference form. If a product claims its form works better at a smaller dose, ask to see the trial.</p>
 <p>And the last option is none at all. Creatine helps with short, intense, repeated efforts. If your training is mostly walking, running or steady cardio, the benefit is small. If you do lift, sprint or play a stop-start sport, creatine is one of the few supplements with a solid case — and the case is for creatine, not for any particular tub.</p>
 
 <h2>Best alternatives</h2>
-<p>The ones we have fully reviewed are linked. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
+<p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
 <ul>
-<li><strong>Myprotein Impact Creatine</strong> (not yet reviewed) — the cheapest mainstream unflavoured monohydrate on the day we looked: £15.99 for 500 g on offer, or £3.20 per 100 g, against £6.31 to £7.49 for Optimum Nutrition at list price. Same compound, same dose.</li>
-<li><strong>Bulk Creatine Monohydrate</strong> (not yet reviewed) — a price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g. Bulk also sells a Creapure-branded version for buyers who want a named source, at a higher price.</li>
+<li><strong><a href="/wellness/myprotein-impact-creatine-review">Myprotein Impact Creatine</a></strong> (reviewed) — the cheapest mainstream unflavoured monohydrate on the day we looked: £15.99 for 500 g on offer, or £3.20 per 100 g, against £6.31 to £7.49 for Optimum Nutrition at list price. Same compound, same dose.</li>
+<li><strong><a href="/wellness/bulk-creatine-monohydrate-review">Bulk Creatine Monohydrate</a></strong> (reviewed) — a price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g. Bulk also sells a Creapure-branded version for buyers who want a named source, at a higher price.</li>
 <li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — only if you also need a lot of extra calories: each serving includes 3 g of creatine alongside about 1,250 kcal. For anyone who just wants creatine, it is the wrong tool.</li>
 <li><strong>A batch-tested creatine</strong> — if you compete under anti-doping rules, the best alternative is whichever monohydrate you can look up by batch in a certifier’s database, whatever the brand.</li>
 </ul>
@@ -242,6 +241,14 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Bulk Creatine Monohydrate to the best alternatives and the comparison block. The score is unchanged.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Added a best-alternatives section, and our full review of Myprotein Impact Creatine to the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 7.4 out of 10 against the five published product criteria. The marks lost are for a product page that describes one serving three different ways and for a list price that a plain creatine monohydrate undercuts. The ingredient and the dose are not in question.',

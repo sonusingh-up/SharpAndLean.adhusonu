@@ -24,6 +24,14 @@ import { optimumNutritionOptiMenReview } from './optimum-nutrition-opti-men-revi
 import { optimumNutritionAminoEnergyReview } from './optimum-nutrition-amino-energy-review';
 import { optimumNutritionGoldStandardCaseinReview } from './optimum-nutrition-gold-standard-casein-review';
 import { optimumNutritionSeriousMassReview } from './optimum-nutrition-serious-mass-review';
+import { myproteinImpactCreatineReview } from './myprotein-impact-creatine-review';
+import { myproteinImpactWeightGainerReview } from './myprotein-impact-weight-gainer-review';
+import { myproteinSlowReleaseCaseinReview } from './myprotein-slow-release-casein-review';
+import { bulkCreatineMonohydrateReview } from './bulk-creatine-monohydrate-review';
+import { mutantMassReview } from './mutant-mass-review';
+import { vitabioticsWellmanOriginalReview } from './vitabiotics-wellman-original-review';
+import { tescoAZMultivitaminsMineralsReview } from './tesco-a-z-multivitamins-minerals-review';
+import { myproteinAlphaMenReview } from './myprotein-alpha-men-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -57,6 +65,14 @@ export const articles: ProductArticle[] = [
   optimumNutritionAminoEnergyReview,
   optimumNutritionGoldStandardCaseinReview,
   optimumNutritionSeriousMassReview,
+  myproteinImpactCreatineReview,
+  myproteinImpactWeightGainerReview,
+  myproteinSlowReleaseCaseinReview,
+  bulkCreatineMonohydrateReview,
+  mutantMassReview,
+  vitabioticsWellmanOriginalReview,
+  tescoAZMultivitaminsMineralsReview,
+  myproteinAlphaMenReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and

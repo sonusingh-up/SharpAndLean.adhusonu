@@ -39,9 +39,13 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
   listing: '90 tablets, 30 servings of three tablets',
   image: '/images/optimum-nutrition-opti-men.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
-  // No other multivitamin on the site has a full review yet. Vitamin D is the one nutrient
-  // most UK men need, so the full vitamin D review is the honest comparison.
-  alternatives: ['nature-made-vitamin-d3-1000-iu'],
+  // The other men's multivitamin we have reviewed, and vitamin D, the one nutrient most UK men need.
+  alternatives: [
+    'tesco-a-z-multivitamins-minerals-review',
+    'vitabiotics-wellman-original-review',
+    'myprotein-alpha-men-review',
+    'nature-made-vitamin-d3-1000-iu',
+  ],
   writtenBy: 'team',
   price: 'About £14.95–£19.99 for 90 tablets at UK retailers in search listings on 28 September 2026 — roughly 50p–67p a day',
   guarantee: 'Check the seller’s returns policy',
@@ -106,11 +110,11 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
 <p>A 90-tablet tub is 30 days. Search listings for UK retailers on 28 September 2026 showed the 90-tablet pack from about £14.95 at one sports-nutrition retailer to £19.99 at another, with a UK price comparison site listing a best price between £17.62 and £19.06. That works out at roughly 50p to 67p a day. We read these prices from search listings rather than taking an order through checkout, so confirm the delivered price before you pay.</p>
 <p>Against other multivitamins, on the same day’s listings:</p>
 <ul>
-<li><strong>Tesco A–Z Multivitamins &amp; Minerals</strong>, 90 one-a-day tablets from £4.95 — about 5.5p a day, or roughly a tenth of the cost of Opti-Men.</li>
-<li><strong>Vitabiotics Wellman Original</strong>, 30 one-a-day tablets from £4.29 at the cheapest listing — about 14p a day.</li>
-<li><strong>Myprotein Alpha Men</strong>, 120 tablets at two a day, from £11.99 — about 20p a day.</li>
+<li><strong><a href="/wellness/tesco-a-z-multivitamins-minerals-review">Tesco A–Z Multivitamins &amp; Minerals</a></strong>, 90 one-a-day tablets from £4.95 — about 5.5p a day, or roughly a tenth of the cost of Opti-Men.</li>
+<li><strong><a href="/wellness/vitabiotics-wellman-original-review">Vitabiotics Wellman Original</a></strong>, 30 one-a-day tablets from £4.29 at the cheapest listing — about 14p a day.</li>
+<li><strong><a href="/wellness/myprotein-alpha-men-review">Myprotein Alpha Men</a></strong>, 120 tablets at two a day, from £11.99 — about 20p a day.</li>
 </ul>
-<p>These are not identical formulas, and we have not reviewed any of them in full, so this is a price comparison rather than a recommendation. But the core vitamins and minerals — the part of any multivitamin with a plausible benefit — are broadly covered by all of them. What Opti-Men charges extra for is mostly the amino acids, concentrates and botanicals, which we do not think do anything at these doses.</p>
+<p>These are not identical formulas; each is now reviewed in full, and linked above. But the core vitamins and minerals — the part of any multivitamin with a plausible benefit — are broadly covered by all of them. What Opti-Men charges extra for is mostly the amino acids, concentrates and botanicals, which we do not think do anything at these doses.</p>
 <p>If vitamin D is the only thing you actually need, a 10 µg vitamin D tablet is cheaper still.</p>
 
 <h2>Who should skip it, and what to watch for</h2>
@@ -129,9 +133,9 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
 <ul>
 <li><strong>A plain 10 µg vitamin D tablet</strong> — the best alternative for most men, because vitamin D is the one gap the NHS expects most people in the UK to have in autumn and winter. Supermarket own-brand tablets cost a few pence a day.</li>
 <li><strong><a href="/wellness/nature-made-vitamin-d3-1000-iu">Nature Made Vitamin D3 1000 IU</a></strong> (reviewed) — a single-ingredient, USP-verified vitamin D at 25 µg a softgel. It is a US product, so UK buyers will usually pay import prices; the point is the approach, not the brand.</li>
-<li><strong>Tesco A–Z Multivitamins &amp; Minerals</strong> (not yet reviewed) — if you want a multivitamin as insurance, about 5.5p a day for a one-a-day tablet, roughly a tenth of the cost of Opti-Men.</li>
-<li><strong>Vitabiotics Wellman Original</strong> (not yet reviewed) — the high-street men’s multivitamin, about 14p a day at the cheapest listing we saw.</li>
-<li><strong>Myprotein Alpha Men</strong> (not yet reviewed) — the closest sports-shop rival at about 20p a day, two tablets rather than three.</li>
+<li><strong><a href="/wellness/tesco-a-z-multivitamins-minerals-review">Tesco A–Z Multivitamins &amp; Minerals</a></strong> (reviewed) — if you want a multivitamin as insurance, about 5.5p a day for a one-a-day tablet, roughly a tenth of the cost of Opti-Men.</li>
+<li><strong><a href="/wellness/vitabiotics-wellman-original-review">Vitabiotics Wellman Original</a></strong> (reviewed) — the high-street men’s multivitamin, about 14p a day at the cheapest listing we saw.</li>
+<li><strong><a href="/wellness/myprotein-alpha-men-review">Myprotein Alpha Men</a></strong> (reviewed) — the closest sports-shop rival at about 20p a day, two tablets rather than three.</li>
 </ul>
 
 <h2>Sources and shopping: our UK buying checklist</h2>
@@ -302,6 +306,18 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Myprotein Alpha Men to the best alternatives and the comparison block. The score is unchanged.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Tesco A–Z Multivitamins & Minerals to the best alternatives and the comparison block. The score is unchanged.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Vitabiotics Wellman Original to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 5.0 out of 10 against the five published product criteria. The formula is sensible and safe. The marks lost are for weak evidence that well-fed men benefit from a multivitamin, extras too small to matter, undisclosed botanical amounts, and a daily cost several times that of a supermarket A–Z.',
