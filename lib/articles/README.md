@@ -102,6 +102,26 @@ When a product genuinely has no comparable full review yet, set
 entirely; omitting the field falls back to same-category, which is how a sleep
 supplement ends up being compared against whey protein.
 
+## Every review has a "Best alternatives" section
+
+Each long-form review ends its analysis with an `<h2>Best alternatives</h2>`
+section, placed just before "Sources and shopping", listing the options a
+reader is realistically choosing between:
+
+- Alternatives we have **fully reviewed** are linked in the body, marked
+  "(reviewed)", and added to `alternatives` so they appear as comparison cards.
+- Alternatives we have **not** reviewed are named in the body without a link,
+  marked "(not yet reviewed)", with a one-line reason and a price where known.
+  This keeps the no-stubs rule above: an unlinked mention promises nothing.
+- Non-product alternatives (a home-made shake, a plain vitamin D tablet, Greek
+  yoghurt, a mug of coffee) belong here too when they are the honest answer.
+
+When a new review covers a product that earlier reviews list as "(not yet
+reviewed)", update those reviews in the same change: link the mention, switch
+it to "(reviewed)", add the slug to their `alternatives`, and add a `history`
+entry saying so, with the score unchanged. `grep -rn "not yet reviewed"
+lib/articles` finds them.
+
 ## Bylines
 
 Pages are bylined to the team by default, with the clinician credited
@@ -136,6 +156,30 @@ relative and pass equity normally.
 redirect in the admin CMS — an article-supplied link is never overwritten by
 the Amazon fallback. A product with neither field simply shows no buy button,
 which is the right outcome: the site does not guess at listings.
+
+For UK reviews, every product gets its own redirect named after the product:
+`affiliateUrl: 'https://sharpandlean.com/recommended/<product-slug>'`, e.g.
+`/recommended/myprotein-impact-creatine`, where `<product-slug>` is the review
+slug without `-review`. The article file only names the redirect; it returns
+404 until the redirect is created in the admin CMS, so list any new ones for
+whoever publishes the change. (The Optimum Nutrition reviews share
+`/recommended/optimum-nutrition-uk`, which predates this rule.)
+
+## Product images
+
+Use a local file under `public/images/` when one has been supplied. Otherwise
+use the Amazon product image, built from the Amazon.co.uk ASIN:
+
+```ts
+// Amazon.co.uk product image for ASIN B00CHJ3DW4 (the 500 g pack).
+image: 'https://images-na.ssl-images-amazon.com/images/P/B00CHJ3DW4.01.LZZZZZZZ.jpg',
+```
+
+The host is already allowed in `next.config.ts`. Name the ASIN and pack in a
+comment. A product not sold on Amazon (a supermarket own brand, say) gets no
+image rather than a guessed one, and its history entry says so. If a photo
+shows a different market's pack or flavour from the one reviewed, say so in
+the body.
 
 ## Files here
 
