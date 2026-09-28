@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from './site';
-import { BreadcrumbSchema, JsonLd } from './seo';
+import { BreadcrumbSchema, FaqSchema, JsonLd } from './seo';
 import { ComparisonReport } from './comparison';
-import { buildComparison, comparePartners, productName } from '@/lib/compare';
+import {
+  buildComparison,
+  comparePartners,
+  formatMoney,
+  isIndexableComparison,
+  productName,
+} from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
 import { siteUrl } from '@/lib/config';
 import type { Review } from '@/lib/types';
@@ -32,13 +38,38 @@ export function ComparePairPage({
     .filter(Boolean)
     .sort()
     .at(-1);
+  const pageUrl = new URL(path, siteUrl).href;
+  const versus = names.join(' or ');
+  // Questions answered by text that is visible on the page: the short answer
+  // and score headline at the top, and the cost section. Answer engines lift
+  // these whole, so each answer stands on its own.
+  const faqs = [
+    {
+      question: `Which is better, ${versus}?`,
+      answer: [comparison.verdict, comparison.headline].filter(Boolean).join(' '),
+    },
+    ...(comparison.costs.every((c) => c !== null) &&
+    new Set(comparison.costs.map((c) => c!.currency)).size === 1
+      ? [
+          {
+            question: `Which costs less per serving, ${versus}?`,
+            answer: `${comparison.costs
+              .map(
+                (c, i) =>
+                  `${names[i]} costs ${formatMoney(c!.perServing, c!.currency)} a serving (${formatMoney(c!.price, c!.currency)} for ${c!.servings} servings, ${c!.source}, checked ${c!.checkedAt.slice(0, 10)})`,
+              )
+              .join('; ')}. Prices change, so confirm on the listing before buying.`,
+          },
+        ]
+      : []),
+  ];
   const here = new Set(reviews.map((r) => r.slug));
   // Other comparisons that share a product with this one, for readers whose
   // real question is "what else should I weigh this against".
   const more = reviews
     .flatMap((r) =>
       comparePartners(r, all)
-        .filter((o) => !here.has(o.slug))
+        .filter((o) => !here.has(o.slug) && isIndexableComparison([r, o]))
         .map((o) => [r, o]),
     )
     .slice(0, 6);
@@ -65,6 +96,11 @@ export function ComparePairPage({
               </span>
             ))}
           </h1>
+          {comparison.verdict && (
+            <p className="page-verdict">
+              <strong>Short answer:</strong> {comparison.verdict}
+            </p>
+          )}
           <p className="page-intro">
             The published reviews of {names.slice(0, -1).join(', ')} and {names.at(-1)}, lined up:
             the five scores, what one serving delivers against the studied dose, the real cost per
@@ -99,9 +135,17 @@ export function ComparePairPage({
           '@type': 'WebPage',
           '@id': `${siteUrl}${path}#webpage`,
           name: title,
-          description: comparison.headline,
-          url: new URL(path, siteUrl).href,
-          mainEntityOfPage: new URL(path, siteUrl).href,
+          description: comparison.verdict ?? comparison.headline,
+          ...(comparison.verdict ? { abstract: comparison.verdict } : {}),
+          url: pageUrl,
+          mainEntityOfPage: pageUrl,
+          // The products compared, by name and review, so a parser knows what
+          // the page is about without reading the tables.
+          about: reviews.map((r, i) => ({
+            '@type': 'Thing',
+            name: names[i],
+            url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
+          })),
           inLanguage: 'en-US',
           ...(updated ? { dateModified: updated } : {}),
           isPartOf: { '@id': `${siteUrl}/#website` },
@@ -117,10 +161,16 @@ export function ComparePairPage({
               position: i + 1,
               name: names[i],
               url: new URL(`/${r.category_slug}/${r.slug}`, siteUrl).href,
+              ...(r.score !== null
+                ? {
+                    description: `Scored ${r.score.toFixed(1)} out of 10 in its SharpAndLean review.`,
+                  }
+                : {}),
             })),
           },
         }}
       />
+      <FaqSchema faqs={faqs.filter((f) => f.answer)} />
     </SiteShell>
   );
 }

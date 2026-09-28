@@ -108,9 +108,13 @@ export async function generateMetadata({
     );
     if (!found) return { title: 'Page not found' };
     const c = buildComparison(found.reviews);
+    // The short answer makes the better snippet; fall back to the score headline.
+    const description = c.verdict ?? c.headline;
     const metadata = pageMeta(
       comparisonTitle(c.names),
-      c.headline.length > 158 ? `${c.headline.slice(0, 155).replace(/\s+\S*$/, '')}…` : c.headline,
+      description.length > 158
+        ? `${description.slice(0, 155).replace(/\s+\S*$/, '')}…`
+        : description,
       `/compare/${found.canonical}`,
       found.reviews[0].og_image_url || found.reviews[0].featured_image_url || undefined,
     );

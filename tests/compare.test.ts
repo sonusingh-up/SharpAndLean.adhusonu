@@ -8,6 +8,9 @@ import {
   canCompare,
   indexableComparePairs,
   isIndexableComparison,
+  listedComparePairs,
+  productName,
+  verdictFor,
   parseAmount,
   placeAmount,
   resolveComparison,
@@ -134,4 +137,73 @@ test('only editor-linked pairs are indexed; unrelated same-category pairs and th
   const indexed = indexableComparePairs(productReviews);
   assert.ok(indexed.length > 0 && indexed.length < all.length);
   for (const pair of indexed) assert.ok(isIndexableComparison(pair));
+});
+
+test('the short answer names the higher scorer, with both scores, and stays quiet when unscored', () => {
+  const a = bySlug('myprotein-impact-creatine-review');
+  const b = bySlug('optimum-nutrition-micronised-creatine-review');
+  const c = buildComparison([a, b]);
+  assert.ok(c.verdict, 'a scored pair has a short answer');
+  const [hi, lo] = [a, b].sort((x, y) => (y.score ?? 0) - (x.score ?? 0));
+  if (hi.score !== lo.score) {
+    assert.match(
+      c.verdict,
+      new RegExp(`^${productName(hi).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} is the better pick`),
+    );
+  }
+  assert.ok(c.verdict.includes(hi.score!.toFixed(1)) && c.verdict.includes(lo.score!.toFixed(1)));
+
+  // Level scores say so rather than naming a winner.
+  const tied = verdictFor(
+    [
+      { ...a, score: 6 },
+      { ...b, score: 6 },
+    ],
+    ['A', 'B'],
+    [null, null],
+  );
+  assert.match(tied!, /score level/);
+  // A cheaper runner-up is named; a clear winner on price is credited.
+  const usd = (perServing: number) => ({
+    perServing,
+    currency: 'USD',
+    price: perServing * 30,
+    servings: 30,
+    source: 'Test',
+    checkedAt: '2026-09-28',
+  });
+  assert.match(
+    verdictFor(
+      [
+        { ...a, score: 7 },
+        { ...b, score: 5 },
+      ],
+      ['A', 'B'],
+      [usd(1), usd(0.5)],
+    )!,
+    /though B costs less per serving/,
+  );
+  assert.match(
+    verdictFor(
+      [
+        { ...a, score: 7 },
+        { ...b, score: 5 },
+      ],
+      ['A', 'B'],
+      [usd(0.5), usd(1)],
+    )!,
+    /also the cheapest per serving/,
+  );
+  // An unscored product means no verdict.
+  assert.equal(verdictFor([{ ...a, score: null }, b], ['A', 'B'], [null, null]), null);
+});
+
+test('listed pairs are the indexable pairs minus those an editorial comparison covers', () => {
+  const indexed = indexableComparePairs(productReviews);
+  const [first] = indexed;
+  const listed = listedComparePairs(productReviews, [
+    { product_a_id: first[0].id, product_b_id: first[1].id },
+  ]);
+  assert.equal(listed.length, indexed.length - 1);
+  assert.ok(!listed.some((p) => p[0].id === first[0].id && p[1].id === first[1].id));
 });
