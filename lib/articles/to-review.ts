@@ -60,6 +60,7 @@ export function toReview(a: ProductArticle, index: number): Review {
     money_back_guarantee: a.guarantee ?? 'Check seller return policy',
     featured_image_url: a.image ?? '',
     result_image: a.resultImage,
+    social_embed: a.socialEmbed,
     marketplace: a.marketplace,
     asin: a.asin ?? '',
     og_image_url: '',

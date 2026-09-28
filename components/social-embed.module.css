@@ -1,0 +1,99 @@
+/* Brand video card. Cream panel like the site's other callouts; the poster is a
+   pine block in the reel's own 9:16 shape so the layout does not jump on load. */
+.embed {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  gap: 22px;
+  align-items: start;
+  margin: 34px 0;
+  padding: 22px;
+  border: 1px solid var(--cream-deep);
+  border-radius: 22px;
+  background: var(--cream);
+}
+.head h3 {
+  margin: 6px 0 10px;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.head p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+.label {
+  color: var(--ochre);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.frame,
+.poster {
+  grid-row: span 2;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 620px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--pine);
+}
+.poster {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+}
+.play {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--terracotta);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.play:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.privacy {
+  max-width: 24ch;
+  margin: 0;
+  color: #ffffffb3;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.caption {
+  align-self: end;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.caption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--pine);
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .embed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .frame,
+  .poster {
+    grid-row: auto;
+    max-width: 320px;
+  }
+}

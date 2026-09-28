@@ -35,6 +35,7 @@ import { myproteinAlphaMenReview } from './myprotein-alpha-men-review';
 import { optimumNutritionGoldStandardPlantProteinReview } from './optimum-nutrition-gold-standard-plant-protein-review';
 import { myproteinImpactVeganProteinReview } from './myprotein-impact-vegan-protein-review';
 import { bulkVeganProteinPowderReview } from './bulk-vegan-protein-powder-review';
+import { supergutFoundationalDailyFiberReview } from './supergut-foundational-daily-fiber-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -79,6 +80,7 @@ export const articles: ProductArticle[] = [
   optimumNutritionGoldStandardPlantProteinReview,
   myproteinImpactVeganProteinReview,
   bulkVeganProteinPowderReview,
+  supergutFoundationalDailyFiberReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and

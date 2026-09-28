@@ -1,3 +1,4 @@
+import { SocialEmbed } from './social-embed';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Minus, ArrowUpRight } from 'lucide-react';
@@ -441,6 +442,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
                 <figcaption>{r.result_image.caption}</figcaption>
               </figure>
             )}
+            {r.social_embed && <SocialEmbed embed={r.social_embed} />}
             <section id="ingredients">
               <h2>Ingredient analysis</h2>
               {r.ingredients.length ? (
