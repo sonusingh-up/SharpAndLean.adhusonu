@@ -35,11 +35,10 @@ export const mutantMassReview: ProductArticle = {
   // Amazon.co.uk product image for ASIN B001EC4MMK (the 2.27 kg bag).
   image: 'https://images-na.ssl-images-amazon.com/images/P/B001EC4MMK.01.LZZZZZZZ.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/mutant-mass',
-  // The other two gainers we have reviewed, and the whey that makes a cheaper home-made gainer.
+  // The other two gainers we have reviewed.
   alternatives: [
     'myprotein-impact-weight-gainer-review',
     'optimum-nutrition-serious-mass-review',
-    'myprotein-impact-whey-review',
   ],
   writtenBy: 'team',
   price: 'About £24.99–£36.99 for 2.27 kg and £54.95–£69.99 for 6.8 kg at mainstream UK retailers in listings read on 28 September 2026',
@@ -92,7 +91,6 @@ export const mutantMassReview: ProductArticle = {
 <li><strong>A home-made gainer shake</strong> — our first choice for most people. Milk, oats, a banana, peanut butter and a scoop of whey let you set the calories to the surplus you need, for well under the price per 1,000 kcal of any gainer.</li>
 <li><strong><a href="/wellness/myprotein-impact-weight-gainer-review">Myprotein Impact Weight Gainer</a></strong> (reviewed) — our higher-scoring gainer: a 388 kcal serving that fits a modest surplus, with a much higher share of protein, though dearer per 1,000 kcal than the 6.8 kg Mutant Mass.</li>
 <li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — the closest like-for-like rival. Mutant Mass has more protein, a lower share of maltodextrin and a lower price per 1,000 kcal; Serious Mass adds 3 g of creatine.</li>
-<li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if protein is what you need rather than calories, whey with ordinary meals is the cheaper, more flexible tool.</li>
 </ul>
 
 <h2>Who should skip it, and what to watch for</h2>
@@ -210,6 +208,10 @@ export const mutantMassReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed Myprotein Impact Whey, which is not a gainer, keeping the rival gainers.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 6.4 out of 10 against the five published product criteria. A better-built big gainer than Serious Mass and the cheapest per 1,000 kcal in its 6.8 kg bag. The marks lost are for an oversized serving, blends without amounts, two calorie figures in circulation and a long allergen list.',

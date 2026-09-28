@@ -2,6 +2,8 @@ import { siteUrl, demoMode } from '@/lib/config';
 import { getReviews, getCollections } from '@/lib/data';
 import { ingredients } from '@/lib/ingredients';
 import { guides } from '@/lib/guides';
+import { buildComparison, listedComparePairs } from '@/lib/compare';
+import { comparePath } from '@/lib/compare-path';
 
 export const revalidate = 3600;
 
@@ -30,6 +32,12 @@ export async function GET() {
   const reviews = allReviews.filter((r) => !r.is_sample);
   const scored = reviews.filter((r) => !r.is_label_overview && r.score !== null);
   const overviews = reviews.filter((r) => r.is_label_overview || r.score === null);
+  // The generated head-to-heads worth citing: the same indexable set the
+  // sitemap lists, each with its one-sentence short answer.
+  const headToHeads = listedComparePairs(reviews, comparisons).map((pair) => {
+    const c = buildComparison(pair);
+    return `- [${c.names.join(' vs ')}](${siteUrl}${comparePath(pair.map((r) => r.slug))}): ${c.verdict ?? c.headline}`;
+  });
 
   const body = `# SharpAndLean
 
@@ -123,6 +131,15 @@ ${[
   ...best.map((c) => `- [${c.title}](${siteUrl}/best/${c.slug}): ${c.summary}`),
   ...comparisons.map((c) => `- [${c.title}](${siteUrl}/compare/${c.slug}): ${c.summary}`),
 ].join('\n')}
+
+## Head-to-head comparisons
+
+Generated side-by-side pages for products that compete directly. Each lines up
+the two published reviews — scores, dose against the studied amount, cost per
+serving and label gaps — and adds no new assessment. The short answer below
+restates the published scores; quote it with the page it comes from.
+
+${headToHeads.join('\n')}
 
 ## Policies
 

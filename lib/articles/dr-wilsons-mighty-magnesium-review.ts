@@ -38,8 +38,8 @@ export const drWilsonsMightyMagnesiumReview: ProductArticle = {
   // Pack photo supplied by the editor.
   image: '/images/dr-wilsons-mighty-magnesium.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/dr-wilsons-mighty-magnesium',
-  // The one reviewed sleep product that also contains magnesium glycinate.
-  alternatives: ['yu-sleep-review'],
+  // No other magnesium supplement has a full review yet.
+  alternatives: [],
   writtenBy: 'team',
   price: 'About $34.11 for 60 caplets at US supplement retailers, in listings read on 28 September 2026',
   guarantee: 'Check the seller’s returns policy',
@@ -98,7 +98,6 @@ export const drWilsonsMightyMagnesiumReview: ProductArticle = {
 <li><strong>Magnesium from food</strong> — a handful of pumpkin seeds or almonds, a portion of beans or a bowl of leafy greens each give a useful share of the day’s magnesium, at no extra cost.</li>
 <li><strong>A plain magnesium glycinate</strong> (not yet reviewed) — the form most often chosen for sleep, well absorbed and gentle on the gut, at a fraction of the price per 100 mg and easy to dose at 200 to 300 mg.</li>
 <li><strong>A plain magnesium citrate</strong> (not yet reviewed) — well absorbed and usually the cheapest organic form, though more likely to loosen stools at higher doses.</li>
-<li><strong><a href="/wellness/yu-sleep-review">Yu Sleep</a></strong> (reviewed) — a sleep formula that includes magnesium glycinate with melatonin and other ingredients. Not a better buy: we found its formula undisclosed and its claims unsupported, but it is the other magnesium-containing sleep product we have reviewed.</li>
 </ul>
 
 <h2>Who should skip it</h2>
@@ -241,6 +240,10 @@ export const drWilsonsMightyMagnesiumReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed Yu Sleep, a multi-ingredient sleep blend rather than a magnesium supplement.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 4.8 out of 10 against the five published product criteria. Five well-absorbed magnesium forms, but the marks lost are for a dose below the studied amounts, a blend with no amount for each form, a B6 dose above the European upper limit and a price several times that of plain magnesium.',

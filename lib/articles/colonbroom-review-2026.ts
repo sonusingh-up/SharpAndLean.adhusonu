@@ -54,6 +54,10 @@ export const colonbroomReview2026: ProductArticle = {
     'People with difficulty swallowing, intestinal blockage or unexplained rectal bleeding should get medical advice before using psyllium. Follow the current label for preparation and ask a pharmacist about medicine interactions. Breathing or swallowing difficulty after a serving needs urgent help.',
   takeaway:
     'Compare the current label and cost per serving with plain psyllium. Research doses provide context, but are not instructions to increase your intake.',
+  alternatives: [
+    'now-psyllium-husk-powder',
+    'now-glucomannan-575-mg',
+  ],
   body: `
 <h2>Our take: useful fibre, with a few questions to settle before buying</h2>
 <p>If you have been looking at ColonBroom, you probably want a fairly ordinary result: a more comfortable trip to the bathroom, less guesswork about fibre, or a routine you can actually stick with. The bright packaging and weight-management language can make that decision feel more complicated than it needs to be.</p>
@@ -210,6 +214,10 @@ export const colonbroomReview2026: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-28',
+      note: 'Added NOW Psyllium Husk Powder and NOW Glucomannan to the comparison cards, matching the two alternatives the text already discusses.',
+    },
+    {
       date: '2026-09-21',
       note: 'Scored 4.0 out of 10 against the five published product criteria, with the per-criterion breakdown shown on the page. Low marks for label transparency and value reflect the unpublished panel and the premium over plain psyllium, not a judgement that psyllium does not work.',
     },
@@ -223,5 +231,5 @@ export const colonbroomReview2026: ProductArticle = {
     },
   ],
   published: '2026-09-21T00:00:00Z',
-  updated: '2026-09-21T00:00:00Z',
+  updated: '2026-09-28T00:00:00Z',
 };

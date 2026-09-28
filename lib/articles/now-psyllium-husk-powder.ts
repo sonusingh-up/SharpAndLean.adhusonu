@@ -28,6 +28,10 @@ export const nowPsylliumHuskPowder: ProductArticle = {
     'NOW warns against use with swallowing difficulties and inadequate liquid because of choking risk. Its label advises medical consultation for medicines, medical conditions, pregnancy or nursing.',
   takeaway:
     'Compare powder weight, fibre content and the preparation instructions. Do not mistake a larger scoop for stronger evidence of weight loss.',
+  alternatives: [
+    'colonbroom-review-2026',
+    'now-glucomannan-575-mg',
+  ],
   body: `
 <h2>Our take: a straightforward fibre powder, with a texture trade-off</h2>
 <p>NOW Psyllium Husk Powder is the kind of product you might choose after getting tired of long ingredient lists. There is no flavour to pick and no complicated blend to decode. You are buying ground psyllium husk, measuring it, mixing it with enough liquid and drinking it promptly.</p>
@@ -204,6 +208,10 @@ export const nowPsylliumHuskPowder: ProductArticle = {
       date: '2026-09-21',
       note: 'Expanded after search-result, retailer, manufacturer and clinical-source research. Verified the Amazon 12-ounce product and photograph. Added a research-results graphic and laboratory-transparency discussion; no physical testing or lot-specific lab analysis performed.',
     },
+    {
+      date: '2026-09-28',
+      note: 'Added ColonBroom and NOW Glucomannan to the comparison cards, matching the two alternatives the text already recommends.',
+    },
   ],
-  updated: '2026-09-21T00:00:00Z',
+  updated: '2026-09-28T00:00:00Z',
 };

@@ -28,7 +28,7 @@ import { getAuthor, getCommunity } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
 import { amazonLink } from '@/lib/amazon';
 import { CompareToggle } from './compare-tray';
-import { comparePartners, productName } from '@/lib/compare';
+import { comparePartners, isIndexableComparison, productName } from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
 /**
  * What a commercial button says.
@@ -88,6 +88,10 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
   // Every product this one can be lined up against, for the compare section
   // and the tray button. Crawlable links, so each comparison page is reachable.
   const partners = r.is_sample ? [] : comparePartners(r, all);
+  // Only the head-to-heads worth indexing are linked from the page; any other
+  // pairing is still one tap away in the compare tray, but linking dozens of
+  // noindexed pages would spend crawl attention on pages kept out of search.
+  const headToHeads = partners.filter((p) => isIndexableComparison([r, p]));
   const { toc } = articleContent(r.body);
   // Body headings are anchored with a positional suffix, so resolve the sources
   // section from the generated table of contents rather than guessing its id.
@@ -376,7 +380,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               {!r.is_sample && partners.length > 0 && (
                 <div className="glance-compare">
                   <CompareToggle slug={r.slug} name={productName(r)} category={r.category_slug} />
-                  <a href="#compare-with">See comparisons</a>
+                  {headToHeads.length > 0 && <a href="#compare-with">See comparisons</a>}
                 </div>
               )}
 
@@ -683,7 +687,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
           }
         />
 
-        {partners.length > 0 && (
+        {headToHeads.length > 0 && (
           <section className="reading-section compare-with" id="compare-with">
             <h2>Compare it with</h2>
             <p>
@@ -691,7 +695,7 @@ export async function ReviewPage({ review: r, all }: { review: Review; all: Revi
               serving and what each label discloses.
             </p>
             <ul className="compare-with-list">
-              {partners.map((p) => (
+              {headToHeads.map((p) => (
                 <li key={p.id}>
                   <Link href={comparePath([r.slug, p.slug])}>
                     {productName(r)} <em>vs</em> {productName(p)}

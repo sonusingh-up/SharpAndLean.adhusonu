@@ -859,6 +859,16 @@ summary::-webkit-details-marker {
   max-width: 650px;
   margin-top: 22px;
 }
+.page-verdict {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 680px;
+  margin-top: 22px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--accent-sage);
+  background: var(--chip-bg);
+  color: var(--ink);
+}
 .page-top {
   margin-bottom: 45px;
 }

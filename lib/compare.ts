@@ -51,6 +51,43 @@ export function allComparePairs(all: Review[]): Review[][] {
 }
 
 /**
+ * Whether a generated comparison should be indexed by search engines.
+ *
+ * Any comparable set renders, so readers can line up whatever they like in the
+ * compare tray. But "same category" is broad — a magnesium caplet and a mass
+ * gainer are both wellness — and indexing every pairing floods search with
+ * template pages nobody looks for. Only a pair an editor has linked as
+ * alternatives (either direction) is a head-to-head worth indexing. Three-way
+ * comparisons are never indexed: they are built on demand and multiply fast.
+ */
+export function isIndexableComparison(reviews: Review[]): boolean {
+  if (reviews.length !== 2) return false;
+  const [a, b] = reviews;
+  if (!canCompare(a, b)) return false;
+  return Boolean(a.alternative_slugs?.includes(b.slug) || b.alternative_slugs?.includes(a.slug));
+}
+
+/** The generated pairs worth indexing, in the same stable order as allComparePairs. */
+export function indexableComparePairs(all: Review[]): Review[][] {
+  return allComparePairs(all).filter(isIndexableComparison);
+}
+
+/**
+ * The indexable pairs that get their own listing — in the sitemap and in
+ * llms.txt. A pair an editorial comparison already covers redirects there, so
+ * it is left out rather than listed twice.
+ */
+export function listedComparePairs(
+  all: Review[],
+  editorial: { product_a_id?: string; product_b_id?: string }[],
+): Review[][] {
+  return indexableComparePairs(all).filter(
+    (pair) =>
+      !editorial.some((c) => pair.every((r) => r.id === c.product_a_id || r.id === c.product_b_id)),
+  );
+}
+
+/**
  * Resolve a /compare/ slug to its products. Returns the canonical slug too,
  * so the caller can redirect when the address was written in another order.
  */
@@ -358,6 +395,8 @@ export type Comparison = {
   /** Cost to reach a studied dose, for shared ingredients with a range. */
   studiedCosts: { row: DoseRow; costs: StudiedCost[] }[];
   flags: Flag[][];
+  /** One quotable sentence answering "which is better?", or null when unscored. */
+  verdict: string | null;
 };
 
 export function formatScore(score: number) {
@@ -408,6 +447,50 @@ function headlineFor(reviews: Review[], names: string[], criteria: CriterionRow[
   }
   const rest = scored.slice(1).map((s) => `${s.name}'s ${formatScore(s.score)}`);
   return `${first.name} scores ${formatScore(first.score)}/10 against ${list(rest)}.${gap}`;
+}
+
+/**
+ * The short answer, written to be quoted on its own: which product scores
+ * higher, by how much, and — when every product has a comparable price — which
+ * costs less per serving. It restates published figures and adds no judgement
+ * the reviews do not already make.
+ */
+export function verdictFor(
+  reviews: Review[],
+  names: string[],
+  costs: ServingCost[],
+): string | null {
+  const scored = reviews
+    .map((r, i) => ({ score: r.score, name: names[i], i }))
+    .filter((x): x is { score: number; name: string; i: number } => x.score !== null)
+    .sort((a, b) => b.score - a.score);
+  if (scored.length < 2 || scored.length !== reviews.length) return null;
+  const [first, second] = scored;
+  const priced =
+    costs.every((c) => c !== null) && new Set(costs.map((c) => c!.currency)).size === 1;
+  const perServing = (i: number) => formatMoney(costs[i]!.perServing, costs[i]!.currency);
+  const cheapest = priced
+    ? costs.reduce((best, c, i) => (c!.perServing < costs[best]!.perServing ? i : best), 0)
+    : -1;
+  const clearlyCheaper =
+    priced &&
+    costs.every((c, i) => i === cheapest || costs[cheapest]!.perServing < c!.perServing * 0.95);
+  const scoreList = scored.map((s) => formatScore(s.score)).join(' vs ');
+  if (first.score === second.score) {
+    const base = `${list(scored.filter((s) => s.score === first.score).map((s) => s.name))} score level on our criteria (${scoreList} out of 10)`;
+    return clearlyCheaper
+      ? `${base}, so the tie-breaker is price: ${names[cheapest]} costs less per serving (${perServing(cheapest)}).`
+      : `${base}, so the choice turns on the criteria below rather than the total.`;
+  }
+  const which = reviews.length > 2 ? 'the best pick of the three' : 'the better pick';
+  let sentence = `${first.name} is ${which} on our scores (${scoreList} out of 10)`;
+  if (clearlyCheaper) {
+    sentence +=
+      cheapest === first.i
+        ? `, and it is also the cheapest per serving (${perServing(cheapest)})`
+        : `, though ${names[cheapest]} costs less per serving (${perServing(cheapest)} against ${perServing(first.i)})`;
+  }
+  return `${sentence}.`;
 }
 
 function spread(c: CriterionRow) {
@@ -468,6 +551,7 @@ export function buildComparison(reviews: Review[]): Comparison {
     names,
     crossCategory: new Set(reviews.map((r) => r.category_slug)).size > 1,
     headline: headlineFor(reviews, names, criteria),
+    verdict: verdictFor(reviews, names, costs),
     picks,
     criteria,
     doses,

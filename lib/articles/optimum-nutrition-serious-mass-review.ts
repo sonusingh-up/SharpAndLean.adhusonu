@@ -35,14 +35,12 @@ export const optimumNutritionSeriousMassReview: ProductArticle = {
   listing: '2.73 kg tub, 8 servings; also 5.45 kg',
   image: '/images/optimum-nutrition-serious-mass.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
-  // All full reviews. A whey shake plus food is the usual better route for someone who needs
-  // extra protein and calories, and creatine is the one gym supplement with stronger evidence.
+  // The rival gainers, and Optimum Nutrition's own whey: a whey shake plus food is the usual
+  // better route for someone who needs extra protein and calories.
   alternatives: [
     'myprotein-impact-weight-gainer-review',
     'mutant-mass-review',
     'optimum-nutrition-uk-review-2026',
-    'myprotein-impact-whey-review',
-    'optimum-nutrition-micronised-creatine-review',
   ],
   writtenBy: 'team',
   price: 'About £32.95–£50.00 for the 2.73 kg tub at UK retailers in search listings on 28 September 2026 — roughly £4.12–£6.25 a serving',
@@ -101,8 +99,6 @@ export const optimumNutritionSeriousMassReview: ProductArticle = {
 <ul>
 <li><strong>A home-made gainer shake</strong> — our first choice for most people. Milk, oats, banana, peanut butter and a scoop of whey give about 1,250 kcal and 60 g of protein for roughly £1.60 to £1.80, and you can scale the calories to the surplus you actually need.</li>
 <li><strong><a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey</a></strong> (reviewed) — if protein is what you are short of rather than calories, a whey shake with a normal meal is the better tool. 24 g of protein per scoop, with the calories coming from food of your choice.</li>
-<li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — the cheaper whey most people compare against Gold Standard, and the base of the home-made shake above.</li>
-<li><strong><a href="/wellness/optimum-nutrition-micronised-creatine-review">Optimum Nutrition Micronised Creatine</a></strong> (reviewed) — the 3 g of creatine in Serious Mass is its best-evidenced ingredient; you can take it on its own for about 20p a day.</li>
 <li><strong><a href="/wellness/myprotein-impact-weight-gainer-review">Myprotein Impact Weight Gainer</a></strong> (reviewed) — a smaller-serving gainer: about 388 kcal and 31 g of protein per 100 g serving, listed at £32.78 to £37.99 for 2.5 kg. That works out at about £3.40 to £3.90 per 1,000 kcal, and its smaller serving is easier to fit to a modest surplus.</li>
 <li><strong><a href="/wellness/mutant-mass-review">Mutant Mass</a></strong> (reviewed) — the closest like-for-like rival: over 1,100 kcal and 56 g of protein per 280 g serving, listed at about £34.99 for 2.27 kg, or roughly £3.90 per 1,000 kcal.</li>
 </ul>
@@ -243,6 +239,10 @@ export const optimumNutritionSeriousMassReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed Myprotein Impact Whey and Micronised Creatine, which are not gainers. Creatine is still discussed in the text.',
+    },
     {
       date: '2026-09-28',
       note: 'Added our full review of Mutant Mass to the best alternatives and the comparison block. The score is unchanged.',

@@ -35,11 +35,10 @@ export const myproteinSlowReleaseCaseinReview: ProductArticle = {
   // Amazon.co.uk product image for ASIN B00L7X8VWS (the 1 kg pack).
   image: 'https://images-na.ssl-images-amazon.com/images/P/B00L7X8VWS.01.LZZZZZZZ.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-slow-release-casein',
-  // The other casein we have reviewed, and the wheys readers weigh casein against.
+  // The other casein we have reviewed, and Myprotein's own whey, which readers weigh casein against.
   alternatives: [
     'optimum-nutrition-gold-standard-casein-review',
     'myprotein-impact-whey-review',
-    'kinetica-whey-protein-review',
   ],
   writtenBy: 'team',
   price: 'About £23.95–£41.99 for 1 kg and £48.99 for 2.5 kg at UK retailers in listings read on 28 September 2026',
@@ -90,7 +89,6 @@ export const myproteinSlowReleaseCaseinReview: ProductArticle = {
 <li><strong>Greek yoghurt, skyr or cottage cheese</strong> — the best alternative for most people. They are mostly casein, filling, and a 200 g pot gives roughly 15 to 25 g of protein before bed without a scoop.</li>
 <li><strong><a href="/wellness/optimum-nutrition-gold-standard-casein-review">Optimum Nutrition Gold Standard 100% Casein</a></strong> (reviewed) — the big-brand casein, with slightly more protein per scoop but a longer ingredient list, two UK formulas in circulation and a higher price per gram.</li>
 <li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if timing does not matter to you, whey does the same job for daily protein, and mixes more easily; compare the price per 100 g of protein on the day.</li>
-<li><strong><a href="/wellness/kinetica-whey-protein-review">Kinetica Whey Protein</a></strong> (reviewed) — the better choice for drug-tested athletes, because of its batch-tested banned-substance claim.</li>
 <li><strong>Milk</strong> — a pint of semi-skimmed milk gives about 20 g of protein, roughly 80 per cent of it casein, for well under a pound.</li>
 </ul>
 
@@ -205,6 +203,10 @@ export const myproteinSlowReleaseCaseinReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed Kinetica Whey, keeping the rival casein and Myprotein’s own whey.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 7.6 out of 10 against the five published product criteria. A clean, well-priced casein. The marks lost are for a bedtime claim that mostly reduces to eating more protein, a serving a little under the studied doses, and no batch-tested claim.',

@@ -36,6 +36,7 @@ import {
   comparisonTitle,
   productName,
   resolveComparison,
+  isIndexableComparison,
 } from '@/lib/compare';
 import { canonicalCompareSlug } from '@/lib/compare-path';
 export const revalidate = 3600;
@@ -107,13 +108,21 @@ export async function generateMetadata({
     );
     if (!found) return { title: 'Page not found' };
     const c = buildComparison(found.reviews);
+    // The short answer makes the better snippet; fall back to the score headline.
+    const description = c.verdict ?? c.headline;
     const metadata = pageMeta(
       comparisonTitle(c.names),
-      c.headline.length > 158 ? `${c.headline.slice(0, 155).replace(/\s+\S*$/, '')}…` : c.headline,
+      description.length > 158
+        ? `${description.slice(0, 155).replace(/\s+\S*$/, '')}…`
+        : description,
       `/compare/${found.canonical}`,
       found.reviews[0].og_image_url || found.reviews[0].featured_image_url || undefined,
     );
-    return metadata;
+    // Every comparable set renders, but only editor-linked pairs are indexed;
+    // the rest stay out of search while their links are still followed.
+    return isIndexableComparison(found.reviews)
+      ? metadata
+      : { ...metadata, robots: { index: false, follow: true } };
   }
   // Reviews and editorial pages are articles to link previews and to crawlers
   // reading Open Graph, with the same dates the page and its JSON-LD show.
