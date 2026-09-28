@@ -106,6 +106,15 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
 <p>Newer forms — creatine HCl, buffered creatine, creatine ethyl ester — are usually more expensive and have far less research behind them. The ISSN position stand treats monohydrate as the reference form. If a product claims its form works better at a smaller dose, ask to see the trial.</p>
 <p>And the last option is none at all. Creatine helps with short, intense, repeated efforts. If your training is mostly walking, running or steady cardio, the benefit is small. If you do lift, sprint or play a stop-start sport, creatine is one of the few supplements with a solid case — and the case is for creatine, not for any particular tub.</p>
 
+<h2>Best alternatives</h2>
+<p>The ones we have fully reviewed are linked. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
+<ul>
+<li><strong>Myprotein Impact Creatine</strong> (not yet reviewed) — the cheapest mainstream unflavoured monohydrate on the day we looked: £15.99 for 500 g on offer, or £3.20 per 100 g, against £6.31 to £7.49 for Optimum Nutrition at list price. Same compound, same dose.</li>
+<li><strong>Bulk Creatine Monohydrate</strong> (not yet reviewed) — a price comparison site listed the unflavoured 500 g pack from £12.99, about £2.60 per 100 g. Bulk also sells a Creapure-branded version for buyers who want a named source, at a higher price.</li>
+<li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — only if you also need a lot of extra calories: each serving includes 3 g of creatine alongside about 1,250 kcal. For anyone who just wants creatine, it is the wrong tool.</li>
+<li><strong>A batch-tested creatine</strong> — if you compete under anti-doping rules, the best alternative is whichever monohydrate you can look up by batch in a certifier’s database, whatever the brand.</li>
+</ul>
+
 <h2>Sources and shopping: our UK buying checklist</h2>
 <p>Before you order, confirm four things: that you have chosen the unflavoured version, the pack size, the final delivered price, and the seller. On marketplaces, check that the seller is the brand or an authorised retailer — counterfeit sports nutrition is a documented problem, and a verifiable seller is the simplest protection. Then divide the price by the pack weight and multiply by 100 to get the cost per 100 g, and compare it with a plain monohydrate on the same day.</p>
 <p>When the tub arrives, check that the seal is intact, that the label is in English with a GB or EU address for the responsible business, and that the batch code and best-before date are legible. Use a level scoop, once a day, and give it four weeks before judging whether it is doing anything. If you compete, do not rely on the site-level registration described above: use a batch-tested product you can look up.</p>

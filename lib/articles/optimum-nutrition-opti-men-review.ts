@@ -39,9 +39,9 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
   listing: '90 tablets, 30 servings of three tablets',
   image: '/images/optimum-nutrition-opti-men.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
-  // No other multivitamin on the site has a full review yet, so the comparison block is
-  // suppressed rather than falling back to same-category whey, fish oil and creatine.
-  alternatives: [],
+  // No other multivitamin on the site has a full review yet. Vitamin D is the one nutrient
+  // most UK men need, so the full vitamin D review is the honest comparison.
+  alternatives: ['nature-made-vitamin-d3-1000-iu'],
   writtenBy: 'team',
   price: 'About £14.95–£19.99 for 90 tablets at UK retailers in search listings on 28 September 2026 — roughly 50p–67p a day',
   guarantee: 'Check the seller’s returns policy',
@@ -123,6 +123,16 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
 <p>For most men who eat a varied diet, the evidence-based choice is no multivitamin, plus 10 µg of vitamin D from October to March. That covers the one gap the NHS expects most people in the UK to have.</p>
 <p>If you want a multivitamin as insurance — because your diet is restricted, you are cutting hard, or you simply prefer one tablet to thinking about it — a supermarket A–Z covers the core nutrients for a few pence a day. Opti-Men is a reasonable pick if you like the brand and do not mind paying for it, and its formula is sensible. It will not make your training any better than a cheaper multivitamin would.</p>
 <p>If your real goal is building muscle, the money is better spent on the things with evidence behind them: enough protein from food or a <a href="/wellness/optimum-nutrition-uk-review-2026">whey protein</a>, and <a href="/wellness/optimum-nutrition-micronised-creatine-review">creatine</a>, which is one of the few gym supplements with a strong evidence base.</p>
+
+<h2>Best alternatives</h2>
+<p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
+<ul>
+<li><strong>A plain 10 µg vitamin D tablet</strong> — the best alternative for most men, because vitamin D is the one gap the NHS expects most people in the UK to have in autumn and winter. Supermarket own-brand tablets cost a few pence a day.</li>
+<li><strong><a href="/wellness/nature-made-vitamin-d3-1000-iu">Nature Made Vitamin D3 1000 IU</a></strong> (reviewed) — a single-ingredient, USP-verified vitamin D at 25 µg a softgel. It is a US product, so UK buyers will usually pay import prices; the point is the approach, not the brand.</li>
+<li><strong>Tesco A–Z Multivitamins &amp; Minerals</strong> (not yet reviewed) — if you want a multivitamin as insurance, about 5.5p a day for a one-a-day tablet, roughly a tenth of the cost of Opti-Men.</li>
+<li><strong>Vitabiotics Wellman Original</strong> (not yet reviewed) — the high-street men’s multivitamin, about 14p a day at the cheapest listing we saw.</li>
+<li><strong>Myprotein Alpha Men</strong> (not yet reviewed) — the closest sports-shop rival at about 20p a day, two tablets rather than three.</li>
+</ul>
 
 <h2>Sources and shopping: our UK buying checklist</h2>
 <p>Before you order, check three things: the tub says 36 active ingredients (the UK and European formula, not the American one), the seller is the brand or an authorised retailer, and the delivered price. Then divide the price by 30 to get the cost per day, and compare it with a supermarket A–Z on the same day. Counterfeit sports nutrition is a documented problem on marketplaces, and a verifiable seller is the simplest protection.</p>
@@ -298,7 +308,7 @@ export const optimumNutritionOptiMenReview: ProductArticle = {
     },
     {
       date: '2026-09-28',
-      note: 'First published for the UK market. We could not open Optimum Nutrition’s GB product page, so the nutrition panel is the European 36-ingredient formula as published by GymBeam, partly confirmed on a UK retailer listing, and prices come from search listings for UK retailers on this date. This is a desk review: nobody on our team has used this product. The comparison block is left empty because no other multivitamin on the site has a full review yet.',
+      note: 'First published for the UK market. We could not open Optimum Nutrition’s GB product page, so the nutrition panel is the European 36-ingredient formula as published by GymBeam, partly confirmed on a UK retailer listing, and prices come from search listings for UK retailers on this date. This is a desk review: nobody on our team has used this product. No other multivitamin on the site has a full review yet, so the comparison block shows our vitamin D review, and the multivitamins are compared in a best-alternatives section.',
     },
   ],
   published: '2026-09-28T00:00:00Z',
