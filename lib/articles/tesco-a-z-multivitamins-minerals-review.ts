@@ -32,6 +32,7 @@ export const tescoAZMultivitaminsMineralsReview: ProductArticle = {
   seoDescription:
     'Tesco A–Z Multivitamins & Minerals reviewed: what 5.5p a day buys, what multivitamins can and cannot do, the iron and vitamin D questions, and the best alternatives.',
   listing: '90 tablets, one a day',
+  image: '/images/tesco-a-z-multivitamins-minerals.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/tesco-a-z-multivitamins-minerals',
   // The two men's multivitamins we have reviewed, and vitamin D, the one nutrient most UK adults need.
   alternatives: [
@@ -208,6 +209,10 @@ export const tescoAZMultivitaminsMineralsReview: ProductArticle = {
   history: [
     {
       date: '2026-09-28',
+      note: 'Added a photo of the 90-tablet pack. The score is unchanged.',
+    },
+    {
+      date: '2026-09-28',
       note: 'Added our full review of Myprotein Alpha Men to the best alternatives and the comparison block. The score is unchanged.',
     },
     {
@@ -216,7 +221,7 @@ export const tescoAZMultivitaminsMineralsReview: ProductArticle = {
     },
     {
       date: '2026-09-28',
-      note: 'First published for the UK market, as a full review of an alternative named in our men’s multivitamin reviews. We could not open Tesco’s product page, so the ingredient list and description come from listings read via search on this date, and per-tablet amounts are not quoted. There is no product image: this own-brand product is not sold on Amazon. This is a desk review: nobody on our team has used this product.',
+      note: 'First published for the UK market, as a full review of an alternative named in our men’s multivitamin reviews. We could not open Tesco’s product page, so the ingredient list and description come from listings read via search on this date, and per-tablet amounts are not quoted. This is a desk review: nobody on our team has used this product.',
     },
   ],
   published: '2026-09-28T00:00:00Z',
