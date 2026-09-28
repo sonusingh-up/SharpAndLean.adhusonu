@@ -37,7 +37,11 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
   affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-weight-gainer',
   // Both full reviews: the other gainer we have reviewed, and the whey that makes a cheaper
   // home-made gainer.
-  alternatives: ['optimum-nutrition-serious-mass-review', 'myprotein-impact-whey-review'],
+  alternatives: [
+    'mutant-mass-review',
+    'optimum-nutrition-serious-mass-review',
+    'myprotein-impact-whey-review',
+  ],
   writtenBy: 'team',
   price: 'About £28.29–£37.99 for 2.5 kg at UK retailers in listings read on 28 September 2026 — roughly £1.13–£1.52 a serving',
   guarantee: 'Check the seller’s returns policy',
@@ -82,7 +86,7 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
 <li><strong>A home-made gainer shake</strong> — our first choice for most people. Milk, oats, a banana, peanut butter and a scoop of whey let you set the calories to the surplus you need, with more fibre and less maltodextrin, for well under half the price per 1,000 kcal.</li>
 <li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if protein is what you are short of rather than calories, whey with an ordinary meal is the cheaper and more flexible tool, and the base of the home-made shake above.</li>
 <li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — only if you need a very large surplus and struggle to eat. About 1,250 kcal and 50 g of protein per serving, but roughly five grams of carbohydrate for every gram of protein, at a higher price per 1,000 kcal.</li>
-<li><strong>Mutant Mass</strong> (not yet reviewed) — another big-serving gainer, over 1,100 kcal and 56 g of protein per 280 g serving, at about £3.90 per 1,000 kcal on the listing we saw.</li>
+<li><strong><a href="/wellness/mutant-mass-review">Mutant Mass</a></strong> (reviewed) — another big-serving gainer, over 1,100 kcal and 56 g of protein per 280 g serving, at about £3.90 per 1,000 kcal on the listing we saw.</li>
 <li><strong><a href="/wellness/myprotein-impact-creatine-review">Myprotein Impact Creatine</a></strong> (reviewed) — not a gainer, but if you are trying to build muscle it is the supplement with the strongest evidence, at around 10p a day.</li>
 </ul>
 
@@ -188,6 +192,10 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Mutant Mass to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 6.8 out of 10 against the five published product criteria. A sensibly sized gainer with a good protein share. The marks lost are for a label that does not give sugars on the listings we read, and a cost per 1,000 kcal more than double a home-made shake.',
