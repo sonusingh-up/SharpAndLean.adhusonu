@@ -51,6 +51,28 @@ export function allComparePairs(all: Review[]): Review[][] {
 }
 
 /**
+ * Whether a generated comparison should be indexed by search engines.
+ *
+ * Any comparable set renders, so readers can line up whatever they like in the
+ * compare tray. But "same category" is broad — a magnesium caplet and a mass
+ * gainer are both wellness — and indexing every pairing floods search with
+ * template pages nobody looks for. Only a pair an editor has linked as
+ * alternatives (either direction) is a head-to-head worth indexing. Three-way
+ * comparisons are never indexed: they are built on demand and multiply fast.
+ */
+export function isIndexableComparison(reviews: Review[]): boolean {
+  if (reviews.length !== 2) return false;
+  const [a, b] = reviews;
+  if (!canCompare(a, b)) return false;
+  return Boolean(a.alternative_slugs?.includes(b.slug) || b.alternative_slugs?.includes(a.slug));
+}
+
+/** The generated pairs worth indexing, in the same stable order as allComparePairs. */
+export function indexableComparePairs(all: Review[]): Review[][] {
+  return allComparePairs(all).filter(isIndexableComparison);
+}
+
+/**
  * Resolve a /compare/ slug to its products. Returns the canonical slug too,
  * so the caller can redirect when the address was written in another order.
  */

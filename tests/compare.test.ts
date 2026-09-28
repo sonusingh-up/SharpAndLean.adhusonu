@@ -6,6 +6,8 @@ import {
   allComparePairs,
   buildComparison,
   canCompare,
+  indexableComparePairs,
+  isIndexableComparison,
   parseAmount,
   placeAmount,
   resolveComparison,
@@ -104,4 +106,32 @@ test('studied ranges are internally consistent', () => {
     if (!i.studiedDose) continue;
     assert.ok(i.studiedDose.min > 0 && i.studiedDose.min <= i.studiedDose.max, i.slug);
   }
+});
+
+test('only editor-linked pairs are indexed; unrelated same-category pairs and three-way sets are not', () => {
+  // Linked as alternatives: a real head-to-head.
+  assert.equal(
+    isIndexableComparison([
+      bySlug('myprotein-impact-creatine-review'),
+      bySlug('optimum-nutrition-micronised-creatine-review'),
+    ]),
+    true,
+  );
+  // Same category, but nobody searches magnesium against a mass gainer.
+  const unrelated = [bySlug('dr-wilsons-mighty-magnesium-review'), bySlug('mutant-mass-review')];
+  assert.equal(canCompare(unrelated[0], unrelated[1]), true);
+  assert.equal(isIndexableComparison(unrelated), false);
+  // Three-way comparisons are never indexed.
+  assert.equal(
+    isIndexableComparison([
+      bySlug('bulk-creatine-monohydrate-review'),
+      bySlug('myprotein-impact-creatine-review'),
+      bySlug('optimum-nutrition-micronised-creatine-review'),
+    ]),
+    false,
+  );
+  const all = allComparePairs(productReviews);
+  const indexed = indexableComparePairs(productReviews);
+  assert.ok(indexed.length > 0 && indexed.length < all.length);
+  for (const pair of indexed) assert.ok(isIndexableComparison(pair));
 });

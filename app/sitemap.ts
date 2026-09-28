@@ -4,7 +4,7 @@ import { getReviews, getCollections } from '@/lib/data';
 import { authors } from '@/lib/author';
 import { ingredients } from '@/lib/ingredients';
 import { guides } from '@/lib/guides';
-import { allComparePairs } from '@/lib/compare';
+import { indexableComparePairs } from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
 export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -47,9 +47,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/${r.category_slug}/${r.slug}`,
       lastModified: r.updated_at,
     })),
-    // Generated head-to-heads. A pair an editorial page already covers
+    // Generated head-to-heads, only for pairs an editor linked as alternatives;
+    // the rest render with noindex. A pair an editorial page already covers
     // redirects there, so it is left out rather than listed twice.
-    ...allComparePairs(reviews.filter((r) => !r.is_sample))
+    ...indexableComparePairs(reviews.filter((r) => !r.is_sample))
       .filter(
         (pair) =>
           !comparisons.some((c) =>

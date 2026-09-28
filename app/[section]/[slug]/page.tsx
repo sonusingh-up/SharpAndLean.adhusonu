@@ -36,6 +36,7 @@ import {
   comparisonTitle,
   productName,
   resolveComparison,
+  isIndexableComparison,
 } from '@/lib/compare';
 import { canonicalCompareSlug } from '@/lib/compare-path';
 export const revalidate = 3600;
@@ -113,7 +114,11 @@ export async function generateMetadata({
       `/compare/${found.canonical}`,
       found.reviews[0].og_image_url || found.reviews[0].featured_image_url || undefined,
     );
-    return metadata;
+    // Every comparable set renders, but only editor-linked pairs are indexed;
+    // the rest stay out of search while their links are still followed.
+    return isIndexableComparison(found.reviews)
+      ? metadata
+      : { ...metadata, robots: { index: false, follow: true } };
   }
   // Reviews and editorial pages are articles to link previews and to crawlers
   // reading Open Graph, with the same dates the page and its JSON-LD show.
