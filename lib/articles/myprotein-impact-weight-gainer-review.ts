@@ -32,8 +32,7 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
   seoDescription:
     'Myprotein Impact Weight Gainer reviewed for the UK: 388 kcal and 31 g of protein per serving, the cost per 1,000 kcal against Serious Mass and a home-made shake, and the best alternatives.',
   listing: '2.5 kg pouch, 25 servings',
-  // Amazon.co.uk product image for ASIN B077QLWS83 (the 2.5 kg pack).
-  image: 'https://images-na.ssl-images-amazon.com/images/P/B077QLWS83.01.LZZZZZZZ.jpg',
+  image: '/images/myprotein-impact-weight-gainer.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-weight-gainer',
   // Both full reviews: the other gainer we have reviewed, and the whey that makes a cheaper
   // home-made gainer.
