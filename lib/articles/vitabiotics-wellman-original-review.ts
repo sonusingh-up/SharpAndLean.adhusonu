@@ -38,7 +38,11 @@ export const vitabioticsWellmanOriginalReview: ProductArticle = {
   affiliateUrl: 'https://sharpandlean.com/recommended/vitabiotics-wellman-original',
   // The other men's multivitamin we have reviewed, and the vitamin D review, because vitamin D is
   // the one nutrient most UK men need.
-  alternatives: ['optimum-nutrition-opti-men-review', 'nature-made-vitamin-d3-1000-iu'],
+  alternatives: [
+    'tesco-a-z-multivitamins-minerals-review',
+    'optimum-nutrition-opti-men-review',
+    'nature-made-vitamin-d3-1000-iu',
+  ],
   writtenBy: 'team',
   price: 'About £4.29–£7.00 for 30 tablets at UK retailers in listings read on 28 September 2026 — roughly 14p–23p a day',
   guarantee: 'Check the seller’s returns policy',
@@ -90,7 +94,7 @@ export const vitabioticsWellmanOriginalReview: ProductArticle = {
 <ul>
 <li><strong>A plain 10 µg vitamin D tablet</strong> — the best alternative for most men, because vitamin D is the one gap the NHS expects most people in the UK to have in autumn and winter. Supermarket own-brand tablets cost a few pence a day.</li>
 <li><strong><a href="/wellness/nature-made-vitamin-d3-1000-iu">Nature Made Vitamin D3 1000 IU</a></strong> (reviewed) — a single-ingredient, USP-verified vitamin D at 25 µg. A US product, so UK buyers usually pay import prices; the point is the approach.</li>
-<li><strong>Tesco A–Z Multivitamins &amp; Minerals</strong> (not yet reviewed) — if you want a multivitamin as insurance, about 5.5p a day, roughly a third of the cost of Wellman.</li>
+<li><strong><a href="/wellness/tesco-a-z-multivitamins-minerals-review">Tesco A–Z Multivitamins &amp; Minerals</a></strong> (reviewed) — if you want a multivitamin as insurance, about 5.5p a day, roughly a third of the cost of Wellman.</li>
 <li><strong><a href="/wellness/optimum-nutrition-opti-men-review">Optimum Nutrition Opti-Men</a></strong> (reviewed) — the sports-shop men’s multi, with B6 at 5.4 mg and no iron on the European formula we reviewed, but three tablets a day at roughly three times the price.</li>
 <li><strong>Myprotein Alpha Men</strong> (not yet reviewed) — another sports-shop men’s multi at about 20p a day, two tablets rather than one.</li>
 </ul>
@@ -234,6 +238,10 @@ export const vitabioticsWellmanOriginalReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Tesco A–Z Multivitamins & Minerals to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 5.4 out of 10 against the five published product criteria. The vitamin D dose is right and the price is modest. The marks lost are for weak evidence that well-fed men benefit, B6 just under the NHS limit, iron most men do not need, token extras and more than one version of the panel in circulation.',

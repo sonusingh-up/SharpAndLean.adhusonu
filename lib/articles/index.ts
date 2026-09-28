@@ -30,6 +30,7 @@ import { myproteinSlowReleaseCaseinReview } from './myprotein-slow-release-casei
 import { bulkCreatineMonohydrateReview } from './bulk-creatine-monohydrate-review';
 import { mutantMassReview } from './mutant-mass-review';
 import { vitabioticsWellmanOriginalReview } from './vitabiotics-wellman-original-review';
+import { tescoAZMultivitaminsMineralsReview } from './tesco-a-z-multivitamins-minerals-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -69,6 +70,7 @@ export const articles: ProductArticle[] = [
   bulkCreatineMonohydrateReview,
   mutantMassReview,
   vitabioticsWellmanOriginalReview,
+  tescoAZMultivitaminsMineralsReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and
