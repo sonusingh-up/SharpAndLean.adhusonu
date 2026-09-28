@@ -40,7 +40,6 @@ export default async function SupergutGuidePage() {
   const reviews = brand.reviewedSlugs
     .map((slug) => all.find((r) => r.slug === slug))
     .filter((r): r is Review => !!r);
-  const lead = reviews[0];
   const pageUrl = `${siteUrl}${brand.path}`;
   const topicCount = brand.stages.reduce((n, st) => n + st.topics.length, 0);
 
@@ -160,7 +159,7 @@ export default async function SupergutGuidePage() {
                 <span className={s.statValue}>
                   {st.value === 'live-score' ? (
                     <>
-                      {lead?.score?.toFixed(1) ?? '—'}
+                      {('reviewSlug' in st ? all.find((r) => r.slug === st.reviewSlug)?.score?.toFixed(1) : null) ?? '—'}
                       <small>/ 10</small>
                     </>
                   ) : (

@@ -40,6 +40,7 @@ export type Review = {
   score_breakdown: Record<string, number>;
   brand?: string;
   result_image?: { src: string; alt: string; caption: string };
+  social_embed?: SocialEmbed;
   asin?: string;
   is_sample?: boolean;
   /** Defined in code rather than stored in the database. */
@@ -143,4 +144,17 @@ export type Collection = {
     /** Category path of a published review, once one exists. */
     reviewSlug?: string;
   }[];
+};
+
+/** A brand's own social video, embedded on request. See ProductArticle.socialEmbed. */
+export type SocialEmbed = {
+  platform: 'instagram';
+  /** https://www.instagram.com/reel/<id>/ or /p/<id>/ */
+  url: string;
+  /** The account that posted it, e.g. "@supergut". */
+  account: string;
+  /** Short heading for the card. */
+  title: string;
+  /** Why it is on the page and what it does and does not show. */
+  note: string;
 };

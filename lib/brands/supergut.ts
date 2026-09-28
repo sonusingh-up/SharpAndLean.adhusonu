@@ -41,14 +41,9 @@ export const supergut = {
       'SharpAndLean chart. Figures from Supergut’s product pages, retail listings and our GLP-1 Daily Support review. The resistant starch in each product is an undisclosed share of its fibre.',
   },
   /** Every Supergut product we have reviewed in full, by review slug. */
-  reviewedSlugs: ['supergut-glp-1-booster-review'],
+  reviewedSlugs: ['supergut-foundational-daily-fiber-review', 'supergut-glp-1-booster-review'],
   /** The rest of the range, named and described but not yet reviewed. */
   unreviewed: [
-    {
-      name: 'Foundational Daily Fiber',
-      fibre: '6 g a scoop',
-      note: 'The same 6 g of prebiotic fibre per scoop as GLP-1 Daily Support, without the GLP-1 name, for $50 for 40 servings on Supergut’s store in September 2026 — $10 less a tub. On the figures we could read, it is the better-value way to buy the same fibre.',
-    },
     {
       name: 'Prebiotic Bars',
       fibre: '10 g a bar',
@@ -95,7 +90,7 @@ export const supergut = {
         {
           id: 'what-it-sells',
           title: 'What Supergut sells',
-          html: `<p>Supergut sells fibre. Its powders, bars and shakes are built around a blend of resistant starch — from green bananas and potatoes — with oat beta-glucan and soluble corn fibre. The range splits into everyday fibre products and a GLP-1-branded line marketed on appetite and cravings.</p><p>The distinction matters, because the fibre inside is broadly the same. On the figures we could read, <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a> and Foundational Daily Fiber both give 6 g of fibre a scoop; the GLP-1 version costs about $10 more per tub.</p>`,
+          html: `<p>Supergut sells fibre. Its powders, bars and shakes are built around a blend of resistant starch — from green bananas and potatoes — with oat beta-glucan and soluble corn fibre. The range splits into everyday fibre products and a GLP-1-branded line marketed on appetite and cravings.</p><p>The distinction matters, because the fibre inside is broadly the same. On the figures we could read, <a href="/fat-burners/supergut-glp-1-booster-review">GLP-1 Daily Support</a> and <a href="/wellness/supergut-foundational-daily-fiber-review">Foundational Daily Fiber</a> both give 6 g of fibre a scoop; the GLP-1 version costs about $10 more per tub.</p>`,
         },
         { id: 'company', title: 'Who is behind it', html: `<p>Supergut was founded in Los Angeles by Marc Washington, launching in 2020 as Muniq and rebranding as Supergut in 2022. Its science lead is Dr Chris Damman, a gastroenterologist who joined in 2021 as chief medical and science officer. The company started direct to consumer and now sells through US retailers including Target, Sprouts, GNC and Vitamin Shoppe.</p>
 <p>In March 2025 it announced new funding led by Full Frame Growth Partners and appointed Tracey Warner Halama, formerly chief executive of Vital Proteins, as CEO, with Washington moving to executive chairman. Coverage of the round credited much of the brand’s 2024 growth to its GLP-1 product.</p>
@@ -129,12 +124,12 @@ export const supergut = {
       id: 'choose',
       number: '03',
       title: 'Choosing a product',
-      summary: 'Our scored review, the rest of the range, and what buying from the UK involves.',
+      summary: 'Our scored reviews, the rest of the range, and what buying from the UK involves.',
       topics: [
         {
           id: 'our-review',
           title: 'What we have reviewed',
-          html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. So far we have reviewed one Supergut product in full.</p>`,
+          html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. We have reviewed two Supergut products in full: the everyday fibre powder and its GLP-1-branded sister.</p>`,
           slot: 'reviews',
         },
         {
@@ -186,11 +181,11 @@ export const supergut = {
     { question: 'Is Supergut legit?', answer: 'Yes, as a company — it has a medical lead and a published randomised trial. The marketing is the weak point.', anchor: 'own-trial' },
     { question: 'Does it boost GLP-1?', answer: 'Fermentable fibre can raise GLP-1 a little, but its trial did not measure GLP-1, and a rise does not reliably mean eating less.', anchor: 'glp-1-appetite' },
     { question: 'Will it help me lose weight?', answer: 'Not much on its own. The weight trial used 40 g of resistant starch a day; a scoop has 6 g of fibre in total.', anchor: 'dose' },
-    { question: 'Which product is the best value?', answer: 'On the figures we could read, Foundational Daily Fiber gives the same 6 g a scoop as the GLP-1 version for $10 less a tub.', anchor: 'range' },
+    { question: 'Which product is the best value?', answer: 'Foundational Daily Fiber: the same 6 g a scoop as the GLP-1 version for about $10 less a tub, and it scores 5.4 against 3.8.', anchor: 'our-review' },
   ],
   /** The at-a-glance figures under the hero. `live` values are read from the review at render. */
   stats: [
-    { value: 'live-score', label: 'Our score for GLP-1 Daily Support', note: 'on five published criteria' },
+    { value: 'live-score', reviewSlug: 'supergut-glp-1-booster-review', label: 'Our score for GLP-1 Daily Support', note: 'on five published criteria' },
     { value: '6 g', label: 'Fibre in a scoop of GLP-1 Daily Support', note: 'all four fibres combined' },
     { value: '−0.64', label: 'HbA1c points against placebo', note: 'company trial, type 2 diabetes' },
     { value: '40 g', label: 'Resistant starch a day in the weight trial', note: 'Nature Metabolism, 2024' },
@@ -217,7 +212,7 @@ export const supergut = {
     {
       question: 'What is the difference between GLP-1 Daily Support and Foundational Daily Fiber?',
       answer:
-        'On the figures we could read, both give 6 g of prebiotic fibre per scoop. GLP-1 Daily Support costs about $10 more per 40-serving tub. We have reviewed GLP-1 Daily Support in full; Foundational Daily Fiber is not yet reviewed.',
+        'Both give 6 g of prebiotic fibre per scoop and share three of their four fibres; Foundational uses Sunfiber guar where GLP-1 Daily Support uses oat beta-glucan. GLP-1 Daily Support costs about $10 more per 40-serving tub. We have reviewed both in full: Foundational scores 5.4 and GLP-1 Daily Support 3.8.',
     },
     {
       question: 'Can I buy Supergut in the UK?',
@@ -278,6 +273,10 @@ export const supergut = {
     },
   ] satisfies Citation[],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Foundational Daily Fiber (5.4), which moves from the unreviewed range to the reviewed products.',
+    },
     {
       date: '2026-09-28',
       note: 'Rebuilt as a four-stage guide — understanding, evidence, choosing, using — with quick answers, headline figures and a new section on using fibre well, and moved to /guides/supergut.',

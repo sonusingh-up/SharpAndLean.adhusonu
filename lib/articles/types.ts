@@ -1,6 +1,7 @@
 import type { Category, FAQ, Ingredient } from '../types';
 import type { Citation } from '../ingredients';
 import type { HistoryEntry } from '@/components/article-footer';
+import type { SocialEmbed } from '../types';
 
 /**
  * One product article.
@@ -82,6 +83,13 @@ export type ProductArticle = {
   image?: string;
   /** Figure published below the body, e.g. a summary of the ingredient research. */
   resultImage?: { src: string; alt: string; caption: string };
+  /**
+   * A brand's own social video shown below the body, e.g. an Instagram reel.
+   * It loads only when the reader asks, because the embed sets the platform's
+   * cookies; until then the page shows a card with the caption and a link.
+   * `url` must be an https://www.instagram.com/reel/<id>/ or /p/<id>/ address.
+   */
+  socialEmbed?: SocialEmbed;
 
   /** Figures observed on a retailer listing on a given date. */
   marketplace?: {

@@ -37,7 +37,12 @@ export const supergutGlp1BoosterReview: ProductArticle = {
   asin: 'B0DRWLTRHB',
   listing: '20 servings, unflavored',
   image: 'https://m.media-amazon.com/images/I/71cTbhrU5tL._AC_SL1500_.jpg',
-  alternatives: ['now-glucomannan-575-mg', 'lemme-glp-1-daily-review', 'calocurb-review'],
+  alternatives: [
+    'supergut-foundational-daily-fiber-review',
+    'now-glucomannan-575-mg',
+    'lemme-glp-1-daily-review',
+    'calocurb-review',
+  ],
   writtenBy: 'team',
   price: '$60 for 40 scoops, or $48 on subscription, unflavored (25 Sept 2026)',
   guarantee: 'Advertised as risk-free; check the terms before subscribing',
@@ -81,7 +86,7 @@ export const supergutGlp1BoosterReview: ProductArticle = {
 
 <h2>Price, per gram of fibre</h2>
 <p>On 25 September 2026 Supergut's own store listed the unflavored powder at <strong>$60 for 40 scoops</strong>, or $48 on subscription, and $32 for 20. Flavored tubs are $60 for 36. That is $1.50 a scoop bought once, or <strong>$3.00 a day</strong> at the two scoops the page recommends.</p>
-<p>Per gram of fibre, $60 for 240 g of fibre is about $0.25 a gram — in line with fibre capsules such as <a href="/fat-burners/now-glucomannan-575-mg">NOW Glucomannan</a>, and not a wild premium for a branded blend. The comparison that stands out is Supergut's own. Its Foundational Daily Fiber, also 6 g of fibre a scoop, costs $50 for 40 servings. The GLP-1 version costs $10 more per tub, and the extra buys a name rather than a documented difference in dose.</p>
+<p>Per gram of fibre, $60 for 240 g of fibre is about $0.25 a gram — in line with fibre capsules such as <a href="/fat-burners/now-glucomannan-575-mg">NOW Glucomannan</a>, and not a wild premium for a branded blend. The comparison that stands out is Supergut's own. Its <a href="/wellness/supergut-foundational-daily-fiber-review">Foundational Daily Fiber</a>, also 6 g of fibre a scoop, costs $50 for 40 servings. The GLP-1 version costs $10 more per tub, and the extra buys a name rather than a documented difference in dose.</p>
 <p>The Amazon listing linked here, for the 20-serving tub, showed <strong>4.2 out of 5 across 1,923 ratings</strong>, with 9 per cent at one star. That reflects taste, mixing and digestion as much as anything, and reviewers of fibre products tend to be happier than reviewers of fat burners, because fibre does something you can feel.</p>
 
 <h2>Side effects and practical use</h2>
@@ -230,6 +235,10 @@ export const supergutGlp1BoosterReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Supergut Foundational Daily Fiber to the comparison block and linked it where the price comparison names it. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Added a link to our Supergut guide. The score is unchanged.',
