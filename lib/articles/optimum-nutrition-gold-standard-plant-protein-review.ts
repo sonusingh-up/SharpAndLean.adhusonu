@@ -35,9 +35,9 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
   // Amazon.co.uk product image for ASIN B07J5L7GTC (the 684 g vanilla tub).
   image: 'https://images-na.ssl-images-amazon.com/images/P/B07J5L7GTC.01.LZZZZZZZ.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-gold-standard-plant-protein',
-  // The protein powders we have reviewed in full. None is vegan, so the vegan alternatives are
-  // named in the body instead.
+  // The other vegan protein we have reviewed, then the dairy proteins readers compare against.
   alternatives: [
+    'myprotein-impact-vegan-protein-review',
     'optimum-nutrition-uk-review-2026',
     'myprotein-impact-whey-review',
     'myprotein-slow-release-casein-review',
@@ -88,9 +88,9 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
 <p>That is similar to Gold Standard whey, which we priced at £5.55 to £6.94 per 100 g of protein, and more than the value wheys. The brand’s own store also sells a two-tub bundle, which may bring the price down. We read these prices from listings rather than taking an order through checkout; check the price per 100 g of protein on the day.</p>
 
 <h2>Best alternatives</h2>
-<p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. None of them is vegan: if you avoid dairy, the unreviewed vegan options below are the real comparison, and we name them for comparison only — we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
+<p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
 <ul>
-<li><strong>Myprotein Impact Vegan Protein</strong> (not yet reviewed) — a pea and fava bean blend listed at up to 24 g of protein per serving, from the brand that usually leads on price. Compare the price per 100 g of protein on the day.</li>
+<li><strong><a href="/wellness/myprotein-impact-vegan-protein-review">Myprotein Impact Vegan Protein</a></strong> (reviewed) — a pea and fava bean blend listed at up to 24 g of protein per serving, from the brand that usually leads on price. Compare the price per 100 g of protein on the day.</li>
 <li><strong>Bulk Vegan Protein Powder</strong> (not yet reviewed) — listed at 23 g of protein per serving and 28 servings per 1 kg, a larger pack than Optimum Nutrition’s.</li>
 <li><strong>Soya milk, tofu, tempeh and lentils</strong> — the food route. A 500 ml glass of soya milk gives roughly 15 to 18 g of protein, and most vegans can reach their daily target without a powder if they plan meals around these.</li>
 <li><strong><a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey</a></strong> (reviewed) — if you eat dairy, the sister product at a similar price per gram, and one a member of our team has used.</li>
@@ -215,6 +215,10 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Myprotein Impact Vegan Protein to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 7.6 out of 10 against the five published product criteria, the highest of the Optimum Nutrition products we have reviewed. The marks lost are for a small tub, a brand price per gram of protein, servings that vary by flavour and more salt than most protein powders.',
