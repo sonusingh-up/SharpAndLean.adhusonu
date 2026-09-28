@@ -32,8 +32,7 @@ export const myproteinImpactVeganProteinReview: ProductArticle = {
   seoDescription:
     'Myprotein Impact Vegan Protein reviewed for the UK: 24 g of pea and fava protein per scoop, the price per 100 g of protein against Optimum Nutrition’s plant protein, and the best alternatives.',
   listing: '1 kg pouch, about 33 servings; also 2.5 kg',
-  // Amazon.co.uk product image for ASIN B0BY672NNQ (the 1 kg vanilla pouch).
-  image: 'https://images-na.ssl-images-amazon.com/images/P/B0BY672NNQ.01.LZZZZZZZ.jpg',
+  image: '/images/myprotein-impact-vegan-protein.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-vegan-protein',
   // The other vegan protein we have reviewed, and the dairy proteins readers compare against.
   alternatives: [
