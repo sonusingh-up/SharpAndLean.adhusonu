@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/ingredients',
       '/guides',
       '/evidence-grading',
-      '/supergut',
+      '/guides/supergut',
       ...ingredients.map((i) => `/ingredients/${i.slug}`),
       ...guides.map((g) => `/guides/${g.slug}`),
     ].map((path) => ({
