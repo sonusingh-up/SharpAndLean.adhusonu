@@ -38,6 +38,7 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
   seoDescription:
     'ON Micronised Creatine reviewed for the UK: the 3 g dose, a label that contradicts itself, the price per 100 g against plain creatine, and who should skip it.',
   listing: '317 g tub, unflavoured, 93 servings',
+  image: '/images/optimum-nutrition-micronised-creatine.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
   // No other creatine on the site has a full review yet, so the comparison block is
   // suppressed rather than falling back to same-category whey, fish oil and vitamin D.
