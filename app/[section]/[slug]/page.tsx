@@ -11,6 +11,7 @@ import { Catalog } from '@/components/catalog';
 import { RichText } from '@/components/rich-text';
 import { ProteinCalculator } from '@/components/protein-calculator';
 import { VitaminChecker } from '@/components/vitamin-checker';
+import { ServingCostCalculator } from '@/components/serving-cost-calculator';
 import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
@@ -42,6 +43,7 @@ export const revalidate = 3600;
 const articleTools = {
   'protein-calculator': <ProteinCalculator />,
   'vitamin-checker': <VitaminChecker />,
+  'serving-cost-calculator': <ServingCostCalculator />,
 };
 
 export async function generateStaticParams() {

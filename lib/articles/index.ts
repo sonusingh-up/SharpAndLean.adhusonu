@@ -32,6 +32,9 @@ import { mutantMassReview } from './mutant-mass-review';
 import { vitabioticsWellmanOriginalReview } from './vitabiotics-wellman-original-review';
 import { tescoAZMultivitaminsMineralsReview } from './tesco-a-z-multivitamins-minerals-review';
 import { myproteinAlphaMenReview } from './myprotein-alpha-men-review';
+import { optimumNutritionGoldStandardPlantProteinReview } from './optimum-nutrition-gold-standard-plant-protein-review';
+import { myproteinImpactVeganProteinReview } from './myprotein-impact-vegan-protein-review';
+import { bulkVeganProteinPowderReview } from './bulk-vegan-protein-powder-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -73,6 +76,9 @@ export const articles: ProductArticle[] = [
   vitabioticsWellmanOriginalReview,
   tescoAZMultivitaminsMineralsReview,
   myproteinAlphaMenReview,
+  optimumNutritionGoldStandardPlantProteinReview,
+  myproteinImpactVeganProteinReview,
+  bulkVeganProteinPowderReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and
