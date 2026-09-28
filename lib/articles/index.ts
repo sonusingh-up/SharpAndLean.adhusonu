@@ -37,6 +37,7 @@ import { myproteinImpactVeganProteinReview } from './myprotein-impact-vegan-prot
 import { bulkVeganProteinPowderReview } from './bulk-vegan-protein-powder-review';
 import { supergutFoundationalDailyFiberReview } from './supergut-foundational-daily-fiber-review';
 import { supergutPrebioticBarsReview } from './supergut-prebiotic-bars-review';
+import { supergutPrebioticShakesReview } from './supergut-prebiotic-shakes-review';
 
 /**
  * The registry. Publishing an article is two steps: write the file next to
@@ -83,6 +84,7 @@ export const articles: ProductArticle[] = [
   bulkVeganProteinPowderReview,
   supergutFoundationalDailyFiberReview,
   supergutPrebioticBarsReview,
+  supergutPrebioticShakesReview,
 ];
 
 /* Two articles sharing a slug would silently shadow each other in routing, and

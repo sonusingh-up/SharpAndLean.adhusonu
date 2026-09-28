@@ -39,7 +39,11 @@ export const supergutPrebioticBarsReview: ProductArticle = {
   image: 'https://images-na.ssl-images-amazon.com/images/P/B0C63VPM9H.01.LZZZZZZZ.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/supergut-prebiotic-bars',
   // The other Supergut products we have reviewed: the same fibre blend in powder form.
-  alternatives: ['supergut-foundational-daily-fiber-review', 'supergut-glp-1-booster-review'],
+  alternatives: [
+    'supergut-foundational-daily-fiber-review',
+    'supergut-prebiotic-shakes-review',
+    'supergut-glp-1-booster-review',
+  ],
   writtenBy: 'team',
   price:
     '$40.00 for 12 bars on Supergut’s store and $39.99 at GNC, with a first-order subscription price of $26.99 on Amazon.com, in listings read on 28 September 2026',
@@ -101,7 +105,7 @@ export const supergutPrebioticBarsReview: ProductArticle = {
 <li><strong>A high-fibre snack from food</strong> — an apple with a handful of almonds, or Greek yoghurt with oats, gives fibre and protein together for much less, with no sugar alcohols.</li>
 <li><strong><a href="/wellness/supergut-foundational-daily-fiber-review">Supergut Foundational Daily Fiber</a></strong> (reviewed) — the same idea as a powder, with honest claims and a lower price per gram of fibre. Our pick from the Supergut range.</li>
 <li><strong><a href="/fat-burners/supergut-glp-1-booster-review">Supergut GLP-1 Daily Support</a></strong> (reviewed) — the same four fibres as a powder, with the same unsupported GLP-1 framing.</li>
-<li><strong>Supergut Prebiotic Shakes</strong> (not yet reviewed) — a meal-replacement format with 15 to 20 g of fibre and 15 g of protein, and the format closest to the product in Supergut’s own trial.</li>
+<li><strong><a href="/wellness/supergut-prebiotic-shakes-review">Supergut Prebiotic Shakes</a></strong> (reviewed) — a shake with 15 to 20 g of fibre and 15 g of protein, the format closest to the product in Supergut’s own trial, and a lower price per gram of fibre than the bars.</li>
 </ul>
 
 <h2>Who should skip it</h2>
@@ -244,6 +248,10 @@ export const supergutPrebioticBarsReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Linked our new review of Supergut Prebiotic Shakes in the best alternatives and the comparison cards.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 4.6 out of 10 against the five published product criteria. A filling, low-sugar snack with 10 g of fibre and protein. The marks lost are for a GLP-1 framing the evidence does not support, an undisclosed fibre blend, sugar-alcohol sweeteners and the highest price per gram of fibre in the Supergut range.',

@@ -43,17 +43,12 @@ export const supergut = {
   /** Every Supergut product we have reviewed in full, by review slug. */
   reviewedSlugs: [
     'supergut-foundational-daily-fiber-review',
+    'supergut-prebiotic-shakes-review',
     'supergut-prebiotic-bars-review',
     'supergut-glp-1-booster-review',
   ],
   /** The rest of the range, named and described but not yet reviewed. */
-  unreviewed: [
-    {
-      name: 'Prebiotic Shakes',
-      fibre: '15–20 g a shake',
-      note: 'Meal-replacement shakes with about 15 g of prebiotic fibre and 15 g of protein, and higher-fibre versions with 20 g. This is the format closest to the product in Supergut’s published trial, which tested a fibre-enriched meal-replacement shake — though we could not confirm the formula is identical.',
-    },
-  ] satisfies BrandProduct[],
+  unreviewed: [] as BrandProduct[],
   /** Articles on this site that discuss Supergut, with what each one adds. */
   articles: [
     {
@@ -123,19 +118,13 @@ export const supergut = {
       id: 'choose',
       number: '03',
       title: 'Choosing a product',
-      summary: 'Our scored reviews, the rest of the range, and where to buy it.',
+      summary: 'Our scored reviews of the range, and where to buy it.',
       topics: [
         {
           id: 'our-review',
           title: 'What we have reviewed',
-          html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. We have reviewed three Supergut products in full: the everyday fibre powder, the snack bars and the GLP-1-branded powder.</p>`,
+          html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. We have reviewed four Supergut products in full — every product in the core range: the everyday fibre powder, the meal-replacement shakes, the snack bars and the GLP-1-branded powder.</p>`,
           slot: 'reviews',
-        },
-        {
-          id: 'range',
-          title: 'The rest of the range',
-          html: `<p>What else Supergut sells, with the figures we could confirm. None of these has been scored here yet, and listing one is not a recommendation.</p>`,
-          slot: 'range',
         },
         { id: 'where-to-buy', title: 'Where to buy Supergut', html: `<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range — Healf in the UK, for example. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live.</p>
 <p>For most buyers, wherever they live, the cheaper and better-evidenced route to the same goal is food: oats, beans, lentils, slightly green bananas, and potatoes or rice cooked and cooled, which forms more resistant starch. If you want a powder, compare the price per gram of fibre with a plain fibre supplement such as psyllium — and if the low-FODMAP certification matters to you because of irritable bowel syndrome, that is a genuine reason to consider Supergut specifically.</p>` },
@@ -180,7 +169,7 @@ export const supergut = {
     { question: 'Is Supergut legit?', answer: 'Yes, as a company — it has a medical lead and a published randomised trial. The marketing is the weak point.', anchor: 'own-trial' },
     { question: 'Does it boost GLP-1?', answer: 'Fermentable fibre can raise GLP-1 a little, but its trial did not measure GLP-1, and a rise does not reliably mean eating less.', anchor: 'glp-1-appetite' },
     { question: 'Will it help me lose weight?', answer: 'Not much on its own. The weight trial used 40 g of resistant starch a day; a scoop has 6 g of fibre in total.', anchor: 'dose' },
-    { question: 'Which product is the best value?', answer: 'Foundational Daily Fiber: the same 6 g a scoop as the GLP-1 version for about $10 less a tub, and it scores 5.4 against 3.8.', anchor: 'our-review' },
+    { question: 'Which product is the best value?', answer: 'Per gram of fibre, the Prebiotic Shakes, which also add 15 g of protein. Among the powders, Foundational Daily Fiber: the same 6 g a scoop as the GLP-1 version for about $10 less a tub, and it scores 5.4 against 3.8.', anchor: 'our-review' },
   ],
   /** The at-a-glance figures under the hero. `live` values are read from the review at render. */
   stats: [
@@ -272,6 +261,10 @@ export const supergut = {
     },
   ] satisfies Citation[],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of the Prebiotic Shakes (5.2). Every product in the core range is now reviewed, so the unreviewed-range section is removed.',
+    },
     {
       date: '2026-09-28',
       note: 'Added our full review of the Prebiotic Bars (4.6), which move from the unreviewed range to the reviewed products.',
