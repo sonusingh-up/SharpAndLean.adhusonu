@@ -41,6 +41,7 @@ export const vitabioticsWellmanOriginalReview: ProductArticle = {
   alternatives: [
     'tesco-a-z-multivitamins-minerals-review',
     'optimum-nutrition-opti-men-review',
+    'myprotein-alpha-men-review',
     'nature-made-vitamin-d3-1000-iu',
   ],
   writtenBy: 'team',
@@ -96,7 +97,7 @@ export const vitabioticsWellmanOriginalReview: ProductArticle = {
 <li><strong><a href="/wellness/nature-made-vitamin-d3-1000-iu">Nature Made Vitamin D3 1000 IU</a></strong> (reviewed) — a single-ingredient, USP-verified vitamin D at 25 µg. A US product, so UK buyers usually pay import prices; the point is the approach.</li>
 <li><strong><a href="/wellness/tesco-a-z-multivitamins-minerals-review">Tesco A–Z Multivitamins &amp; Minerals</a></strong> (reviewed) — if you want a multivitamin as insurance, about 5.5p a day, roughly a third of the cost of Wellman.</li>
 <li><strong><a href="/wellness/optimum-nutrition-opti-men-review">Optimum Nutrition Opti-Men</a></strong> (reviewed) — the sports-shop men’s multi, with B6 at 5.4 mg and no iron on the European formula we reviewed, but three tablets a day at roughly three times the price.</li>
-<li><strong>Myprotein Alpha Men</strong> (not yet reviewed) — another sports-shop men’s multi at about 20p a day, two tablets rather than one.</li>
+<li><strong><a href="/wellness/myprotein-alpha-men-review">Myprotein Alpha Men</a></strong> (reviewed) — another sports-shop men’s multi at about 20p a day, two tablets rather than one.</li>
 </ul>
 
 <h2>Who should skip it, and what to watch for</h2>
@@ -238,6 +239,10 @@ export const vitabioticsWellmanOriginalReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Myprotein Alpha Men to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Added our full review of Tesco A–Z Multivitamins & Minerals to the best alternatives and the comparison block. The score is unchanged.',

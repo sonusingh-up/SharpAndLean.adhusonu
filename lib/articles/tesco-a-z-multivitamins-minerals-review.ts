@@ -37,6 +37,7 @@ export const tescoAZMultivitaminsMineralsReview: ProductArticle = {
   alternatives: [
     'vitabiotics-wellman-original-review',
     'optimum-nutrition-opti-men-review',
+    'myprotein-alpha-men-review',
     'nature-made-vitamin-d3-1000-iu',
   ],
   writtenBy: 'team',
@@ -72,7 +73,7 @@ export const tescoAZMultivitaminsMineralsReview: ProductArticle = {
 
 <h2>Price: what 5.5p a day buys</h2>
 <p>In listings read on 28 September 2026, the 90-tablet pack had a Clubcard price of £4.95, about 5.5p a day, and Tesco regularly runs multi-buy offers on vitamins. We read this from a listing rather than taking an order through checkout, and non-Clubcard prices are usually higher.</p>
-<p>For comparison: <a href="/wellness/vitabiotics-wellman-original-review">Wellman Original</a> costs about 14p to 23p a day, Myprotein Alpha Men about 20p and <a href="/wellness/optimum-nutrition-opti-men-review">Opti-Men</a> about 50p to 67p. Those products add higher doses, more ingredients or men-specific branding, but none of those additions has good evidence of benefit for a man who eats reasonably.</p>
+<p>For comparison: <a href="/wellness/vitabiotics-wellman-original-review">Wellman Original</a> costs about 14p to 23p a day, <a href="/wellness/myprotein-alpha-men-review">Myprotein Alpha Men</a> about 13p to 20p and <a href="/wellness/optimum-nutrition-opti-men-review">Opti-Men</a> about 50p to 67p. Those products add higher doses, more ingredients or men-specific branding, but none of those additions has good evidence of benefit for a man who eats reasonably.</p>
 
 <h2>Best alternatives</h2>
 <p>The ones we have fully reviewed are linked, and appear in the comparison cards below this article. The others we name for comparison only: we have not reviewed them in full, so do not read their inclusion as a recommendation.</p>
@@ -205,6 +206,10 @@ export const tescoAZMultivitaminsMineralsReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of Myprotein Alpha Men to the best alternatives and the comparison block. The score is unchanged.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 6.0 out of 10 against the five published product criteria, the highest of the multivitamins we have reviewed, mainly on price. The marks lost are for weak evidence that well-fed adults benefit, per-tablet amounts we could not confirm, and iron most men do not need.',
