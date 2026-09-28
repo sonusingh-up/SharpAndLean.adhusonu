@@ -87,6 +87,7 @@ export default async function SupergutGuidePage() {
       ));
     }
     if (name === 'range') {
+      if (brand.unreviewed.length === 0) return null;
       return (
         <>
           <div className={s.range}>

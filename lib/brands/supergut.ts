@@ -27,7 +27,7 @@ export const supergut = {
   name: 'Supergut',
   seoTitle: 'Supergut Guide: Reviews, Research and Evidence (2026)',
   seoDescription:
-    'Everything we know about Supergut: our product reviews, the company’s own trial, what resistant-starch research shows, and UK buying notes.',
+    'Everything we know about Supergut: our product reviews, the company’s own trial, what resistant-starch research shows, and where to buy it.',
   title: 'The complete Supergut guide: reviews, research and what it adds up to',
   intro:
     'Supergut makes resistant-starch fibre powders, bars and shakes, and markets much of the range on GLP-1 and appetite. This page brings together everything we have published on the brand — full reviews, the articles that cover it, a plain reading of the company’s own trial and the wider research on resistant starch — so you can judge the range in one place.',
@@ -36,25 +36,19 @@ export const supergut = {
   affiliateUrl: 'https://sharpandlean.com/recommended/supergut',
   figure: {
     src: '/images/supergut-fibre-per-serving.jpg',
-    alt: 'Chart of fibre per serving across Supergut’s range: GLP-1 Daily Support 6 g a scoop, or 12 g at two scoops; Foundational Daily Fiber 6 g; Prebiotic Bar 10 g; Prebiotic Shake 15 g, or 20 g in higher-fibre versions. Reference lines mark the UK target of 30 g of fibre a day from all foods and the 40 g a day of resistant starch used in a weight-loss trial.',
+    alt: 'Chart of fibre per serving across Supergut’s range: GLP-1 Daily Support 6 g a scoop, or 12 g at two scoops; Foundational Daily Fiber 6 g; Prebiotic Bar 10 g; Prebiotic Shake 15 g, or 20 g in higher-fibre versions. Reference lines mark a typical adult target of 30 g of fibre a day from all foods and the 40 g a day of resistant starch used in a weight-loss trial.',
     caption:
       'SharpAndLean chart. Figures from Supergut’s product pages, retail listings and our GLP-1 Daily Support review. The resistant starch in each product is an undisclosed share of its fibre.',
   },
   /** Every Supergut product we have reviewed in full, by review slug. */
-  reviewedSlugs: ['supergut-foundational-daily-fiber-review', 'supergut-glp-1-booster-review'],
+  reviewedSlugs: [
+    'supergut-foundational-daily-fiber-review',
+    'supergut-prebiotic-shakes-review',
+    'supergut-prebiotic-bars-review',
+    'supergut-glp-1-booster-review',
+  ],
   /** The rest of the range, named and described but not yet reviewed. */
-  unreviewed: [
-    {
-      name: 'Prebiotic Bars',
-      fibre: '10 g a bar',
-      note: 'Snack bars with about 10 g of prebiotic fibre and 10 g of protein each, in flavours including chocolate brownie, peanut butter chocolate and strawberry almond. Sold in boxes of 12; we saw prices from about $27 to $30 a box in US listings.',
-    },
-    {
-      name: 'Prebiotic Shakes',
-      fibre: '15–20 g a shake',
-      note: 'Meal-replacement shakes with about 15 g of prebiotic fibre and 15 g of protein, and higher-fibre versions with 20 g. This is the format closest to the product in Supergut’s published trial, which tested a fibre-enriched meal-replacement shake — though we could not confirm the formula is identical.',
-    },
-  ] satisfies BrandProduct[],
+  unreviewed: [] as BrandProduct[],
   /** Articles on this site that discuss Supergut, with what each one adds. */
   articles: [
     {
@@ -117,29 +111,23 @@ export const supergut = {
         { id: 'glp-1-appetite', title: 'A GLP-1 rise is not the same as eating less', html: `<p>A <a href="https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/full">2026 scoping review in <em>Frontiers in Endocrinology</em></a> pooled 52 studies with 1,085 participants. Only some fibre types raised GLP-1 consistently, and studies that did find a rise showed only a non-significant tendency towards feeling fuller. A higher reading on a blood test did not reliably translate into eating less.</p>` },
         { id: 'dose', title: 'The dose gap', html: `<p>The strongest human evidence that resistant starch helps with weight is <a href="https://www.nature.com/articles/s42255-024-00988-y">a 2024 randomised crossover trial in <em>Nature Metabolism</em></a>: 37 people with excess weight took 40 g a day of resistant starch from high-amylose maize for eight weeks and lost a mean of 2.8 kg against a control starch, with better insulin sensitivity. That is roughly seven times the total fibre in a scoop of GLP-1 Daily Support, and the scoop’s resistant starch is only part of that.</p>`, slot: 'chart' },
         { id: 'solnul', title: 'One ingredient has its own trial', html: `<p>Supergut’s blends include Solnul, a resistant potato starch. In <a href="https://pubmed.ncbi.nlm.nih.gov/37049425/">a 2023 randomised trial</a> run for the ingredient’s maker, 3.5 g a day for four weeks increased <em>Bifidobacterium</em> and <em>Akkermansia</em> and improved stool consistency against placebo. That is a genuine prebiotic effect at a low dose. It did not measure GLP-1, appetite or weight, and the amount of Solnul in Supergut’s products is not disclosed.</p>` },
-        { id: 'fibre', title: 'Fibre itself is well supported', html: `<p>None of this makes fibre a bad idea. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found that people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer than those eating less. The <a href="https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/">NHS recommends 30 g a day</a> for adults, and says most people eat about 20 g. Adding fibre, from any source, is sound advice. What the evidence does not support is paying a premium for fibre sold as a GLP-1 product.</p>` },
+        { id: 'fibre', title: 'Fibre itself is well supported', html: `<p>None of this makes fibre a bad idea. A <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">2019 series of meta-analyses in <em>The Lancet</em></a> found that people eating 25 to 29 g of fibre a day had lower rates of heart disease, stroke, type 2 diabetes and bowel cancer than those eating less. Guidance is similar around the world: the <a href="https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/">NHS recommends 30 g a day</a>, and US dietary guidelines advise about 14 g per 1,000 kcal, roughly 25 to 34 g for most adults, and most people eat well short of either. Adding fibre, from any source, is sound advice. What the evidence does not support is paying a premium for fibre sold as a GLP-1 product.</p>` },
       ],
     },
     {
       id: 'choose',
       number: '03',
       title: 'Choosing a product',
-      summary: 'Our scored reviews, the rest of the range, and what buying from the UK involves.',
+      summary: 'Our scored reviews of the range, and where to buy it.',
       topics: [
         {
           id: 'our-review',
           title: 'What we have reviewed',
-          html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. We have reviewed two Supergut products in full: the everyday fibre powder and its GLP-1-branded sister.</p>`,
+          html: `<p>We score every product against the five published criteria on our <a href="/evidence-grading">evidence grading</a> page. We have reviewed four Supergut products in full — every product in the core range: the everyday fibre powder, the meal-replacement shakes, the snack bars and the GLP-1-branded powder.</p>`,
           slot: 'reviews',
         },
-        {
-          id: 'range',
-          title: 'The rest of the range',
-          html: `<p>What else Supergut sells, with the figures we could confirm. None of these has been scored here yet, and listing one is not a recommendation.</p>`,
-          slot: 'range',
-        },
-        { id: 'uk', title: 'Buying Supergut in the UK', html: `<p>Supergut is a US brand priced in dollars. Its help centre says it can ship to most addresses worldwide, with some products restricted, and it is not stocked by UK retailers we checked. Expect international postage and possible import charges on top of the dollar price, and check the delivered cost before ordering.</p>
-<p>For most UK buyers, the cheaper and better-evidenced route to the same goal is food: oats, beans, lentils, slightly green bananas, and potatoes or rice cooked and cooled, which forms more resistant starch. If you want a powder, compare the price per gram of fibre with a plain fibre supplement such as psyllium — and if the low-FODMAP certification matters to you because of irritable bowel syndrome, that is a genuine reason to consider Supergut specifically.</p>` },
+        { id: 'where-to-buy', title: 'Where to buy Supergut', html: `<p>Supergut is sold across the US — on its own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Outside the US, its help centre says it ships to most countries with some products restricted, and some local retailers stock part of the range — Healf in the UK, for example. If you are ordering from abroad, add international postage and any import charges to the dollar price before comparing it with fibre products sold where you live.</p>
+<p>For most buyers, wherever they live, the cheaper and better-evidenced route to the same goal is food: oats, beans, lentils, slightly green bananas, and potatoes or rice cooked and cooled, which forms more resistant starch. If you want a powder, compare the price per gram of fibre with a plain fibre supplement such as psyllium — and if the low-FODMAP certification matters to you because of irritable bowel syndrome, that is a genuine reason to consider Supergut specifically.</p>` },
       ],
     },
     {
@@ -181,7 +169,7 @@ export const supergut = {
     { question: 'Is Supergut legit?', answer: 'Yes, as a company — it has a medical lead and a published randomised trial. The marketing is the weak point.', anchor: 'own-trial' },
     { question: 'Does it boost GLP-1?', answer: 'Fermentable fibre can raise GLP-1 a little, but its trial did not measure GLP-1, and a rise does not reliably mean eating less.', anchor: 'glp-1-appetite' },
     { question: 'Will it help me lose weight?', answer: 'Not much on its own. The weight trial used 40 g of resistant starch a day; a scoop has 6 g of fibre in total.', anchor: 'dose' },
-    { question: 'Which product is the best value?', answer: 'Foundational Daily Fiber: the same 6 g a scoop as the GLP-1 version for about $10 less a tub, and it scores 5.4 against 3.8.', anchor: 'our-review' },
+    { question: 'Which product is the best value?', answer: 'Per gram of fibre, the Prebiotic Shakes, which also add 15 g of protein. Among the powders, Foundational Daily Fiber: the same 6 g a scoop as the GLP-1 version for about $10 less a tub, and it scores 5.4 against 3.8.', anchor: 'our-review' },
   ],
   /** The at-a-glance figures under the hero. `live` values are read from the review at render. */
   stats: [
@@ -215,9 +203,9 @@ export const supergut = {
         'Both give 6 g of prebiotic fibre per scoop and share three of their four fibres; Foundational uses Sunfiber guar where GLP-1 Daily Support uses oat beta-glucan. GLP-1 Daily Support costs about $10 more per 40-serving tub. We have reviewed both in full: Foundational scores 5.4 and GLP-1 Daily Support 3.8.',
     },
     {
-      question: 'Can I buy Supergut in the UK?',
+      question: 'Where can I buy Supergut?',
       answer:
-        'It is a US brand. Supergut says it ships to most countries with some product restrictions, and we did not find it stocked by UK retailers. Expect international postage and possible import charges, and compare the delivered cost with UK fibre supplements.',
+        'In the US, on Supergut’s own store, Amazon.com and at retailers including Walmart, Target, GNC and Vitamin Shoppe. Elsewhere, Supergut says it ships to most countries with some products restricted, and some local retailers stock part of the range, such as Healf in the UK. Add postage and import charges when ordering from abroad.',
     },
     {
       question: 'Is Supergut good for IBS?',
@@ -275,6 +263,18 @@ export const supergut = {
   history: [
     {
       date: '2026-09-28',
+      note: 'Added our full review of the Prebiotic Shakes (5.2). Every product in the core range is now reviewed, so the unreviewed-range section is removed.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Added our full review of the Prebiotic Bars (4.6), which move from the unreviewed range to the reviewed products.',
+    },
+    {
+      date: '2026-09-28',
+      note: 'Made the buying notes global rather than UK-only: where Supergut is sold in the US, how it ships internationally, and local stockists.',
+    },
+    {
+      date: '2026-09-28',
       note: 'Added our full review of Foundational Daily Fiber (5.4), which moves from the unreviewed range to the reviewed products.',
     },
     {
@@ -283,7 +283,7 @@ export const supergut = {
     },
     {
       date: '2026-09-28',
-      note: 'First published, bringing together our GLP-1 Daily Support review, the articles that cover Supergut, the company’s trial, the resistant-starch research and UK buying notes. Foundational Daily Fiber, the bars and the shakes are listed but not yet reviewed.',
+      note: 'First published, bringing together our GLP-1 Daily Support review, the articles that cover Supergut, the company’s trial, the resistant-starch research and buying notes. Foundational Daily Fiber, the bars and the shakes are listed but not yet reviewed.',
     },
   ] satisfies HistoryEntry[],
 };
