@@ -35,13 +35,11 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
   // Amazon.co.uk product image for ASIN B07J5L7GTC (the 684 g vanilla tub).
   image: 'https://images-na.ssl-images-amazon.com/images/P/B07J5L7GTC.01.LZZZZZZZ.jpg',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-gold-standard-plant-protein',
-  // The other vegan protein we have reviewed, then the dairy proteins readers compare against.
+  // The other vegan proteins we have reviewed, then Optimum Nutrition's own whey.
   alternatives: [
     'myprotein-impact-vegan-protein-review',
     'bulk-vegan-protein-powder-review',
     'optimum-nutrition-uk-review-2026',
-    'myprotein-impact-whey-review',
-    'myprotein-slow-release-casein-review',
   ],
   writtenBy: 'team',
   price: 'About £21.95–£28.00 for the 684 g tub at UK retailers in listings read on 28 September 2026',
@@ -95,8 +93,6 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
 <li><strong><a href="/wellness/bulk-vegan-protein-powder-review">Bulk Vegan Protein Powder</a></strong> (reviewed) — listed at 23 g of protein per serving and 28 servings per 1 kg, a larger pack than Optimum Nutrition’s.</li>
 <li><strong>Soya milk, tofu, tempeh and lentils</strong> — the food route. A 500 ml glass of soya milk gives roughly 15 to 18 g of protein, and most vegans can reach their daily target without a powder if they plan meals around these.</li>
 <li><strong><a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey</a></strong> (reviewed) — if you eat dairy, the sister product at a similar price per gram, and one a member of our team has used.</li>
-<li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if you eat dairy and want a value whey; it scores the same 7.6 as this product, with a higher mark for value.</li>
-<li><strong><a href="/wellness/myprotein-slow-release-casein-review">Myprotein Slow-Release Casein</a></strong> (reviewed) — if you eat dairy and want a slower-digesting shake before bed or between meals.</li>
 </ul>
 
 <h2>Who should skip it, and what to watch for</h2>
@@ -216,6 +212,10 @@ export const optimumNutritionGoldStandardPlantProteinReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed other brands’ dairy proteins, keeping the rival plant proteins and Gold Standard whey.',
+    },
     {
       date: '2026-09-28',
       note: 'Added our full review of Bulk Vegan Protein Powder to the best alternatives and the comparison block. The score is unchanged.',

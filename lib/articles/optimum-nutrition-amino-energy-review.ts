@@ -37,8 +37,10 @@ export const optimumNutritionAminoEnergyReview: ProductArticle = {
   image: '/images/optimum-nutrition-amino-energy.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
   // No other energy drink powder has a full review yet. L-theanine is the evidence-backed
-  // partner for caffeine, and creatine the better buy for training.
-  alternatives: ['now-l-theanine-100-mg', 'optimum-nutrition-micronised-creatine-review'],
+  // partner for caffeine.
+  alternatives: [
+    'now-l-theanine-100-mg',
+  ],
   writtenBy: 'team',
   price: 'About £19.75–£26.83 for the 270 g tub at mainstream UK retailers in search listings on 28 September 2026 — roughly 66p–89p a serving',
   guarantee: 'Check the seller’s returns policy',
@@ -111,7 +113,6 @@ export const optimumNutritionAminoEnergyReview: ProductArticle = {
 <li><strong>A mug of coffee or tea</strong> — the best alternative for most people. A mug of instant coffee has about the same 100 mg of caffeine for a few pence, and tea brings its own L-theanine.</li>
 <li><strong><a href="/nootropics/now-l-theanine-100-mg">NOW L-Theanine 100 mg</a></strong> (reviewed) — for anyone who finds caffeine makes them jittery, pairing a coffee with L-theanine is the combination with the best evidence for calm focus. Our review explains what else is in the capsule.</li>
 <li><strong>Plain caffeine tablets</strong> (not yet reviewed) — the cheapest measured dose of caffeine, useful if you want an exact amount before training without sweeteners or flavourings. Start low and count every other source of caffeine that day.</li>
-<li><strong><a href="/wellness/optimum-nutrition-micronised-creatine-review">Optimum Nutrition Micronised Creatine</a></strong> (reviewed) — if you bought Amino Energy hoping to train better, creatine has far stronger evidence for strength and power than any amino acid drink.</li>
 </ul>
 
 <h2>Sources and shopping: our UK buying checklist</h2>
@@ -255,6 +256,10 @@ export const optimumNutritionAminoEnergyReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed Micronised Creatine, a different kind of product. It is still discussed in the text.',
+    },
     {
       date: '2026-09-28',
       note: 'Scored 5.4 out of 10 against the five published product criteria. The caffeine dose is sound and the product is sugar-free. The marks lost are for an amino blend without individual amounts, amino acids with little evidence of benefit, and a cost per serving several times that of coffee.',

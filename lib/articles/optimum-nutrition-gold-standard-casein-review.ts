@@ -35,12 +35,10 @@ export const optimumNutritionGoldStandardCaseinReview: ProductArticle = {
   listing: '924 g tub, 28 servings; also 1.8 kg',
   image: '/images/optimum-nutrition-gold-standard-casein.webp',
   affiliateUrl: 'https://sharpandlean.com/recommended/optimum-nutrition-uk',
-  // Both are full reviews, and whey is the comparison readers are actually weighing casein against.
+  // The rival casein, and Optimum Nutrition's own whey — the comparison readers weigh casein against.
   alternatives: [
     'myprotein-slow-release-casein-review',
     'optimum-nutrition-uk-review-2026',
-    'myprotein-impact-whey-review',
-    'kinetica-whey-protein-review',
   ],
   writtenBy: 'team',
   price: 'About £36.95–£38.95 for the 924 g tub and £55.79–£64.99 for the 1.8 kg at UK retailers in search listings on 28 September 2026',
@@ -114,8 +112,6 @@ export const optimumNutritionGoldStandardCaseinReview: ProductArticle = {
 <li><strong>Greek yoghurt, skyr or cottage cheese</strong> — the best alternative for most people. They are mostly casein, filling, and a 200 g pot gives roughly 15 to 25 g of protein before bed without a scoop.</li>
 <li><strong><a href="/wellness/myprotein-slow-release-casein-review">Myprotein Slow-Release Casein</a></strong> (reviewed) — the own-brand casein we priced against: 23 g of protein per 30 g scoop, about £3.91 per 100 g of protein on offer and £5.48 at full price.</li>
 <li><strong><a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey</a></strong> (reviewed) — if timing does not matter to you, whey does the same job for daily protein, mixes more easily and is usually cheaper per gram.</li>
-<li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — the value whey, and the cheapest way to add protein of the products we have reviewed.</li>
-<li><strong><a href="/wellness/kinetica-whey-protein-review">Kinetica Whey Protein</a></strong> (reviewed) — the most completely labelled whey we have reviewed, and the better choice for drug-tested athletes because of its banned-substance testing claim.</li>
 </ul>
 
 <h2>Sources and shopping: our UK buying checklist</h2>
@@ -252,6 +248,10 @@ export const optimumNutritionGoldStandardCaseinReview: ProductArticle = {
     },
   ],
   history: [
+    {
+      date: '2026-09-28',
+      note: 'Tidied the best alternatives to the products readers actually compare this with: removed other brands’ whey proteins, keeping the rival casein and Gold Standard whey. Myprotein Impact Whey is still discussed in the text.',
+    },
     {
       date: '2026-09-28',
       note: 'Added a best-alternatives section, and our full review of Myprotein Slow-Release Casein to the comparison block. The score is unchanged.',

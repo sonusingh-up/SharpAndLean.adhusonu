@@ -48,7 +48,7 @@ export const pendulumAkkermansiaReview: ProductArticle = {
       'The whole label in three panels. The Supplement Facts side is unusually clean for this aisle: one named strain, one quantified prebiotic, four excipients, no proprietary blend. The left panel is where the four headline claims sit — including "increases GLP-1 production", the one the human trial data does not support.',
   },
   affiliateUrl: 'https://sharpandlean.com/recommended/pendulum-akkermansia-probiotic',
-  alternatives: ['calocurb-review', 'colonbroom-review-2026'],
+  alternatives: ['calocurb-review'],
   writtenBy: 'team',
   price: '$145 for 90 capsules on a 3-month subscription; $75 plus $10 shipping for 30 capsules one-time',
   guarantee: '30 days from first delivery, refunded minus shipping, with no need to return the product',
@@ -288,6 +288,10 @@ export const pendulumAkkermansiaReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-28',
+      note: 'Removed ColonBroom, a psyllium fibre drink rather than a gut-bacteria product, from the comparison cards.',
+    },
+    {
       date: '2026-09-24',
       note: 'First published. Scored 4.0 out of 10. The label transparency mark of 7 is among the higher marks on this site and is genuinely earned. It is pulled down by a dose mark of 2 — 100 million AFU against the 10 billion bacteria a day used in the first randomised human trial — and a value mark of 2, because a 90-capsule bottle with the same AFU count and more inulin sells for $29.99 against $145 here.',
     },
@@ -305,5 +309,5 @@ export const pendulumAkkermansiaReview: ProductArticle = {
     },
   ],
   published: '2026-09-24T00:00:00Z',
-  updated: '2026-09-24T00:00:00Z',
+  updated: '2026-09-28T00:00:00Z',
 };
