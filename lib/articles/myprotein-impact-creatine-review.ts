@@ -34,6 +34,9 @@ export const myproteinImpactCreatineReview: ProductArticle = {
   seoDescription:
     'Myprotein Impact Creatine reviewed for the UK: the 3 g dose, the price per 100 g by pack size, what Informed Choice does and does not cover, and the best alternatives.',
   listing: '500 g pouch, unflavoured, 147 servings',
+  // Amazon.co.uk product image for ASIN B00CHJ3DW4 (the 500 g pack).
+  image: 'https://images-na.ssl-images-amazon.com/images/P/B00CHJ3DW4.01.LZZZZZZZ.jpg',
+  affiliateUrl: 'https://sharpandlean.com/recommended/myprotein-impact-creatine',
   // Every creatine we have fully reviewed. Serious Mass is left out: it is a gainer that
   // happens to contain creatine, not an alternative to a creatine powder.
   alternatives: ['optimum-nutrition-micronised-creatine-review'],
@@ -97,7 +100,7 @@ export const myproteinImpactCreatineReview: ProductArticle = {
 <h2>Sources and shopping: our UK buying checklist</h2>
 <p>Before you order, choose the unflavoured version and the largest pack you will finish within its best-before date. Check the delivered price and divide it by the pack weight to get the cost per 100 g; anything around £3 or below is good value for plain monohydrate. Myprotein runs frequent offers, so if the 500 g is at full price, it is often worth waiting a week.</p>
 <p>When the pack arrives, check the seal, the batch code and the best-before date. Use one level scoop a day and give it four weeks before judging whether it is doing anything.</p>
-<p>We do not currently have a commercial link for this product, so there is no buy button on this page, and nothing about the score above is affected by one. The score is an 8.6 — the highest of the creatines we have reviewed — held back only by an unnamed creatine source and testing that is not batch by batch.</p>
+<p>Our commercial link for this product is <a href="https://sharpandlean.com/recommended/myprotein-impact-creatine">our Myprotein Impact Creatine link</a>. It earns us a commission at no extra cost to you, and it has no influence on the score above. The score is an 8.6 — the highest of the creatines we have reviewed — held back only by an unnamed creatine source and testing that is not batch by batch.</p>
 <p>The fair summary is this. Myprotein Impact Creatine is creatine monohydrate at the right dose with a label that adds up, and in the bigger packs it is about as cheap as good creatine gets. Buy it on offer, in a size you will finish.</p>
 `,
   whoFor:
@@ -216,7 +219,7 @@ export const myproteinImpactCreatineReview: ProductArticle = {
     },
     {
       date: '2026-09-28',
-      note: 'First published for the UK market, as a full review of an alternative named in our Optimum Nutrition creatine review. We could not open Myprotein’s own product page, so the label details and testing claim come from UK retailer listings read via search on this date. This is a desk review: nobody on our team has used this product. There is no commercial link for it yet.',
+      note: 'First published for the UK market, as a full review of an alternative named in our Optimum Nutrition creatine review. We could not open Myprotein’s own product page, so the label details and testing claim come from UK retailer listings read via search on this date. This is a desk review: nobody on our team has used this product.',
     },
   ],
   published: '2026-09-28T00:00:00Z',
