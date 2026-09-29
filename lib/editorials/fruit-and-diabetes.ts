@@ -189,5 +189,9 @@ ${fruitTableHtml()}
       date: '2026-09-29',
       note: 'Added grapefruit, peach, prunes and raisins (dried fruit compared at a 30 g portion), and moved the figures into one data file that drives both the table and the chart.',
     },
+    {
+      date: '2026-09-29',
+      note: 'Linked our article on eating prunes every day for a week from the table.',
+    },
   ],
 };

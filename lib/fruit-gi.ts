@@ -123,7 +123,15 @@ export const fruits: Fruit[] = [
     servingG: 120,
   },
   { name: 'Grapes', group: 'grapes', gi: 59, carbsPer100g: 18.1, fibrePer100g: 0.9, servingG: 120 },
-  { name: 'Prunes', group: 'dried', gi: 29, carbsPer100g: 63.9, fibrePer100g: 7.1, servingG: 30 },
+  {
+    name: 'Prunes',
+    group: 'dried',
+    gi: 29,
+    carbsPer100g: 63.9,
+    fibrePer100g: 7.1,
+    servingG: 30,
+    href: '/learn/eating-prunes-every-day-for-a-week',
+  },
   { name: 'Raisins', group: 'dried', gi: 64, carbsPer100g: 79.2, fibrePer100g: 3.7, servingG: 30 },
 ];
 
