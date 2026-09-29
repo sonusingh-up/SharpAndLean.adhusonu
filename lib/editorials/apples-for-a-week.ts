@@ -95,7 +95,7 @@ export const applesForAWeek: Collection = {
 <li><strong>Put one before your biggest meal.</strong> That is where the fullness and blood-sugar effects showed up in the studies.</li>
 <li><strong>Pair one with protein if it is a snack.</strong> An apple with a handful of nuts, a spoon of peanut butter or some cheese keeps you fuller for longer than the apple alone.</li>
 <li><strong>Drink water, and build up if fibre is new to you.</strong> Start with one apple a day for a few days if your diet has been low in fibre.</li>
-<li><strong>Vary it after the week.</strong> Apples are a good habit, not a magic fruit. Pears, berries, oranges and kiwi bring different fibres and nutrients.</li>
+<li><strong>Vary it after the week.</strong> Apples are a good habit, not a magic fruit. <a href="/learn/eating-pears-every-day-for-a-week">Pears</a>, berries, oranges and kiwi bring different fibres and nutrients.</li>
 </ul>
 
 <h2>Who should be careful</h2>
@@ -210,6 +210,10 @@ export const applesForAWeek: Collection = {
     },
   ],
   history: [
+    {
+      date: '2026-09-29',
+      note: 'Linked our companion article on eating two pears a day for a week.',
+    },
     {
       date: '2026-09-29',
       note: 'First published, with a chart of what two apples a day add. Nutrition figures from USDA FoodData Central; evidence from the trials listed. Not yet reviewed by a clinician.',
