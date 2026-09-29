@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteShell, Breadcrumb, SectionLabel } from '@/components/site';
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ing.seoTitle ?? `${ing.name}: evidence, dosage and safety`,
     ing.seoDescription ?? ing.quickAnswer.slice(0, 155),
     `/ingredients/${ing.slug}`,
-    undefined,
+    ing.figure?.src,
     { type: 'article', modifiedTime: ing.updated },
   );
 }
@@ -98,6 +99,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
             url,
             inLanguage: 'en-US',
             dateModified: ing.updated,
+            ...(ing.figure ? { image: `${siteUrl}${ing.figure.src}` } : {}),
             about: { '@type': 'Substance', name: ing.name },
             author: {
               '@type': 'Organization',
@@ -187,6 +189,19 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
 
           <h2 id="dosage">Effective dosage</h2>
           <Paras text={ing.dosage} />
+          {ing.figure ? (
+            <figure className="ingredient-figure">
+              <Image
+                src={ing.figure.src}
+                alt={ing.figure.alt}
+                width={1200}
+                height={720}
+                sizes="(max-width: 900px) 92vw, 760px"
+                quality={90}
+              />
+              <figcaption>{ing.figure.caption}</figcaption>
+            </figure>
+          ) : null}
           <Paras text={ing.dosageGap} lead="Where products diverge from the research." />
 
           <h2 id="safety">Safety, side effects and interactions</h2>

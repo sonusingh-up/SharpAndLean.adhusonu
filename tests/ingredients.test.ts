@@ -53,3 +53,15 @@ test('the ingredient pages and the vitamin checker give the same doses', () => {
   assert.ok(d?.amount.startsWith('10 micrograms (400 IU)'));
   assert.ok(getIngredient('vitamin-d3')!.atAGlance!.some((row) => row.value.startsWith('10 mcg (400 IU)')));
 });
+
+test('creatine label rows reach the creatine page, which keeps the house format', async () => {
+  const { existsSync } = await import('node:fs');
+  for (const name of ['Creatine monohydrate (micronised)', 'Creatine', 'Creapure creatine monohydrate']) {
+    assert.equal(findIngredientByName(name)?.slug, 'creatine-monohydrate', name);
+  }
+  const page = getIngredient('creatine-monohydrate')!;
+  const words = page.quickAnswer.split(/\s+/).length;
+  assert.ok(words >= 60 && words <= 100, `quick answer is ${words} words`);
+  assert.ok((page.seoDescription ?? '').length <= 160);
+  assert.ok(page.figure && existsSync(`public${page.figure.src}`), 'chart file exists');
+});

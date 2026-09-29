@@ -59,7 +59,7 @@ export const bulkCreatineMonohydrateReview: ProductArticle = {
 <p>The label does not name where the creatine is made. Bulk sells a separate Creapure-branded creatine, made in Germany, for buyers who want a named source.</p>
 
 <h2>What creatine can realistically do</h2>
-<p>Creatine monohydrate is one of the most studied supplements in sports nutrition. The <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/">International Society of Sports Nutrition’s 2017 position stand</a> calls it the most effective nutritional supplement available for increasing high-intensity exercise capacity and lean body mass during training. A <a href="https://pubmed.ncbi.nlm.nih.gov/27328852/">2017 meta-analysis of 53 randomised studies</a> found a consistent improvement in upper-body strength, and an <a href="https://pubmed.ncbi.nlm.nih.gov/25946994/">earlier review</a> the same for the lower body. The effects are modest — a few per cent on top of training.</p>
+<p>Creatine monohydrate is one of the most studied supplements in sports nutrition, and our <a href="/ingredients/creatine-monohydrate">creatine monohydrate guide</a> grades each claim made for it. The <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/">International Society of Sports Nutrition’s 2017 position stand</a> calls it the most effective nutritional supplement available for increasing high-intensity exercise capacity and lean body mass during training. A <a href="https://pubmed.ncbi.nlm.nih.gov/27328852/">2017 meta-analysis of 53 randomised studies</a> found a consistent improvement in upper-body strength, and an <a href="https://pubmed.ncbi.nlm.nih.gov/25946994/">earlier review</a> the same for the lower body. The effects are modest — a few per cent on top of training.</p>
 <p>In the classic <a href="https://pubmed.ncbi.nlm.nih.gov/8828669/">Nottingham study by Hultman and colleagues</a>, 3 g a day for 28 days raised muscle creatine by about 20 per cent — the same as 20 g a day for six days, just more slowly. That is why 3 g is the figure on the <a href="https://www.gov.uk/government/publications/great-britain-nutrition-and-health-claims-nhc-register">GB nutrition and health claims register</a>, where creatine is authorised to increase physical performance in successive bursts of short-term, high-intensity exercise.</p>
 <p>Creatine helps with heavy sets, sprints and stop-start sport. It does little for steady endurance work and does not build muscle on its own: it lets you do slightly more work in training, and the training does the rest.</p>
 
@@ -191,6 +191,10 @@ export const bulkCreatineMonohydrateReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-29',
+      note: 'Linked our new creatine monohydrate ingredient page, which grades each claim made for creatine.',
+    },
+    {
       date: '2026-09-28',
       note: 'Scored 8.2 out of 10 against the five published product criteria. Plain creatine at the lowest price per 100 g we have seen. The marks lost are for a pack serving larger than the 3 g the claim and research use, an unnamed source and no banned-substance testing claim.',
     },
@@ -200,5 +204,5 @@ export const bulkCreatineMonohydrateReview: ProductArticle = {
     },
   ],
   published: '2026-09-28T00:00:00Z',
-  updated: '2026-09-28T00:00:00Z',
+  updated: '2026-09-29T00:00:00Z',
 };

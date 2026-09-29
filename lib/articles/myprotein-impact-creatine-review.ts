@@ -63,7 +63,7 @@ export const myproteinImpactCreatineReview: ProductArticle = {
 <p>The ingredient list is one word long in practice: creatine monohydrate, micronised to a finer powder to help it mix. As with any micronised creatine, that is a handling benefit, not a sign that it works better. The label does not say where the creatine is manufactured. Myprotein sells a separate, more expensive product, THE Creatine, made with Creapure, for buyers who want a named German source.</p>
 
 <h2>What 3 g of creatine can realistically do</h2>
-<p>Creatine monohydrate is one of the most studied supplements in sports nutrition. The <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/">International Society of Sports Nutrition’s 2017 position stand</a> calls it the most effective nutritional supplement available for increasing high-intensity exercise capacity and lean body mass during training. A <a href="https://pubmed.ncbi.nlm.nih.gov/27328852/">2017 meta-analysis of 53 randomised studies</a> found a consistent improvement in upper-body strength, and an <a href="https://pubmed.ncbi.nlm.nih.gov/25946994/">earlier review</a> found the same for the lower body. The effects are modest — a few per cent on top of training, not a replacement for it.</p>
+<p>Creatine monohydrate is one of the most studied supplements in sports nutrition, and our <a href="/ingredients/creatine-monohydrate">creatine monohydrate guide</a> grades each claim made for it. The <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/">International Society of Sports Nutrition’s 2017 position stand</a> calls it the most effective nutritional supplement available for increasing high-intensity exercise capacity and lean body mass during training. A <a href="https://pubmed.ncbi.nlm.nih.gov/27328852/">2017 meta-analysis of 53 randomised studies</a> found a consistent improvement in upper-body strength, and an <a href="https://pubmed.ncbi.nlm.nih.gov/25946994/">earlier review</a> found the same for the lower body. The effects are modest — a few per cent on top of training, not a replacement for it.</p>
 <p>The dose is settled too. In the classic <a href="https://pubmed.ncbi.nlm.nih.gov/8828669/">Nottingham study by Hultman and colleagues</a>, 3 g a day for 28 days raised muscle creatine by about 20 per cent — the same as 20 g a day for six days, just more slowly. One daily serving of Impact Creatine is that 3 g. A loading phase gets you there faster, uses a 500 g pack in about three weeks and is more likely to upset your stomach.</p>
 <p>The GB label’s claim is the authorised one on the <a href="https://www.gov.uk/government/publications/great-britain-nutrition-and-health-claims-nhc-register">nutrition and health claims register</a>: creatine increases physical performance in successive bursts of short-term, high-intensity exercise, provided the daily intake is 3 g. This product meets that condition exactly.</p>
 <p>What creatine does not do is help much with steady endurance work, or build muscle on its own. It lets you do slightly more work in each hard set or sprint, and the training does the rest.</p>
@@ -214,6 +214,10 @@ export const myproteinImpactCreatineReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-29',
+      note: 'Linked our new creatine monohydrate ingredient page, which grades each claim made for creatine.',
+    },
+    {
       date: '2026-09-28',
       note: 'Added our full review of Bulk Creatine Monohydrate to the best alternatives and the comparison block. The score is unchanged.',
     },
@@ -227,5 +231,5 @@ export const myproteinImpactCreatineReview: ProductArticle = {
     },
   ],
   published: '2026-09-28T00:00:00Z',
-  updated: '2026-09-28T00:00:00Z',
+  updated: '2026-09-29T00:00:00Z',
 };
