@@ -7,6 +7,7 @@ import { proteinForBeginners } from './editorials/protein-for-beginners';
 import { whichVitaminsDaily } from './editorials/which-vitamins-daily';
 import { applesForAWeek } from './editorials/apples-for-a-week';
 import { pearsForAWeek } from './editorials/pears-for-a-week';
+import { applesVsPearsDiabetes } from './editorials/apples-vs-pears-diabetes';
 import { compareLabelsServingCosts } from './editorials/compare-labels-serving-costs';
 
 /*
@@ -59,6 +60,7 @@ const collectionDrafts: CollectionDraft[] = [
   whichVitaminsDaily,
   applesForAWeek,
   pearsForAWeek,
+  applesVsPearsDiabetes,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,

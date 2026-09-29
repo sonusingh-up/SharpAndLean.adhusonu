@@ -103,7 +103,7 @@ export const pearsForAWeek: Collection = {
 <h2>Who should be careful</h2>
 <ul>
 <li><strong>People with IBS or a sensitive gut.</strong> Pears are high in fructose and sorbitol and are a common trigger. Lower-FODMAP fruit such as oranges, kiwi or berries may suit you better.</li>
-<li><strong>People with diabetes.</strong> Count each pear as about 27 g of carbohydrate, and eat it with a meal or with some protein rather than on its own.</li>
+<li><strong>People with diabetes.</strong> Count each pear as about 27 g of carbohydrate, and eat it with a meal or with some protein rather than on its own. See our comparison of <a href="/learn/apples-vs-pears-for-diabetes">apples vs pears for diabetes</a>.</li>
 <li><strong>People with hay fever.</strong> Some people with birch-pollen allergy get an itchy mouth or throat from raw pears (oral allergy syndrome). Cooked pear is usually tolerated; speak to a doctor if symptoms are more than mild.</li>
 <li><strong>Anyone who already has loose stools.</strong> The sorbitol that helps constipation can make diarrhoea worse.</li>
 </ul>
@@ -201,6 +201,10 @@ export const pearsForAWeek: Collection = {
     },
   ],
   history: [
+    {
+      date: '2026-09-29',
+      note: 'Linked our comparison of apples and pears for diabetes.',
+    },
     {
       date: '2026-09-29',
       note: 'First published, with a chart of what two pears a day add. Nutrition figures from USDA FoodData Central; evidence from the trials listed. Not yet reviewed by a clinician.',

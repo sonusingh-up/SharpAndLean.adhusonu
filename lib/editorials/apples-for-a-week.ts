@@ -101,7 +101,7 @@ export const applesForAWeek: Collection = {
 <h2>Who should be careful</h2>
 <ul>
 <li><strong>People with IBS or a sensitive gut.</strong> Apples are high in fructose and sorbitol. Smaller portions, or lower-FODMAP fruit such as oranges or kiwi, may suit you better.</li>
-<li><strong>People with diabetes.</strong> Count each apple as about 25 g of carbohydrate. Eating it with or before a meal, rather than on its own, fits the blood-sugar evidence best.</li>
+<li><strong>People with diabetes.</strong> Count each apple as about 25 g of carbohydrate. Eating it with or before a meal, rather than on its own, fits the blood-sugar evidence best. See our comparison of <a href="/learn/apples-vs-pears-for-diabetes">apples vs pears for diabetes</a>.</li>
 <li><strong>People with hay fever.</strong> Some people with birch-pollen allergy get an itchy mouth or throat from raw apples (oral allergy syndrome). Cooked apple is usually tolerated; speak to a doctor if symptoms are more than mild.</li>
 <li><strong>Your teeth.</strong> Apples are acidic. Rinsing with water afterwards, and not brushing straight away, is standard dental advice for acidic foods.</li>
 </ul>
@@ -210,6 +210,10 @@ export const applesForAWeek: Collection = {
     },
   ],
   history: [
+    {
+      date: '2026-09-29',
+      note: 'Linked our comparison of apples and pears for diabetes.',
+    },
     {
       date: '2026-09-29',
       note: 'Linked our companion article on eating two pears a day for a week.',
