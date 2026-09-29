@@ -28,6 +28,11 @@ const topics: { id: Topic; label: string; blurb: string }[] = [
     blurb: 'Which vitamins are worth taking, who needs them, and which to skip.',
   },
   {
+    id: 'food',
+    label: 'Food and nutrition',
+    blurb: 'What everyday foods actually do — over a week, and over the long run.',
+  },
+  {
     id: 'weight-loss',
     label: 'Weight loss and GLP-1',
     blurb: 'What GLP-1 drugs and supplements do, and the approaches with the best evidence.',
