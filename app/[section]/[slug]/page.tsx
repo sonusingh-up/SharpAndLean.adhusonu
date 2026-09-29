@@ -58,8 +58,11 @@ export async function generateStaticParams() {
     ...reviews.map((r) => ({ section: r.category_slug, slug: r.slug })),
     ...best.map((r) => ({ section: 'best', slug: r.slug })),
     ...compare.map((r) => ({ section: 'compare', slug: r.slug })),
-    // Pairs are prebuilt; three-way comparisons render on first request.
+    // Only indexable head-to-heads are prebuilt. Every same-category pair grows
+    // with the square of the catalog and each deployment stores its output, so
+    // the other pairs and three-way comparisons render on first request.
     ...allComparePairs(reviews.filter((r) => !r.is_sample))
+      .filter(isIndexableComparison)
       .map((pair) => canonicalCompareSlug(pair.map((r) => r.slug)))
       .filter((slug) => !compare.some((c) => c.slug === slug))
       .map((slug) => ({ section: 'compare', slug })),
