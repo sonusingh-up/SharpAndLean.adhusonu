@@ -10,6 +10,7 @@ import { pearsForAWeek } from './editorials/pears-for-a-week';
 import { applesVsPearsDiabetes } from './editorials/apples-vs-pears-diabetes';
 import { fruitAndDiabetes } from './editorials/fruit-and-diabetes';
 import { prunesForAWeek } from './editorials/prunes-for-a-week';
+import { grapefruitBeforeMeals } from './editorials/grapefruit-before-meals';
 import { compareLabelsServingCosts } from './editorials/compare-labels-serving-costs';
 
 /*
@@ -65,6 +66,7 @@ const collectionDrafts: CollectionDraft[] = [
   applesVsPearsDiabetes,
   fruitAndDiabetes,
   prunesForAWeek,
+  grapefruitBeforeMeals,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,

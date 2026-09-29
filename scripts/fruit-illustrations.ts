@@ -70,7 +70,61 @@ function prune(x: number, y: number, s: number, rot: number) {
   </g>`;
 }
 
+/** A cut grapefruit half, seen from above: rind, pith and pink segments. */
+function grapefruitHalf(x: number, y: number, r: number, rot: number) {
+  const n = 12;
+  let segs = '';
+  for (let i = 0; i < n; i++) {
+    const a0 = ((i + 0.08) / n) * Math.PI * 2;
+    const a1 = ((i + 0.92) / n) * Math.PI * 2;
+    const ri = r * 0.8;
+    const rc = r * 0.1;
+    const p = (a: number, rr: number) =>
+      `${(Math.cos(a) * rr).toFixed(1)} ${(Math.sin(a) * rr).toFixed(1)}`;
+    segs += `<path d="M${p(a0, rc)} L${p(a0, ri)} A${ri} ${ri} 0 0 1 ${p(a1, ri)} L${p(a1, rc)} Z" fill="url(#gf-flesh)"/>`;
+    // juice vesicle highlights
+    const am = (a0 + a1) / 2;
+    segs += `<ellipse cx="${(Math.cos(am) * r * 0.52).toFixed(1)}" cy="${(Math.sin(am) * r * 0.52).toFixed(1)}" rx="${(r * 0.1).toFixed(1)}" ry="${(r * 0.035).toFixed(1)}" fill="#fff" fill-opacity="0.22" transform="rotate(${((am * 180) / Math.PI).toFixed(1)} ${(Math.cos(am) * r * 0.52).toFixed(1)} ${(Math.sin(am) * r * 0.52).toFixed(1)})"/>`;
+  }
+  return `<g transform="translate(${x} ${y}) rotate(${rot})">
+    <ellipse cx="10" cy="${r * 0.18}" rx="${r * 1.02}" ry="${r * 0.98}" fill="#000" fill-opacity="0.1"/>
+    <circle r="${r}" fill="#e89a3c"/>
+    <circle r="${r * 0.95}" fill="#f2b453"/>
+    <circle r="${r * 0.86}" fill="#fbeedd"/>
+    <circle r="${r * 0.82}" fill="#f6d9cf"/>
+    ${segs}
+    <circle r="${r * 0.1}" fill="#fbeedd"/>
+  </g>`;
+}
+
+/** A whole grapefruit: dimpled, blushed citrus skin. */
+function grapefruitWhole(x: number, y: number, r: number) {
+  let dots = '';
+  for (let i = 0; i < 70; i++) {
+    const a = i * 2.39996;
+    const d = Math.sqrt(i / 70) * r * 0.9;
+    dots += `<circle cx="${(Math.cos(a) * d).toFixed(1)}" cy="${(Math.sin(a) * d).toFixed(1)}" r="3.2" fill="#c9782a" fill-opacity="0.35"/>`;
+  }
+  return `<g transform="translate(${x} ${y})">
+    <ellipse cx="14" cy="${r * 0.9}" rx="${r * 0.95}" ry="${r * 0.2}" fill="#000" fill-opacity="0.1"/>
+    <circle r="${r}" fill="url(#gf-skin)"/>
+    ${dots}
+    <ellipse cx="${-r * 0.35}" cy="${-r * 0.4}" rx="${r * 0.28}" ry="${r * 0.12}" fill="#fff" fill-opacity="0.35" transform="rotate(-30 ${-r * 0.35} ${-r * 0.4})"/>
+  </g>`;
+}
+
 const pieces: Record<string, () => string> = {
+  grapefruit() {
+    let g =
+      `<defs>
+        <radialGradient id="gf-flesh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f7a08c"/><stop offset="1" stop-color="#e4604f"/></radialGradient>
+        <radialGradient id="gf-skin" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffd27a"/><stop offset="0.6" stop-color="#f2a94a"/><stop offset="1" stop-color="#d9772f"/></radialGradient>
+      </defs>` + background();
+    g += plate(1200, 780, 760, 330);
+    g += grapefruitWhole(1560, 640, 250);
+    g += grapefruitHalf(1000, 780, 260, 8);
+    return g;
+  },
   prunes() {
     let g = defs + background();
     g += plate(1200, 760, 720, 330);

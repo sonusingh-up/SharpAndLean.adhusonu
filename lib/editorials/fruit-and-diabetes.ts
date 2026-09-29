@@ -66,7 +66,7 @@ ${fruitTableHtml()}
 
 <h2>The best picks, and the ones to portion</h2>
 <h3>Lowest load: citrus, berries, stone fruit, apples and pears</h3>
-<p>Grapefruit and strawberries are the lowest, at a glycaemic load of about 3 per 120 g. Cherries have the lowest glycaemic index here, at 22, and peaches sit at about 4. Oranges, apples and pears all come in around 5 to 6, and add useful fibre — pears the most. These are easy everyday choices. Grapefruit can interact with some medicines, including certain statins and blood-pressure drugs, so check with a pharmacist if you take any.</p>
+<p>Grapefruit and strawberries are the lowest, at a glycaemic load of about 3 per 120 g. Cherries have the lowest glycaemic index here, at 22, and peaches sit at about 4. Oranges, apples and pears all come in around 5 to 6, and add useful fibre — pears the most. These are easy everyday choices. Grapefruit can interact with some medicines, including certain statins and blood-pressure drugs, so check with a pharmacist if you take any — our <a href="/learn/half-a-grapefruit-before-meals">grapefruit article</a> lists them.</p>
 <h3>Still low: kiwi, blueberries, mango, pineapple and watermelon</h3>
 <p>All have a low load in a 120 g serving. Keep an eye on portions of mango and pineapple, which are easy to eat in larger amounts, and watermelon, whose high GI means a big slice raises blood sugar faster than its low load suggests.</p>
 <h3>Medium: bananas and grapes</h3>
@@ -191,7 +191,7 @@ ${fruitTableHtml()}
     },
     {
       date: '2026-09-29',
-      note: 'Linked our article on eating prunes every day for a week from the table.',
+      note: 'Linked our articles on prunes and on half a grapefruit before meals from the table.',
     },
   ],
 };

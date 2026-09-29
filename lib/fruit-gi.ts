@@ -61,6 +61,7 @@ export const fruits: Fruit[] = [
     carbsPer100g: 10.7,
     fibrePer100g: 1.6,
     servingG: 120,
+    href: '/learn/half-a-grapefruit-before-meals',
   },
   { name: 'Orange', group: 'citrus', gi: 43, carbsPer100g: 11.8, fibrePer100g: 2.4, servingG: 120 },
   {
