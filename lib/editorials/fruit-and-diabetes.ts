@@ -191,7 +191,7 @@ ${fruitTableHtml()}
     },
     {
       date: '2026-09-29',
-      note: 'Linked our articles on prunes, half a grapefruit before meals and raisins from the table.',
+      note: 'Linked our articles on prunes, half a grapefruit before meals, raisins and peaches from the table.',
     },
   ],
 };

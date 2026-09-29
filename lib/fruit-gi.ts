@@ -53,7 +53,15 @@ export const fruits: Fruit[] = [
     fibrePer100g: 2.1,
     servingG: 120,
   },
-  { name: 'Peach', group: 'stone', gi: 42, carbsPer100g: 9.5, fibrePer100g: 1.5, servingG: 120 },
+  {
+    name: 'Peach',
+    group: 'stone',
+    gi: 42,
+    carbsPer100g: 9.5,
+    fibrePer100g: 1.5,
+    servingG: 120,
+    href: '/learn/eating-peaches-every-day-for-a-week',
+  },
   {
     name: 'Grapefruit',
     group: 'citrus',

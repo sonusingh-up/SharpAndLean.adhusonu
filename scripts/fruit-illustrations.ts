@@ -147,7 +147,45 @@ function grape(x: number, y: number, r: number) {
   </g>`;
 }
 
+/** A whole peach: warm blush, soft crease and a leaf. */
+function peachWhole(x: number, y: number, r: number, rot: number) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot})">
+    <ellipse cx="12" cy="${r * 0.92}" rx="${r * 0.9}" ry="${r * 0.18}" fill="#000" fill-opacity="0.1"/>
+    <path d="M0 ${-r * 0.92} C${r * 0.62} ${-r * 1.02} ${r * 1.04} ${-r * 0.5} ${r * 0.98} ${r * 0.08} C${r * 0.94} ${r * 0.66} ${r * 0.5} ${r * 0.98} 0 ${r * 0.98} C${-r * 0.5} ${r * 0.98} ${-r * 0.96} ${r * 0.64} ${-r * 0.98} ${r * 0.06} C${-r * 1.02} ${-r * 0.5} ${-r * 0.6} ${-r * 1.02} 0 ${-r * 0.92} Z" fill="url(#peach-skin)"/>
+    <path d="M${r * 0.06} ${-r * 0.88} C${r * 0.3} ${-r * 0.4} ${r * 0.28} ${r * 0.3} ${r * 0.04} ${r * 0.9}" fill="none" stroke="#c9523f" stroke-opacity="0.45" stroke-width="${r * 0.05}" stroke-linecap="round"/>
+    <ellipse cx="${-r * 0.42}" cy="${-r * 0.42}" rx="${r * 0.26}" ry="${r * 0.12}" fill="#fff" fill-opacity="0.3" transform="rotate(-35 ${-r * 0.42} ${-r * 0.42})"/>
+    <path d="M${r * 0.04} ${-r * 0.9} C${r * 0.06} ${-r * 1.06} ${r * 0.1} ${-r * 1.14} ${r * 0.16} ${-r * 1.2}" fill="none" stroke="#6b4a2a" stroke-width="${r * 0.06}" stroke-linecap="round"/>
+    <path d="M${r * 0.14} ${-r * 1.14} C${r * 0.5} ${-r * 1.42} ${r * 0.98} ${-r * 1.3} ${r * 1.08} ${-r * 1.06} C${r * 0.7} ${-r * 0.92} ${r * 0.36} ${-r * 0.96} ${r * 0.14} ${-r * 1.14} Z" fill="#6f9e4f"/>
+    <path d="M${r * 0.2} ${-r * 1.14} C${r * 0.5} ${-r * 1.18} ${r * 0.8} ${-r * 1.14} ${r * 1.02} ${-r * 1.08}" fill="none" stroke="#557d3a" stroke-width="${r * 0.02}"/>
+  </g>`;
+}
+
+/** A peach cut in half, stone in place. */
+function peachHalf(x: number, y: number, r: number, rot: number) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot})">
+    <ellipse cx="10" cy="${r * 0.2}" rx="${r * 1.02}" ry="${r * 0.96}" fill="#000" fill-opacity="0.1"/>
+    <circle r="${r}" fill="#e4744f"/>
+    <circle r="${r * 0.94}" fill="url(#peach-flesh)"/>
+    <ellipse rx="${r * 0.4}" ry="${r * 0.5}" fill="#b5553a" fill-opacity="0.35"/>
+    <path d="M0 ${-r * 0.4} C${r * 0.3} ${-r * 0.36} ${r * 0.34} ${r * 0.2} 0 ${r * 0.44} C${-r * 0.34} ${r * 0.2} ${-r * 0.3} ${-r * 0.36} 0 ${-r * 0.4} Z" fill="url(#peach-stone)"/>
+    <path d="M${-r * 0.1} ${-r * 0.24} C0 ${-r * 0.1} ${-r * 0.1} ${r * 0.06} 0 ${r * 0.2}" fill="none" stroke="#5a2a1a" stroke-opacity="0.5" stroke-width="${r * 0.025}" stroke-linecap="round"/>
+    <path d="M${r * 0.1} ${-r * 0.18} C${r * 0.02} 0 ${r * 0.12} ${r * 0.1} ${r * 0.04} ${r * 0.26}" fill="none" stroke="#5a2a1a" stroke-opacity="0.45" stroke-width="${r * 0.02}" stroke-linecap="round"/>
+  </g>`;
+}
+
 const pieces: Record<string, () => string> = {
+  peaches() {
+    let g =
+      `<defs>
+        <radialGradient id="peach-skin" cx="0.3" cy="0.3" r="0.9"><stop offset="0" stop-color="#ffd39a"/><stop offset="0.45" stop-color="#f7a85f"/><stop offset="0.8" stop-color="#e8674a"/><stop offset="1" stop-color="#c94a3a"/></radialGradient>
+        <radialGradient id="peach-flesh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f08a4c"/><stop offset="0.45" stop-color="#fbb24f"/><stop offset="1" stop-color="#fdc86a"/></radialGradient>
+        <radialGradient id="peach-stone" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#b0683f"/><stop offset="1" stop-color="#6e3520"/></radialGradient>
+      </defs>` + background();
+    g += plate(1200, 800, 760, 320);
+    g += peachWhole(1470, 700, 250, 6);
+    g += peachHalf(930, 800, 230, -10);
+    return g;
+  },
   raisins() {
     let g =
       `<defs>
