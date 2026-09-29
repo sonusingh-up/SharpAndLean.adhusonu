@@ -113,7 +113,85 @@ function grapefruitWhole(x: number, y: number, r: number) {
   </g>`;
 }
 
+/** One raisin: a small, dark, crumpled blob with irregular creases. */
+function raisin(x: number, y: number, s: number, rot: number, v: number) {
+  const shapes = [
+    'M-26 0 C-30 -14 -18 -22 -6 -20 C2 -26 18 -22 24 -12 C32 -2 26 14 14 18 C4 24 -10 22 -18 16 C-26 12 -24 6 -26 0 Z',
+    'M-24 -4 C-22 -18 -8 -22 4 -18 C16 -22 28 -10 26 2 C28 14 16 22 4 20 C-8 24 -22 16 -24 6 C-28 2 -26 -2 -24 -4 Z',
+    'M-28 2 C-26 -12 -12 -20 0 -16 C12 -24 24 -14 26 -2 C30 10 20 20 8 18 C-4 22 -18 20 -24 12 C-30 8 -28 4 -28 2 Z',
+  ];
+  const creases = [
+    'M-14 -10 C-6 -4 -10 6 -2 10',
+    'M6 -14 C2 -6 10 0 6 8',
+    'M-18 6 C-12 2 -8 8 -4 4',
+    'M10 10 C14 4 18 8 20 2',
+  ];
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <path d="${shapes[v % 3]}" fill="url(#raisin-skin)"/>
+    ${creases
+      .filter((_, i) => (i + v) % 4 !== 0)
+      .map(
+        (d) =>
+          `<path d="${d}" fill="none" stroke="#12060a" stroke-opacity="0.55" stroke-width="2.2" stroke-linecap="round"/>`,
+      )
+      .join('')}
+    <ellipse cx="-8" cy="-10" rx="6" ry="2.5" fill="#fff" fill-opacity="0.22" transform="rotate(-20 -8 -10)"/>
+  </g>`;
+}
+
+/** One grape: a glossy green sphere. */
+function grape(x: number, y: number, r: number) {
+  return `<g transform="translate(${x} ${y})">
+    <circle r="${r}" fill="url(#grape-skin)"/>
+    <ellipse cx="${-r * 0.35}" cy="${-r * 0.38}" rx="${r * 0.3}" ry="${r * 0.14}" fill="#fff" fill-opacity="0.45" transform="rotate(-30 ${-r * 0.35} ${-r * 0.38})"/>
+  </g>`;
+}
+
 const pieces: Record<string, () => string> = {
+  raisins() {
+    let g =
+      `<defs>
+        <radialGradient id="raisin-skin" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#7a4a4a"/><stop offset="0.5" stop-color="#4a2426"/><stop offset="1" stop-color="#231014"/></radialGradient>
+        <radialGradient id="grape-skin" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#e3f0a8"/><stop offset="0.55" stop-color="#b5cf5e"/><stop offset="1" stop-color="#7f9b34"/></radialGradient>
+        <linearGradient id="bowl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9e2d6"/></linearGradient>
+      </defs>` + background();
+    // grape bunch (left)
+    const bunch: [number, number][] = [];
+    const rows = [5, 5, 4, 4, 3, 2, 1];
+    let k = 0;
+    rows.forEach((n, row) => {
+      for (let i = 0; i < n; i++) {
+        k++;
+        const jx = Math.sin(k * 12.9898) * 22;
+        const jy = Math.cos(k * 78.233) * 18;
+        bunch.push([770 + (i - (n - 1) / 2) * 104 + (row % 2) * 30 + jx, 470 + row * 92 + jy]);
+      }
+    });
+    g += `<ellipse cx="770" cy="1210" rx="330" ry="40" fill="#000" fill-opacity="0.07"/>`;
+    g += `<path d="M770 470 C770 400 790 350 830 320" fill="none" stroke="#6b4a2a" stroke-width="18" stroke-linecap="round"/>`;
+    g += `<path d="M810 340 C870 300 950 320 980 360 C920 380 860 380 810 340 Z" fill="#7aa35a"/>`;
+    bunch.forEach(([x, y], i) => (g += grape(x, y, 60 + ((i * 7) % 5) * 3)));
+    // bowl of raisins (right)
+    g += `<ellipse cx="1600" cy="1010" rx="420" ry="46" fill="#000" fill-opacity="0.08"/>`;
+    g += `<path d="M1210 760 C1230 930 1380 1000 1600 1000 C1820 1000 1970 930 1990 760 Z" fill="url(#bowl)"/>`;
+    g += `<ellipse cx="1600" cy="760" rx="390" ry="70" fill="#f3ede3"/>`;
+    const spots: [number, number, number, number][] = [];
+    for (let i = 0; i < 110; i++) {
+      const a = i * 2.39996;
+      const d = Math.sqrt(i / 110);
+      const x = 1600 + Math.cos(a) * d * 340;
+      const heap = (1 - Math.min(1, Math.abs(x - 1600) / 360)) * 120;
+      spots.push([
+        x,
+        770 - heap * (0.35 + 0.65 * (1 - d)) + Math.sin(a) * d * 40,
+        0.95 + (i % 3) * 0.08,
+        (i * 47) % 360,
+      ]);
+    }
+    spots.sort((p, q) => p[1] - q[1]);
+    spots.forEach(([x, y, sc, r], i) => (g += raisin(x, y, sc, r, i)));
+    return g;
+  },
   grapefruit() {
     let g =
       `<defs>

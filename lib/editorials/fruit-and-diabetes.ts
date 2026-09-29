@@ -72,7 +72,7 @@ ${fruitTableHtml()}
 <h3>Medium: bananas and grapes</h3>
 <p>A 120 g serving — roughly one medium banana, or a large handful of grapes — has a medium glycaemic load of about 12. They are still fine to eat: choose a smaller banana, or one that is less ripe, and count out a portion of grapes rather than eating from the bunch.</p>
 <h3>Dried fruit: prunes low, raisins medium</h3>
-<p>Drying removes water and concentrates the sugar, so dried fruit is compared at a 30 g portion — about a heaped tablespoon. Prunes come out low, at a glycaemic load of about 5, with a low GI of 29 and plenty of fibre. Raisins are medium, at about 14, with a GI of 64. A few prunes are a reasonable choice; raisins are best kept to small amounts, and neither should be eaten by the handful.</p>
+<p>Drying removes water and concentrates the sugar, so dried fruit is compared at a 30 g portion — about a heaped tablespoon. Prunes come out low, at a glycaemic load of about 5, with a low GI of 29 and plenty of fibre. Raisins are medium, at about 14, with a GI of 64. A few prunes are a reasonable choice; raisins are best kept to small amounts, and neither should be eaten by the handful. See <a href="/learn/are-raisins-good-for-diabetes">are raisins good for diabetes?</a> for portions and the trials.</p>
 
 <h2>How to eat fruit with diabetes</h2>
 <ul>
@@ -191,7 +191,7 @@ ${fruitTableHtml()}
     },
     {
       date: '2026-09-29',
-      note: 'Linked our articles on prunes and on half a grapefruit before meals from the table.',
+      note: 'Linked our articles on prunes, half a grapefruit before meals and raisins from the table.',
     },
   ],
 };

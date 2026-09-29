@@ -133,7 +133,15 @@ export const fruits: Fruit[] = [
     servingG: 30,
     href: '/learn/eating-prunes-every-day-for-a-week',
   },
-  { name: 'Raisins', group: 'dried', gi: 64, carbsPer100g: 79.2, fibrePer100g: 3.7, servingG: 30 },
+  {
+    name: 'Raisins',
+    group: 'dried',
+    gi: 64,
+    carbsPer100g: 79.2,
+    fibrePer100g: 3.7,
+    servingG: 30,
+    href: '/learn/are-raisins-good-for-diabetes',
+  },
 ];
 
 export type Band = 'low' | 'medium' | 'high';
