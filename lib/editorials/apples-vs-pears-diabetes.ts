@@ -24,10 +24,9 @@ export const applesVsPearsDiabetes: Collection = {
   published_at: '2026-09-29T00:00:00Z',
   updated_at: '2026-09-29T00:00:00Z',
   figure: {
-    src: '/images/apple-vs-pear-blood-sugar.jpg',
-    alt: 'Chart comparing one medium apple (182 g) and one medium pear (178 g): total carbohydrate 25 g and 27 g, net carbohydrate 20.6 g and 21.5 g, sugars 19 g and 17 g, fibre 4.4 g and 5.5 g. Glycaemic index 36 for apple and about 38 for pear; glycaemic load about 7 and 8. Both are low.',
-    caption:
-      'SharpAndLean chart. Nutrients from USDA FoodData Central; glycaemic index from the international GI tables; glycaemic load is our calculation. Values vary with variety, size and ripeness.',
+    src: '/images/apple-and-pear.webp',
+    alt: 'A red apple and a green Conference pear side by side on white fabric.',
+    caption: 'A medium apple and a medium pear carry almost the same carbohydrate.',
   },
   takeaways: [
     'For blood sugar, apples and pears are close to identical: about 21 g of net carbohydrate per medium fruit, a low glycaemic index (36 and about 38) and a low glycaemic load.',
@@ -42,6 +41,10 @@ export const applesVsPearsDiabetes: Collection = {
 <p>This article is general information, not medical advice. If you take insulin or medicines that can cause low blood sugar, your diabetes team can help you fit fruit into your carbohydrate plan.</p>
 
 <h2>Apple vs pear: the numbers side by side</h2>
+<figure>
+<img src="/images/apple-vs-pear-blood-sugar.jpg" alt="Chart comparing one medium apple (182 g) and one medium pear (178 g): total carbohydrate 25 g and 27 g, net carbohydrate 20.6 g and 21.5 g, sugars 19 g and 17 g, fibre 4.4 g and 5.5 g. Glycaemic index 36 for apple and about 38 for pear; glycaemic load about 7 and 8. Both are low." width="2400" height="1440">
+<figcaption>SharpAndLean chart. Nutrients from USDA FoodData Central; glycaemic index from the international GI tables; glycaemic load is our calculation. Values vary with variety, size and ripeness.</figcaption>
+</figure>
 <table>
 <thead><tr><th>Per medium fruit</th><th>Apple (182 g)</th><th>Pear (178 g)</th></tr></thead>
 <tbody>
@@ -194,6 +197,10 @@ export const applesVsPearsDiabetes: Collection = {
     },
   ],
   history: [
+    {
+      date: '2026-09-29',
+      note: 'Added a photograph of an apple and a pear as the lead image, and moved the comparison chart into the side-by-side section.',
+    },
     {
       date: '2026-09-29',
       note: 'Linked our fruit and diabetes guide, which ranks common fruits by glycaemic load.',
