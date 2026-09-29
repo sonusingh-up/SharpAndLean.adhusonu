@@ -100,7 +100,7 @@ export type Collection = {
    * without one are listed under "More reading", so a new article is never
    * left off the hub.
    */
-  topic?: 'fitness' | 'vitamins' | 'weight-loss';
+  topic?: 'fitness' | 'vitamins' | 'food' | 'weight-loss';
   category_id?: string;
   is_published: boolean;
   seo_title: string;
