@@ -97,7 +97,7 @@ export const applesVsPearsDiabetes: Collection = {
 
 <h2>The bottom line</h2>
 <p>For diabetes, apples and pears are close to a tie: similar carbohydrate, both low glycaemic index and load, and both linked with better outcomes. Choose pears for a little more fibre, apples for the stronger evidence on after-meal blood sugar — or, better, eat both. Keep them whole, count them in your carbohydrate plan, and pair them with protein.</p>
-<p>For more on each fruit, see what happens when you eat <a href="/learn/eating-apples-every-day-for-a-week">two apples a day for a week</a> and <a href="/learn/eating-pears-every-day-for-a-week">two pears a day for a week</a>.</p>
+<p>To see how apples and pears compare with ten other fruits, read <a href="/learn/fruit-and-diabetes-glycaemic-index">fruit and diabetes: the glycaemic index and load of 12 common fruits</a>. For more on each fruit, see what happens when you eat <a href="/learn/eating-apples-every-day-for-a-week">two apples a day for a week</a> and <a href="/learn/eating-pears-every-day-for-a-week">two pears a day for a week</a>.</p>
 `,
   faqs: [
     {
@@ -194,6 +194,10 @@ export const applesVsPearsDiabetes: Collection = {
     },
   ],
   history: [
+    {
+      date: '2026-09-29',
+      note: 'Linked our fruit and diabetes guide, which ranks 12 fruits by glycaemic load.',
+    },
     {
       date: '2026-09-29',
       note: 'First published, with a side-by-side chart of apple and pear carbohydrate, fibre, glycaemic index and load. Nutrition figures from USDA FoodData Central. Not yet reviewed by a clinician.',
