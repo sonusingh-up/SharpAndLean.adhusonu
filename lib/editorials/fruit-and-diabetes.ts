@@ -1,23 +1,27 @@
 import type { Collection } from '../types';
+import { fruits, fruitTableHtml, glBand, glycaemicLoad, rankedFruits } from '../fruit-gi';
+
+const lowCount = fruits.filter((f) => glBand(glycaemicLoad(f)) === 'low').length;
+const chartSummary = rankedFruits()
+  .map((f) => `${f.name.toLowerCase()} ${Math.round(glycaemicLoad(f))}`)
+  .join(', ');
 
 /*
- * The fruit-and-diabetes hub: glycaemic index and load for 12 common fruits,
+ * The fruit-and-diabetes hub: glycaemic index and load for common fruits,
  * with links out to the single-fruit and comparison articles. Written for
- * readers anywhere. GI values are published averages; GL per 120 g (the
- * standard serving in the international GI tables) is our calculation from
- * USDA carbohydrate and fibre, and must match the chart and table.
+ * readers anywhere. The table, counts and chart all come from lib/fruit-gi.ts;
+ * after changing a figure there, re-run `npm run chart:fruit-gl`.
  */
 export const fruitAndDiabetes: Collection = {
   id: 'fruit-and-diabetes',
   kind: 'articles',
   slug: 'fruit-and-diabetes-glycaemic-index',
   topic: 'food',
-  title: 'Fruit and diabetes: the glycaemic index and load of 12 common fruits',
-  seo_title: 'Fruit and Diabetes: GI and GL of 12 Common Fruits, Ranked',
-  seo_desc:
-    'Glycaemic index and load of 12 fruits, ranked for diabetes: berries, cherries, apples and pears lowest; bananas and grapes to portion. What research shows.',
+  title: `Fruit and diabetes: the glycaemic index and load of ${fruits.length} common fruits`,
+  seo_title: `Fruit and Diabetes: GI and GL of ${fruits.length} Common Fruits, Ranked`,
+  seo_desc: `Glycaemic index and load of ${fruits.length} fruits, ranked for diabetes: berries, citrus, apples and pears lowest; bananas, grapes and raisins to portion.`,
   summary:
-    'Almost every whole fruit is a reasonable choice with diabetes. Ranked by glycaemic load — how much a normal serving raises blood sugar — strawberries, cherries, oranges, apples and pears come out lowest, and bananas and grapes highest. Watermelon has a high glycaemic index but a low load, because a serving holds little carbohydrate. Portion, pairing and eating fruit whole matter more than picking a winner.',
+    'Almost every whole fruit is a reasonable choice with diabetes. Ranked by glycaemic load — how much a normal serving raises blood sugar — grapefruit, strawberries, cherries, peaches, apples and oranges come out lowest, and bananas, grapes and raisins highest. Watermelon has a high glycaemic index but a low load, because a serving holds little carbohydrate. Portion, pairing and eating fruit whole matter more than picking a winner.',
   is_published: true,
   evidenceReviewed: false,
   authors: [{ name: 'SLN Team', slug: 'snl-team', type: 'Organization' }],
@@ -25,19 +29,19 @@ export const fruitAndDiabetes: Collection = {
   updated_at: '2026-09-29T00:00:00Z',
   figure: {
     src: '/images/fruit-glycaemic-load.jpg',
-    alt: 'Bar chart of 12 fruits ranked by glycaemic load per 120 g serving, lowest first: strawberries 3, cherries 4, orange 5, apple 5, pear 6, watermelon 7, kiwi 7, blueberries 8, mango 8, pineapple 8, grapes 12, banana 12. Glycaemic index alongside: 40, 22, 43, 36, 38, 76, 50, 53, 51, 59, 59, 51. Ten fruits have a low load of 10 or under; grapes and banana are medium.',
+    alt: `Bar chart of ${fruits.length} fruits ranked by glycaemic load per serving (120 g fresh, 30 g dried), lowest first: ${chartSummary}. ${lowCount} have a low load of 10 or under.`,
     caption:
-      'SharpAndLean chart. Glycaemic index: published averages from the international GI tables. Glycaemic load per 120 g: our calculation from USDA FoodData Central carbohydrate and fibre. Values vary with variety, ripeness and portion.',
+      'SharpAndLean chart. Glycaemic index: published averages from the international GI tables. Glycaemic load per serving (120 g fresh fruit, 30 g dried): our calculation from USDA FoodData Central carbohydrate and fibre. Values vary with variety, ripeness and portion.',
   },
   takeaways: [
-    'Ten of these 12 fruits have a low glycaemic load per 120 g serving. Strawberries, cherries, oranges, apples and pears are the lowest; bananas and grapes are medium.',
+    `${lowCount} of these ${fruits.length} fruits have a low glycaemic load per serving. Grapefruit, strawberries, cherries, peaches, apples and oranges are the lowest; bananas, grapes and raisins are medium.`,
     'Glycaemic load matters more than glycaemic index: watermelon has a high GI of about 76, but a 120 g serving has a low load because it is mostly water.',
     'People with type 2 diabetes do not need to cut back on whole fruit: in a 12-week trial, advice to eat less fruit made no difference to HbA1c.',
     'Eat fruit whole, spread through the day and paired with protein. Juice and large portions of dried fruit are the forms to limit.',
   ],
   body: `
 <h2>The short answer</h2>
-<p><strong>Almost every whole fruit is a reasonable choice if you have diabetes.</strong> Most fruits have a low glycaemic index, and in a normal serving most have a low glycaemic load, which is the better guide to how much a portion will raise your blood sugar. Of the 12 common fruits in this guide, <strong>strawberries, cherries, oranges, apples and pears</strong> have the lowest load; <strong>bananas and grapes</strong> the highest, though still only medium.</p>
+<p><strong>Almost every whole fruit is a reasonable choice if you have diabetes.</strong> Most fruits have a low glycaemic index, and in a normal serving most have a low glycaemic load, which is the better guide to how much a portion will raise your blood sugar. Of the ${fruits.length} common fruits in this guide, <strong>grapefruit, strawberries, cherries, peaches, apples and oranges</strong> have the lowest load; <strong>bananas, grapes and raisins</strong> the highest, though still only medium.</p>
 <p>That does not make any fruit off-limits, or any one a cure. How much you eat, what you eat it with and whether you eat it whole matter more than which fruit you choose. This guide ranks the fruits, explains what the numbers mean and sets out what the research says about fruit and diabetes.</p>
 <p>It is general information, not medical advice. If you take insulin or medicines that can cause low blood sugar, your diabetes team can help you fit fruit into your carbohydrate plan.</p>
 
@@ -46,25 +50,9 @@ export const fruitAndDiabetes: Collection = {
 <p>The <strong>glycaemic load (GL)</strong> fixes that. It multiplies the GI by the carbohydrate in a serving (not counting fibre) and divides by 100. A GL of 10 or under is low, 11 to 19 medium and 20 or over high. Because it accounts for portion size, it is the better guide to what a serving will actually do to your blood sugar.</p>
 <p>Watermelon shows why the difference matters. Its GI is high, at about 76, but it is mostly water: 120 g holds under 9 g of carbohydrate, so its glycaemic load is only about 7 — low.</p>
 
-<h2>12 common fruits, ranked</h2>
-<table>
-<thead><tr><th>Fruit</th><th>Glycaemic index</th><th>Net carbs per 120 g</th><th>Glycaemic load per 120 g</th></tr></thead>
-<tbody>
-<tr><td>Strawberries</td><td>40 (low)</td><td>7 g</td><td>3 (low)</td></tr>
-<tr><td>Cherries</td><td>22 (low)</td><td>17 g</td><td>4 (low)</td></tr>
-<tr><td>Orange</td><td>43 (low)</td><td>11 g</td><td>5 (low)</td></tr>
-<tr><td><a href="/learn/eating-apples-every-day-for-a-week">Apple</a></td><td>36 (low)</td><td>14 g</td><td>5 (low)</td></tr>
-<tr><td><a href="/learn/eating-pears-every-day-for-a-week">Pear</a></td><td>38 (low)</td><td>15 g</td><td>6 (low)</td></tr>
-<tr><td>Watermelon</td><td>76 (high)</td><td>9 g</td><td>7 (low)</td></tr>
-<tr><td>Kiwi</td><td>About 50 (low)</td><td>14 g</td><td>7 (low)</td></tr>
-<tr><td>Blueberries</td><td>53 (low)</td><td>15 g</td><td>8 (low)</td></tr>
-<tr><td>Mango</td><td>51 (low)</td><td>16 g</td><td>8 (low)</td></tr>
-<tr><td>Pineapple</td><td>59 (medium)</td><td>14 g</td><td>8 (low)</td></tr>
-<tr><td>Grapes</td><td>59 (medium)</td><td>21 g</td><td>12 (medium)</td></tr>
-<tr><td>Banana</td><td>51 (low)</td><td>24 g</td><td>12 (medium)</td></tr>
-</tbody>
-</table>
-<p>The glycaemic index figures are published averages drawn from the <a href="https://pubmed.ncbi.nlm.nih.gov/18835944/">international GI tables</a>, as summarised in <a href="https://www.health.harvard.edu/diseases-and-conditions/glycemic-index-and-glycemic-load-for-100-foods">Harvard Health’s table</a>. Net carbohydrate and glycaemic load are our calculations from USDA FoodData Central carbohydrate and fibre figures, for 120 g — the standard serving the GI tables use for fruit, and roughly one medium apple, a large handful of grapes or a cup of berries. Real values move with variety and ripeness: a riper banana has a higher GI than a greener one, for example.</p>
+<h2>${fruits.length} common fruits, ranked</h2>
+${fruitTableHtml()}
+<p>The glycaemic index figures are published averages drawn from the <a href="https://pubmed.ncbi.nlm.nih.gov/18835944/">international GI tables</a>, as summarised in <a href="https://www.health.harvard.edu/diseases-and-conditions/glycemic-index-and-glycemic-load-for-100-foods">Harvard Health’s table</a>. Net carbohydrate and glycaemic load are our calculations from USDA FoodData Central carbohydrate and fibre figures. Fresh fruit is compared at 120 g — the standard serving the GI tables use, and roughly one medium apple, a large handful of grapes or a cup of berries. Dried fruit is compared at 30 g, one portion in NHS 5 A Day guidance, because 120 g of raisins is far more than anyone eats at once. Real values move with variety and ripeness: a riper banana has a higher GI than a greener one, for example.</p>
 
 <h2>What the research says about fruit and diabetes</h2>
 <h3>Cutting back on fruit does not help</h3>
@@ -77,12 +65,14 @@ export const fruitAndDiabetes: Collection = {
 <p>Both the <a href="https://diabetes.org/food-nutrition/reading-food-labels/fruit">American Diabetes Association</a> and <a href="https://www.diabetes.org.uk/living-with-diabetes/eating/fruit-and-diabetes">Diabetes UK</a> encourage fruit as part of a healthy diet with diabetes, favour whole fruit over juice and suggest spreading it through the day.</p>
 
 <h2>The best picks, and the ones to portion</h2>
-<h3>Lowest load: berries, cherries, citrus, apples and pears</h3>
-<p>Strawberries are the lowest of all, at a glycaemic load of about 3 per 120 g. Cherries have the lowest glycaemic index here, at 22. Oranges, apples and pears all sit around 5 to 6, and add useful fibre — pears the most. These are easy everyday choices.</p>
+<h3>Lowest load: citrus, berries, stone fruit, apples and pears</h3>
+<p>Grapefruit and strawberries are the lowest, at a glycaemic load of about 3 per 120 g. Cherries have the lowest glycaemic index here, at 22, and peaches sit at about 4. Oranges, apples and pears all come in around 5 to 6, and add useful fibre — pears the most. These are easy everyday choices. Grapefruit can interact with some medicines, including certain statins and blood-pressure drugs, so check with a pharmacist if you take any.</p>
 <h3>Still low: kiwi, blueberries, mango, pineapple and watermelon</h3>
 <p>All have a low load in a 120 g serving. Keep an eye on portions of mango and pineapple, which are easy to eat in larger amounts, and watermelon, whose high GI means a big slice raises blood sugar faster than its low load suggests.</p>
 <h3>Medium: bananas and grapes</h3>
 <p>A 120 g serving — roughly one medium banana, or a large handful of grapes — has a medium glycaemic load of about 12. They are still fine to eat: choose a smaller banana, or one that is less ripe, and count out a portion of grapes rather than eating from the bunch.</p>
+<h3>Dried fruit: prunes low, raisins medium</h3>
+<p>Drying removes water and concentrates the sugar, so dried fruit is compared at a 30 g portion — about a heaped tablespoon. Prunes come out low, at a glycaemic load of about 5, with a low GI of 29 and plenty of fibre. Raisins are medium, at about 14, with a GI of 64. A few prunes are a reasonable choice; raisins are best kept to small amounts, and neither should be eaten by the handful.</p>
 
 <h2>How to eat fruit with diabetes</h2>
 <ul>
@@ -91,7 +81,7 @@ export const fruitAndDiabetes: Collection = {
 <li><strong>Pair it with protein or fat.</strong> Fruit with plain yoghurt, a handful of nuts or some cheese gives a gentler rise and keeps you fuller.</li>
 <li><strong>Spread it through the day.</strong> One portion at a time, rather than several at once.</li>
 <li><strong>Limit juice and smoothies.</strong> They lose much of the fibre, raise blood sugar faster and their sugars count as free sugars. Blending can also make it easy to consume several portions of fruit in one drink.</li>
-<li><strong>Go easy on dried fruit.</strong> Drying concentrates the sugar: a small box of raisins carries far more carbohydrate than the same volume of grapes. Keep portions to about a tablespoon.</li>
+<li><strong>Go easy on dried fruit.</strong> Drying concentrates the sugar: 30 g of raisins carries about as much carbohydrate as 120 g of grapes. Keep portions to about a tablespoon, and prefer prunes to raisins.</li>
 <li><strong>Choose tinned fruit in juice or water, not syrup,</strong> and drain it.</li>
 <li><strong>Check your own response.</strong> People vary. Your meter or sensor readings two hours after eating are the best guide to which fruits and portions suit you.</li>
 </ul>
@@ -115,12 +105,12 @@ export const fruitAndDiabetes: Collection = {
     {
       question: 'What is the best fruit for diabetes?',
       answer:
-        'There is no single best fruit. By glycaemic load per 120 g serving, strawberries (about 3), cherries (4), oranges and apples (5) and pears (6) are lowest. Most whole fruits are good choices; portion size and eating them whole matter more than which one you pick.',
+        'There is no single best fruit. By glycaemic load per 120 g serving, grapefruit and strawberries (about 3), cherries and peaches (4), apples and oranges (5) and pears (6) are lowest. Most whole fruits are good choices; portion size and eating them whole matter more than which one you pick.',
     },
     {
       question: 'Which fruits should diabetics avoid?',
       answer:
-        'No whole fruit needs to be avoided. Bananas and grapes have a medium glycaemic load, so keep portions moderate. The forms to limit are fruit juice, smoothies, large portions of dried fruit and fruit tinned in syrup.',
+        'No whole fruit needs to be avoided. Bananas and grapes have a medium glycaemic load, so keep portions moderate. The forms to limit are fruit juice, smoothies, large portions of dried fruit — raisins especially — and fruit tinned in syrup.',
     },
     {
       question: 'Can diabetics eat bananas?',
@@ -194,6 +184,10 @@ export const fruitAndDiabetes: Collection = {
     {
       date: '2026-09-29',
       note: 'First published, ranking 12 common fruits by glycaemic load per 120 g, with a chart. GI values are published averages; net carbohydrate and GL are our calculations from USDA FoodData Central. Not yet reviewed by a clinician.',
+    },
+    {
+      date: '2026-09-29',
+      note: 'Added grapefruit, peach, prunes and raisins (dried fruit compared at a 30 g portion), and moved the figures into one data file that drives both the table and the chart.',
     },
   ],
 };
