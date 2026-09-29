@@ -95,13 +95,13 @@ export const applesForAWeek: Collection = {
 <li><strong>Put one before your biggest meal.</strong> That is where the fullness and blood-sugar effects showed up in the studies.</li>
 <li><strong>Pair one with protein if it is a snack.</strong> An apple with a handful of nuts, a spoon of peanut butter or some cheese keeps you fuller for longer than the apple alone.</li>
 <li><strong>Drink water, and build up if fibre is new to you.</strong> Start with one apple a day for a few days if your diet has been low in fibre.</li>
-<li><strong>Vary it after the week.</strong> Apples are a good habit, not a magic fruit. Pears, berries, oranges and kiwi bring different fibres and nutrients.</li>
+<li><strong>Vary it after the week.</strong> Apples are a good habit, not a magic fruit. <a href="/learn/eating-pears-every-day-for-a-week">Pears</a>, berries, oranges and kiwi bring different fibres and nutrients.</li>
 </ul>
 
 <h2>Who should be careful</h2>
 <ul>
 <li><strong>People with IBS or a sensitive gut.</strong> Apples are high in fructose and sorbitol. Smaller portions, or lower-FODMAP fruit such as oranges or kiwi, may suit you better.</li>
-<li><strong>People with diabetes.</strong> Count each apple as about 25 g of carbohydrate. Eating it with or before a meal, rather than on its own, fits the blood-sugar evidence best.</li>
+<li><strong>People with diabetes.</strong> Count each apple as about 25 g of carbohydrate. Eating it with or before a meal, rather than on its own, fits the blood-sugar evidence best. See our comparison of <a href="/learn/apples-vs-pears-for-diabetes">apples vs pears for diabetes</a>.</li>
 <li><strong>People with hay fever.</strong> Some people with birch-pollen allergy get an itchy mouth or throat from raw apples (oral allergy syndrome). Cooked apple is usually tolerated; speak to a doctor if symptoms are more than mild.</li>
 <li><strong>Your teeth.</strong> Apples are acidic. Rinsing with water afterwards, and not brushing straight away, is standard dental advice for acidic foods.</li>
 </ul>
@@ -210,6 +210,14 @@ export const applesForAWeek: Collection = {
     },
   ],
   history: [
+    {
+      date: '2026-09-29',
+      note: 'Linked our comparison of apples and pears for diabetes.',
+    },
+    {
+      date: '2026-09-29',
+      note: 'Linked our companion article on eating two pears a day for a week.',
+    },
     {
       date: '2026-09-29',
       note: 'First published, with a chart of what two apples a day add. Nutrition figures from USDA FoodData Central; evidence from the trials listed. Not yet reviewed by a clinician.',

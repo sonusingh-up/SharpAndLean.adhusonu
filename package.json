@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts && node tests/live.mjs",
     "test:unit": "tsx --test tests/*.test.ts",
-    "test:live": "node tests/live.mjs"
+    "test:live": "node tests/live.mjs",
+    "chart:fruit-gl": "tsx scripts/fruit-gl-chart.ts",
+    "illustrate:fruit": "tsx scripts/fruit-illustrations.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.4",

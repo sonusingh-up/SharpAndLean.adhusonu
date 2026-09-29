@@ -6,6 +6,13 @@ import { getInShapeWomen } from './editorials/get-in-shape-women';
 import { proteinForBeginners } from './editorials/protein-for-beginners';
 import { whichVitaminsDaily } from './editorials/which-vitamins-daily';
 import { applesForAWeek } from './editorials/apples-for-a-week';
+import { pearsForAWeek } from './editorials/pears-for-a-week';
+import { applesVsPearsDiabetes } from './editorials/apples-vs-pears-diabetes';
+import { fruitAndDiabetes } from './editorials/fruit-and-diabetes';
+import { prunesForAWeek } from './editorials/prunes-for-a-week';
+import { grapefruitBeforeMeals } from './editorials/grapefruit-before-meals';
+import { raisinsAndDiabetes } from './editorials/raisins-and-diabetes';
+import { peachesForAWeek } from './editorials/peaches-for-a-week';
 import { compareLabelsServingCosts } from './editorials/compare-labels-serving-costs';
 
 /*
@@ -57,6 +64,13 @@ const collectionDrafts: CollectionDraft[] = [
   proteinForBeginners,
   whichVitaminsDaily,
   applesForAWeek,
+  pearsForAWeek,
+  applesVsPearsDiabetes,
+  fruitAndDiabetes,
+  prunesForAWeek,
+  grapefruitBeforeMeals,
+  raisinsAndDiabetes,
+  peachesForAWeek,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,
