@@ -1,6 +1,7 @@
 import type { FAQ } from './types';
 import type { HistoryEntry } from '@/components/article-footer';
 import { vitaminD, folicAcid, vitaminB12 } from './ingredient-pages/vitamins';
+import { creatineMonohydrate } from './ingredient-pages/creatine';
 
 /**
  * Transparent A–F evidence grading.
@@ -110,6 +111,11 @@ export type IngredientPage = {
    * counted in a different unit, is left out rather than converted by guess.
    */
   studiedDose?: StudiedDose;
+  /**
+   * An optional chart or diagram, shown in the dosage section and used as the
+   * page's share image. Charts are house-style JPGs in public/images.
+   */
+  figure?: { src: string; alt: string; caption: string };
   /** Where commercial products commonly diverge from the studied amount. */
   dosageGap: string;
   safety: string;
@@ -291,6 +297,7 @@ export const ingredients: IngredientPage[] = [
   vitaminD,
   folicAcid,
   vitaminB12,
+  creatineMonohydrate,
   {
     slug: 'psyllium-husk',
     name: 'Psyllium husk',
@@ -1203,14 +1210,18 @@ export const ingredients: IngredientPage[] = [
     ],
     editorNote:
       'This is the rare ingredient page where my job is mostly to talk the evidence down rather than up. The A grade is deserved, and I would not want a reader to leave thinking otherwise — but an A for “protein helps you build muscle when you train” is close to an A for a nutrient doing its job, and the supplement industry has spent thirty years dressing that up as something proprietary. What I see in clinic is people buying a second tub before they have worked out what they already eat. The first question is not which whey; it is how many grams of protein were in yesterday. If the answer is already 1.6 g per kilogram, the powder has nothing to add and the money is better spent elsewhere. If it is nowhere near, then a scoop is a cheap, well-evidenced, thoroughly unglamorous way to close the gap — and the cheapest tub that you will actually drink will do it as well as the expensive one.',
-    related: ['omega-3', 'rebaudioside-a'],
+    related: ['creatine-monohydrate', 'omega-3', 'rebaudioside-a'],
     history: [
       {
         date: '2026-09-22',
         note: 'First published with per-claim evidence grades. Muscle-mass and timing findings from the 2018 British Journal of Sports Medicine meta-analysis; recovery and soreness findings from the 2022 European Journal of Clinical Nutrition review and the 2018 whey-specific meta-analysis; per-meal dosing from Schoenfeld and Aragon; kidney safety from the 2018 Journal of Nutrition meta-analysis; UK intakes from the British Nutrition Foundation and permitted claims from the GB register.',
       },
+      {
+        date: '2026-09-29',
+        note: 'Linked the new creatine monohydrate page as a related ingredient.',
+      },
     ],
-    updated: '2026-09-22',
+    updated: '2026-09-29',
   },
   {
     slug: 'maca-root',

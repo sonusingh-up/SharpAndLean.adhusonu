@@ -74,7 +74,7 @@ export const optimumNutritionSeriousMassReview: ProductArticle = {
 <h3>What the calories are made of</h3>
 <p>The first ingredient is maltodextrin, a starch-derived carbohydrate that digests very quickly. At around 250 g of carbohydrate against 50 g of protein, a serving is about a 5:1 ratio of carbohydrate to protein. That is not dangerous for a healthy adult who trains hard, and fast carbohydrate is useful around heavy training. But it is not the “lean” profile the marketing implies: you are mainly buying cheap carbohydrate, with protein added.</p>
 <p>The “no added sugar” wording on some listings is technically true and not very reassuring. Maltodextrin is broken down to glucose almost as fast as sugar is, and 20 to 26 g of sugars per serving is on top of that.</p>
-<p>The 3 g of creatine is the one ingredient here with strong evidence of its own, and it is the right daily amount. Our <a href="/wellness/optimum-nutrition-micronised-creatine-review">Micronised Creatine review</a> covers why 3 g a day is enough. It is also easy and cheap to take on its own.</p>
+<p>The 3 g of creatine is the one ingredient here with strong evidence of its own, and it is the right daily amount. Our <a href="/wellness/optimum-nutrition-micronised-creatine-review">Micronised Creatine review</a> covers why 3 g a day is enough, and our <a href="/ingredients/creatine-monohydrate">creatine monohydrate guide</a> sets out the evidence. It is also easy and cheap to take on its own.</p>
 
 <h2>What the research says about gaining weight well</h2>
 <h3>Calories drive weight, protein and training drive muscle</h3>
@@ -240,6 +240,10 @@ export const optimumNutritionSeriousMassReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-29',
+      note: 'Linked our new creatine monohydrate ingredient page, which grades each claim made for creatine.',
+    },
+    {
       date: '2026-09-28',
       note: 'Tidied the best alternatives to the products readers actually compare this with: removed Myprotein Impact Whey and Micronised Creatine, which are not gainers. Creatine is still discussed in the text.',
     },
@@ -261,5 +265,5 @@ export const optimumNutritionSeriousMassReview: ProductArticle = {
     },
   ],
   published: '2026-09-28T00:00:00Z',
-  updated: '2026-09-28T00:00:00Z',
+  updated: '2026-09-29T00:00:00Z',
 };

@@ -71,7 +71,7 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
 
 <h2>What 3 g of creatine can realistically do</h2>
 <h3>The evidence is strong, and specific</h3>
-<p>Creatine monohydrate is one of the most studied supplements in sports nutrition. The <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/">International Society of Sports Nutrition’s 2017 position stand</a> describes it as the most effective ergogenic nutritional supplement currently available for increasing high-intensity exercise capacity and lean body mass during training, and summarises a large body of research on both performance and safety.</p>
+<p>Creatine monohydrate is one of the most studied supplements in sports nutrition, and our <a href="/ingredients/creatine-monohydrate">creatine monohydrate guide</a> grades each claim made for it. The <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/">International Society of Sports Nutrition’s 2017 position stand</a> describes it as the most effective ergogenic nutritional supplement currently available for increasing high-intensity exercise capacity and lean body mass during training, and summarises a large body of research on both performance and safety.</p>
 <p>The meta-analyses put numbers on that. A <a href="https://pubmed.ncbi.nlm.nih.gov/27328852/">2017 systematic review in Sports Medicine</a> pooled 53 randomised, placebo-controlled studies — 563 people taking creatine and 575 controls — and found a consistent improvement in upper-body strength in exercises lasting under three minutes, including bench press. An <a href="https://pubmed.ncbi.nlm.nih.gov/25946994/">earlier review by the same group</a> reported the same pattern for lower-limb strength. The effect sizes are modest rather than dramatic: this is a reliable few per cent on top of training, not a replacement for it.</p>
 <p>The mechanism explains why the benefit is narrow. Creatine tops up the phosphocreatine store muscles use to regenerate energy in the first seconds of hard effort. That helps with repeated sprints, heavy sets and anything with short, maximal bursts. It does little for steady endurance work, and it does not build muscle on its own — it lets you do slightly more work in training, and the training does the rest.</p>
 <h3>Why 3 g a day is enough — and loading is optional</h3>
@@ -242,6 +242,10 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-29',
+      note: 'Linked our new creatine monohydrate ingredient page, which grades each claim made for creatine.',
+    },
+    {
       date: '2026-09-28',
       note: 'Added our full review of Bulk Creatine Monohydrate to the best alternatives and the comparison block. The score is unchanged.',
     },
@@ -259,5 +263,5 @@ export const optimumNutritionMicronisedCreatineReview: ProductArticle = {
     },
   ],
   published: '2026-09-28T00:00:00Z',
-  updated: '2026-09-28T00:00:00Z',
+  updated: '2026-09-29T00:00:00Z',
 };

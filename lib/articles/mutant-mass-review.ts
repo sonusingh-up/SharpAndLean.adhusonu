@@ -90,7 +90,7 @@ export const mutantMassReview: ProductArticle = {
 <ul>
 <li><strong>A home-made gainer shake</strong> — our first choice for most people. Milk, oats, a banana, peanut butter and a scoop of whey let you set the calories to the surplus you need, for well under the price per 1,000 kcal of any gainer.</li>
 <li><strong><a href="/wellness/myprotein-impact-weight-gainer-review">Myprotein Impact Weight Gainer</a></strong> (reviewed) — our higher-scoring gainer: a 388 kcal serving that fits a modest surplus, with a much higher share of protein, though dearer per 1,000 kcal than the 6.8 kg Mutant Mass.</li>
-<li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — the closest like-for-like rival. Mutant Mass has more protein, a lower share of maltodextrin and a lower price per 1,000 kcal; Serious Mass adds 3 g of creatine.</li>
+<li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — the closest like-for-like rival. Mutant Mass has more protein, a lower share of maltodextrin and a lower price per 1,000 kcal; Serious Mass adds 3 g of <a href="/ingredients/creatine-monohydrate">creatine</a>.</li>
 </ul>
 
 <h2>Who should skip it, and what to watch for</h2>
@@ -209,6 +209,10 @@ export const mutantMassReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-29',
+      note: 'Linked our new creatine monohydrate ingredient page, which grades each claim made for creatine.',
+    },
+    {
       date: '2026-09-28',
       note: 'Tidied the best alternatives to the products readers actually compare this with: removed Myprotein Impact Whey, which is not a gainer, keeping the rival gainers.',
     },
@@ -222,5 +226,5 @@ export const mutantMassReview: ProductArticle = {
     },
   ],
   published: '2026-09-28T00:00:00Z',
-  updated: '2026-09-28T00:00:00Z',
+  updated: '2026-09-29T00:00:00Z',
 };

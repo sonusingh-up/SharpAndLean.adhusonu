@@ -1730,6 +1730,20 @@ summary::-webkit-details-marker {
   font-size: 12px;
   line-height: 1.7;
 }
+.ingredient-figure {
+  margin: 32px 0;
+}
+.ingredient-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.ingredient-figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

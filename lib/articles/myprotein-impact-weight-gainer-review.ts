@@ -86,7 +86,7 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
 <li><strong><a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey</a></strong> (reviewed) — if protein is what you are short of rather than calories, whey with an ordinary meal is the cheaper and more flexible tool, and the base of the home-made shake above.</li>
 <li><strong><a href="/wellness/optimum-nutrition-serious-mass-review">Optimum Nutrition Serious Mass</a></strong> (reviewed) — only if you need a very large surplus and struggle to eat. About 1,250 kcal and 50 g of protein per serving, but roughly five grams of carbohydrate for every gram of protein, at a higher price per 1,000 kcal.</li>
 <li><strong><a href="/wellness/mutant-mass-review">Mutant Mass</a></strong> (reviewed) — another big-serving gainer, over 1,100 kcal and 56 g of protein per 280 g serving, at about £3.90 per 1,000 kcal on the listing we saw.</li>
-<li><strong><a href="/wellness/myprotein-impact-creatine-review">Myprotein Impact Creatine</a></strong> (reviewed) — not a gainer, but if you are trying to build muscle it is the supplement with the strongest evidence, at around 10p a day.</li>
+<li><strong><a href="/wellness/myprotein-impact-creatine-review">Myprotein Impact Creatine</a></strong> (reviewed) — not a gainer, but if you are trying to build muscle, <a href="/ingredients/creatine-monohydrate">creatine</a> is the supplement with the strongest evidence, at around 10p a day.</li>
 </ul>
 
 <h2>Who should skip it, and what to watch for</h2>
@@ -192,6 +192,10 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
   ],
   history: [
     {
+      date: '2026-09-29',
+      note: 'Linked our new creatine monohydrate ingredient page, which grades each claim made for creatine.',
+    },
+    {
       date: '2026-09-28',
       note: 'Added our full review of Mutant Mass to the best alternatives and the comparison block. The score is unchanged.',
     },
@@ -205,5 +209,5 @@ export const myproteinImpactWeightGainerReview: ProductArticle = {
     },
   ],
   published: '2026-09-28T00:00:00Z',
-  updated: '2026-09-28T00:00:00Z',
+  updated: '2026-09-29T00:00:00Z',
 };
