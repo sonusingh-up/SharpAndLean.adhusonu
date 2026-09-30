@@ -4,6 +4,7 @@ import { DM_Sans, Newsreader } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { Consent } from '@/components/consent';
 import { demoMode, gaId, siteUrl } from '@/lib/config';
+import { rssAlternates } from '@/lib/rss-config';
 import './globals.css';
 import './editorial.css';
 import './theme.css';
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     apple: '/images/logo.png',
   },
   robots: demoMode ? { index: false, follow: false } : undefined,
+  alternates: { types: rssAlternates },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

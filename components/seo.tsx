@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { siteUrl } from '@/lib/config';
+import { rssAlternates } from '@/lib/rss-config';
 import type { Metadata } from 'next';
 
 /** Stable @id values so every graph node can point at one shared entity. */
@@ -288,7 +289,7 @@ export function pageMeta(
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, types: rssAlternates },
     openGraph: {
       title,
       description,
