@@ -282,8 +282,7 @@
   padding: 72px 56px;
   background:
     radial-gradient(60% 120% at 0% 50%, #f1ac8e 0%, #f1ac8e00 70%),
-    radial-gradient(60% 120% at 100% 50%, #7fb5ac 0%, #7fb5ac00 70%),
-    #f4eee6;
+    radial-gradient(60% 120% at 100% 50%, #7fb5ac 0%, #7fb5ac00 70%), #f4eee6;
 }
 .bandGrid {
   display: grid;
@@ -430,9 +429,7 @@
   margin-top: 28px;
   padding: 22px 20px 18px;
   border-radius: 22px;
-  background:
-    radial-gradient(70% 60% at 50% 100%, #ffffffa6, transparent 72%),
-    var(--cream);
+  background: radial-gradient(70% 60% at 50% 100%, #ffffffa6, transparent 72%), var(--cream);
 }
 .shelfStage {
   display: flex;
@@ -527,7 +524,9 @@
   border-radius: 11px;
   color: var(--muted);
   background: #fff;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 .goalSearch:focus-within {
   border-color: var(--pine);
@@ -543,7 +542,9 @@
   font: inherit;
   font-size: 13px;
 }
-.goalSearch input::placeholder { color: #858e88; }
+.goalSearch input::placeholder {
+  color: #858e88;
+}
 .goalPrompt {
   margin: 19px 0 9px;
 }
@@ -669,7 +670,9 @@
   gap: 7px;
   margin-top: 13px;
 }
-.goalResultList li { min-width: 0; }
+.goalResultList li {
+  min-width: 0;
+}
 .goalResultsInner {
   animation: rise 420ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
 }
@@ -687,7 +690,10 @@
   border-radius: 12px;
   color: var(--ink);
   background: #fff;
-  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
 }
 .goalResultLink:hover {
   transform: translateY(-2px);
@@ -997,6 +1003,176 @@
   background: var(--accent);
 }
 
+/* ---------- Latest Learn shelf ---------- */
+
+.learnSection {
+  background: #eeeae2;
+}
+.learnIntro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  max-width: 1180px;
+  margin: 0 auto 42px;
+}
+.learnIntro .head {
+  max-width: 650px;
+  margin-bottom: 0;
+}
+.learnIntro .head > p:last-child {
+  max-width: 560px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.learnAll,
+.learnRead,
+.learnPaths a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--pine);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.learnAll {
+  flex: none;
+  padding: 15px 18px;
+  border: 1px solid #183b3730;
+  border-radius: 999px;
+  background: #ffffff70;
+}
+.learnAll svg,
+.learnRead svg,
+.learnPaths a svg {
+  transition: transform 160ms ease;
+}
+.learnAll:hover svg,
+.learnRead:hover svg,
+.learnPaths a:hover svg {
+  transform: translateX(4px);
+}
+.learnGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.learnFeature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #183b3718;
+  border-radius: 20px;
+  background: #fffdf9;
+  box-shadow: 0 4px 16px #183b3705;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.learnFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px #183b3712;
+}
+.learnFeature:focus-visible,
+.learnAll:focus-visible,
+.learnPaths a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 5px;
+}
+.learnBody {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  min-width: 0;
+}
+.learnImage {
+  position: relative;
+  display: block;
+  min-height: 270px;
+  overflow: hidden;
+  background: #e6ece5;
+}
+.learnImage img {
+  object-fit: contain;
+  padding: 12px;
+}
+.learnMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  color: var(--pine);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.learnMeta time {
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+.learnTitle {
+  display: block;
+  margin-top: 14px;
+  font-size: clamp(20px, 1.8vw, 25px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.learnSummary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.learnRead {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 10.5px;
+}
+.learnArrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--pine);
+  color: white;
+}
+.learnPaths {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+  max-width: 1180px;
+  margin: 32px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid #183b3724;
+}
+.learnPathsLabel {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+}
+.learnPaths a {
+  font-size: 10.5px;
+}
+
 /* ---------- Steps ---------- */
 
 .steps {
@@ -1241,8 +1417,7 @@
   border-radius: 28px;
   background:
     radial-gradient(70% 120% at 100% 100%, #f1ac8e 0%, #f1ac8e00 65%),
-    radial-gradient(60% 100% at 0% 0%, #a8cbc3 0%, #a8cbc300 65%),
-    var(--cream);
+    radial-gradient(60% 100% at 0% 0%, #a8cbc3 0%, #a8cbc300 65%), var(--cream);
 }
 .letter p:last-child {
   margin-top: 14px;
@@ -1288,6 +1463,7 @@
   }
   .card,
   .door,
+  .learnFeature,
   .mini,
   .chip,
   .pill,
@@ -1322,8 +1498,19 @@
   .steps li + li::before {
     display: none;
   }
+  .learnGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 960px) {
+  .learnGrid {
+    grid-template-columns: 1fr;
+  }
+  .learnIntro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
   /* Full-width text on narrow screens: keep the deep teal corner out from behind it. */
   .heroMain {
     background: var(--wash);
@@ -1414,6 +1601,27 @@
   .cards4,
   .steps {
     grid-template-columns: 1fr;
+  }
+  .learnIntro {
+    display: block;
+  }
+  .learnAll {
+    margin-top: 24px;
+  }
+  .learnGrid {
+    grid-template-columns: 1fr;
+  }
+  .learnFeature {
+    grid-template-columns: 1fr;
+  }
+  .learnImage {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  .learnPaths {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
   }
   .quoteCard,
   .statCard {

@@ -14,6 +14,8 @@ import { grapefruitBeforeMeals } from './editorials/grapefruit-before-meals';
 import { raisinsAndDiabetes } from './editorials/raisins-and-diabetes';
 import { peachesForAWeek } from './editorials/peaches-for-a-week';
 import { compareLabelsServingCosts } from './editorials/compare-labels-serving-costs';
+import { sevenEssentialExercises } from './editorials/seven-essential-exercises';
+import { gluteBridge } from './editorials/glute-bridge';
 
 /*
  * Product pages are assembled from lib/articles/*.ts — one file per article,
@@ -71,6 +73,8 @@ const collectionDrafts: CollectionDraft[] = [
   grapefruitBeforeMeals,
   raisinsAndDiabetes,
   peachesForAWeek,
+  gluteBridge,
+  sevenEssentialExercises,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,
