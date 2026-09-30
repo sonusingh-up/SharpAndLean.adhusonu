@@ -78,6 +78,42 @@ export type Review = {
   history?: { date: string; note: string }[];
   product_name: string;
 };
+/** One product in a /best/ guide. See Collection.shortlist. */
+export type ShortlistPick = {
+  /** Anchor id on the page: #pick-<id>. */
+  id: string;
+  /** The award it wins, e.g. "Best overall". */
+  award: string;
+  name: string;
+  brand: string;
+  image?: string;
+  /** Where to buy: a retailer or manufacturer page. */
+  url: string;
+  /** Who the link goes to, for the button: "Amazon", "Life Extension". */
+  retailer: string;
+  /** Whether the link earns a commission. Only then does the card say so. */
+  affiliate: boolean;
+  /** One line on who should choose it. */
+  bestFor: string;
+  /** The figure on its award tile, e.g. "$0.37 a day". */
+  headline: string;
+  /**
+   * Figures for the comparison table. Every pick in a guide uses the same
+   * labels in the same order; the first pick's labels become the columns.
+   */
+  specs: { label: string; value: string; note?: string }[];
+  /** How the product lines up with the evidence, as a short badge. */
+  fit?: { label: string; tone: 'good' | 'mixed' | 'poor' };
+  pros: string[];
+  cons: string[];
+  /** The paragraph that explains the pick. */
+  verdict: string;
+  /** Where the label figures were read. Cited in the guide's references, not on the card. */
+  source?: string;
+  /** Category path of a published review, once one exists. */
+  reviewSlug?: string;
+};
+
 export type Collection = {
   authors?: { name: string; slug: string; type: 'Person' | 'Organization' }[];
   /** False until a named evidence reviewer has actually reviewed this article. */
@@ -113,6 +149,16 @@ export type Collection = {
   product_b_id?: string;
   /** Figure published under the intro, same shape as a review's result image. */
   figure?: { src: string; alt: string; caption: string };
+  /**
+   * The products a /best/ guide names. When present, the page renders the
+   * best-guide layout — top pick, award tiles, comparison table and a card per
+   * pick — instead of the generic collection layout.
+   *
+   * Unlike `items`, a pick need not have a scored review behind it, so no card
+   * ever shows a score: it links to the review once `reviewSlug` is set and
+   * says plainly that none exists until then.
+   */
+  shortlist?: ShortlistPick[];
   /**
    * The heading block above a /learn/ article's product cards. Defaults to the
    * wording the GLP-1 explainer uses, which describes supplements marketed for

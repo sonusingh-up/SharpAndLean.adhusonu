@@ -2,6 +2,7 @@ import type { FAQ } from './types';
 import type { HistoryEntry } from '@/components/article-footer';
 import { vitaminD, folicAcid, vitaminB12 } from './ingredient-pages/vitamins';
 import { creatineMonohydrate } from './ingredient-pages/creatine';
+import { ashwagandha } from './ingredient-pages/ashwagandha';
 
 /**
  * Transparent A–F evidence grading.
@@ -298,6 +299,7 @@ export const ingredients: IngredientPage[] = [
   folicAcid,
   vitaminB12,
   creatineMonohydrate,
+  ashwagandha,
   {
     slug: 'psyllium-husk',
     name: 'Psyllium husk',

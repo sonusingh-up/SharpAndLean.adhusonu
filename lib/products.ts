@@ -16,6 +16,9 @@ import { peachesForAWeek } from './editorials/peaches-for-a-week';
 import { compareLabelsServingCosts } from './editorials/compare-labels-serving-costs';
 import { sevenEssentialExercises } from './editorials/seven-essential-exercises';
 import { gluteBridge } from './editorials/glute-bridge';
+import { ashwagandhaWhyTake } from './editorials/ashwagandha-why-take';
+import { ashwagandhaDaily } from './editorials/ashwagandha-daily';
+import { ashwagandhaBestBrand } from './editorials/ashwagandha-best-brand';
 
 /*
  * Product pages are assembled from lib/articles/*.ts — one file per article,
@@ -75,6 +78,9 @@ const collectionDrafts: CollectionDraft[] = [
   peachesForAWeek,
   gluteBridge,
   sevenEssentialExercises,
+  ashwagandhaWhyTake,
+  ashwagandhaDaily,
+  ashwagandhaBestBrand,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,
