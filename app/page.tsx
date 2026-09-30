@@ -4,7 +4,7 @@ import { ArrowRight, Check } from 'lucide-react';
 import { SiteShell } from '@/components/site';
 import { Newsletter } from '@/components/newsletter';
 import { FaqSchema, pageMeta } from '@/components/seo';
-import { getReviews } from '@/lib/data';
+import { getCollections, getReviews } from '@/lib/data';
 import { ingredients } from '@/lib/ingredients';
 import { authorProfile, teamProfile } from '@/lib/author';
 import { GoalFinder, type GoalReview } from '@/components/goal-finder';
@@ -48,7 +48,15 @@ function Glyph({ kind }: { kind: Glyph }) {
     case 'capsule':
       return (
         <svg {...common}>
-          <rect x="4" y="8" width="26" height="11" rx="5.5" fill="var(--cream-deep)" stroke="var(--pine)" />
+          <rect
+            x="4"
+            y="8"
+            width="26"
+            height="11"
+            rx="5.5"
+            fill="var(--cream-deep)"
+            stroke="var(--pine)"
+          />
           <path d="M17 8h7.5a5.5 5.5 0 0 1 0 11H17z" fill="var(--terracotta)" />
         </svg>
       );
@@ -83,7 +91,15 @@ function Glyph({ kind }: { kind: Glyph }) {
     case 'label':
       return (
         <svg {...common}>
-          <rect x="8" y="3" width="18" height="20" rx="2" fill="var(--cream)" stroke="var(--pine)" />
+          <rect
+            x="8"
+            y="3"
+            width="18"
+            height="20"
+            rx="2"
+            fill="var(--cream)"
+            stroke="var(--pine)"
+          />
           <path d="M11 9h12M11 13h9M11 17h11" stroke="var(--pine)" />
           <circle cx="26" cy="5" r="4" fill="var(--terracotta)" />
         </svg>
@@ -98,7 +114,10 @@ function Glyph({ kind }: { kind: Glyph }) {
     default:
       return (
         <svg {...common}>
-          <path d="M17 3l2.6 7.4L27 13l-7.4 2.6L17 23l-2.6-7.4L7 13l7.4-2.6z" fill="var(--terracotta)" />
+          <path
+            d="M17 3l2.6 7.4L27 13l-7.4 2.6L17 23l-2.6-7.4L7 13l7.4-2.6z"
+            fill="var(--terracotta)"
+          />
         </svg>
       );
   }
@@ -176,7 +195,10 @@ const CHECKS = [
 ];
 
 const LABEL_VS_US = [
-  ['“Clinically proven”', 'Which trial, what dose it used, and whether this bottle contains that dose'],
+  [
+    '“Clinically proven”',
+    'Which trial, what dose it used, and whether this bottle contains that dose',
+  ],
   ['“Proprietary blend, 1,250 mg”', 'Whether each ingredient’s amount is disclosed at all'],
   ['“Supports GLP-1”', 'Whether anyone measured GLP-1 in people taking it'],
   ['“Lab tested”', 'Which laboratory, which batch, and on what date'],
@@ -184,7 +206,7 @@ const LABEL_VS_US = [
 ];
 
 export default async function Home() {
-  const all = await getReviews();
+  const [all, learnArticles] = await Promise.all([getReviews(), getCollections('articles')]);
   const scored = all
     .filter((r): r is Review & { score: number } => r.score !== null)
     .sort((a, b) => b.score - a.score);
@@ -202,6 +224,10 @@ export default async function Home() {
     }));
   const lowest = scored[scored.length - 1];
   const latest = [...all]
+    .sort((a, b) => Date.parse(b.published_at ?? '') - Date.parse(a.published_at ?? ''))
+    .slice(0, 4);
+  const latestLearn = learnArticles
+    .filter((article) => article.is_published)
     .sort((a, b) => Date.parse(b.published_at ?? '') - Date.parse(a.published_at ?? ''))
     .slice(0, 4);
   const sources =
@@ -228,7 +254,8 @@ export default async function Home() {
               'No. Dietary supplements are regulated under the Dietary Supplement Health and Education Act of 1994 and are not approved by the FDA for safety or effectiveness before they go on sale. Manufacturers are responsible for their own safety and labelling, and the FDA acts after the fact.',
           },
           {
-            question: 'Does “made in an FDA-registered facility” mean a supplement is FDA approved?',
+            question:
+              'Does “made in an FDA-registered facility” mean a supplement is FDA approved?',
             answer:
               'No. It means a facility submitted a registration. It is not FDA approval of the product, the formula or any claim made for it.',
           },
@@ -262,8 +289,8 @@ export default async function Home() {
                 <TeamMark className={s.teamAvatar} />
               </span>
               <p>
-                Evidence reviewed by {authorProfile.name}, {authorProfile.title.toLowerCase()}. Labels,
-                prices and sources checked by the {teamProfile.name}.
+                Evidence reviewed by {authorProfile.name}, {authorProfile.title.toLowerCase()}.
+                Labels, prices and sources checked by the {teamProfile.name}.
               </p>
             </div>
             <p className={s.sourcesLabel}>Sources we cite</p>
@@ -293,7 +320,12 @@ export default async function Home() {
           </div>
 
           <div className={s.heroStats}>
-            <Image src="/images/card-best.webp" alt="" fill sizes="(max-width: 960px) 100vw, 42vw" />
+            <Image
+              src="/images/card-best.webp"
+              alt=""
+              fill
+              sizes="(max-width: 960px) 100vw, 42vw"
+            />
             <ul>
               <li>{scored.length} products scored against five published criteria</li>
               <li>{ingredients.length} ingredients graded A–F, claim by claim</li>
@@ -398,7 +430,12 @@ export default async function Home() {
               <Link key={r.id} href={path(r)} className={`${s.card} ${tone(r.score)}`}>
                 <span className={s.cardImg}>
                   {r.featured_image_url ? (
-                    <Image src={r.featured_image_url} alt="" fill sizes="(max-width: 960px) 90vw, 30vw" />
+                    <Image
+                      src={r.featured_image_url}
+                      alt=""
+                      fill
+                      sizes="(max-width: 960px) 90vw, 30vw"
+                    />
                   ) : null}
                 </span>
                 <span className={s.cardBody}>
@@ -495,7 +532,12 @@ export default async function Home() {
               >
                 <span className={s.miniImg}>
                   {r.featured_image_url ? (
-                    <Image src={r.featured_image_url} alt="" fill sizes="(max-width: 640px) 90vw, 22vw" />
+                    <Image
+                      src={r.featured_image_url}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 90vw, 22vw"
+                    />
                   ) : null}
                 </span>
                 <span className={s.cardKicker}>
@@ -510,60 +552,82 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── Where to start ───────────────────────────────────── */}
-        <section className={s.section}>
-          <header className={`${s.head} ${s.headCenter}`}>
-            <p className={s.eyebrow}>Where to start</p>
-            <h2 className={s.h2}>
-              Three ways <em>in</em>
-            </h2>
-          </header>
-          <div className={s.cards3}>
-            {[
-              {
-                kicker: 'Start with',
-                title: 'Product reviews',
-                text: 'Scored out of ten against dose, evidence, label, value and safety.',
-                href: '#top-rated',
-                cta: 'Browse the scores',
-                img: '/images/hero-supplements.webp',
-                accent: s.accentPine,
-              },
-              {
-                kicker: 'Start with',
-                title: 'Ingredients',
-                text: `${ingredients.length} ingredients, each claim graded A to F against the published research.`,
-                href: '/ingredients',
-                cta: 'Open the library',
-                img: '/images/card-fat.webp',
-                accent: s.accentOchre,
-              },
-              {
-                kicker: 'Start with',
-                title: 'Explainers',
-                text: 'GLP-1 drugs against GLP-1 supplements, to scale, and guides to reading a label.',
-                href: '/learn/glp-1',
-                cta: 'Read the GLP-1 guide',
-                img: '/images/glp-1-weight-loss-scale.svg',
-                accent: s.accentTerra,
-              },
-            ].map((c) => (
-              <Link key={c.title} href={c.href} className={`${s.door} ${c.accent}`}>
-                <span className={s.doorImg}>
-                  <Image src={c.img} alt="" fill sizes="(max-width: 960px) 90vw, 30vw" />
+        {/* ── Latest Learn articles ────────────────────────────── */}
+        <section className={`${s.section} ${s.learnSection}`} aria-labelledby="latest-learn">
+          <div className={s.learnIntro}>
+            <header className={s.head}>
+              <p className={s.eyebrow}>From the Learn desk</p>
+              <h2 className={s.h2} id="latest-learn">
+                A little more <em>clarity.</em>
+              </h2>
+              <p>
+                Plain answers to the questions behind the label — from fruit and blood sugar to
+                protein, vitamins and weight loss.
+              </p>
+            </header>
+            <Link className={s.learnAll} href="/learn">
+              View all Learn articles <ArrowRight size={17} />
+            </Link>
+          </div>
+          <div className={s.learnGrid}>
+            {latestLearn.map((article) => (
+              <Link
+                key={article.id}
+                href={`/learn/${article.slug}`}
+                className={s.learnFeature}
+                aria-label={article.title}
+              >
+                <span className={s.learnImage}>
+                  {article.figure?.src ? (
+                    <Image
+                      src={article.figure.src}
+                      alt=""
+                      fill
+                      unoptimized
+                      sizes="(max-width: 640px) 90vw, (max-width: 960px) 36vw, 20vw"
+                    />
+                  ) : null}
                 </span>
-                <span className={s.cardKicker}>{c.kicker}</span>
-                <strong className={s.doorTitle}>{c.title}</strong>
-                <span className={s.cardText}>{c.text}</span>
-                <span className={s.doorBtn}>
-                  <span className={s.pillIcon}>
-                    <ArrowRight size={15} />
+                <div className={s.learnBody}>
+                  <span className={s.learnMeta}>
+                    <span>
+                      {article.topic
+                        ? {
+                            food: 'Food & nutrition',
+                            fitness: 'Fitness',
+                            vitamins: 'Vitamins',
+                            'weight-loss': 'Weight loss',
+                          }[article.topic]
+                        : 'Learn'}
+                    </span>
+                    {article.published_at && (
+                      <time dateTime={article.published_at}>{dated(article.published_at)}</time>
+                    )}
                   </span>
-                  {c.cta}
-                </span>
+                  <h3 className={s.learnTitle}>{article.title}</h3>
+                  <p className={s.learnSummary}>{article.summary}</p>
+                  <span className={s.learnRead}>
+                    Read the story{' '}
+                    <span className={s.learnArrow}>
+                      <ArrowRight size={17} aria-hidden="true" />
+                    </span>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
+          <nav className={s.learnPaths} aria-label="Explore SharpAndLean">
+            <span className={s.learnPathsLabel}>Or start with</span>
+            <Link href="#top-rated">
+              Product reviews <ArrowRight size={15} />
+            </Link>
+            <Link href="/ingredients">
+              Ingredient library <ArrowRight size={15} />
+            </Link>
+            <Link href="/learn/glp-1">
+              GLP-1, explained <ArrowRight size={15} />
+            </Link>
+          </nav>
         </section>
 
         {/* ── People ───────────────────────────────────────────── */}
