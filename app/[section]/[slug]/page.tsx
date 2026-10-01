@@ -12,6 +12,7 @@ import { RichText } from '@/components/rich-text';
 import { ProteinCalculator } from '@/components/protein-calculator';
 import { VitaminChecker } from '@/components/vitamin-checker';
 import { ServingCostCalculator } from '@/components/serving-cost-calculator';
+import { FruitComparison } from '@/components/fruit-comparison';
 import { BestGuide } from '@/components/best-guide';
 import { ProteinLabResults, ProteinOthers } from '@/components/protein-lab';
 import {
@@ -56,6 +57,7 @@ const articleTools = {
   'protein-calculator': <ProteinCalculator />,
   'vitamin-checker': <VitaminChecker />,
   'serving-cost-calculator': <ServingCostCalculator />,
+  'fruit-comparison': <FruitComparison />,
   'ashwagandha-evidence': <AshwagandhaEvidence />,
   'ashwagandha-fit': <AshwagandhaFit />,
   'ashwagandha-plan': <AshwagandhaPlan />,
