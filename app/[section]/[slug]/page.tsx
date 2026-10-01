@@ -12,6 +12,7 @@ import { RichText } from '@/components/rich-text';
 import { ProteinCalculator } from '@/components/protein-calculator';
 import { VitaminChecker } from '@/components/vitamin-checker';
 import { ServingCostCalculator } from '@/components/serving-cost-calculator';
+import { FruitComparison } from '@/components/fruit-comparison';
 import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
@@ -40,11 +41,12 @@ import {
 } from '@/lib/compare';
 import { canonicalCompareSlug } from '@/lib/compare-path';
 export const revalidate = 3600;
-/** Interactive tools an article body can place with `<div data-tool="name"></div>`. */
+/** Custom article blocks placed with `<div data-tool="name"></div>`. */
 const articleTools = {
   'protein-calculator': <ProteinCalculator />,
   'vitamin-checker': <VitaminChecker />,
   'serving-cost-calculator': <ServingCostCalculator />,
+  'fruit-comparison': <FruitComparison />,
 };
 
 export async function generateStaticParams() {

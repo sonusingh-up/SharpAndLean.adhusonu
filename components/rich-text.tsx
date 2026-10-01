@@ -31,6 +31,20 @@ export function RichText({ html, tools }: { html: string; tools?: Record<string,
           </details>
         );
       }
+      if (node.name === 'table') {
+        return (
+          <div
+            className="article-table-scroll"
+            role="region"
+            aria-label="Table (scroll horizontally if needed)"
+            tabIndex={0}
+          >
+            <table {...attributesToProps(node.attribs)}>
+              {domToReact(node.children as DOMNode[], options)}
+            </table>
+          </div>
+        );
+      }
       if (node.name === 'img') {
         const src = node.attribs.src || '';
         const local = /^\/images\/[a-zA-Z0-9/_-]+\.(png|jpg|jpeg|webp|gif|svg)$/.test(src);

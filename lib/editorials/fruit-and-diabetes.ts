@@ -51,7 +51,7 @@ export const fruitAndDiabetes: Collection = {
 <p>Watermelon shows why the difference matters. Its GI is high, at about 76, but it is mostly water: 120 g holds under 9 g of carbohydrate, so its glycaemic load is only about 7 — low.</p>
 
 <h2>${fruits.length} common fruits, ranked</h2>
-${fruitTableHtml()}
+<div data-tool="fruit-comparison">${fruitTableHtml()}</div>
 <p>The glycaemic index figures are published averages drawn from the <a href="https://pubmed.ncbi.nlm.nih.gov/18835944/">international GI tables</a>, as summarised in <a href="https://www.health.harvard.edu/diseases-and-conditions/glycemic-index-and-glycemic-load-for-100-foods">Harvard Health’s table</a>. Net carbohydrate and glycaemic load are our calculations from USDA FoodData Central carbohydrate and fibre figures. Fresh fruit is compared at 120 g — the standard serving the GI tables use, and roughly one medium apple, a large handful of grapes or a cup of berries. Dried fruit is compared at 30 g, one portion in NHS 5 A Day guidance, because 120 g of raisins is far more than anyone eats at once. Real values move with variety and ripeness: a riper banana has a higher GI than a greener one, for example.</p>
 
 <h2>What the research says about fruit and diabetes</h2>
