@@ -404,3 +404,64 @@ export function AshwagandhaBuyChecklist() {
     </ol>
   );
 }
+
+const extracts = [
+  {
+    name: 'KSM-66',
+    what: 'Root only, sold as at least 5% withanolides',
+    dose: '300–600 mg',
+    bestFor: 'Most people: the extract behind many of the stress and sleep trials',
+    tone: 'good',
+  },
+  {
+    name: 'Sensoril',
+    what: 'Root and leaf, 10% withanolide glycosides',
+    dose: '125–500 mg',
+    bestFor: 'Starting low; more concentrated, so smaller doses',
+    tone: 'good',
+  },
+  {
+    name: 'Standardised extract',
+    what: 'Root, or root and leaf, with a stated withanolide %',
+    dose: 'Follow the label',
+    bestFor: 'Budget buyers who accept a less direct link to the trials',
+    tone: 'mixed',
+  },
+  {
+    name: 'Root powder',
+    what: 'Dried ground root, not concentrated',
+    dose: 'Several grams (traditional)',
+    bestFor: 'Traditional use; weaker than trial extracts per capsule',
+    tone: 'poor',
+  },
+] as const;
+
+/** Which extract to look for: a table on wide screens, one card per extract on phones. */
+export function AshwagandhaExtracts() {
+  return (
+    <div className={`${s.extracts} not-prose`}>
+      <div className={s.extractHead} aria-hidden="true">
+        <span>Extract</span>
+        <span>What it is</span>
+        <span>Studied daily dose</span>
+        <span>Best for</span>
+      </div>
+      <ul className={s.extractRows}>
+        {extracts.map((e) => (
+          <li className={`${s.extractRow} ${s[`ex_${e.tone}`]}`} key={e.name}>
+            <strong className={s.extractName}>{e.name}</strong>
+            <span className={s.extractCell} data-label="What it is">
+              {e.what}
+            </span>
+            <span className={`${s.extractCell} ${s.extractDose}`} data-label="Studied daily dose">
+              {e.dose}
+            </span>
+            <span className={s.extractCell} data-label="Best for">
+              {e.bestFor}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

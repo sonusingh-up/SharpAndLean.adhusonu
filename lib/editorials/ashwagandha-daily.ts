@@ -16,10 +16,11 @@ export const ashwagandhaDaily: Collection = {
   title: 'Ashwagandha: What happens if we take daily?',
   seo_title: 'Ashwagandha Every Day: What Happens, Week by Week',
   seo_desc:
-    'Taking ashwagandha daily: what changes in week 1, week 4 and week 8, what it does to cortisol, sleep, thyroid and testosterone, and why to stop at three months.',
+    'Ashwagandha daily: what changes by week 1, 4 and 8, its effects on cortisol, sleep, thyroid and testosterone, and why to stop at three months.',
   summary:
     'Take ashwagandha every day and not much happens in the first week, apart from drowsiness or an upset stomach in some people. By week eight — where the trials measured — stress scores and cortisol are usually lower and sleep slightly better. Thyroid hormones, testosterone and blood sugar can shift too. Past three months, nobody knows: there are no long-term trials of daily use.',
   is_published: true,
+  about: [{ name: 'Ashwagandha', sameAs: 'https://en.wikipedia.org/wiki/Withania_somnifera' }],
   evidenceReviewed: false,
   authors: [{ name: 'SLN Team', slug: 'snl-team', type: 'Organization' }],
   published_at: '2026-10-01T00:00:00Z',

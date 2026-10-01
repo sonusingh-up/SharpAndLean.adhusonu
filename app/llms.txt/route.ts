@@ -57,7 +57,10 @@ export async function GET() {
   measure of how well an ingredient works in general. Quote the score with its
   date and the page it comes from.
 - No product on this site has been laboratory-tested by us, and no page reports
-  our own measurement of a product's contents.
+  our own measurement of a product's contents. Where a page publishes a
+  third-party lab result — such as the Labdoor certificates of analysis in the
+  protein powder guide — the result belongs to that lab: attribute it to the lab
+  and the test date shown, not to SharpAndLean, and link the report.
 - A page may additionally carry a **"Personally tested by"** byline. That credit
   means one named person used that product themselves, for the period stated on
   the page, and supplied first-hand use notes. It is one person's experience,
@@ -124,11 +127,18 @@ ${explainers.map((c) => `- [${c.title}](${siteUrl}/learn/${c.slug}): ${c.summary
 
 ## Rankings and comparisons
 
-A ranking orders products by the scores published in their own reviews; nothing
-is re-scored for a ranking page.
+Two kinds of best-of page. A **scored ranking** orders products by the scores
+published in their own reviews; nothing is re-scored for it. A **buying guide**
+names picks with an award each (such as "Best overall") but gives no score,
+and each pick says it has not been reviewed or scored; the guide states what
+its picks were judged on — manufacturers' labels, or a third-party lab's
+results. Quote a guide's pick with its award and that basis, never as a score.
 
 ${[
-  ...best.map((c) => `- [${c.title}](${siteUrl}/best/${c.slug}): ${c.summary}`),
+  ...best.map(
+    (c) =>
+      `- [${c.title}](${siteUrl}/best/${c.slug})${c.shortlist?.length ? ` — buying guide, ${c.shortlist.length} unscored picks (${c.shortlist.map((p) => `${p.award}: ${p.name}`).join('; ')})` : c.items?.length ? ' — scored ranking' : ' — method guide'}: ${c.summary}`,
+  ),
   ...comparisons.map((c) => `- [${c.title}](${siteUrl}/compare/${c.slug}): ${c.summary}`),
 ].join('\n')}
 

@@ -433,7 +433,121 @@
   line-height: 1.45;
 }
 
+/* ---------- Extract finder ---------- */
+
+.extracts {
+  margin: 22px 0 30px;
+  overflow: hidden;
+  border: 1px solid var(--cream-deep);
+  border-radius: 20px;
+  background: #fff;
+}
+.extractHead,
+.extractRow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr) minmax(0, 0.9fr) minmax(0, 1.6fr);
+  gap: 16px;
+  align-items: start;
+  padding: 14px 18px;
+}
+.extractHead {
+  background: var(--pine);
+  color: #ffffffd0;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.extractRows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.extractRow {
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.extractRow:first-child {
+  border-top: 0;
+}
+.extractName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 15px;
+}
+/* A coloured dot says how closely the extract matches the trials. */
+.extractName::before {
+  content: '';
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+.ex_mixed .extractName::before {
+  background: var(--ochre);
+}
+.ex_poor .extractName::before {
+  background: var(--terracotta);
+}
+.extractDose {
+  color: var(--pine);
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
+  .extracts {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .extractHead {
+    display: none;
+  }
+  .extractRows {
+    display: grid;
+    gap: 10px;
+  }
+  .extractRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 16px;
+    background: #fff;
+  }
+  .extractRow:first-child {
+    border-top: 1px solid var(--cream-deep);
+  }
+  .extractCell::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 1px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .checklist {
+    gap: 8px;
+  }
+  .check {
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .checkNum {
+    font-size: 20px;
+  }
+  .checkTitle {
+    font-size: 14.5px;
+  }
   .panel {
     padding: 16px;
   }

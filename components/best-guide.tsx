@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ReactNode } from 'react';
-import { ArrowDown, ArrowUpRight, Check, Minus, Trophy } from 'lucide-react';
+import type { CSSProperties, ReactNode } from 'react';
+import { ArrowDown, ArrowUpRight, Check, FileText, Minus, Trophy } from 'lucide-react';
 import type { Collection, ShortlistPick } from '@/lib/types';
-import { getAuthorBySlug, teamProfile } from '@/lib/author';
+import { authorProfile, getAuthorBySlug, teamProfile } from '@/lib/author';
 import { linkRel } from '@/lib/link-rel';
 import { RichText } from './rich-text';
 import { ReferenceBox, PageHistory } from './article-footer';
+import { HandsOnBlock } from './hands-on-note';
 import b from './best-guide.module.css';
 
 /*
@@ -79,6 +80,59 @@ export function BestGuide({
   const writers = row.authors ?? [
     { name: teamProfile.name, slug: teamProfile.slug, type: 'Organization' as const },
   ];
+  const facts = row.heroFacts ?? [
+    { value: String(picks.length), label: 'products compared' },
+    { value: 'Labels', label: 'read on makers’ own sites' },
+    { value: 'No', label: 'paid placements' },
+  ];
+  // Everyone the page credits, each with a face: the writers, the person whose
+  // first-hand use it rests on, and the clinician only once she has reviewed it.
+  // A team byline has no photo, so it wears the site mark.
+  const tester = row.testedBy ? getAuthorBySlug(row.testedBy) : undefined;
+  const people = [
+    ...writers.map((w) => {
+      const profile = getAuthorBySlug(w.slug);
+      return {
+        role: 'Written by',
+        slug: w.slug,
+        name: profile?.name ?? w.name,
+        photo: profile?.photo_url,
+      };
+    }),
+    ...(tester
+      ? [{ role: 'Tested by', slug: tester.slug, name: tester.name, photo: tester.photo_url }]
+      : []),
+    ...(row.evidenceReviewed !== false
+      ? [
+          {
+            role: 'Evidence reviewed by',
+            slug: authorProfile.slug,
+            name: authorProfile.name,
+            photo: authorProfile.photo_url,
+          },
+        ]
+      : []),
+  ];
+
+  const tocLinks = (
+    <>
+      <a href="#compare">How they compare</a>
+      <span className={b.tocGroup}>The picks</span>
+      {picks.map((p) => (
+        <a href={`#pick-${p.id}`} key={p.id}>
+          {p.award}
+        </a>
+      ))}
+      {toc.length > 0 && <span className={b.tocGroup}>Buying guide</span>}
+      {toc.map((t) => (
+        <a key={t.id} href={`#${t.id}`}>
+          {t.title}
+        </a>
+      ))}
+      {row.faqs?.length ? <a href="#faqs">Your questions</a> : null}
+    </>
+  );
+  const tocCount = 1 + picks.length + toc.length + (row.faqs?.length ? 1 : 0);
 
   return (
     <div className={b.guide}>
@@ -92,30 +146,38 @@ export function BestGuide({
           <h1 className={b.title}>{row.title}</h1>
           <p className={b.summary}>{row.summary}</p>
           <ul className={b.facts}>
-            <li>
-              <strong>{picks.length}</strong>
-              <span>products compared</span>
-            </li>
-            <li>
-              <strong>Labels</strong>
-              <span>read on makers’ own sites</span>
-            </li>
-            <li>
-              <strong>No</strong>
-              <span>paid placements</span>
-            </li>
+            {facts.map((f) => (
+              <li key={f.label}>
+                <strong>{f.value}</strong>
+                <span>{f.label}</span>
+              </li>
+            ))}
           </ul>
-          <p className={b.byline}>
-            By{' '}
-            {writers.map((w, i) => (
-              <span key={w.slug}>
-                {i > 0 && ', '}
-                <Link href={`/author/${w.slug}`}>{getAuthorBySlug(w.slug)?.name ?? w.name}</Link>
+          <div className={b.byline}>
+            {people.map((p) => (
+              <div className={b.person} key={`${p.role}-${p.slug}`}>
+                <Image
+                  className={b.avatar}
+                  src={p.photo ?? '/images/logo.png'}
+                  alt=""
+                  width={38}
+                  height={38}
+                />
+                <span>
+                  <span className={b.role}>{p.role}</span>
+                  <Link href={`/author/${p.slug}`}>{p.name}</Link>
+                </span>
+              </div>
+            ))}
+            <div className={b.person}>
+              <span>
+                <span className={b.role}>
+                  {row.evidenceReviewed === false ? 'Updated · clinical review pending' : 'Updated'}
+                </span>
+                <span className={b.date}>{formatDate(row.updated_at)}</span>
               </span>
-            ))}{' '}
-            · Updated {formatDate(row.updated_at)} ·{' '}
-            {row.evidenceReviewed === false ? 'Clinical review pending' : 'Evidence reviewed'}
-          </p>
+            </div>
+          </div>
         </div>
 
         <aside className={b.topPick} aria-label="Our top pick">
@@ -147,8 +209,17 @@ export function BestGuide({
       </header>
 
       {/* ---------- One award per product ---------- */}
-      <nav className={b.awards} aria-label="Our picks at a glance">
-        <span className={b.kicker}>Our picks at a glance</span>
+      <nav
+        className={`${b.awards} ${picks.length <= 3 ? b.awardsFew : ''}`}
+        style={{ '--award-cols': picks.length } as CSSProperties}
+        aria-label="Our picks at a glance"
+      >
+        <div className={b.awardsHead}>
+          <span className={b.kicker}>Our picks at a glance</span>
+          <span className={b.swipeHint} aria-hidden="true">
+            Swipe to see all {picks.length} →
+          </span>
+        </div>
         <ol className={b.awardGrid}>
           {picks.map((p, i) => (
             <li key={p.id}>
@@ -214,6 +285,9 @@ export function BestGuide({
                 <tr key={p.id} className={i === 0 ? b.rowTop : undefined}>
                   <th scope="row">
                     <a className={b.tableProduct} href={`#pick-${p.id}`}>
+                      <span className={b.tableRank} aria-hidden="true">
+                        {i + 1}
+                      </span>
                       <span className={b.tableThumb}>
                         <Shot pick={p} sizes="48px" />
                       </span>
@@ -224,12 +298,12 @@ export function BestGuide({
                     </a>
                   </th>
                   {p.specs.map((s) => (
-                    <td key={s.label}>
+                    <td key={s.label} data-label={s.label}>
                       <strong>{s.value}</strong>
                       {s.note && <span>{s.note}</span>}
                     </td>
                   ))}
-                  <td>
+                  <td data-label="Vs. evidence" className={b.fitCell}>
                     <FitBadge pick={p} />
                   </td>
                 </tr>
@@ -241,27 +315,22 @@ export function BestGuide({
 
       {/* ---------- Detail, with a contents rail ---------- */}
       <div className={`review-layout ${b.layout}`}>
-        <aside className="review-sidebar">
+        <aside className={`review-sidebar ${b.sidebar}`}>
           <nav className={b.toc} aria-label="Table of contents">
             <h4>On this page</h4>
-            <a href="#compare">How they compare</a>
-            <span className={b.tocGroup}>The picks</span>
-            {picks.map((p) => (
-              <a href={`#pick-${p.id}`} key={p.id}>
-                {p.award}
-              </a>
-            ))}
-            {toc.length > 0 && <span className={b.tocGroup}>Buying guide</span>}
-            {toc.map((t) => (
-              <a key={t.id} href={`#${t.id}`}>
-                {t.title}
-              </a>
-            ))}
-            {row.faqs?.length ? <a href="#faqs">Your questions</a> : null}
+            {tocLinks}
           </nav>
         </aside>
 
         <div className={b.main}>
+          {/* Below 800px the rail would land mid-page as a long list, so the
+              same links fold into one menu at the top of the detail. */}
+          <details className={b.mobileToc}>
+            <summary>
+              On this page <span>{tocCount} sections</span>
+            </summary>
+            <nav aria-label="Table of contents">{tocLinks}</nav>
+          </details>
           <section id="picks" aria-labelledby="picks-title">
             <div className={b.sectionHead}>
               <span className={b.kicker}>{row.productsIntro?.label ?? 'The picks in detail'}</span>
@@ -294,6 +363,8 @@ export function BestGuide({
                     <p className={b.pickVerdict}>{p.verdict}</p>
                   </div>
                 </div>
+
+                <HandsOnBlock note={p.handsOn} />
 
                 <dl className={b.specGrid}>
                   {p.specs.map((s) => (
@@ -339,12 +410,29 @@ export function BestGuide({
                     </Link>
                   ) : (
                     <p className={b.unscored}>
-                      Not yet reviewed or scored on this site — judged on its label alone.
+                      Not yet reviewed or scored on this site.
                     </p>
                   )}
                   <div className={b.pickActions}>
-                    <a className="button" href={p.url} target="_blank" rel={relFor(p)}>
-                      Check price at {p.retailer} <ArrowUpRight size={16} aria-hidden="true" />
+                    {p.report && (
+                      <a className={b.reportLink} href={p.report.url} target="_blank" rel="noopener">
+                        <span className={b.actionIcon} aria-hidden="true">
+                          <FileText size={16} />
+                        </span>
+                        <span className={b.actionText}>
+                          <strong>View lab report</strong>
+                          <span>{p.report.label} · PDF</span>
+                        </span>
+                      </a>
+                    )}
+                    <a className={b.buyButton} href={p.url} target="_blank" rel={relFor(p)}>
+                      <span className={b.actionText}>
+                        <strong>Check price</strong>
+                        <span>at {p.retailer}</span>
+                      </span>
+                      <span className={b.actionIcon} aria-hidden="true">
+                        <ArrowUpRight size={17} />
+                      </span>
                     </a>
                   </div>
                   <p className={b.linkNote}>{linkNote(p)}</p>

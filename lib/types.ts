@@ -112,10 +112,42 @@ export type ShortlistPick = {
   source?: string;
   /** Category path of a published review, once one exists. */
   reviewSlug?: string;
+  /** First-hand notes from the named tester. Omitted until they are written. */
+  handsOn?: HandsOnNote;
+  /** A lab report readers can open in full; `label` names who issued it, e.g. "Labdoor". */
+  report?: { url: string; label: string };
+};
+
+/**
+ * What a named tester found using a product themselves. Only ever written from
+ * the tester's own notes: an empty field is left out, never filled in.
+ */
+export type HandsOnNote = {
+  /** Author slug of the tester. */
+  tester: string;
+  /** How long and how often, e.g. "Six weeks, one shake a day". */
+  used: string;
+  /** Where it was bought and what was paid, if the tester recorded it. */
+  bought?: string;
+  /** The note itself, in the tester's words. */
+  notes: string;
 };
 
 export type Collection = {
   authors?: { name: string; slug: string; type: 'Person' | 'Organization' }[];
+  /** Author slug of the person whose first-hand use the page rests on. */
+  testedBy?: string;
+  /**
+   * What the page is about, as named entities for the Article schema — the
+   * subject a search or answer engine should file it under. `sameAs` points
+   * at an unambiguous public definition, such as a Wikipedia article.
+   */
+  about?: { name: string; sameAs?: string }[];
+  /**
+   * Further JSON-LD nodes the page should carry, such as a Dataset describing
+   * lab results it publishes. Each is rendered as its own script block.
+   */
+  extraSchema?: Record<string, unknown>[];
   /** False until a named evidence reviewer has actually reviewed this article. */
   evidenceReviewed?: boolean;
   id: string;
@@ -159,6 +191,11 @@ export type Collection = {
    * says plainly that none exists until then.
    */
   shortlist?: ShortlistPick[];
+  /**
+   * The fact chips in a best-guide hero, e.g. { value: '9', label: 'powders
+   * lab-tested' }. Defaults to the number of picks and the label-reading method.
+   */
+  heroFacts?: { value: string; label: string }[];
   /**
    * The heading block above a /learn/ article's product cards. Defaults to the
    * wording the GLP-1 explainer uses, which describes supplements marketed for

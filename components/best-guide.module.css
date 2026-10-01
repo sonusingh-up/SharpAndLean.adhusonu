@@ -91,15 +91,51 @@
   color: var(--pine);
   font-weight: 700;
 }
+/* Everyone credited, each with a face; the date closes the row. */
 .byline {
-  margin: 22px 0 0;
-  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #1c2a2814;
+}
+.person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 13px;
 }
-.byline a {
+.person > span {
+  display: grid;
+  line-height: 1.3;
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  object-fit: cover;
+  background: var(--ink);
+  box-shadow: 0 2px 8px -3px #183b3766;
+}
+.role {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.person a {
   color: var(--ink);
+  font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: #1c2a2840;
   text-underline-offset: 3px;
+}
+.date {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .topPick {
@@ -748,6 +784,79 @@
   align-items: center;
   gap: 14px;
 }
+/* The two card actions share one shape: a pill with a two-line label and a
+   round icon, primary in pine, secondary outlined. */
+.buyButton,
+.reportLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 8px 8px 8px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.18s,
+    box-shadow 0.18s;
+}
+.buyButton {
+  border: 1px solid var(--pine);
+  background: var(--pine);
+  color: #fff;
+  box-shadow: 0 10px 22px -14px #183b37cc;
+}
+.buyButton:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+.reportLink {
+  padding: 8px 22px 8px 8px;
+  border: 1px solid #183b3733;
+  background: #fff;
+  color: var(--pine);
+}
+.reportLink:hover {
+  border-color: var(--pine);
+  background: #f4f8f5;
+}
+.buyButton:focus-visible,
+.reportLink:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.actionText {
+  display: grid;
+  line-height: 1.2;
+  text-align: left;
+}
+.actionText strong {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.actionText span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.actionIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+}
+.buyButton .actionIcon {
+  background: #ffffff1f;
+}
+.reportLink .actionIcon {
+  background: var(--cream);
+}
+.buyButton:hover .actionIcon {
+  background: var(--terracotta);
+}
 .pickFoot .linkNote {
   grid-column: 1 / -1;
   margin: 0;
@@ -802,7 +911,58 @@
   color: var(--pine);
 }
 
-/* ---------- Narrow screens ---------- */
+/* ---------- Pieces that only appear at some widths ---------- */
+
+.awardsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.swipeHint {
+  display: none;
+  color: var(--muted);
+  font-size: 12px;
+}
+.mobileToc {
+  display: none;
+}
+/* Two or three picks: one column each, rather than a half-empty row of three. */
+.awardsFew .awardGrid {
+  grid-template-columns: repeat(var(--award-cols), minmax(0, 1fr));
+}
+
+/* ---------- Comparison table refinements (desktop) ---------- */
+
+.tableRank {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--pine);
+  font-size: 12px;
+  font-weight: 700;
+}
+.rowTop .tableRank {
+  background: var(--pine);
+  color: #fff;
+}
+.table tbody tr:nth-child(even) th,
+.table tbody tr:nth-child(even) td {
+  background: #fcfbf8;
+}
+.table tbody tr:hover th,
+.table tbody tr:hover td {
+  background: #f7f4ee;
+}
+.fitCell {
+  white-space: nowrap;
+}
+
+/* ---------- Tablets ---------- */
 
 @media (max-width: 1000px) {
   .awardGrid {
@@ -822,54 +982,371 @@
   }
 }
 
+/* ---------- Below the two-column layout: one menu instead of a rail ---------- */
+
+@media (max-width: 800px) {
+  .layout .sidebar {
+    display: none;
+  }
+  .mobileToc {
+    display: block;
+    margin-bottom: 26px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 16px;
+    background: var(--paper);
+  }
+  .mobileToc summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+  }
+  .mobileToc summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobileToc summary span {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .mobileToc summary::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin: -4px 2px 0 0;
+    border-right: 2px solid var(--pine);
+    border-bottom: 2px solid var(--pine);
+    transform: rotate(45deg);
+    transition: transform 0.18s;
+  }
+  .mobileToc[open] summary::after {
+    margin-top: 4px;
+    transform: rotate(-135deg);
+  }
+  .mobileToc nav {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 2px 16px 18px;
+    font-size: 14px;
+  }
+  .mobileToc nav a {
+    color: var(--muted);
+  }
+}
+
+/* ---------- Comparison table as cards: tablets two across, phones one ---------- */
+
+@media (max-width: 900px) {
+  /* Comparison table: one labelled card per product */
+  .tableWrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .table {
+    display: block;
+    min-width: 0;
+  }
+  .table thead {
+    display: none;
+  }
+  .table tbody {
+    display: grid;
+    gap: 10px;
+  }
+  .table tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+    padding: 14px 16px 16px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 18px;
+    background: #fff;
+  }
+  .table tbody th,
+  .table tbody td,
+  .table tbody tr:nth-child(even) th,
+  .table tbody tr:nth-child(even) td,
+  .table tbody tr:hover th,
+  .table tbody tr:hover td {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .table tbody th,
+  .table tbody th:first-child {
+    position: static;
+    grid-column: 1 / -1;
+    min-width: 0;
+    padding: 0 0 12px !important;
+    border-bottom: 1px dashed var(--line);
+  }
+  .table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 3px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .table tbody td strong {
+    font-size: 15px;
+  }
+  .table tbody tr.rowTop {
+    border-color: var(--pine);
+    background: #f4f8f5;
+  }
+  .rowTop th,
+  .rowTop td {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .tableThumb {
+    width: 52px;
+    height: 52px;
+  }
+  .tableName {
+    font-size: 15px;
+  }
+  .fitCell {
+    white-space: normal;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .table tbody {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+/* ---------- Phones ---------- */
+
 @media (max-width: 700px) {
   .guide {
-    gap: 34px;
+    gap: 30px;
   }
+
+  /* Hero */
   .hero {
-    padding: 28px 18px 32px;
+    gap: 26px;
+    padding: 26px 18px 30px;
     border-radius: 24px;
   }
-  .summary {
-    font-size: 16px;
+  .title {
+    font-size: 32px;
   }
+  .summary {
+    margin-top: 16px;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .facts {
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .facts li {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+  .byline {
+    gap: 12px 16px;
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+  .avatar {
+    width: 34px;
+    height: 34px;
+  }
+  .topPick {
+    max-width: none;
+    padding: 26px 16px 18px;
+  }
+  .topMedia {
+    aspect-ratio: 16 / 9;
+  }
+  .topName {
+    font-size: 20px;
+  }
+
+  /* Award tiles become one swipeable row */
+  .swipeHint {
+    display: inline;
+  }
+  .awardGrid {
+    grid-template-columns: none;
+    grid-auto-columns: 82%;
+    grid-auto-flow: column;
+    margin: 0 -4px;
+    padding: 2px 4px 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .awardGrid::-webkit-scrollbar {
+    display: none;
+  }
+  .awardGrid > li {
+    scroll-snap-align: start;
+  }
+  /* Two or three picks fit without swiping: stack them instead. */
+  .awardsFew .swipeHint {
+    display: none;
+  }
+  .awardsFew .awardGrid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  /* Quick verdict */
   .verdict {
-    padding: 24px 20px;
+    gap: 14px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+  .verdictHead h2 {
+    font-size: 24px;
   }
   .verdictList {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
-  .awardGrid {
-    grid-template-columns: 1fr;
+  .verdictList li {
+    padding-left: 38px;
+    font-size: 14.5px;
   }
+  .verdictList li::before {
+    font-size: 20px;
+  }
+
+  /* Pick cards */
   .pick {
-    padding: 20px 18px;
+    margin-bottom: 16px;
+    padding: 20px 16px;
+    border-radius: 22px;
   }
+  .pickHead {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 12px;
+    row-gap: 8px;
+  }
+  .pickRank {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+  }
+  .pickTitle h3 {
+    font-size: 22px;
+  }
+  .pickHead .fit {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0;
+  }
+  /* Photo beside "best for"; the verdict runs full width underneath. */
   .pickGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 16px;
   }
-  .specGrid {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .pickInfo {
+    display: contents;
   }
   .pickMedia {
-    max-width: 220px;
-    width: 100%;
-    justify-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    width: 84px;
+    align-self: start;
+    border-radius: 14px;
+    font-size: 18px;
+  }
+  .bestFor {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    padding: 10px 12px;
+    font-size: 13.5px;
+  }
+  .pickVerdict {
+    grid-column: 1 / -1;
+    font-size: 15px;
+  }
+  /* Figures as label–value rows */
+  .specGrid {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .specGrid div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 10px 12px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .specGrid div:last-child {
+    border-bottom: 0;
+  }
+  .specGrid dt {
+    flex: none;
+  }
+  .specGrid dd {
+    margin: 0;
+    font-size: 14px;
+    text-align: right;
   }
   .prosCons {
     grid-template-columns: 1fr;
-  }
-  .pickHead {
-    flex-wrap: wrap;
+    margin-top: 16px;
   }
   .pickFoot {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .pickActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .pickActions > a {
+    width: 100%;
+  }
+  .buyButton {
+    justify-content: space-between;
   }
   .pickFoot .linkNote {
-    text-align: left;
+    text-align: center;
   }
-  .table th:first-child {
-    min-width: 170px;
+
+  /* Guide and more guides */
+  .guideBody {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+  .others h2 {
+    font-size: 22px;
   }
 }
