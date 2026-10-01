@@ -19,6 +19,11 @@ const config: NextConfig = {
       { protocol: 'https', hostname: 'images-na.ssl-images-amazon.com' },
       // Myprotein product imagery, served from THG's shared product CDN.
       { protocol: 'https', hostname: 'static.thcdn.com', pathname: '/productimg/**' },
+      // Naked Nutrition product imagery, from its own Shopify store; Naked Egg
+      // has no Amazon listing of its own to take an image from.
+      { protocol: 'https', hostname: 'nakednutrition.com', pathname: '/cdn/shop/files/**' },
+      // Bloom Nutrition's Shopify store, for its whey isolate image.
+      { protocol: 'https', hostname: 'cdn.shopify.com', pathname: '/s/files/1/0143/0952/3556/**' },
     ],
   },
   async headers() {

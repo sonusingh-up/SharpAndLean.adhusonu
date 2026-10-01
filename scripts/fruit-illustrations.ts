@@ -173,7 +173,167 @@ function peachHalf(x: number, y: number, r: number, rot: number) {
   </g>`;
 }
 
+/** A dried ashwagandha root: a long, tapering, lightly ringed taproot with rootlets. */
+function ashRoot(x: number, y: number, len: number, w: number, rot: number) {
+  const body = `M0 ${-w / 2} C${len * 0.3} ${-w * 0.62} ${len * 0.72} ${-w * 0.28} ${len} 0 C${len * 0.72} ${w * 0.26} ${len * 0.3} ${w * 0.58} 0 ${w / 2} C${-w * 0.2} ${w * 0.3} ${-w * 0.2} ${-w * 0.3} 0 ${-w / 2} Z`;
+  let rings = '';
+  for (let i = 1; i < 7; i++) {
+    const t = i / 7.5;
+    const hw = (w / 2) * (1 - t * 0.85);
+    rings += `<path d="M${len * t} ${-hw} C${len * t + 6} ${-hw * 0.3} ${len * t - 6} ${hw * 0.3} ${len * t} ${hw}" fill="none" stroke="#8a6238" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round"/>`;
+  }
+  const rootlets = [
+    [0.3, -1, 0.1],
+    [0.44, 1, 0.09],
+    [0.6, -1, 0.07],
+    [0.74, 1, 0.06],
+  ]
+    .map(([t, side, l]) => {
+      const sx = len * t;
+      const sy = side * (w / 2) * (1 - t * 0.85);
+      return `<path d="M${sx} ${sy} C${sx + len * l * 0.2} ${sy + side * 30} ${sx + len * l * 0.8} ${sy + side * 24} ${sx + len * l} ${sy + side * 48}" fill="none" stroke="#b58a58" stroke-width="${Math.max(3, w * 0.07)}" stroke-linecap="round"/>`;
+    })
+    .join('');
+  return `<g transform="translate(${x} ${y}) rotate(${rot})">
+    <path d="${body}" fill="#000" fill-opacity="0.1" transform="translate(10 18)"/>
+    ${rootlets}
+    <path d="${body}" fill="url(#ash-root)"/>
+    ${rings}
+    <ellipse cx="${-w * 0.02}" cy="0" rx="${w * 0.12}" ry="${w * 0.42}" fill="#e8d2ad"/>
+    <ellipse cx="${len * 0.3}" cy="${-w * 0.26}" rx="${len * 0.16}" ry="${w * 0.07}" fill="#fff" fill-opacity="0.25"/>
+  </g>`;
+}
+
+/** An ashwagandha leaf: a broad oval with a midrib. */
+function ashLeaf(x: number, y: number, s: number, rot: number) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <path d="M0 0 C40 -70 170 -80 230 0 C170 80 40 70 0 0 Z" fill="url(#ash-leaf)"/>
+    <path d="M0 0 C80 -4 160 -2 226 0" fill="none" stroke="#4d7a3c" stroke-width="5" stroke-linecap="round"/>
+    ${[50, 100, 150]
+      .map(
+        (px) =>
+          `<path d="M${px} 0 L${px + 34} -34 M${px} 0 L${px + 34} 34" stroke="#4d7a3c" stroke-opacity="0.6" stroke-width="3" stroke-linecap="round"/>`,
+      )
+      .join('')}
+  </g>`;
+}
+
+/** The "winter cherry": a red berry sitting in its opened papery husk. */
+function ashBerry(x: number, y: number, r: number, open: boolean) {
+  const husk = open
+    ? `<path d="M0 ${r * 0.9} C${-r * 1.6} ${r * 0.6} ${-r * 1.7} ${-r * 1.1} ${-r * 0.4} ${-r * 1.9} C${-r * 0.6} ${-r * 0.8} ${-r * 0.4} ${r * 0.2} 0 ${r * 0.9} Z" fill="#d9a05b"/>
+       <path d="M0 ${r * 0.9} C${r * 1.6} ${r * 0.6} ${r * 1.7} ${-r * 1.1} ${r * 0.4} ${-r * 1.9} C${r * 0.6} ${-r * 0.8} ${r * 0.4} ${r * 0.2} 0 ${r * 0.9} Z" fill="#c98a45"/>`
+    : `<path d="M0 ${-r * 1.9} C${r * 1.3} ${-r * 1.3} ${r * 1.4} ${r * 0.6} 0 ${r * 1.2} C${-r * 1.4} ${r * 0.6} ${-r * 1.3} ${-r * 1.3} 0 ${-r * 1.9} Z" fill="#d9a05b"/>
+       <path d="M0 ${-r * 1.9} C${r * 0.4} ${-r * 0.8} ${r * 0.4} ${r * 0.4} 0 ${r * 1.2}" fill="none" stroke="#b07a3c" stroke-width="4"/>`;
+  const berry = open
+    ? `<circle cy="${-r * 0.1}" r="${r}" fill="url(#ash-berry)"/>
+       <ellipse cx="${-r * 0.35}" cy="${-r * 0.45}" rx="${r * 0.28}" ry="${r * 0.14}" fill="#fff" fill-opacity="0.5" transform="rotate(-30 ${-r * 0.35} ${-r * 0.45})"/>`
+    : '';
+  return `<g transform="translate(${x} ${y})">${husk}${berry}</g>`;
+}
+
+/** A two-tone capsule. */
+function capsule(x: number, y: number, rot: number) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot})">
+    <rect x="-86" y="-30" width="172" height="60" rx="30" fill="#000" fill-opacity="0.1" transform="translate(6 12)"/>
+    <path d="M0 -30 H-56 A30 30 0 0 0 -56 30 H0 Z" fill="${C.pine}"/>
+    <path d="M0 -30 H56 A30 30 0 0 1 56 30 H0 Z" fill="#efe4cf"/>
+    <rect x="-70" y="-20" width="56" height="9" rx="4.5" fill="#fff" fill-opacity="0.25"/>
+    <rect x="14" y="-20" width="56" height="9" rx="4.5" fill="#fff" fill-opacity="0.6"/>
+  </g>`;
+}
+
 const pieces: Record<string, () => string> = {
+  ashwagandha() {
+    let g =
+      `<defs>
+        <linearGradient id="ash-root" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2c393"/><stop offset="0.55" stop-color="#c79c64"/><stop offset="1" stop-color="#a37645"/></linearGradient>
+        <linearGradient id="ash-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fb86a"/><stop offset="1" stop-color="#5f8f48"/></linearGradient>
+        <radialGradient id="ash-berry" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ff8a6a"/><stop offset="0.55" stop-color="#e0473a"/><stop offset="1" stop-color="#a82a24"/></radialGradient>
+        <radialGradient id="ash-powder" cx="0.5" cy="0.3" r="0.7"><stop offset="0" stop-color="#ecd8b4"/><stop offset="1" stop-color="#cfaf7c"/></radialGradient>
+        <linearGradient id="bowl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9e2d6"/></linearGradient>
+      </defs>` + background();
+    g += plate(1080, 800, 740, 320);
+    // sprig behind the plate: stem, leaves, berries in their husks
+    g += `<path d="M1500 420 C1620 360 1760 330 1930 300" fill="none" stroke="#5e7d45" stroke-width="14" stroke-linecap="round"/>`;
+    g += ashLeaf(1560, 400, 1.15, -60);
+    g += ashLeaf(1680, 350, 1.05, 30);
+    g += ashLeaf(1800, 320, 1.1, -55);
+    g += ashLeaf(1880, 305, 0.9, 20);
+    g += ashBerry(1640, 470, 34, true);
+    g += ashBerry(1770, 430, 32, false);
+    g += ashBerry(1900, 390, 30, true);
+    // roots on the plate
+    g += ashRoot(560, 700, 900, 78, 4);
+    g += ashRoot(640, 820, 780, 66, -3);
+    g += ashRoot(600, 930, 640, 56, -9);
+    // bowl of root powder
+    g += `<ellipse cx="1760" cy="1000" rx="300" ry="40" fill="#000" fill-opacity="0.08"/>`;
+    g += `<path d="M1480 790 C1495 930 1600 990 1760 990 C1920 990 2025 930 2040 790 Z" fill="url(#bowl)"/>`;
+    g += `<ellipse cx="1760" cy="790" rx="280" ry="54" fill="#f3ede3"/>`;
+    g += `<path d="M1510 796 C1560 700 1680 660 1760 662 C1850 660 1960 700 2010 796 C1900 830 1620 830 1510 796 Z" fill="url(#ash-powder)"/>`;
+    g += `<ellipse cx="1700" cy="700" rx="70" ry="16" fill="#fff" fill-opacity="0.3"/>`;
+    // capsules in front
+    g += capsule(1330, 1120, -12);
+    g += capsule(1540, 1160, 18);
+    return g;
+  },
+  'ashwagandha-daily'() {
+    let g =
+      `<defs>
+        <linearGradient id="ash-root" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2c393"/><stop offset="0.55" stop-color="#c79c64"/><stop offset="1" stop-color="#a37645"/></linearGradient>
+        <linearGradient id="ash-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fb86a"/><stop offset="1" stop-color="#5f8f48"/></linearGradient>
+        <radialGradient id="ash-berry" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ff8a6a"/><stop offset="0.55" stop-color="#e0473a"/><stop offset="1" stop-color="#a82a24"/></radialGradient>
+        <radialGradient id="ash-powder" cx="0.5" cy="0.3" r="0.7"><stop offset="0" stop-color="#ecd8b4"/><stop offset="1" stop-color="#cfaf7c"/></radialGradient>
+        <linearGradient id="bowl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9e2d6"/></linearGradient>
+        <linearGradient id="organiser" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a5a52"/><stop offset="1" stop-color="${C.pine}"/></linearGradient>
+        <linearGradient id="mug" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9e2d6"/><stop offset="0.4" stop-color="#ffffff"/><stop offset="1" stop-color="#e2d9ca"/></linearGradient>
+        <radialGradient id="milk" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f6e6c8"/><stop offset="1" stop-color="#e6cfa4"/></radialGradient>
+      </defs>` + background();
+    // sprig, top right
+    g += `<path d="M1560 300 C1680 250 1820 230 1990 210" fill="none" stroke="#5e7d45" stroke-width="14" stroke-linecap="round"/>`;
+    g += ashLeaf(1620, 285, 1.05, -60);
+    g += ashLeaf(1740, 250, 1, 28);
+    g += ashLeaf(1860, 225, 1.05, -55);
+    g += ashBerry(1700, 350, 32, true);
+    g += ashBerry(1840, 315, 30, false);
+    // seven-day organiser: a tray of lidless compartments, one capsule each
+    const ox = 250;
+    const oy = 560;
+    const cw = 196;
+    const ch = 250;
+    const gap = 16;
+    const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+    const trayW = 7 * cw + 8 * gap;
+    g += `<rect x="${ox + 14}" y="${oy + 30}" width="${trayW}" height="${ch + 2 * gap + 40}" rx="36" fill="#000" fill-opacity="0.1"/>`;
+    g += `<rect x="${ox}" y="${oy}" width="${trayW}" height="${ch + 2 * gap + 40}" rx="36" fill="url(#organiser)"/>`;
+    days.forEach((d, i) => {
+      const x = ox + gap + i * (cw + gap);
+      const y = oy + gap;
+      g += `<rect x="${x}" y="${y}" width="${cw}" height="${ch}" rx="24" fill="#f7f2e9"/>`;
+      g += `<rect x="${x}" y="${y}" width="${cw}" height="${ch * 0.3}" rx="24" fill="#000" fill-opacity="0.05"/>`;
+      g += `<text x="${x + cw / 2}" y="${oy + ch + gap + 34}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#f3efe7" fill-opacity="0.85">${d}</text>`;
+      // the days already taken are empty; today and the rest hold a capsule
+      if (i >= 3) g += capsule(x + cw / 2, y + ch * 0.58, i % 2 ? 24 : -18);
+    });
+    // mug of warm milk, right
+    g += `<ellipse cx="2020" cy="1150" rx="230" ry="34" fill="#000" fill-opacity="0.08"/>`;
+    g += `<path d="M2170 880 C2270 880 2290 1040 2170 1060" fill="none" stroke="#e2d9ca" stroke-width="34" stroke-linecap="round"/>`;
+    g += `<path d="M1840 820 L1860 1110 C1862 1135 1885 1150 1910 1150 L2110 1150 C2135 1150 2158 1135 2160 1110 L2180 820 Z" fill="url(#mug)"/>`;
+    g += `<ellipse cx="2010" cy="820" rx="170" ry="36" fill="#efe7da"/>`;
+    g += `<ellipse cx="2010" cy="824" rx="150" ry="28" fill="url(#milk)"/>`;
+    g += `<path d="M1960 760 C1930 720 1990 690 1960 650 M2040 770 C2010 730 2070 700 2040 660" fill="none" stroke="#c9bfae" stroke-opacity="0.7" stroke-width="10" stroke-linecap="round"/>`;
+    // small bowl of powder, front left
+    g += `<ellipse cx="560" cy="1210" rx="190" ry="28" fill="#000" fill-opacity="0.08"/>`;
+    g += `<path d="M390 1080 C400 1170 470 1205 560 1205 C650 1205 720 1170 730 1080 Z" fill="url(#bowl)"/>`;
+    g += `<ellipse cx="560" cy="1080" rx="170" ry="34" fill="#f3ede3"/>`;
+    g += `<path d="M408 1084 C440 1030 510 1010 560 1012 C615 1010 682 1030 712 1084 C640 1104 480 1104 408 1084 Z" fill="url(#ash-powder)"/>`;
+    // two roots resting by the bowl
+    g += ashRoot(800, 1150, 520, 50, -6);
+    g += ashRoot(860, 1240, 420, 42, 3);
+    return g;
+  },
+
   peaches() {
     let g =
       `<defs>

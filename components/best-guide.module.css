@@ -1,0 +1,1352 @@
+/* Best-of guide layout. Built from the site's own tokens — pine, cream,
+   ochre, terracotta and the peach-to-teal wash — but shaped as a buyer's
+   guide rather than an essay: answer first, evidence after. */
+
+.guide {
+  display: grid;
+  /* One column that never grows past the page, however wide its content. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 44px;
+  margin-top: 8px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ochre);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Every product image sits in a positioned box; this fills it without
+   cropping the bottle. */
+.shotImg {
+  object-fit: contain;
+  padding: 8%;
+}
+.shotBlank {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--pine);
+  font-family: var(--serif);
+  font-size: 1.6em;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 48px;
+  border-radius: 32px;
+  background: var(--wash);
+}
+.heroText {
+  min-width: 0;
+}
+.title {
+  margin: 16px 0 0;
+  color: var(--ink);
+  font-size: clamp(34px, 4.4vw, 58px);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+.summary {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.7;
+}
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 9px 14px;
+  border: 1px solid #ffffff90;
+  border-radius: 999px;
+  background: #ffffffa8;
+  color: var(--muted);
+  font-size: 13px;
+  backdrop-filter: blur(6px);
+}
+.facts strong {
+  color: var(--pine);
+  font-weight: 700;
+}
+/* Everyone credited, each with a face; the date closes the row. */
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #1c2a2814;
+}
+.person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.person > span {
+  display: grid;
+  line-height: 1.3;
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  object-fit: cover;
+  background: var(--ink);
+  box-shadow: 0 2px 8px -3px #183b3766;
+}
+.role {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.person a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #1c2a2840;
+  text-underline-offset: 3px;
+}
+.date {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.topPick {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 22px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow:
+    0 1px 0 #1c2a2808,
+    0 24px 50px -24px #183b3766;
+}
+.ribbon {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--pine);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.topMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 8px 0 12px;
+  border-radius: 16px;
+  background: var(--cream);
+}
+.topBrand {
+  color: var(--ochre);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.topName {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.topFor {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.topStats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+.topStats div {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--cream);
+}
+.topStats dt {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.topStats dd {
+  margin: 2px 0 0;
+  color: var(--pine);
+  font-size: 16px;
+  font-weight: 600;
+}
+.buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--pine);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+.buy:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+.why {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--pine);
+  font-size: 13px;
+  font-weight: 600;
+}
+.linkNote {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+/* ---------- Award tiles ---------- */
+
+.awards {
+  display: grid;
+  gap: 14px;
+}
+.awardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Image on the left, award, name and headline figure stacked beside it. */
+.awardTile {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  column-gap: 14px;
+  row-gap: 4px;
+  height: 100%;
+  padding: 16px 16px 14px;
+  border: 1px solid var(--cream-deep);
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    border-color 0.18s,
+    transform 0.18s,
+    box-shadow 0.18s;
+}
+.awardTile:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -20px #183b3780;
+}
+.awardTop {
+  border-color: var(--pine);
+  background: var(--pine);
+  color: #fff;
+}
+.awardRank {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 18px;
+}
+.awardTop .awardRank {
+  color: #ffffff99;
+}
+.awardThumb {
+  position: relative;
+  grid-row: 1 / 4;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: #fff;
+  font-size: 14px;
+}
+.awardLabel {
+  padding-right: 26px;
+  color: var(--ochre);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.awardTop .awardLabel {
+  color: var(--ochre-light);
+}
+.awardName {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.awardHeadline {
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  color: var(--pine);
+  font-size: 13px;
+  font-weight: 700;
+}
+.awardTop .awardHeadline {
+  border-top-color: #ffffff40;
+  color: #fff;
+}
+
+/* ---------- Quick verdict ---------- */
+
+.verdict {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+  gap: 32px;
+  padding: 34px 36px;
+  border: 1px solid var(--cream-deep);
+  border-radius: 26px;
+  background: var(--cream);
+}
+.verdictHead h2 {
+  margin: 10px 0 0;
+  color: var(--pine);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.15;
+}
+.verdictList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: verdict;
+}
+.verdictList li {
+  position: relative;
+  padding-left: 44px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
+  counter-increment: verdict;
+}
+.verdictList li::before {
+  content: counter(verdict, decimal-leading-zero);
+  position: absolute;
+  top: -2px;
+  left: 0;
+  color: var(--terracotta);
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* ---------- Section headings ---------- */
+
+.sectionHead {
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+.sectionHead h2 {
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 300;
+  line-height: 1.15;
+}
+.sectionHead p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---------- Comparison table ---------- */
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--cream-deep);
+  border-radius: 22px;
+  background: #fff;
+}
+.tableWrap:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+.table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13.5px;
+}
+.table thead th {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--cream-deep);
+  background: var(--cream);
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.table tbody th,
+.table tbody td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+/* The product column stays put while the figures scroll beneath it. */
+.table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 210px;
+  padding-left: 18px !important;
+}
+.table thead th:first-child {
+  background: var(--cream);
+}
+.table tbody th {
+  background: #fff;
+}
+.table tbody td strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.table tbody td span:not([class]) {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.rowTop th,
+.rowTop td {
+  background: #f1f6f2 !important;
+}
+.rowTop th {
+  box-shadow: inset 4px 0 0 var(--pine);
+}
+.tableProduct {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+}
+.tableThumb {
+  position: relative;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--cream);
+  font-size: 11px;
+}
+.tableAward {
+  display: block;
+  color: var(--ochre);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tableName {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.fit {
+  display: inline-block;
+  flex: none;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fitGood {
+  background: #e3eee7;
+  color: var(--pine);
+}
+.fitMixed {
+  background: #f6eedd;
+  color: #7d5f2a;
+}
+.fitPoor {
+  background: #fbe9e2;
+  color: #a4462f;
+}
+
+/* ---------- Contents rail ---------- */
+
+.layout {
+  margin-top: 0;
+}
+.toc {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 22px 20px;
+  border: 1px solid var(--cream-deep);
+  border-radius: 20px;
+  background: var(--paper);
+  font-size: 13px;
+}
+.toc h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.toc a {
+  color: var(--muted);
+  line-height: 1.35;
+}
+.toc a:hover {
+  color: var(--ink);
+}
+.tocGroup {
+  margin-top: 8px;
+  color: var(--ochre);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.main {
+  min-width: 0;
+}
+
+/* ---------- Product cards ---------- */
+
+.pick {
+  margin-bottom: 22px;
+  padding: 28px;
+  border: 1px solid var(--cream-deep);
+  border-radius: 26px;
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+.pickHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.pickRank {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: var(--pine);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 22px;
+}
+.pickTitle {
+  flex: 1;
+  min-width: 0;
+}
+.pickAward {
+  color: var(--ochre);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pickTitle h3 {
+  margin: 4px 0 2px;
+  color: var(--ink);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+.pickBrand {
+  color: var(--muted);
+  font-size: 13px;
+}
+.pickHead .fit {
+  margin-top: 4px;
+}
+
+.pickGrid {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 22px;
+}
+.pickMedia {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  background: var(--cream);
+  font-size: 28px;
+}
+.pickInfo {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+.bestFor {
+  margin: 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--teal);
+  border-radius: 0 12px 12px 0;
+  background: #eef5f2;
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.bestFor span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--teal);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+/* One equal-width row, however many figures a guide uses; wraps on phones. */
+.specGrid {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: 8px;
+  margin: 20px 0 0;
+}
+.specGrid div {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.specGrid dt {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.specGrid dd {
+  margin: 3px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+.specGrid dd span {
+  display: block;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 400;
+}
+
+.prosCons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.pros,
+.cons {
+  padding: 16px 18px;
+  border-radius: 16px;
+}
+.pros {
+  background: #eef5f0;
+}
+.cons {
+  background: #fdf2ed;
+}
+.pros h4,
+.cons h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.pros h4 {
+  color: var(--pine);
+}
+.cons h4 {
+  color: #a4462f;
+}
+.pros ul,
+.cons ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pros li,
+.cons li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 6px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.pros svg {
+  margin-top: 2px;
+  color: var(--pine);
+}
+.cons svg {
+  margin-top: 2px;
+  color: var(--terracotta);
+}
+
+.pickVerdict {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.pickFoot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.unscored {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-style: italic;
+}
+.pickActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+/* The two card actions share one shape: a pill with a two-line label and a
+   round icon, primary in pine, secondary outlined. */
+.buyButton,
+.reportLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 8px 8px 8px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.18s,
+    box-shadow 0.18s;
+}
+.buyButton {
+  border: 1px solid var(--pine);
+  background: var(--pine);
+  color: #fff;
+  box-shadow: 0 10px 22px -14px #183b37cc;
+}
+.buyButton:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+.reportLink {
+  padding: 8px 22px 8px 8px;
+  border: 1px solid #183b3733;
+  background: #fff;
+  color: var(--pine);
+}
+.reportLink:hover {
+  border-color: var(--pine);
+  background: #f4f8f5;
+}
+.buyButton:focus-visible,
+.reportLink:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.actionText {
+  display: grid;
+  line-height: 1.2;
+  text-align: left;
+}
+.actionText strong {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.actionText span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.actionIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+}
+.buyButton .actionIcon {
+  background: #ffffff1f;
+}
+.reportLink .actionIcon {
+  background: var(--cream);
+}
+.buyButton:hover .actionIcon {
+  background: var(--terracotta);
+}
+.pickFoot .linkNote {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: right;
+}
+
+/* ---------- Buying guide, FAQs, more guides ---------- */
+
+.guideBody {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.faqs {
+  margin-top: 16px;
+}
+
+.others h2 {
+  margin: 0 0 16px;
+  font-size: 26px;
+  font-weight: 300;
+}
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.otherCard {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--cream-deep);
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.otherCard strong {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.otherCard span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.otherCard svg {
+  color: var(--pine);
+}
+
+/* ---------- Pieces that only appear at some widths ---------- */
+
+.awardsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.swipeHint {
+  display: none;
+  color: var(--muted);
+  font-size: 12px;
+}
+.mobileToc {
+  display: none;
+}
+/* Two or three picks: one column each, rather than a half-empty row of three. */
+.awardsFew .awardGrid {
+  grid-template-columns: repeat(var(--award-cols), minmax(0, 1fr));
+}
+
+/* ---------- Comparison table refinements (desktop) ---------- */
+
+.tableRank {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--pine);
+  font-size: 12px;
+  font-weight: 700;
+}
+.rowTop .tableRank {
+  background: var(--pine);
+  color: #fff;
+}
+.table tbody tr:nth-child(even) th,
+.table tbody tr:nth-child(even) td {
+  background: #fcfbf8;
+}
+.table tbody tr:hover th,
+.table tbody tr:hover td {
+  background: #f7f4ee;
+}
+.fitCell {
+  white-space: nowrap;
+}
+
+/* ---------- Tablets ---------- */
+
+@media (max-width: 1000px) {
+  .awardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 36px 28px 40px;
+  }
+  .topPick {
+    max-width: 440px;
+    margin-top: 10px;
+  }
+  .verdict {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ---------- Below the two-column layout: one menu instead of a rail ---------- */
+
+@media (max-width: 800px) {
+  .layout .sidebar {
+    display: none;
+  }
+  .mobileToc {
+    display: block;
+    margin-bottom: 26px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 16px;
+    background: var(--paper);
+  }
+  .mobileToc summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+  }
+  .mobileToc summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobileToc summary span {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .mobileToc summary::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin: -4px 2px 0 0;
+    border-right: 2px solid var(--pine);
+    border-bottom: 2px solid var(--pine);
+    transform: rotate(45deg);
+    transition: transform 0.18s;
+  }
+  .mobileToc[open] summary::after {
+    margin-top: 4px;
+    transform: rotate(-135deg);
+  }
+  .mobileToc nav {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 2px 16px 18px;
+    font-size: 14px;
+  }
+  .mobileToc nav a {
+    color: var(--muted);
+  }
+}
+
+/* ---------- Comparison table as cards: tablets two across, phones one ---------- */
+
+@media (max-width: 900px) {
+  /* Comparison table: one labelled card per product */
+  .tableWrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .table {
+    display: block;
+    min-width: 0;
+  }
+  .table thead {
+    display: none;
+  }
+  .table tbody {
+    display: grid;
+    gap: 10px;
+  }
+  .table tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+    padding: 14px 16px 16px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 18px;
+    background: #fff;
+  }
+  .table tbody th,
+  .table tbody td,
+  .table tbody tr:nth-child(even) th,
+  .table tbody tr:nth-child(even) td,
+  .table tbody tr:hover th,
+  .table tbody tr:hover td {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .table tbody th,
+  .table tbody th:first-child {
+    position: static;
+    grid-column: 1 / -1;
+    min-width: 0;
+    padding: 0 0 12px !important;
+    border-bottom: 1px dashed var(--line);
+  }
+  .table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 3px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .table tbody td strong {
+    font-size: 15px;
+  }
+  .table tbody tr.rowTop {
+    border-color: var(--pine);
+    background: #f4f8f5;
+  }
+  .rowTop th,
+  .rowTop td {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .tableThumb {
+    width: 52px;
+    height: 52px;
+  }
+  .tableName {
+    font-size: 15px;
+  }
+  .fitCell {
+    white-space: normal;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .table tbody {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 700px) {
+  .guide {
+    gap: 30px;
+  }
+
+  /* Hero */
+  .hero {
+    gap: 26px;
+    padding: 26px 18px 30px;
+    border-radius: 24px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .summary {
+    margin-top: 16px;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .facts {
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .facts li {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+  .byline {
+    gap: 12px 16px;
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+  .avatar {
+    width: 34px;
+    height: 34px;
+  }
+  .topPick {
+    max-width: none;
+    padding: 26px 16px 18px;
+  }
+  .topMedia {
+    aspect-ratio: 16 / 9;
+  }
+  .topName {
+    font-size: 20px;
+  }
+
+  /* Award tiles become one swipeable row */
+  .swipeHint {
+    display: inline;
+  }
+  .awardGrid {
+    grid-template-columns: none;
+    grid-auto-columns: 82%;
+    grid-auto-flow: column;
+    margin: 0 -4px;
+    padding: 2px 4px 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .awardGrid::-webkit-scrollbar {
+    display: none;
+  }
+  .awardGrid > li {
+    scroll-snap-align: start;
+  }
+  /* Two or three picks fit without swiping: stack them instead. */
+  .awardsFew .swipeHint {
+    display: none;
+  }
+  .awardsFew .awardGrid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  /* Quick verdict */
+  .verdict {
+    gap: 14px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+  .verdictHead h2 {
+    font-size: 24px;
+  }
+  .verdictList {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .verdictList li {
+    padding-left: 38px;
+    font-size: 14.5px;
+  }
+  .verdictList li::before {
+    font-size: 20px;
+  }
+
+  /* Pick cards */
+  .pick {
+    margin-bottom: 16px;
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+  .pickHead {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 12px;
+    row-gap: 8px;
+  }
+  .pickRank {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+  }
+  .pickTitle h3 {
+    font-size: 22px;
+  }
+  .pickHead .fit {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0;
+  }
+  /* Photo beside "best for"; the verdict runs full width underneath. */
+  .pickGrid {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .pickInfo {
+    display: contents;
+  }
+  .pickMedia {
+    grid-column: 1;
+    grid-row: 1;
+    width: 84px;
+    align-self: start;
+    border-radius: 14px;
+    font-size: 18px;
+  }
+  .bestFor {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    padding: 10px 12px;
+    font-size: 13.5px;
+  }
+  .pickVerdict {
+    grid-column: 1 / -1;
+    font-size: 15px;
+  }
+  /* Figures as label–value rows */
+  .specGrid {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .specGrid div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 10px 12px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .specGrid div:last-child {
+    border-bottom: 0;
+  }
+  .specGrid dt {
+    flex: none;
+  }
+  .specGrid dd {
+    margin: 0;
+    font-size: 14px;
+    text-align: right;
+  }
+  .prosCons {
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
+  .pickFoot {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .pickActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .pickActions > a {
+    width: 100%;
+  }
+  .buyButton {
+    justify-content: space-between;
+  }
+  .pickFoot .linkNote {
+    text-align: center;
+  }
+
+  /* Guide and more guides */
+  .guideBody {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+  .others h2 {
+    font-size: 22px;
+  }
+}

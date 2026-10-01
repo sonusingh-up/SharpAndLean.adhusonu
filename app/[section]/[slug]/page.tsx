@@ -12,7 +12,17 @@ import { RichText } from '@/components/rich-text';
 import { ProteinCalculator } from '@/components/protein-calculator';
 import { VitaminChecker } from '@/components/vitamin-checker';
 import { ServingCostCalculator } from '@/components/serving-cost-calculator';
-import { FruitComparison } from '@/components/fruit-comparison';
+import { BestGuide } from '@/components/best-guide';
+import { ProteinLabResults, ProteinOthers } from '@/components/protein-lab';
+import {
+  AshwagandhaEvidence,
+  AshwagandhaFit,
+  AshwagandhaPlan,
+  AshwagandhaDailyTimeline,
+  AshwagandhaBodyChanges,
+  AshwagandhaBuyChecklist,
+  AshwagandhaExtracts,
+} from '@/components/ashwagandha-guide';
 import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
 import { ReferenceBox, PageHistory } from '@/components/article-footer';
@@ -46,7 +56,15 @@ const articleTools = {
   'protein-calculator': <ProteinCalculator />,
   'vitamin-checker': <VitaminChecker />,
   'serving-cost-calculator': <ServingCostCalculator />,
-  'fruit-comparison': <FruitComparison />,
+  'ashwagandha-evidence': <AshwagandhaEvidence />,
+  'ashwagandha-fit': <AshwagandhaFit />,
+  'ashwagandha-plan': <AshwagandhaPlan />,
+  'ashwagandha-daily-timeline': <AshwagandhaDailyTimeline />,
+  'ashwagandha-body-changes': <AshwagandhaBodyChanges />,
+  'ashwagandha-buy-checklist': <AshwagandhaBuyChecklist />,
+  'ashwagandha-extracts': <AshwagandhaExtracts />,
+  'protein-lab-results': <ProteinLabResults />,
+  'protein-others': <ProteinOthers />,
 };
 
 export async function generateStaticParams() {
@@ -563,18 +581,145 @@ export default async function DetailPage({
   const articleAuthors = row.authors ?? [
     { name: teamProfile.name, slug: teamProfile.slug, type: 'Organization' as const },
   ];
-  const evidenceReviewed = section === 'learn' && row.evidenceReviewed !== false;
-  return (
-    <SiteShell>
-      <ExtendedAccess
-        id={articleId}
-        headline={articleHeadline}
+  // Learn articles are reviewed unless they say otherwise; a best-of guide only
+  // when it says so, because older shortlists predate the review byline.
+  const evidenceReviewed =
+    section === 'best'
+      ? row.evidenceReviewed === true
+      : section === 'learn' && row.evidenceReviewed !== false;
+  const tester = row.testedBy ? getAuthorBySlug(row.testedBy) : undefined;
+  const sectionCrumb = {
+    label: section === 'best' ? 'Best-of guides' : section === 'compare' ? 'Comparisons' : 'Learn',
+    path: `/${section}`,
+  };
+  const extendedAccess = (
+    <ExtendedAccess
+      id={articleId}
+      headline={articleHeadline}
+      path={pagePath}
+      datePublished={row.published_at}
+      dateModified={row.updated_at}
+      image={articleImage}
+      author={articleAuthors}
+    />
+  );
+  // Shared by both layouts below, so a best-of guide carries the same
+  // article, page and FAQ markup as every other editorial page.
+  const schemas = !demoMode && (
+    <>
+      {/* reviewedBy and lastReviewed are WebPage properties in schema.org;
+              on the Article they were flagged as unknown. */}
+      <WebPageSchema
+        name={articleHeadline}
+        description={row.seo_desc || row.summary}
         path={pagePath}
         datePublished={row.published_at}
         dateModified={row.updated_at}
+        reviewedBy={
+          evidenceReviewed
+            ? { slug: authorProfile.slug, name: authorProfile.name, title: authorProfile.title }
+            : null
+        }
+        lastReviewed={evidenceReviewed ? row.updated_at : null}
+        mainEntity={articleId}
         image={articleImage}
-        author={articleAuthors}
       />
+      {row.faqs?.length ? <FaqSchema faqs={row.faqs} /> : null}
+      <JsonLd
+        data={{
+          '@type': 'Article',
+          '@id': articleId,
+          headline: articleHeadline,
+          description: row.summary,
+          url: pageUrl,
+          mainEntityOfPage: pageUrl,
+          image: absoluteUrl(articleImage),
+          inLanguage: 'en-US',
+          datePublished: row.published_at,
+          dateModified: row.updated_at,
+          author: articleAuthors.map((writer) => ({
+            '@type': writer.type,
+            name: writer.name,
+            url: new URL(`/author/${writer.slug}`, siteUrl).href,
+          })),
+          // The person whose first-hand use the page rests on, credited apart
+          // from the writers so their notes are never read as the assessment.
+          ...(tester
+            ? {
+                contributor: {
+                  '@type': 'Person',
+                  name: tester.name,
+                  jobTitle: tester.title,
+                  url: new URL(`/author/${tester.slug}`, siteUrl).href,
+                },
+              }
+            : {}),
+          ...(row.about?.length
+            ? {
+                about: row.about.map((a) => ({
+                  '@type': 'Thing',
+                  name: a.name,
+                  ...(a.sameAs ? { sameAs: a.sameAs } : {}),
+                })),
+              }
+            : {}),
+          ...(row.references?.length
+            ? { citation: row.references.filter((c) => c.url).map((c) => c.url) }
+            : {}),
+          publisher: { '@id': `${siteUrl}/#organization` },
+          isPartOf: { '@id': `${siteUrl}/#website` },
+          ...(section === 'best' && (row.shortlist?.length || picks.length)
+            ? {
+                mainEntity: {
+                  '@type': 'ItemList',
+                  name: row.title,
+                  numberOfItems: row.shortlist?.length || picks.length,
+                  itemListElement: row.shortlist?.length
+                    ? row.shortlist.map((p, i) => ({
+                        '@type': 'ListItem',
+                        position: i + 1,
+                        url: `${pageUrl}#pick-${p.id}`,
+                        name: `${p.award}: ${p.name}`,
+                        description: p.bestFor,
+                        ...(p.image ? { image: p.image } : {}),
+                      }))
+                    : picks.map((r, i) => ({
+                        '@type': 'ListItem',
+                        position: i + 1,
+                        url: `${siteUrl}/${r.category_slug}/${r.slug}`,
+                        name: r.title,
+                      })),
+                },
+              }
+            : {}),
+        }}
+      />
+      {row.extraSchema?.map((node, i) => <JsonLd key={i} data={node} />)}
+    </>
+  );
+  // A best-of guide with a structured shortlist gets its own layout: the top
+  // pick first, then awards, a comparison table and a card per product.
+  if (section === 'best' && row.shortlist?.length) {
+    return (
+      <SiteShell>
+        {extendedAccess}
+        <article className="page-section">
+          <Breadcrumb items={[{ label: 'Best-of guides', href: '/best' }, { label: row.title }]} />
+          <BreadcrumbSchema items={[sectionCrumb, { label: row.title, path: `/${section}/${slug}` }]} />
+          <BestGuide
+            row={row}
+            toc={toc}
+            tools={articleTools}
+            others={collections.filter((c) => c.id !== row.id)}
+          />
+        </article>
+        {schemas}
+      </SiteShell>
+    );
+  }
+  return (
+    <SiteShell>
+      {extendedAccess}
       <article className="page-section">
         <Breadcrumb
           items={[
@@ -590,7 +735,7 @@ export default async function DetailPage({
             { label: row.title },
           ]}
         />
-        <BreadcrumbSchema items={[{ label: row.title, path: `/${section}/${slug}` }]} />
+        <BreadcrumbSchema items={[sectionCrumb, { label: row.title, path: `/${section}/${slug}` }]} />
         {demoMode && (
           <div className="notice">
             Sample layout · Fictional products. No product ranking or recommendation is implied.
@@ -846,69 +991,7 @@ export default async function DetailPage({
           </section>
         )}
       </article>
-      {!demoMode && (
-        <>
-          {/* reviewedBy and lastReviewed are WebPage properties in schema.org;
-              on the Article they were flagged as unknown. */}
-          <WebPageSchema
-            name={articleHeadline}
-            description={row.seo_desc || row.summary}
-            path={pagePath}
-            datePublished={row.published_at}
-            dateModified={row.updated_at}
-            reviewedBy={
-              evidenceReviewed
-                ? { slug: authorProfile.slug, name: authorProfile.name, title: authorProfile.title }
-                : null
-            }
-            lastReviewed={evidenceReviewed ? row.updated_at : null}
-            mainEntity={articleId}
-            image={articleImage}
-          />
-          {row.faqs?.length ? <FaqSchema faqs={row.faqs} /> : null}
-        </>
-      )}
-      {!demoMode && (
-        <JsonLd
-          data={{
-            '@type': 'Article',
-            '@id': articleId,
-            headline: articleHeadline,
-            description: row.summary,
-            url: pageUrl,
-            mainEntityOfPage: pageUrl,
-            image: absoluteUrl(articleImage),
-            inLanguage: 'en-US',
-            datePublished: row.published_at,
-            dateModified: row.updated_at,
-            author: articleAuthors.map((writer) => ({
-              '@type': writer.type,
-              name: writer.name,
-              url: new URL(`/author/${writer.slug}`, siteUrl).href,
-            })),
-            ...(row.references?.length
-              ? { citation: row.references.filter((c) => c.url).map((c) => c.url) }
-              : {}),
-            publisher: { '@id': `${siteUrl}/#organization` },
-            isPartOf: { '@id': `${siteUrl}/#website` },
-            ...(section === 'best' && picks.length
-              ? {
-                  mainEntity: {
-                    '@type': 'ItemList',
-                    name: row.title,
-                    numberOfItems: picks.length,
-                    itemListElement: picks.map((r, i) => ({
-                      '@type': 'ListItem',
-                      position: i + 1,
-                      url: `${siteUrl}/${r.category_slug}/${r.slug}`,
-                      name: r.title,
-                    })),
-                  },
-                }
-              : {}),
-          }}
-        />
-      )}
+      {schemas}
     </SiteShell>
   );
 }

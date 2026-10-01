@@ -78,8 +78,76 @@ export type Review = {
   history?: { date: string; note: string }[];
   product_name: string;
 };
+/** One product in a /best/ guide. See Collection.shortlist. */
+export type ShortlistPick = {
+  /** Anchor id on the page: #pick-<id>. */
+  id: string;
+  /** The award it wins, e.g. "Best overall". */
+  award: string;
+  name: string;
+  brand: string;
+  image?: string;
+  /** Where to buy: a retailer or manufacturer page. */
+  url: string;
+  /** Who the link goes to, for the button: "Amazon", "Life Extension". */
+  retailer: string;
+  /** Whether the link earns a commission. Only then does the card say so. */
+  affiliate: boolean;
+  /** One line on who should choose it. */
+  bestFor: string;
+  /** The figure on its award tile, e.g. "$0.37 a day". */
+  headline: string;
+  /**
+   * Figures for the comparison table. Every pick in a guide uses the same
+   * labels in the same order; the first pick's labels become the columns.
+   */
+  specs: { label: string; value: string; note?: string }[];
+  /** How the product lines up with the evidence, as a short badge. */
+  fit?: { label: string; tone: 'good' | 'mixed' | 'poor' };
+  pros: string[];
+  cons: string[];
+  /** The paragraph that explains the pick. */
+  verdict: string;
+  /** Where the label figures were read. Cited in the guide's references, not on the card. */
+  source?: string;
+  /** Category path of a published review, once one exists. */
+  reviewSlug?: string;
+  /** First-hand notes from the named tester. Omitted until they are written. */
+  handsOn?: HandsOnNote;
+  /** A lab report readers can open in full; `label` names who issued it, e.g. "Labdoor". */
+  report?: { url: string; label: string };
+};
+
+/**
+ * What a named tester found using a product themselves. Only ever written from
+ * the tester's own notes: an empty field is left out, never filled in.
+ */
+export type HandsOnNote = {
+  /** Author slug of the tester. */
+  tester: string;
+  /** How long and how often, e.g. "Six weeks, one shake a day". */
+  used: string;
+  /** Where it was bought and what was paid, if the tester recorded it. */
+  bought?: string;
+  /** The note itself, in the tester's words. */
+  notes: string;
+};
+
 export type Collection = {
   authors?: { name: string; slug: string; type: 'Person' | 'Organization' }[];
+  /** Author slug of the person whose first-hand use the page rests on. */
+  testedBy?: string;
+  /**
+   * What the page is about, as named entities for the Article schema — the
+   * subject a search or answer engine should file it under. `sameAs` points
+   * at an unambiguous public definition, such as a Wikipedia article.
+   */
+  about?: { name: string; sameAs?: string }[];
+  /**
+   * Further JSON-LD nodes the page should carry, such as a Dataset describing
+   * lab results it publishes. Each is rendered as its own script block.
+   */
+  extraSchema?: Record<string, unknown>[];
   /** False until a named evidence reviewer has actually reviewed this article. */
   evidenceReviewed?: boolean;
   id: string;
@@ -113,6 +181,21 @@ export type Collection = {
   product_b_id?: string;
   /** Figure published under the intro, same shape as a review's result image. */
   figure?: { src: string; alt: string; caption: string };
+  /**
+   * The products a /best/ guide names. When present, the page renders the
+   * best-guide layout — top pick, award tiles, comparison table and a card per
+   * pick — instead of the generic collection layout.
+   *
+   * Unlike `items`, a pick need not have a scored review behind it, so no card
+   * ever shows a score: it links to the review once `reviewSlug` is set and
+   * says plainly that none exists until then.
+   */
+  shortlist?: ShortlistPick[];
+  /**
+   * The fact chips in a best-guide hero, e.g. { value: '9', label: 'powders
+   * lab-tested' }. Defaults to the number of picks and the label-reading method.
+   */
+  heroFacts?: { value: string; label: string }[];
   /**
    * The heading block above a /learn/ article's product cards. Defaults to the
    * wording the GLP-1 explainer uses, which describes supplements marketed for

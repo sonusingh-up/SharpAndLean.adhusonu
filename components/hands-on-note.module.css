@@ -1,0 +1,48 @@
+/* A tester's first-hand notes: a quoted card with their photo, set apart from
+   the lab and label figures so the two kinds of evidence never blur. */
+
+.note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--cream-deep);
+  border-left: 4px solid var(--ochre);
+  border-radius: 0 16px 16px 0;
+  background: var(--paper);
+}
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+.label {
+  display: block;
+  color: var(--ochre);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.name {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.65;
+}
+.meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}

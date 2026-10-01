@@ -43,7 +43,16 @@ export function ReferenceBox({ references }: { references: Citation[] }) {
           {references.map((r) => (
             <li key={r.id} id={`ref-${r.id}`}>
               {r.text}
-              {r.url ? (
+              {r.url?.startsWith('/') ? (
+                // A document hosted on this site, such as a lab report PDF: a
+                // plain link, since the source chip previews external sites.
+                <>
+                  {' '}
+                  <a href={r.url} target="_blank" rel="noopener">
+                    Open {r.url.endsWith('.pdf') ? 'report (PDF)' : 'document'}
+                  </a>
+                </>
+              ) : r.url ? (
                 <>
                   {' '}
                   <NotionMentionLink url={r.url} label="domain" prefetch="hover" />
