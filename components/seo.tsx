@@ -168,6 +168,8 @@ export function OrganizationSchema() {
           'Weight management supplements',
           'Nootropics',
         ],
+        // Profiles that speak for the same entity, so search engines can join them.
+        sameAs: ['https://www.instagram.com/sharpandlean/'],
         publishingPrinciples: `${siteUrl}/about`,
         ethicsPolicy: `${siteUrl}/affiliate-disclosure`,
       }}
