@@ -17,9 +17,9 @@ export const ashwagandhaBestBrand: Collection = {
   kind: 'best_lists',
   slug: 'ashwagandha-which-brand-is-the-best-to-buy-in-2026',
   title: 'Ashwagandha: Which brand is the best to buy in 2026?',
-  seo_title: 'Best Ashwagandha Brand to Buy in 2026: 6 Labels Compared',
+  seo_title: 'Best Ashwagandha Brand 2026: 6 Labels Compared',
   seo_desc:
-    'Which ashwagandha to buy in the US: six labels compared on extract, dose, withanolides and cost a day. Our pick is a 600 mg KSM-66 root extract for about 37¢ a day.',
+    'Six US ashwagandha labels compared on extract, dose, withanolides and cost a day. Our pick: a 600 mg KSM-66 root extract at about 37¢ a day.',
   summary:
     'The best ashwagandha is the one that matches the trials: a named root extract, 300 to 600 mg a day, with nothing hidden. We read six US labels. NOW’s 600 mg KSM-66 is our pick at about 37 cents a day; Jarrow’s 300 mg capsules suit a split dose; NOW’s 450 mg extract is the budget choice. Gummies cost four times as much a day and add sugar and vitamin D.',
   is_published: true,
@@ -50,15 +50,7 @@ export const ashwagandhaBestBrand: Collection = {
 <div data-tool="ashwagandha-buy-checklist"></div>
 
 <h2>KSM-66, Sensoril or plain root: which extract?</h2>
-<table>
-<thead><tr><th>Extract</th><th>What it is</th><th>Studied daily dose</th><th>Best for</th></tr></thead>
-<tbody>
-<tr><td><strong>KSM-66</strong></td><td>Root only, marketed as at least 5% withanolides</td><td>300–600 mg</td><td>Most people: it is the extract behind many of the stress and sleep trials</td></tr>
-<tr><td><strong>Sensoril</strong></td><td>Root and leaf, 10% withanolide glycosides</td><td>125–500 mg</td><td>Starting low; more concentrated, so smaller doses</td></tr>
-<tr><td><strong>Generic standardised extract</strong></td><td>Root, or root and leaf, with a stated withanolide %</td><td>Follow the label</td><td>Budget buyers who accept a less direct link to the trials</td></tr>
-<tr><td><strong>Root powder</strong></td><td>Dried ground root, not concentrated</td><td>Several grams (traditional)</td><td>Traditional use; weaker than trial extracts per capsule</td></tr>
-</tbody>
-</table>
+<div data-tool="ashwagandha-extracts"></div>
 <p>A higher milligram number is not a stronger product. Gaia’s capsule contains 350 mg but only 2.5 mg of withanolides; a 600 mg KSM-66 capsule has roughly 30 mg. Compare extracts and withanolides, not the big number on the front.</p>
 
 <h2>What to avoid</h2>
@@ -83,6 +75,10 @@ export const ashwagandhaBestBrand: Collection = {
     text: 'Read from each maker’s label on 1 October 2026. Prices are the maker’s list price — Amazon’s will differ, so compare the cost a day at the full dose. KSM-66 is sold as at least 5% withanolides, so about 30 mg in 600 mg.',
   },
   shortlist: ashwagandhaShortlist,
+  about: [
+    { name: 'Ashwagandha', sameAs: 'https://en.wikipedia.org/wiki/Withania_somnifera' },
+    { name: 'Dietary supplement', sameAs: 'https://en.wikipedia.org/wiki/Dietary_supplement' },
+  ],
   faqs: [
     {
       question: 'Which brand of ashwagandha is best?',

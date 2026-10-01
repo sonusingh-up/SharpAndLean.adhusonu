@@ -19,6 +19,7 @@ import { gluteBridge } from './editorials/glute-bridge';
 import { ashwagandhaWhyTake } from './editorials/ashwagandha-why-take';
 import { ashwagandhaDaily } from './editorials/ashwagandha-daily';
 import { ashwagandhaBestBrand } from './editorials/ashwagandha-best-brand';
+import { bestProteinPowders } from './editorials/best-protein-powders';
 
 /*
  * Product pages are assembled from lib/articles/*.ts — one file per article,
@@ -81,6 +82,7 @@ const collectionDrafts: CollectionDraft[] = [
   ashwagandhaWhyTake,
   ashwagandhaDaily,
   ashwagandhaBestBrand,
+  bestProteinPowders,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,

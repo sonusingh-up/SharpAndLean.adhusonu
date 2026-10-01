@@ -13,6 +13,7 @@ import { ProteinCalculator } from '@/components/protein-calculator';
 import { VitaminChecker } from '@/components/vitamin-checker';
 import { ServingCostCalculator } from '@/components/serving-cost-calculator';
 import { BestGuide } from '@/components/best-guide';
+import { ProteinLabResults, ProteinOthers } from '@/components/protein-lab';
 import {
   AshwagandhaEvidence,
   AshwagandhaFit,
@@ -20,6 +21,7 @@ import {
   AshwagandhaDailyTimeline,
   AshwagandhaBodyChanges,
   AshwagandhaBuyChecklist,
+  AshwagandhaExtracts,
 } from '@/components/ashwagandha-guide';
 import { articleContent } from '@/lib/content';
 import { KeyTakeaways } from '@/components/evidence';
@@ -60,6 +62,9 @@ const articleTools = {
   'ashwagandha-daily-timeline': <AshwagandhaDailyTimeline />,
   'ashwagandha-body-changes': <AshwagandhaBodyChanges />,
   'ashwagandha-buy-checklist': <AshwagandhaBuyChecklist />,
+  'ashwagandha-extracts': <AshwagandhaExtracts />,
+  'protein-lab-results': <ProteinLabResults />,
+  'protein-others': <ProteinOthers />,
 };
 
 export async function generateStaticParams() {
@@ -576,7 +581,17 @@ export default async function DetailPage({
   const articleAuthors = row.authors ?? [
     { name: teamProfile.name, slug: teamProfile.slug, type: 'Organization' as const },
   ];
-  const evidenceReviewed = section === 'learn' && row.evidenceReviewed !== false;
+  // Learn articles are reviewed unless they say otherwise; a best-of guide only
+  // when it says so, because older shortlists predate the review byline.
+  const evidenceReviewed =
+    section === 'best'
+      ? row.evidenceReviewed === true
+      : section === 'learn' && row.evidenceReviewed !== false;
+  const tester = row.testedBy ? getAuthorBySlug(row.testedBy) : undefined;
+  const sectionCrumb = {
+    label: section === 'best' ? 'Best-of guides' : section === 'compare' ? 'Comparisons' : 'Learn',
+    path: `/${section}`,
+  };
   const extendedAccess = (
     <ExtendedAccess
       id={articleId}
@@ -627,6 +642,27 @@ export default async function DetailPage({
             name: writer.name,
             url: new URL(`/author/${writer.slug}`, siteUrl).href,
           })),
+          // The person whose first-hand use the page rests on, credited apart
+          // from the writers so their notes are never read as the assessment.
+          ...(tester
+            ? {
+                contributor: {
+                  '@type': 'Person',
+                  name: tester.name,
+                  jobTitle: tester.title,
+                  url: new URL(`/author/${tester.slug}`, siteUrl).href,
+                },
+              }
+            : {}),
+          ...(row.about?.length
+            ? {
+                about: row.about.map((a) => ({
+                  '@type': 'Thing',
+                  name: a.name,
+                  ...(a.sameAs ? { sameAs: a.sameAs } : {}),
+                })),
+              }
+            : {}),
           ...(row.references?.length
             ? { citation: row.references.filter((c) => c.url).map((c) => c.url) }
             : {}),
@@ -643,7 +679,9 @@ export default async function DetailPage({
                         '@type': 'ListItem',
                         position: i + 1,
                         url: `${pageUrl}#pick-${p.id}`,
-                        name: p.name,
+                        name: `${p.award}: ${p.name}`,
+                        description: p.bestFor,
+                        ...(p.image ? { image: p.image } : {}),
                       }))
                     : picks.map((r, i) => ({
                         '@type': 'ListItem',
@@ -656,6 +694,7 @@ export default async function DetailPage({
             : {}),
         }}
       />
+      {row.extraSchema?.map((node, i) => <JsonLd key={i} data={node} />)}
     </>
   );
   // A best-of guide with a structured shortlist gets its own layout: the top
@@ -666,7 +705,7 @@ export default async function DetailPage({
         {extendedAccess}
         <article className="page-section">
           <Breadcrumb items={[{ label: 'Best-of guides', href: '/best' }, { label: row.title }]} />
-          <BreadcrumbSchema items={[{ label: row.title, path: `/${section}/${slug}` }]} />
+          <BreadcrumbSchema items={[sectionCrumb, { label: row.title, path: `/${section}/${slug}` }]} />
           <BestGuide
             row={row}
             toc={toc}
@@ -696,7 +735,7 @@ export default async function DetailPage({
             { label: row.title },
           ]}
         />
-        <BreadcrumbSchema items={[{ label: row.title, path: `/${section}/${slug}` }]} />
+        <BreadcrumbSchema items={[sectionCrumb, { label: row.title, path: `/${section}/${slug}` }]} />
         {demoMode && (
           <div className="notice">
             Sample layout · Fictional products. No product ranking or recommendation is implied.

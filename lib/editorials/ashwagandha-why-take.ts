@@ -13,12 +13,13 @@ export const ashwagandhaWhyTake: Collection = {
   slug: 'ashwagandha-why-you-need-to-take',
   topic: 'vitamins',
   title: 'Ashwagandha: Why you need to take?',
-  seo_title: 'Ashwagandha: Why You Need to Take It — and When Not To',
+  seo_title: 'Ashwagandha: Why Take It, and When Not To',
   seo_desc:
-    'Why people take ashwagandha, what the trials show for stress and sleep, the right dose, and the liver and thyroid risks. Who it may help and who should avoid it.',
+    'Why people take ashwagandha: what trials show for stress and sleep, the right dose, the liver and thyroid risks, and who should avoid it.',
   summary:
     'Ashwagandha is the herb most people reach for when stress starts to affect their sleep. Trials of 300 to 600 mg of root extract a day for eight weeks show lower stress, lower cortisol and slightly better sleep — but they are small and short, and the herb can affect the liver and thyroid. Here is why you might take it, how to do it properly, and when you should not.',
   is_published: true,
+  about: [{ name: 'Ashwagandha', sameAs: 'https://en.wikipedia.org/wiki/Withania_somnifera' }],
   evidenceReviewed: false,
   authors: [{ name: 'SLN Team', slug: 'snl-team', type: 'Organization' }],
   published_at: '2026-10-01T00:00:00Z',
