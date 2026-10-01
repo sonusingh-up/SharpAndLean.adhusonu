@@ -375,9 +375,24 @@ select:focus-visible {
    jammed against a dark fill. Row labels now sit on cream, values on paper,
    and every cell shares one padding and one top alignment.
 
-   globals.css sets `display: block` for horizontal scrolling, but the
-   rounded-corner clip below would hide the overflow instead of scrolling it,
-   so the table stays a real table and phones get a stacked layout. */
+   RichText gives each table its own scroll container so a wide data table
+   cannot stretch the article. Row-labelled comparisons still stack on phones. */
+.article-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 28px 0 32px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: 14px;
+}
+.article-table-scroll:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.prose .article-table-scroll > table {
+  margin: 0;
+}
 .prose table {
   display: table;
   width: 100%;

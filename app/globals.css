@@ -1646,6 +1646,10 @@ summary::-webkit-details-marker {
   border-top: 1px solid var(--line);
   padding-top: 35px;
 }
+.review-layout > * {
+  /* Tables must not set the minimum width of the article or its sidebar. */
+  min-width: 0;
+}
 .review-sidebar {
   position: sticky;
   top: 30px;
@@ -2708,7 +2712,7 @@ table {
 }
 @media (max-width: 800px) {
   .review-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .review-sidebar {
     position: static;

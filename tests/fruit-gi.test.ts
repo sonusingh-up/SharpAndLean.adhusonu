@@ -10,6 +10,7 @@ import {
   rankedFruits,
 } from '../lib/fruit-gi';
 import { editorialCollections } from '../lib/products';
+import { articleContent } from '../lib/content';
 
 const article = editorialCollections.find((c) => c.slug === 'fruit-and-diabetes-glycaemic-index');
 
@@ -55,4 +56,13 @@ test('fruit links point at articles that exist', () => {
       `${f.name}: ${f.href}`,
     );
   }
+});
+
+test('the responsive fruit block retains a complete plain-HTML table for content consumers', () => {
+  const html = articleContent(article!.body).html;
+  assert.match(html, /<div data-tool="fruit-comparison"><table>/);
+  assert.equal((html.match(/<tr>/g) || []).length, fruits.length + 1);
+  assert.ok(html.includes('Glycaemic load per serving'));
+  assert.ok(html.includes('About 50 (low)'));
+  assert.ok(html.includes('30 g'));
 });

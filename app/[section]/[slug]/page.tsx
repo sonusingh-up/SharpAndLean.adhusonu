@@ -51,7 +51,7 @@ import {
 } from '@/lib/compare';
 import { canonicalCompareSlug } from '@/lib/compare-path';
 export const revalidate = 3600;
-/** Interactive tools an article body can place with `<div data-tool="name"></div>`. */
+/** Custom article blocks placed with `<div data-tool="name"></div>`. */
 const articleTools = {
   'protein-calculator': <ProteinCalculator />,
   'vitamin-checker': <VitaminChecker />,

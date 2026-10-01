@@ -1,0 +1,447 @@
+/* Respond to the article column, not just the device viewport. */
+.comparison {
+  container: fruit-comparison / inline-size;
+  min-width: 0;
+  width: 100%;
+  margin: 28px 0 32px;
+  color: var(--ink);
+  font-family: var(--font-dm), sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel {
+  border: 1px solid var(--cream-deep);
+  border-radius: 22px;
+  background: var(--paper);
+  box-shadow: 0 8px 28px #183b3705;
+}
+
+.intro {
+  padding: 26px 24px 22px;
+  border-radius: 21px 21px 0 0;
+  background: var(--cream);
+}
+
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.eyebrow {
+  color: #88682e;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.count {
+  padding: 4px 10px;
+  border: 1px solid #183b3724;
+  border-radius: 999px;
+  color: var(--pine);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.comparison .title {
+  margin: 14px 0 8px;
+  color: var(--pine);
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.comparison .description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 18px;
+  font-size: 11px;
+}
+
+.legendLabel {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.low {
+  --band-ink: #26594b;
+  --band-bg: #e7eee5;
+  color: var(--band-ink);
+}
+.medium {
+  --band-ink: #805820;
+  --band-bg: #f5ead4;
+  color: var(--band-ink);
+}
+.high {
+  --band-ink: #964a39;
+  --band-bg: #f7e6df;
+  color: var(--band-ink);
+}
+
+/* Two classes intentionally outrank shared .prose table/cell rules. */
+.comparison .table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border: 0;
+  border-radius: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  overflow: visible;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.comparison .column {
+  width: 23%;
+  padding: 14px 16px;
+  border: 0;
+  background: var(--pine);
+  color: #fff;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+/* Shared comparison-table styles hide an empty corner on phones. This table
+   has a real first-column label, so keep it in the accessibility tree. */
+.comparison .head .column {
+  display: table-cell;
+}
+
+.comparison .column:first-child {
+  width: 31%;
+  padding-left: 24px;
+}
+.comparison .column span {
+  display: block;
+  color: #c4d4ca;
+  font-size: 10px;
+}
+
+.comparison .row {
+  background: var(--paper);
+}
+.comparison .row:nth-child(even) {
+  background: #f5f2ec;
+}
+.comparison .row:hover,
+.comparison .row:focus-within {
+  background: #edf1e9;
+}
+
+.comparison .cell {
+  width: auto;
+  min-width: 0;
+  padding: 17px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--cream-deep);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.comparison .fruit {
+  padding-left: 24px;
+}
+.fruitHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fruitHeading > div {
+  min-width: 0;
+}
+.rank {
+  color: #7b857d;
+  font-size: 10px;
+  align-self: flex-start;
+  padding-top: 4px;
+}
+
+.comparison .fruitLink,
+.fruitName {
+  color: var(--pine);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.comparison .fruitLink {
+  text-decoration: underline;
+  text-decoration-color: #a5b7aa;
+  text-underline-offset: 4px;
+}
+.comparison .fruitLink:hover {
+  text-decoration-color: var(--pine);
+}
+.comparison .fruitLink:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.serving {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+.mobileLabel {
+  display: none;
+}
+.metric {
+  font-size: 18px;
+  line-height: 1.35;
+}
+.unit {
+  font-size: 12px;
+  color: var(--muted);
+}
+.approximate {
+  font-size: 11px;
+  color: var(--muted);
+}
+.indexBand {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+.loadValue {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.loadNumber {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--pine);
+}
+.badge {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--band-bg);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+
+.comparison .footnote {
+  margin: 0;
+  padding: 19px 24px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.comparison .footnote strong {
+  color: var(--pine);
+  font-weight: 600;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@container fruit-comparison (max-width: 600px) {
+  .panel {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .intro {
+    padding: 20px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 18px;
+  }
+  .comparison .title {
+    font-size: 26px;
+  }
+  .comparison .table {
+    display: block;
+  }
+  /* Keep column headers available to assistive technology in card view. */
+  .comparison .head {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .comparison .rows {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .comparison .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'fruit fruit' 'index carbs' 'load load';
+    gap: 0 16px;
+    padding: 18px;
+    border: 1px solid var(--cream-deep);
+    border-radius: 16px;
+    background: var(--paper);
+  }
+  .comparison .row:nth-child(even) {
+    background: var(--paper);
+  }
+  .comparison .row:focus-within {
+    border-color: var(--teal);
+  }
+  .comparison .cell {
+    width: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .comparison .fruit {
+    grid-area: fruit;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .comparison .fruitLink,
+  .fruitName {
+    font-size: 18px;
+  }
+  .rank {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--cream);
+    flex-shrink: 0;
+    align-self: center;
+  }
+  .serving {
+    font-size: 12px;
+  }
+  .comparison .index {
+    grid-area: index;
+  }
+  .comparison .carbs {
+    grid-area: carbs;
+  }
+  .mobileLabel {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .metric {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    font-size: 20px;
+  }
+  .indexBand {
+    display: inline;
+    font-size: 11px;
+  }
+  .comparison .load {
+    grid-area: load;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #eef2eb;
+  }
+  .load .mobileLabel {
+    margin: 0;
+    color: var(--pine);
+    font-size: 12px;
+  }
+  .loadNumber {
+    font-size: 24px;
+  }
+  .comparison .footnote {
+    padding: 18px 2px 0;
+  }
+}
+
+@container fruit-comparison (min-width: 400px) and (max-width: 600px) {
+  .comparison .row {
+    grid-template-areas: 'fruit load' 'index carbs';
+  }
+  .comparison .fruit {
+    padding-bottom: 0;
+    border: 0;
+    margin-bottom: 0;
+  }
+  .comparison .load {
+    align-self: start;
+    justify-self: end;
+    display: block;
+    margin: 0;
+    padding: 10px 14px;
+  }
+  .load .mobileLabel {
+    margin-bottom: 6px;
+  }
+  .comparison .index,
+  .comparison .carbs {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+}
