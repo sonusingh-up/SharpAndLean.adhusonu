@@ -56,6 +56,10 @@ export function CommunityForm({ reviewId }: { reviewId: string }) {
         Your experience
         <textarea name="review_text" required minLength={20} maxLength={3000} />
       </label>
+      <label className="consent">
+        <input type="checkbox" name="adult" value="yes" required /> I am 18 or over, and this is my
+        own experience of the product.
+      </label>
       <input name="website" className="honeypot" tabIndex={-1} aria-hidden="true" />
       <button className="button" disabled={busy}>
         {busy ? 'Submitting…' : 'Submit for review'}

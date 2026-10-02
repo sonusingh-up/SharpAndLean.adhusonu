@@ -44,6 +44,7 @@ export async function generateStaticParams() {
       'medical-disclaimer',
       'privacy-policy',
       'terms',
+      'copyright',
     ].map((section) => ({ section })),
   ];
 }

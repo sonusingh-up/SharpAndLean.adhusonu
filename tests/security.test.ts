@@ -42,6 +42,16 @@ test('community submissions reject invalid ratings and non-UUID reviews', () => 
     false,
   );
 });
+test('community submissions require the 18-or-over confirmation', () => {
+  const submission = {
+    review_id: '00000000-0000-4000-8000-000000000000',
+    reviewer_name: 'Reader',
+    rating: 4,
+    review_text: 'Took it for a month with breakfast.',
+  };
+  assert.equal(communitySchema.safeParse(submission).success, false);
+  assert.equal(communitySchema.safeParse({ ...submission, adult: 'yes' }).success, true);
+});
 test('review input rejects invalid scores and unsafe affiliate links', () => {
   assert.equal(
     reviewSchema.safeParse({ score: 99, affiliate_url: 'javascript:alert(1)' }).success,
