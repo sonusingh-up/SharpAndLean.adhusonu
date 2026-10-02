@@ -31,6 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/medical-disclaimer',
       '/privacy-policy',
       '/terms',
+      '/copyright',
       ...authors.map((a) => `/author/${a.slug}`),
       '/ingredients',
       '/guides',

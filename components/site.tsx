@@ -103,6 +103,7 @@ export function Footer() {
             <Link href="/medical-disclaimer">Medical disclaimer</Link>
             <Link href="/privacy-policy">Privacy policy</Link>
             <Link href="/terms">Terms of use</Link>
+            <Link href="/copyright">Copyright &amp; DMCA</Link>
           </div>
           <div>
             <div className="footer-social-row">

@@ -97,6 +97,7 @@ export const communitySchema = z.object({
   reviewer_name: text.min(2).max(80),
   rating: z.coerce.number().int().min(1).max(5),
   review_text: text.min(20).max(3000),
+  adult: z.literal('yes'),
   website: z.string().max(0).optional(),
 });
 

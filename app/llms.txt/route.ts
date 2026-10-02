@@ -147,6 +147,7 @@ ${headToHeads.join('\n')}
 - ${siteUrl}/medical-disclaimer — scope and safety limits
 - ${siteUrl}/privacy-policy
 - ${siteUrl}/terms
+- ${siteUrl}/copyright — DMCA notices and counter-notices
 `;
 
   return new Response(body, {
