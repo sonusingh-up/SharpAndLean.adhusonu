@@ -54,8 +54,8 @@ export function Newsletter({ compact = false }: { compact?: boolean }) {
         aria-hidden="true"
       />
       <label className="consent">
-        <input type="checkbox" name="consent" value="yes" required /> I agree to receive review
-        updates. Unsubscribe anytime.
+        <input type="checkbox" name="consent" value="yes" required /> I am 18 or over and agree
+        to receive review updates. Unsubscribe anytime.
       </label>
       {message && (
         <p className="form-message" role="status">

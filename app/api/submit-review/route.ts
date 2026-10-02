@@ -3,7 +3,7 @@ import { publicRequest, apiFailure } from '@/lib/public-api';
 export async function POST(request: Request) {
   try {
     const { db, body } = await publicRequest(request, 'community');
-    const { website: _, ...input } = communitySchema.parse(body);
+    const { website: _, adult: __, ...input } = communitySchema.parse(body);
     const { data: review } = await db
       .from('reviews')
       .select('id')
