@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { FileText, Trophy } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, FileText, Trophy } from 'lucide-react';
 import {
   rankedProteins,
   percentOfClaim,
@@ -195,10 +196,17 @@ export function ProteinOthers() {
           </dl>
           <p className={s.read}>{r.read}</p>
           <HandsOnBlock note={r.handsOn} />
-          <a className={s.reportButton} href={reportUrl(r)} target="_blank" rel="noopener">
-            <FileText size={15} aria-hidden="true" /> View the full lab report
-            <span>PDF · lot {r.lot}</span>
-          </a>
+          <div className={s.otherActions}>
+            <a className={s.reportButton} href={reportUrl(r)} target="_blank" rel="noopener">
+              <FileText size={15} aria-hidden="true" /> View the full lab report
+              <span>PDF · lot {r.lot}</span>
+            </a>
+            {r.review && (
+              <Link className={s.reviewLink} href={r.review.href}>
+                {r.review.label} <ArrowUpRight size={15} aria-hidden="true" />
+              </Link>
+            )}
+          </div>
         </li>
       ))}
     </ol>
