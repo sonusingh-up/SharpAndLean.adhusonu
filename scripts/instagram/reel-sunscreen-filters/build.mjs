@@ -111,16 +111,18 @@ scenes.push(scene('new', `
   ${pros.map(([p, phrase]) => { const t = S('tick', on('new', phrase), 0.7); return `<p class="line ok" data-in="${t}"><svg viewBox="0 0 40 40"><path d="M8 21 l8 9 l16 -19" fill="none" stroke="#2f7c72" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" data-draw="${r2(t + 0.1)}" data-dur="0.35"/></svg>${p}</p>`; }).join('')}`));
 
 /* 4. Picks */
+// Product photos are the brands' own pack shots (assets/), shown to identify the products named.
+const img = (file) => `data:image/${file.endsWith('.png') ? 'png' : 'jpeg'};base64,${b64(join(here, 'assets', file))}`;
 const picks = [
-  ['Ultra Violette', 'Unblock Screen SPF 50', '$40', 'Ultra Violette'],
-  ['Neutrogena', 'Ultra Sheer Daily Face SPF 70', 'from $17', 'two Neutrogena'],
-  ['Neutrogena', 'Clear Face SPF 60', 'from $17', 'from about'],
+  ['Ultra Violette', 'Unblock Screen SPF 50', '$40', 'Ultra Violette', 'uv.jpg'],
+  ['Neutrogena', 'Ultra Sheer Daily Face<br>SPF 70', 'from $17', 'two Neutrogena', 'n70.jpg'],
+  ['Neutrogena', 'Clear Face SPF 60', 'from $17', 'from about', 'n60.png'],
 ];
 scenes.push(scene('picks', `
   <p class="eyebrow teal" data-in="${st('picks', 0.1)}">On sale in the US</p>
-  <h1 class="h1 sm" data-in="${st('picks', 0.2)}">The first three <em>with it.</em></h1>
+  <h1 class="h1 xs" data-in="${st('picks', 0.2)}">The first three <em>with it.</em></h1>
   <div class="list">
-    ${picks.map(([brand, name, price, phrase], i) => { const t = S('pop', on('picks', phrase), 0.6); return `<div class="item" data-in="${t}"><b>${i + 1}</b><span><small>${brand}</small>${name}</span><i>${price}</i></div>`; }).join('')}
+    ${picks.map(([brand, name, price, phrase, file]) => { const t = S('pop', on('picks', phrase), 0.6); return `<div class="item" data-in="${t}"><figure><img src="${img(file)}" alt=""></figure><span><small>${brand}</small>${name}</span><i>${price}</i></div>`; }).join('')}
   </div>
   <p class="fine" data-in="${on('picks', 'from about')}">The first US sunscreens with bemotrizinol. Prices as reported in September 2026. We have not tested them.</p>`));
 
@@ -158,6 +160,8 @@ em{font-family:'Newsreader',serif;font-style:italic;font-weight:400;color:#2f7c7
 .huge{font-size:420px;line-height:.9;font-weight:700;letter-spacing:-.06em;margin-top:10px;font-variant-numeric:tabular-nums}
 .h1{margin-top:18px;font-size:112px;line-height:1.02;font-weight:700;letter-spacing:-.04em}
 .h1.sm{font-size:96px}
+.h1.xs{font-size:84px;margin-top:12px}
+.list+.fine{margin-top:20px;font-size:25px}
 .h2{margin-top:44px;font-size:96px;line-height:1.05;letter-spacing:-.02em;font-weight:400}
 .sub{margin-top:22px;font-size:42px;line-height:1.25;color:#5d6865;font-weight:500}
 .rule{display:block;margin-top:56px;height:3px;background:#1c2a28;transform-origin:0 50%}
@@ -171,8 +175,10 @@ em{font-family:'Newsreader',serif;font-style:italic;font-weight:400;color:#2f7c7
 .line{margin-top:44px;padding-top:40px;border-top:2px solid #e2dbce;font-size:56px;line-height:1.15;font-weight:700;letter-spacing:-.025em;display:flex;align-items:center;gap:24px}
 .line+.line{margin-top:40px}
 .line svg{flex:none;width:52px;height:52px}
-.list{margin-top:60px}
-.item{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:24px;padding:38px 0;border-top:2px solid #e2dbce;font-size:45px;line-height:1.12;font-weight:700;letter-spacing:-.025em}
+.list{margin-top:34px}
+.item figure{width:170px;height:196px;border-radius:20px;background:#fff;border:2px solid #e8e1d5;display:grid;place-items:center;overflow:hidden}
+.item img{max-width:150px;max-height:176px;object-fit:contain}
+.item{display:grid;grid-template-columns:170px 1fr auto;align-items:center;gap:30px;padding:18px 0;border-top:2px solid #e2dbce;font-size:45px;line-height:1.12;font-weight:700;letter-spacing:-.025em}
 .item:last-child{border-bottom:2px solid #e2dbce}
 .item b{font-size:30px;color:#2f7c72;font-variant-numeric:tabular-nums}
 .item small{display:block;margin-bottom:8px;font-size:28px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5d6865}
