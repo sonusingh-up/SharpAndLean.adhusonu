@@ -5,3 +5,8 @@ node_modules/
 !.env.example
 *.tsbuildinfo
 .vercel/
+
+# Reel build scratch (frames, audio stems)
+scripts/instagram/*/.out/
+scripts/youtube/*/.out/
+scripts/youtube/*/.models/

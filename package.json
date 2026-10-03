@@ -13,7 +13,8 @@
     "chart:fruit-gl": "tsx scripts/fruit-gl-chart.ts",
     "illustrate:fruit": "tsx scripts/fruit-illustrations.ts",
     "ig:build": "tsx scripts/instagram/build.ts",
-    "ig:publish": "tsx scripts/instagram/publish.ts"
+    "ig:publish": "tsx scripts/instagram/publish.ts",
+    "yt:colonbroom-pilot": "node scripts/youtube/colonbroom-glp1-pilot/render.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.4",
@@ -49,12 +50,15 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/newsreader": "^5.3.0",
     "@tailwindcss/typography": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/sanitize-html": "latest",
     "autoprefixer": "latest",
+    "playwright-core": "^1.63.0",
     "postcss": "latest",
     "prettier": "^3.9.8",
     "tailwindcss": "^3.4.17",
