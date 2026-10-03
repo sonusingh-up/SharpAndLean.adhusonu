@@ -76,3 +76,21 @@ test('a registered responsive fruit block replaces its fallback without duplicat
   );
   assert.doesNotMatch(output, /<table|article-table-scroll/);
 });
+
+test('tables with a header row label each value for the phone card layout', () => {
+  const output = render(
+    '<table><thead><tr><th>Who</th><th>UK advice</th><th>US amount</th></tr></thead><tbody><tr><td><strong>Adults</strong></td><td>10 mcg</td><td>15 mcg</td></tr></tbody></table>',
+  );
+  assert.match(output, /class="article-table-scroll" data-layout="cards"/);
+  assert.match(output, /<td><strong>Adults<\/strong><\/td>/);
+  assert.match(output, /<td data-label="UK advice">10 mcg<\/td><td data-label="US amount">15 mcg<\/td>/);
+
+  for (const html of [
+    '<table><tbody><tr><td>No header</td><td>row</td></tr></tbody></table>',
+    '<table><thead><tr><th>A</th><th colspan="2">Merged</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td></tr></tbody></table>',
+  ]) {
+    const plain = render(html);
+    assert.doesNotMatch(plain, /data-layout|data-label/);
+    assert.match(plain, /class="article-table-scroll"/);
+  }
+});

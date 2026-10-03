@@ -6,7 +6,35 @@ import { AuthControls, AuthMenuControls } from '@/components/auth-controls';
 import { SiteSearch } from '@/components/site-search';
 import { OrganizationSchema, WebSiteSchema } from '@/components/seo';
 import { CompareTray } from '@/components/compare-tray';
+import { socialProfiles } from '@/lib/config';
 import notes from './footer-notes.module.css';
+
+/* Brand marks for the footer, drawn on a 24-unit grid. Instagram is an outline
+   like the site's other icons; the rest are the platforms' solid marks. */
+const socialIcons: Record<(typeof socialProfiles)[number]['id'], React.ReactNode> = {
+  instagram: (
+    <svg viewBox="0 0 24 24" className="is-outline" aria-hidden="true">
+      <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" />
+      <circle cx="12" cy="12" r="4" />
+      <circle className="footer-social-dot" cx="17.5" cy="6.5" r="1" />
+    </svg>
+  ),
+  youtube: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z" />
+    </svg>
+  ),
+  x: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z" />
+    </svg>
+  ),
+  flipboard: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M2 2v20h6.67v-6.67h6.66V8.67H22V2H2Z" />
+    </svg>
+  ),
+};
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="SharpAndLean home">
@@ -107,26 +135,22 @@ export function Footer() {
           </div>
           <div>
             <div className="footer-social-row">
-              <div className="footer-social-copy">
-                <span>FOLLOW ALONG</span>
-                <strong>
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle className="footer-social-dot" cx="17.75" cy="6.5" r="1" />
-                  </svg>
-                  @sharpandlean
-                </strong>
-              </div>
-              <a
-                className="footer-social-follow"
-                href="https://www.instagram.com/sharpandlean/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow SharpAndLean on Instagram (opens in a new tab)"
-              >
-                Follow <ArrowUpRight size={14} aria-hidden="true" />
-              </a>
+              <span>FOLLOW ALONG</span>
+              <ul className="footer-social-icons">
+                {socialProfiles.map((p) => (
+                  <li key={p.id}>
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`SharpAndLean on ${p.name} (opens in a new tab)`}
+                      title={p.name}
+                    >
+                      {socialIcons[p.id]}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

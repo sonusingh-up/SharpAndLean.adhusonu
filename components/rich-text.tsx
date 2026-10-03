@@ -37,9 +37,11 @@ export function RichText({ html, tools }: { html: string; tools?: Record<string,
         );
       }
       if (node.name === 'table') {
+        const cards = labelTableCells(node);
         return (
           <div
             className="article-table-scroll"
+            data-layout={cards ? 'cards' : undefined}
             role="region"
             aria-label="Table (scroll horizontally if needed)"
             tabIndex={0}
@@ -86,4 +88,40 @@ export function RichText({ html, tools }: { html: string; tools?: Record<string,
     },
   };
   return <div className="prose prose-slate">{parse(articleContent(html).html, options)}</div>;
+}
+
+function textOf(node: DOMNode): string {
+  if (node.type === 'text') return (node as unknown as { data: string }).data;
+  if (node instanceof Element) return (node.children as DOMNode[]).map(textOf).join('');
+  return '';
+}
+
+function childElements(node: Element, ...names: string[]): Element[] {
+  return (node.children as DOMNode[]).filter(
+    (c): c is Element => c instanceof Element && names.includes(c.name),
+  );
+}
+
+/**
+ * Gives each body cell a `data-label` naming its column, so on phones a row can
+ * restack as a card whose values carry their own headings. Returns false — and
+ * the table keeps its horizontal scroll — when there is no header row to take
+ * the names from, or when merged cells mean a value has no single column.
+ */
+function labelTableCells(table: Element): boolean {
+  const headRow = childElements(table, 'thead').flatMap((h) => childElements(h, 'tr'))[0];
+  if (!headRow) return false;
+  const labels = childElements(headRow, 'th', 'td').map((c) => textOf(c).trim());
+  if (labels.length < 2) return false;
+
+  const bodyRows = childElements(table, 'tbody').flatMap((b) => childElements(b, 'tr'));
+  const cells = [headRow, ...bodyRows].flatMap((r) => childElements(r, 'th', 'td'));
+  if (cells.some((c) => c.attribs.colspan || c.attribs.rowspan)) return false;
+
+  for (const row of bodyRows) {
+    childElements(row, 'th', 'td').forEach((cell, i) => {
+      if (i > 0 && labels[i]) cell.attribs['data-label'] = labels[i];
+    });
+  }
+  return true;
 }
