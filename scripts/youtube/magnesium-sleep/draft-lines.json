@@ -1,0 +1,82 @@
+[
+ {
+  "id": "hook",
+  "say": "Can't sleep, and someone told you to try magnesium? Here is what it can do, what it can't, and how to take it safely.",
+  "visual": "A night-time bedroom scene in 3D: a clock hand sweeping past 3 a.m., then a magnesium atom (Mg, 12) drifting in and lighting up."
+ },
+ {
+  "id": "answer",
+  "say": "The short answer. Magnesium may help a little, mostly if you are not getting enough of it. It is not a sleeping pill.",
+  "visual": "A dial that swings past 'sleeping pill' and settles on 'small help'. Camera pushes in on the needle."
+ },
+ {
+  "id": "need",
+  "say": "Magnesium is a mineral your nerves and muscles depend on. Adults need roughly three hundred to four hundred and twenty milligrams a day, and about half of Americans get less than that from food.",
+  "visual": "A neuron drawn in vector, signals travelling along it; then a row of 100 figures, 48 of them dimming."
+ },
+ {
+  "id": "why",
+  "say": "Why might it help? Magnesium helps regulate the signals that calm the nervous system. That explains the idea. It does not prove a supplement will improve your sleep.",
+  "visual": "The neuron again: excitatory sparks slow down as Mg ions settle on it. A stamp reads 'mechanism, not proof'."
+ },
+ {
+  "id": "trials",
+  "say": "So what do trials show? A review of three trials in older adults with insomnia found people fell asleep about seventeen minutes faster on magnesium. But the trials were small, and the evidence was rated low to very low quality.",
+  "visual": "Two sleep timelines racing side by side; the magnesium one reaches 'asleep' 17 minutes sooner. A quality gauge then drops to 'low'."
+ },
+ {
+  "id": "newtrial",
+  "say": "A newer trial gave one hundred and fifty-five adults two hundred and fifty milligrams of magnesium bisglycinate a day. After four weeks, their insomnia scores improved slightly more than with placebo. The effect was small.",
+  "visual": "Two columns of capsules pouring into bars: magnesium minus 3.9, placebo minus 2.3, the gap highlighted."
+ },
+ {
+  "id": "who",
+  "say": "The people who improved most were the ones eating the least magnesium. That is an early signal, but it fits: it is most likely to help if you are running low.",
+  "visual": "A plate of food that empties; the benefit bar grows as the plate empties."
+ },
+ {
+  "id": "forms",
+  "say": "Which form? Ones that dissolve well, like citrate, are absorbed better than oxide. Glycinate is the form that newer trial used. Oxide, carbonate, chloride and gluconate are the ones most likely to cause diarrhoea.",
+  "visual": "3D capsules rotating on a turntable, each labelled; the well-absorbed ones glow, the others get a warning mark."
+ },
+ {
+  "id": "noform",
+  "say": "You will also see special forms sold for sleep. No form has been shown to beat the others for sleep in head-to-head trials.",
+  "visual": "Capsules line up on a starting line for a race that never starts; a 'no head-to-head trials' card slides in."
+ },
+ {
+  "id": "dose",
+  "say": "How much? For adults, the upper limit for magnesium from supplements is three hundred and fifty milligrams a day. Check the label for elemental magnesium, not the weight of the whole compound.",
+  "visual": "A supplement label zooms in; the 'elemental magnesium' line is circled and a 350 mg ceiling line draws across a gauge."
+ },
+ {
+  "id": "side",
+  "say": "Too much causes diarrhoea, nausea and stomach cramps. If that happens, lower the dose or change the form.",
+  "visual": "The gauge overshoots the 350 line and shakes; then eases back down."
+ },
+ {
+  "id": "food",
+  "say": "Food counts too, and magnesium from food has no upper limit. Pumpkin seeds, almonds, spinach, beans and whole grains are good sources.",
+  "visual": "Vector foods drop onto a plate one by one with a soft sound each, a running total counting up."
+ },
+ {
+  "id": "safety",
+  "say": "Who should check first? Anyone with kidney disease, because the kidneys clear extra magnesium. It can also interfere with some antibiotics and osteoporosis medicines, so ask a pharmacist about timing.",
+  "visual": "A kidney outline filtering particles; then two pill icons pushed two hours apart on a clock."
+ },
+ {
+  "id": "doctor",
+  "say": "If you have slept badly for more than three months, see a doctor. Long-term insomnia has proven treatments, and a supplement should not delay them.",
+  "visual": "A calendar flipping through three months, ending on a doctor's door opening."
+ },
+ {
+  "id": "habits",
+  "say": "And the basics still matter more: a regular sleep window, less caffeine late in the day, and a dark, cool room.",
+  "visual": "The bedroom from the opening, now calm: lights dim, a coffee cup fades out, the clock reads 10:30."
+ },
+ {
+  "id": "verdict",
+  "say": "So. Magnesium is cheap, and worth a try if your diet is low in it. Expect a small effect, stay under three hundred and fifty milligrams from supplements, and judge it after four weeks. Sources are in the description. This is general information, not medical advice.",
+  "visual": "Dark closing scene: three check-list lines write themselves, then the SharpAndLean mark and the link."
+ }
+]
