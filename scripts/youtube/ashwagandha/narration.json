@@ -1,0 +1,124 @@
+{
+ "voice": {
+  "provider": "elevenlabs",
+  "name": "Megan - Calm, Irish, Gentle",
+  "id": "PvHGIJ8CrROdxsAp1TaQ",
+  "model": "eleven_multilingual_v2"
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "chapter": "Ashwagandha benefits",
+   "text": "Ashwagandha is sold for stress, sleep, testosterone and more. Here is what trials actually show, how much people took, and who should not take it.",
+   "say": "Ashwagandha is sold for stress, sleep, testosterone and more. Here is what trials actually show, how much people took, and who should not take it."
+  },
+  {
+   "id": "answer",
+   "chapter": "The short answer",
+   "text": "The short answer. It may help with stress and sleep. The effect on sleep is small, the trials are short, and it is not safe for everyone.",
+   "say": "The short answer. It may help with stress and sleep. The effect on sleep is small, the trials are short, and it is not safe for everyone."
+  },
+  {
+   "id": "what",
+   "chapter": "What it is",
+   "text": "Ashwagandha is a shrub, Withania somnifera. Supplements mostly use the root. Its best-known compounds are called withanolides.",
+   "say": "Ashwagandha is a shrub, Withania somnifera. Supplements mostly use the root. Its best-known compounds are called withanolides."
+  },
+  {
+   "id": "stress",
+   "chapter": "Stress: the review",
+   "text": "For stress, a review pooled 7 trials with 491 adults. Over six to eight weeks, ashwagandha lowered stress and anxiety scores, and lowered the stress hormone cortisol.",
+   "say": "For stress, a review pooled seven trials with four hundred and ninety-one adults. Over six to eight weeks, ashwagandha lowered stress and anxiety scores, and lowered the stress hormone cortisol."
+  },
+  {
+   "id": "catch",
+   "chapter": "Stress: the catch",
+   "text": "There is a catch. All 7 trials were in India, most were small, and none ran longer than about two months.",
+   "say": "There is a catch. All seven trials were in India, most were small, and none ran longer than about two months."
+  },
+  {
+   "id": "disagree",
+   "chapter": "Not every trial agrees",
+   "text": "And not every trial agrees. In one 12-week study of 120 adults, ashwagandha did not lower perceived stress, although people felt less tired.",
+   "say": "And not every trial agrees. In one twelve-week study of one hundred and twenty adults, ashwagandha did not lower perceived stress, although people felt less tired."
+  },
+  {
+   "id": "anxiety",
+   "chapter": "Anxiety",
+   "text": "For anxiety, the US national centre for complementary health says the evidence is still unclear.",
+   "say": "For anxiety, the US national centre for complementary health says the evidence is still unclear."
+  },
+  {
+   "id": "sleep",
+   "chapter": "Sleep",
+   "text": "What about sleep? A review of 5 trials with 372 adults found a small but real improvement compared with placebo.",
+   "say": "What about sleep? A review of five trials with three hundred and seventy-two adults found a small but real improvement compared with placebo."
+  },
+  {
+   "id": "who",
+   "chapter": "Who it helped",
+   "text": "It worked best at 600 milligrams a day, taken for at least eight weeks, in people who already had insomnia.",
+   "say": "It worked best at six hundred milligrams a day, taken for at least eight weeks, in people who already had insomnia."
+  },
+  {
+   "id": "dose",
+   "chapter": "Dose",
+   "text": "How much did people take? Most trials used 300 to 600 milligrams of root extract a day.",
+   "say": "How much did people take? Most trials used three hundred to six hundred milligrams of root extract a day."
+  },
+  {
+   "id": "label",
+   "chapter": "Read the label",
+   "text": "Extracts differ, so read the label. Look for the amount of extract and the percentage of withanolides, not just the weight of the capsule.",
+   "say": "Extracts differ, so read the label. Look for the amount of extract and the percentage of withanolides, not just the weight of the capsule."
+  },
+  {
+   "id": "claims",
+   "chapter": "Other claims",
+   "text": "You will also see claims about testosterone, muscle and memory. There is limited evidence for testosterone, and not enough for athletic performance or brain function.",
+   "say": "You will also see claims about testosterone, muscle and memory. There is limited evidence for testosterone, and not enough for athletic performance or brain function."
+  },
+  {
+   "id": "side",
+   "chapter": "Side effects",
+   "text": "Now safety. The common side effects are mild: stomach upset, loose stools, nausea and drowsiness.",
+   "say": "Now safety. The common side effects are mild: stomach upset, loose stools, nausea and drowsiness."
+  },
+  {
+   "id": "long",
+   "chapter": "How long",
+   "text": "It appears safe for up to about three months. Beyond that, nobody has good data.",
+   "say": "It appears safe for up to about three months. Beyond that, nobody has good data."
+  },
+  {
+   "id": "liver",
+   "chapter": "Liver",
+   "text": "Rare cases of liver injury have been reported. Stop and see a doctor if your skin or eyes turn yellow, or you develop itching or dark urine.",
+   "say": "Rare cases of liver injury have been reported. Stop and see a doctor if your skin or eyes turn yellow, or you develop itching or dark urine."
+  },
+  {
+   "id": "thyroid",
+   "chapter": "Thyroid",
+   "text": "It can also raise thyroid hormones, so avoid it if you have a thyroid condition unless your doctor agrees.",
+   "say": "It can also raise thyroid hormones, so avoid it if you have a thyroid condition unless your doctor agrees."
+  },
+  {
+   "id": "avoid",
+   "chapter": "Who should avoid it",
+   "text": "Avoid it in pregnancy and while breastfeeding, with hormone-sensitive prostate cancer, with an autoimmune condition, and before surgery.",
+   "say": "Avoid it in pregnancy and while breastfeeding, with hormone-sensitive prostate cancer, with an autoimmune condition, and before surgery."
+  },
+  {
+   "id": "meds",
+   "chapter": "Medicines",
+   "text": "It may interact with medicines for diabetes, blood pressure, thyroid, seizures and sleep, and with immunosuppressants. Ask a pharmacist first.",
+   "say": "It may interact with medicines for diabetes, blood pressure, thyroid, seizures and sleep, and with immunosuppressants. Ask a pharmacist first."
+  },
+  {
+   "id": "verdict",
+   "chapter": "Verdict",
+   "text": "So. Ashwagandha may ease stress and help sleep a little. Try 300 to 600 milligrams for eight weeks, stop at three months, and skip it if any of those warnings apply. Sources are in the description. This is general information, not medical advice.",
+   "say": "So. Ashwagandha may ease stress and help sleep a little. Try three hundred to six hundred milligrams for eight weeks, stop at three months, and skip it if any of those warnings apply. Sources are in the description. This is general information, not medical advice."
+  }
+ ]
+}

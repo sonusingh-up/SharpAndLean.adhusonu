@@ -1,9 +1,9 @@
 # Ashwagandha: script for approval
 
-**Working title:** Ashwagandha: What It Can and Can't Do (Stress, Sleep and Safety)
+**Title:** Ashwagandha Benefits: What It Can and Can't Do (Stress, Sleep, Safety)
 **Why this topic:** "ashwagandha benefits" has about 201,000 US searches a month (Semrush, October 2026), the highest of the ten topics checked.
-**Narration:** Megan (ElevenLabs) · 19 lines · about 3,700 characters · about 5 minutes
-**Status:** draft. Nothing is recorded until you and Sumita approve the wording.
+**Narration:** Megan (ElevenLabs) · 19 lines · 2,601 characters
+**Status:** approved, recorded and rendered. About 3 minutes 47 seconds.
 
 ## Script
 
