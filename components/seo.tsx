@@ -170,7 +170,6 @@ export function OrganizationSchema() {
         ],
         // Profiles that speak for the same entity, so search engines can join them.
         sameAs: socialProfiles.map((p) => p.url),
-        sameAs: ['https://www.instagram.com/sharpandlean/'],
         publishingPrinciples: `${siteUrl}/about`,
         ethicsPolicy: `${siteUrl}/affiliate-disclosure`,
       }}
