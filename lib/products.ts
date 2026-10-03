@@ -20,6 +20,8 @@ import { ashwagandhaWhyTake } from './editorials/ashwagandha-why-take';
 import { ashwagandhaDaily } from './editorials/ashwagandha-daily';
 import { ashwagandhaBestBrand } from './editorials/ashwagandha-best-brand';
 import { bestProteinPowders } from './editorials/best-protein-powders';
+import { b12DeficiencySigns } from './editorials/b12-deficiency-signs';
+import { vitaminDHowMuch } from './editorials/vitamin-d-how-much';
 
 /*
  * Product pages are assembled from lib/articles/*.ts — one file per article,
@@ -83,6 +85,8 @@ const collectionDrafts: CollectionDraft[] = [
   ashwagandhaDaily,
   ashwagandhaBestBrand,
   bestProteinPowders,
+  b12DeficiencySigns,
+  vitaminDHowMuch,
   {
     id: 'label-shortlist',
     kind: 'best_lists' as const,

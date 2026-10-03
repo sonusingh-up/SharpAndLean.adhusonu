@@ -26,3 +26,11 @@ export const contentFromSupabase = hasSupabase && process.env.CONTENT_SOURCE ===
 // development and preview deployments never report into the property. Demo
 // builds stay out of it as well, alongside their noindex.
 export const gaId = demoMode ? '' : process.env.NEXT_PUBLIC_GA_ID || '';
+// The publication's own social profiles: the footer icons and the Organization
+// schema's sameAs both read this list, so a new profile is added once.
+export const socialProfiles = [
+  { id: 'instagram', name: 'Instagram', url: 'https://www.instagram.com/sharpandlean/' },
+  { id: 'youtube', name: 'YouTube', url: 'https://www.youtube.com/@SharpAndLean' },
+  { id: 'x', name: 'X', url: 'https://x.com/SharpAndLean' },
+  { id: 'flipboard', name: 'Flipboard', url: 'https://flipboard.com/@SharpAndLean' },
+] as const;

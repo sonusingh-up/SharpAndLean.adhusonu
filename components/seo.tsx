@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { siteUrl } from '@/lib/config';
+import { siteUrl, socialProfiles } from '@/lib/config';
 import { rssAlternates } from '@/lib/rss-config';
 import type { Metadata } from 'next';
 
@@ -168,6 +168,8 @@ export function OrganizationSchema() {
           'Weight management supplements',
           'Nootropics',
         ],
+        // Profiles that speak for the same entity, so search engines can join them.
+        sameAs: socialProfiles.map((p) => p.url),
         publishingPrinciples: `${siteUrl}/about`,
         ethicsPolicy: `${siteUrl}/affiliate-disclosure`,
       }}
