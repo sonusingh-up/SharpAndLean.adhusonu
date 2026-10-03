@@ -11,7 +11,9 @@
     "test:unit": "tsx --test tests/*.test.ts",
     "test:live": "node tests/live.mjs",
     "chart:fruit-gl": "tsx scripts/fruit-gl-chart.ts",
-    "illustrate:fruit": "tsx scripts/fruit-illustrations.ts"
+    "illustrate:fruit": "tsx scripts/fruit-illustrations.ts",
+    "ig:build": "tsx scripts/instagram/build.ts",
+    "ig:publish": "tsx scripts/instagram/publish.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.4",

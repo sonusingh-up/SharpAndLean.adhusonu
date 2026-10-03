@@ -15,14 +15,19 @@ import { LinkPreview } from './notion-mention-link';
 /**
  * `tools` places interactive components inside an article: the body marks the
  * spot with `<div data-tool="name"></div>` and the page supplies the component
- * for that name. An unknown name renders nothing.
+ * for that name. If a block is unavailable, keep its sanitised HTML fallback.
+ * Empty placeholders still render nothing.
  */
 export function RichText({ html, tools }: { html: string; tools?: Record<string, ReactNode> }) {
   const options: HTMLReactParserOptions = {
     replace(node) {
       if (!(node instanceof Element)) return;
       if (node.name === 'div' && node.attribs['data-tool']) {
-        return <>{tools?.[node.attribs['data-tool']] ?? null}</>;
+        return (
+          <>
+            {tools?.[node.attribs['data-tool']] ?? domToReact(node.children as DOMNode[], options)}
+          </>
+        );
       }
       if (node.name === 'details') {
         return (
@@ -54,7 +59,8 @@ export function RichText({ html, tools }: { html: string; tools?: Record<string,
           !local &&
           !/^https:\/\/[^/]+\.supabase\.co\//.test(src) &&
           !/^https:\/\/images\.unsplash\.com\//.test(src)
-        ) return <span />;
+        )
+          return <span />;
         return (
           <Image
             src={src}

@@ -9,6 +9,26 @@ function render(html: string) {
   return renderToStaticMarkup(createElement(RichText, { html }));
 }
 
+test('a missing fruit block registration preserves all rows in the HTML fallback', () => {
+  const html = `<div data-tool="fruit-comparison">${fruitTableHtml()}</div>`;
+  for (const tools of [undefined, { 'another-block': createElement('span', null, 'Other') }]) {
+    const output = renderToStaticMarkup(createElement(RichText, { html, tools }));
+    assert.equal((output.match(/<table/g) || []).length, 1);
+    assert.equal((output.match(/<tr>/g) || []).length, fruits.length + 1);
+    for (const fruit of fruits) assert.ok(output.includes(fruit.name));
+    assert.match(output, /class="article-table-scroll"/);
+  }
+});
+
+test('unregistered blocks keep safe fallback content and discard executable HTML', () => {
+  const output = render(
+    '<div data-tool="missing"><p onclick="alert(1)">Readable fallback</p><script>alert(1)</script></div>',
+  );
+  assert.match(output, /<p>Readable fallback<\/p>/);
+  assert.doesNotMatch(output, /onclick|<script|alert\(1\)/);
+  assert.equal(render('<div data-tool="empty"></div>'), '<div class="prose prose-slate"></div>');
+});
+
 test('wide fruit tables get a keyboard-accessible scroll container, not the whole article', () => {
   const output = render(`<h2>The short answer</h2><p>Introductory text.</p>${fruitTableHtml()}`);
   assert.match(output, /<p>Introductory text\.<\/p><div class="article-table-scroll"/);

@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": "001-method",
+      "type": "special",
+      "special": "method",
+      "format": "carousel",
+      "status": "draft"
+    },
+    {
+      "id": "002-colonbroom-glp-1-booster",
+      "type": "review",
+      "slug": "colonbroom-glp-1-booster-review",
+      "hook": "“Nature’s Ozempic”? This one doesn’t say how much berberine is in it.",
+      "format": "carousel",
+      "status": "draft"
+    },
+    {
+      "id": "003-creatine-reel",
+      "type": "review",
+      "slug": "bulk-creatine-monohydrate-review",
+      "hook": "Creatine: take 3 g a day — not the scoop on the tub.",
+      "format": "reel",
+      "status": "manual"
+    },
+    {
+      "id": "004-glp1-ranking",
+      "type": "special",
+      "special": "glp1-ranking",
+      "format": "carousel",
+      "status": "draft"
+    },
+    {
+      "id": "005-myprotein-impact-creatine",
+      "type": "review",
+      "slug": "myprotein-impact-creatine-review",
+      "hook": "The creatine every other tub should be measured against.",
+      "format": "carousel",
+      "status": "draft"
+    },
+    {
+      "id": "006-sodamelt",
+      "type": "review",
+      "slug": "sodamelt-review",
+      "hook": "“No harsh laxatives,” says the page. The blend contains three.",
+      "format": "carousel",
+      "status": "draft"
+    },
+    {
+      "id": "007-akkermansia-reel",
+      "type": "review",
+      "slug": "pendulum-akkermansia-review",
+      "hook": "“Increases GLP-1” on the box. The trial measured it: no effect.",
+      "format": "reel",
+      "status": "manual"
+    },
+    {
+      "id": "008-kinetica-whey",
+      "type": "review",
+      "slug": "kinetica-whey-protein-review",
+      "hook": "Drug tested? This is the sensible default whey.",
+      "format": "carousel",
+      "status": "draft"
+    },
+    {
+      "id": "009-vitamin-d3",
+      "type": "review",
+      "slug": "nature-made-vitamin-d3-1000-iu",
+      "hook": "The best-value supplement we’ve reviewed. You might not need it.",
+      "format": "carousel",
+      "status": "draft"
+    }
+  ]
+}
