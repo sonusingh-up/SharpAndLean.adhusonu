@@ -15,13 +15,23 @@
   "visual": "A neuron drawn in vector, signals travelling along it; then a row of 100 figures, 48 of them dimming."
  },
  {
+  "id": "store",
+  "say": "You cannot easily test for it either. Less than one percent of the magnesium in your body is in your blood, so a standard blood test does not show how much you really have.",
+  "visual": "A 3D body silhouette: bone and tissue glow as the store, a tiny blood drop holds under 1%. A lab report slides in, stamped 'not the full picture'."
+ },
+ {
+  "id": "risk",
+  "say": "Some people are more likely to run low. Older adults, people with type two diabetes, people with gut conditions such as Crohn's or coeliac disease, and people who drink heavily. Long-term use of acid-reducing medicines called proton pump inhibitors can lower it too.",
+  "visual": "Five cards flip in one by one, each with a custom icon; a level gauge beside each drops as it lands."
+ },
+ {
   "id": "why",
   "say": "Why might it help? Magnesium helps regulate the signals that calm the nervous system. That explains the idea. It does not prove a supplement will improve your sleep.",
   "visual": "The neuron again: excitatory sparks slow down as Mg ions settle on it. A stamp reads 'mechanism, not proof'."
  },
  {
   "id": "trials",
-  "say": "So what do trials show? A review of three trials in older adults with insomnia found people fell asleep about seventeen minutes faster on magnesium. But the trials were small, and the evidence was rated low to very low quality.",
+  "say": "So what do trials show? A review of three trials in older adults with insomnia found people fell asleep about seventeen minutes faster on magnesium. But total sleep time did not clearly improve, the trials were small, and the evidence was rated low to very low quality.",
   "visual": "Two sleep timelines racing side by side; the magnesium one reaches 'asleep' 17 minutes sooner. A quality gauge then drops to 'low'."
  },
  {
@@ -55,13 +65,23 @@
   "visual": "The gauge overshoots the 350 line and shakes; then eases back down."
  },
  {
+  "id": "laxative",
+  "say": "That is no accident. Magnesium is the active ingredient in some laxatives. One tablespoon of milk of magnesia contains five hundred milligrams, well over the supplement limit.",
+  "visual": "A laxative bottle in 3D turns to show its label; 500 mg counts up and breaks through the 350 line."
+ },
+ {
   "id": "food",
-  "say": "Food counts too, and magnesium from food has no upper limit. Pumpkin seeds, almonds, spinach, beans and whole grains are good sources.",
+  "say": "Food counts too, and magnesium from food has no upper limit. An ounce of pumpkin seeds has about one hundred and fifty-six milligrams. An ounce of almonds, eighty. Half a cup of cooked spinach, seventy-eight. Black beans, brown rice and yogurt all add more.",
   "visual": "Vector foods drop onto a plate one by one with a soft sound each, a running total counting up."
  },
  {
+  "id": "refined",
+  "say": "Refining grains strips out much of the magnesium, so whole grains beat white bread and white rice. And your body absorbs only thirty to forty percent of what you eat.",
+  "visual": "A grain splits open: bran and germ peel away and the magnesium counter falls. Then ten dots enter a gut outline and three to four pass through."
+ },
+ {
   "id": "safety",
-  "say": "Who should check first? Anyone with kidney disease, because the kidneys clear extra magnesium. It can also interfere with some antibiotics and osteoporosis medicines, so ask a pharmacist about timing.",
+  "say": "Who should check first? Anyone with kidney disease, because the kidneys clear extra magnesium. It can also stop some antibiotics and osteoporosis medicines being absorbed, so take them at least two hours apart and ask a pharmacist. Some water tablets change magnesium levels as well.",
   "visual": "A kidney outline filtering particles; then two pill icons pushed two hours apart on a clock."
  },
  {
