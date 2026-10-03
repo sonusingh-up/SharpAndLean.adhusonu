@@ -16,7 +16,8 @@
     "ig:publish": "tsx scripts/instagram/publish.ts",
     "yt:colonbroom-pilot": "node scripts/youtube/colonbroom-glp1-pilot/render.mjs",
     "yt:colonbroom-review": "node scripts/youtube/colonbroom-glp1-review/render.mjs",
-    "yt:magnesium-sleep": "node scripts/youtube/magnesium-sleep/render.mjs"
+    "yt:magnesium-sleep": "node scripts/youtube/magnesium-sleep/render.mjs",
+    "ig:reel:sunscreen": "node scripts/instagram/reel-sunscreen-filters/render.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.4",

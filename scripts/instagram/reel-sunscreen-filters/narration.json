@@ -1,0 +1,17 @@
+{
+  "voice": { "provider": "elevenlabs", "name": "Megan - Calm, Irish, Gentle", "id": "PvHGIJ8CrROdxsAp1TaQ", "model": "eleven_multilingual_v2" },
+  "sources": [
+    "FDA final order OTC000039, Federal Register 10 June 2026: bemotrizinol added to sunscreen monograph M020 at up to 6%. https://www.federalregister.gov/documents/2026/06/10/2026-11578/amending-over-the-counter-monograph-m020-sunscreen-drug-products-for-over-the-counter-human-use-and",
+    "Dermatology Times: first new US sunscreen ingredient since the late 1990s; broad-spectrum; low absorption through the skin; rarely irritates. https://www.dermatologytimes.com/view/fda-accepts-addition-of-bemotrizinol-as-first-new-sunscreen-ingredient-in-20-years",
+    "NPR, 13 June 2026: avobenzone breaks down in sunlight, bemotrizinol is photostable and needs fewer stabilisers; existing sunscreens remain effective. https://www.npr.org/2026/06/13/nx-s1-5856385/sunscreen-skin-protection-bemotrizinol",
+    "NewBeauty, 28 September 2026: Ultra Violette Unblock Screen SPF 50 ($40), Neutrogena Ultra Sheer Daily Face SPF 70, Neutrogena Clear Face SPF 60. https://www.newbeauty.com/view/best-bemotrizinol-sunscreens",
+    "Dermatology Times: Neutrogena launch, 17 September 2026, $16.99. https://www.dermatologytimes.com/view/neutrogena-launches-new-sunscreens-with-newly-permitted-uv-filter-bemotrizinol"
+  ],
+  "lines": [
+    { "id": "hook", "text": "For 27 years, American sunscreens used the same old filters. That just changed.", "say": "For twenty-seven years, American sunscreens used the same old filters. That just changed." },
+    { "id": "old", "text": "The old UVA filter, avobenzone, breaks down in sunlight, so it needs extra stabilisers.", "say": "The old UVA filter, avobenzone, breaks down in sunlight, so it needs extra stabilisers." },
+    { "id": "new", "text": "The new one, bemotrizinol, covers UVA and UVB, stays stable in the sun, and very little passes through your skin.", "say": "The new one, bemotrizinol, covers UVA and UVB, stays stable in the sun, and very little passes through your skin." },
+    { "id": "picks", "text": "You can already buy it: Ultra Violette Unblock Screen, and two Neutrogena face sunscreens from about $17.", "say": "You can already buy it: Ultra Violette Unblock Screen, and two Neutrogena face sunscreens from about seventeen dollars." },
+    { "id": "cta", "text": "Older sunscreens still work, so keep wearing yours. The full comparison is at sharpandlean.com.", "say": "Older sunscreens still work, so keep wearing yours. The full comparison is at sharp and lean dot com." }
+  ]
+}
