@@ -25,9 +25,14 @@ models = pathlib.Path(os.environ.get("KOKORO_DIR", here / ".models"))
 script = json.loads((here / "narration.json").read_text(encoding="utf-8"))
 kokoro = Kokoro(str(models / "kokoro-v1.0.onnx"), str(models / "voices-v1.0.bin"))
 
+# "voice" is either one voice name, or a blend: {"af_heart": 0.6, "af_nicole": 0.4}.
+voice = script["voice"]
+if isinstance(voice, dict):
+    voice = sum(weight * kokoro.get_voice_style(name) for name, weight in voice.items())
+
 durations = {}
 for line in script["lines"]:
-    samples, rate = kokoro.create(line["say"], voice=script["voice"], speed=script["speed"], lang=script["lang"])
+    samples, rate = kokoro.create(line["say"], voice=voice, speed=script["speed"], lang=script["lang"])
     sf.write(out / f"{line['id']}.wav", samples, rate)
     durations[line["id"]] = round(len(samples) / rate, 3)
     print(f"{line['id']}: {durations[line['id']]} s")

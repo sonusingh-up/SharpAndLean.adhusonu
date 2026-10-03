@@ -1,7 +1,10 @@
 {
-  "voice": "bf_emma",
-  "lang": "en-gb",
-  "speed": 1.0,
+  "voice": {
+    "af_heart": 0.6,
+    "af_nicole": 0.4
+  },
+  "lang": "en-us",
+  "speed": 0.94,
   "lines": [
     {
       "id": "hook",
