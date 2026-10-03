@@ -14,7 +14,8 @@
     "illustrate:fruit": "tsx scripts/fruit-illustrations.ts",
     "ig:build": "tsx scripts/instagram/build.ts",
     "ig:publish": "tsx scripts/instagram/publish.ts",
-    "yt:colonbroom-pilot": "node scripts/youtube/colonbroom-glp1-pilot/render.mjs"
+    "yt:colonbroom-pilot": "node scripts/youtube/colonbroom-glp1-pilot/render.mjs",
+    "yt:colonbroom-review": "node scripts/youtube/colonbroom-glp1-review/render.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.4",
