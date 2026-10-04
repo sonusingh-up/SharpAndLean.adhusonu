@@ -1,0 +1,28 @@
+{
+ "voice": { "provider": "elevenlabs", "name": "Megan - Calm, Irish, Gentle", "id": "PvHGIJ8CrROdxsAp1TaQ", "model": "eleven_multilingual_v2" },
+ "source": "lib/editorials/vitamin-d-how-much.ts",
+ "sections": [],
+ "lines": [
+  { "id": "hook", "section": 0, "chapter": "Hook",
+    "text": "Check your vitamin D label. Micrograms and IU are not the same thing.",
+    "say": "Check your vitamin D label. Micrograms and I U are not the same thing." },
+  { "id": "conv", "section": 0, "chapter": "Conversion",
+    "text": "1 microgram is 40 IU. So 10 micrograms is 400 IU, and 25 is 1,000.",
+    "say": "One microgram is forty I U. So ten micrograms is four hundred I U, and twenty-five is a thousand." },
+  { "id": "trap", "section": 0, "chapter": "The trap",
+    "text": "Mixing them up is the most common way people take far more than they meant to.",
+    "say": "Mixing them up is the most common way people take far more than they meant to." },
+  { "id": "dose", "section": 0, "chapter": "Dose",
+    "text": "For most adults in the UK, 10 micrograms a day is the advice, from October to March.",
+    "say": "For most adults in the U K, ten micrograms a day is the advice, from October to March." },
+  { "id": "limit", "section": 0, "chapter": "Limit",
+    "text": "The upper limit for adults is 100 micrograms, or 4,000 IU, a day.",
+    "say": "The upper limit for adults is one hundred micrograms, or four thousand I U, a day." },
+  { "id": "form", "section": 0, "chapter": "Form",
+    "text": "And a plain vitamin D3 is all most people need.",
+    "say": "And a plain vitamin D three is all most people need." },
+  { "id": "cta", "section": 0, "chapter": "CTA",
+    "text": "The full video is on our YouTube channel. Follow SharpAndLean for more.",
+    "say": "The full video is on our YouTube channel. Follow sharp and lean for more." }
+ ]
+}
