@@ -20,6 +20,7 @@
     "yt:ashwagandha": "node scripts/youtube/ashwagandha/render.mjs",
     "yt:creatine": "node scripts/youtube/creatine/render.mjs",
     "yt:b12": "node scripts/youtube/b12-deficiency/render.mjs",
+    "yt:vitamin-d": "node scripts/youtube/vitamin-d/use-recorded.mjs && node scripts/youtube/vitamin-d/build.mjs && node scripts/youtube/vitamin-d/render.mjs",
     "ig:reel:sunscreen": "node scripts/instagram/reel-sunscreen-filters/render.mjs"
   },
   "dependencies": {
