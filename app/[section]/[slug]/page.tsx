@@ -14,6 +14,7 @@ import { VitaminChecker } from '@/components/vitamin-checker';
 import { ServingCostCalculator } from '@/components/serving-cost-calculator';
 import { FruitComparison } from '@/components/fruit-comparison';
 import { BestGuide } from '@/components/best-guide';
+import { videoSchema } from '@/lib/youtube';
 import { ProteinLabResults, ProteinOthers } from '@/components/protein-lab';
 import {
   AshwagandhaEvidence,
@@ -605,6 +606,9 @@ export default async function DetailPage({
       author={articleAuthors}
     />
   );
+  const video = row.video
+    ? videoSchema(row.video, pageUrl, `${siteUrl}/#organization`)
+    : null;
   // Shared by both layouts below, so a best-of guide carries the same
   // article, page and FAQ markup as every other editorial page.
   const schemas = !demoMode && (
@@ -670,6 +674,7 @@ export default async function DetailPage({
             : {}),
           publisher: { '@id': `${siteUrl}/#organization` },
           isPartOf: { '@id': `${siteUrl}/#website` },
+          ...(video ? { video: { '@id': video['@id'] } } : {}),
           ...(section === 'best' && (row.shortlist?.length || picks.length)
             ? {
                 mainEntity: {
@@ -696,6 +701,7 @@ export default async function DetailPage({
             : {}),
         }}
       />
+      {video && <JsonLd data={video} />}
       {row.extraSchema?.map((node, i) => <JsonLd key={i} data={node} />)}
     </>
   );

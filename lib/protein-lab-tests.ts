@@ -47,6 +47,12 @@ export type ProteinLabResult = {
    * image shows the product tested, or the host blocks server-side fetches.
    */
   image?: string;
+  /**
+   * Our own full review of this brand's product, where one exists. The label
+   * says what was reviewed, since it may be a different market or variant
+   * from the lot Labdoor tested.
+   */
+  review?: { href: string; label: string };
   handsOn?: HandsOnNote;
 };
 
@@ -109,6 +115,10 @@ export const proteinLabResults: ProteinLabResult[] = [
   },
   {
     id: 'optimum-gold-standard',
+    review: {
+      href: '/wellness/optimum-nutrition-uk-review-2026',
+      label: 'Read our full review (UK version)',
+    },
     image: 'https://m.media-amazon.com/images/I/71TOpLJnZJL._AC_SL1500_.jpg',
     brand: 'Optimum Nutrition',
     product: 'Gold Standard 100% Whey (Chocolate Malt)',
@@ -162,6 +172,10 @@ export const proteinLabResults: ProteinLabResult[] = [
   },
   {
     id: 'myprotein-impact-isolate',
+    review: {
+      href: '/wellness/myprotein-impact-whey-review',
+      label: 'Read our Impact Whey review (standard whey, UK)',
+    },
     image: 'https://static.thcdn.com/productimg/original/10852482-2555304620117685.jpg',
     brand: 'Myprotein',
     product: 'Impact Whey Isolate',

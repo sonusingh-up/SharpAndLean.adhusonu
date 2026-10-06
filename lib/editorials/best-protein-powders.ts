@@ -13,7 +13,9 @@ import { siteUrl } from '../config';
  *   what he sends. Until they arrive the `handsOn` fields are left out and
  *   nothing renders in their place.
  *
- * Prices are the retailer each button links to, read on 1 October 2026.
+ * Buy buttons are Amazon affiliate links (amzn.to), so the cards carry the
+ * affiliate notice. Prices were read on 1 October 2026: NOW's on Amazon,
+ * Naked Egg's on Naked's own store, as each spec note says.
  */
 
 const picks: ShortlistPick[] = [
@@ -23,9 +25,9 @@ const picks: ShortlistPick[] = [
     name: 'NOW Sports Whey Protein Isolate',
     brand: 'NOW Sports',
     image: 'https://m.media-amazon.com/images/I/71LqBwkqtyL._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B0013P1HPS',
+    url: 'https://amzn.to/4yvS3Xs',
     retailer: 'Amazon',
-    affiliate: false,
+    affiliate: true,
     report: { url: reportUrl({ id: 'now-sports-whey-isolate' }), label: 'Labdoor' },
     bestFor: 'Anyone who wants exactly the protein on the label, with nothing detected in the lab.',
     headline: '25 g of 25 g',
@@ -57,9 +59,9 @@ const picks: ShortlistPick[] = [
     name: 'Naked Egg — Egg White Protein',
     brand: 'Naked Nutrition',
     image: 'https://nakednutrition.com/cdn/shop/files/egg-protein-powder-3LB.jpg',
-    url: 'https://nakednutrition.com/products/egg-white-protein-powder',
-    retailer: 'Naked Nutrition',
-    affiliate: false,
+    url: 'https://amzn.to/4j0a1wo',
+    retailer: 'Amazon',
+    affiliate: true,
     report: { url: reportUrl({ id: 'naked-egg' }), label: 'Labdoor' },
     bestFor: 'Anyone avoiding dairy who still wants a clean, accurately labelled protein.',
     headline: '25.3 g of 25 g',
@@ -68,7 +70,7 @@ const picks: ShortlistPick[] = [
       { label: 'Of label', value: '101%', note: 'Labdoor, Dec 2024' },
       { label: 'By weight', value: '82%', note: 'Tested lot' },
       { label: 'Heavy metals', value: 'None', note: 'All four undetected' },
-      { label: 'Price', value: '$79.99', note: 'Naked · 3 lb · $1.81/serving' },
+      { label: 'Price', value: '$79.99', note: 'Naked’s store · 3 lb · $1.81/serving' },
     ],
     fit: { label: 'Clean pass', tone: 'good' },
     pros: [
@@ -172,13 +174,14 @@ export const bestProteinPowders: Collection = {
 <li><strong>Delivering the label beats falling short.</strong> A powder with at least the protein it claims ranks above one that came in under.</li>
 <li><strong>More protein per gram of powder wins.</strong> The share of each scoop that is actually protein, so less of what you pay for is flavouring, thickener or filler. Results within one point are a tie, settled by protein per serving.</li>
 </ol>
-<p>Price is not part of the ranking: it changes weekly and differs by retailer. The prices on the two winners are from the store each button links to, checked on 1 October 2026.</p>
+<p>Price is not part of the ranking: it changes weekly and differs by retailer. The prices on the two winners were checked on 1 October 2026 — NOW’s on Amazon, Naked Egg’s on Naked’s own store; the buttons go to Amazon, where the price may differ.</p>
 
 <h2>The lab results, all nine</h2>
 <div data-tool="protein-lab-results"></div>
 
 <h2>The other seven</h2>
 <p>None of these failed. The ranking separates good from best, and on a different day, or a different batch, the order below the top two could shuffle.</p>
+<p>Two of these brands have full reviews on this site, though of their UK versions: our <a href="/wellness/optimum-nutrition-uk-review-2026">Optimum Nutrition Gold Standard 100% Whey review</a> and our <a href="/wellness/myprotein-impact-whey-review">Myprotein Impact Whey review</a> — the standard Impact Whey rather than the Impact Whey Isolate tested here. We also compare the two head to head in <a href="/compare/optimum-nutrition-vs-myprotein-impact-whey">Optimum Nutrition vs Myprotein Impact Whey</a>.</p>
 <div data-tool="protein-others"></div>
 
 <h2>What the lab tests actually check</h2>
@@ -208,7 +211,7 @@ export const bestProteinPowders: Collection = {
   productsIntro: {
     label: 'The best 2',
     heading: 'Why these two won',
-    text: 'The two winners side by side. Lab figures are Labdoor’s, from the lots tested in December 2024; prices are from the store each button links to, on 1 October 2026.',
+    text: 'The two winners side by side. Lab figures are Labdoor’s, from the lots tested in December 2024; prices were checked on 1 October 2026 — NOW’s on Amazon, Naked Egg’s on Naked’s own store — and Amazon’s may differ.',
   },
   shortlist: picks,
   faqs: [

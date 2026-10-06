@@ -196,6 +196,8 @@ export type Collection = {
    * lab-tested' }. Defaults to the number of picks and the label-reading method.
    */
   heroFacts?: { value: string; label: string }[];
+  /** Our own YouTube video on the same subject, featured on the page. */
+  video?: GuideVideo;
   /**
    * The heading block above a /learn/ article's product cards. Defaults to the
    * wording the GLP-1 explainer uses, which describes supplements marketed for
@@ -240,4 +242,24 @@ export type SocialEmbed = {
   title: string;
   /** Why it is on the page and what it does and does not show. */
   note: string;
+};
+
+/**
+ * A video from our own YouTube channel, played on request. The title,
+ * description, upload date and length are copied from YouTube, because the
+ * VideoObject schema must match the video it describes.
+ */
+export type GuideVideo = {
+  /** The 11-character id from the watch or embed URL. */
+  youtubeId: string;
+  title: string;
+  description: string;
+  /** ISO 8601, with the time and offset YouTube shows. */
+  uploadDate: string;
+  durationSeconds: number;
+  /** The heading and lede of the video section on the page. */
+  heading: string;
+  lede: string;
+  /** Chapter marks from the video description; `start` is in seconds. */
+  chapters?: { start: number; title: string }[];
 };

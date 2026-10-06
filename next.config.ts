@@ -24,6 +24,9 @@ const config: NextConfig = {
       { protocol: 'https', hostname: 'nakednutrition.com', pathname: '/cdn/shop/files/**' },
       // Bloom Nutrition's Shopify store, for its whey isolate image.
       { protocol: 'https', hostname: 'cdn.shopify.com', pathname: '/s/files/1/0143/0952/3556/**' },
+      // Poster frames for our own YouTube videos (see lib/youtube.ts), served
+      // through the optimiser so an unplayed video makes no request to Google.
+      { protocol: 'https', hostname: 'i.ytimg.com', pathname: '/vi/**' },
     ],
   },
   async headers() {
