@@ -8,6 +8,7 @@ import { linkRel } from '@/lib/link-rel';
 import { RichText } from './rich-text';
 import { ReferenceBox, PageHistory } from './article-footer';
 import { HandsOnBlock } from './hands-on-note';
+import { GuideVideo } from './guide-video';
 import b from './best-guide.module.css';
 
 /*
@@ -116,6 +117,7 @@ export function BestGuide({
 
   const tocLinks = (
     <>
+      {row.video && <a href="#video">Watch the video</a>}
       <a href="#compare">How they compare</a>
       <span className={b.tocGroup}>The picks</span>
       {picks.map((p) => (
@@ -132,7 +134,7 @@ export function BestGuide({
       {row.faqs?.length ? <a href="#faqs">Your questions</a> : null}
     </>
   );
-  const tocCount = 1 + picks.length + toc.length + (row.faqs?.length ? 1 : 0);
+  const tocCount = 1 + (row.video ? 1 : 0) + picks.length + toc.length + (row.faqs?.length ? 1 : 0);
 
   return (
     <div className={b.guide}>
@@ -251,6 +253,9 @@ export function BestGuide({
           </ol>
         </section>
       ) : null}
+
+      {/* ---------- Our video of the same guide ---------- */}
+      {row.video && <GuideVideo video={row.video} />}
 
       {/* ---------- Side by side ---------- */}
       <section className={b.compare} id="compare" aria-labelledby="compare-title">

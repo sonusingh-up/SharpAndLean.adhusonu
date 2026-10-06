@@ -26,7 +26,7 @@ export const ashwagandhaBestBrand: Collection = {
   evidenceReviewed: false,
   authors: [{ name: 'SLN Team', slug: 'snl-team', type: 'Organization' }],
   published_at: '2026-10-01T00:00:00Z',
-  updated_at: '2026-10-01T00:00:00Z',
+  updated_at: '2026-10-06T00:00:00Z',
   figure: {
     src: '/images/illustration-ashwagandha.jpg',
     alt: 'Illustration of dried ashwagandha roots on a cream plate beside a bowl of root powder and two capsules, with a sprig of green leaves and red berries in papery husks.',
@@ -75,6 +75,40 @@ export const ashwagandhaBestBrand: Collection = {
     text: 'Read from each maker’s label on 1 October 2026. Prices are the maker’s list price — Amazon’s will differ, so compare the cost a day at the full dose. KSM-66 is sold as at least 5% withanolides, so about 30 mg in 600 mg.',
   },
   shortlist: ashwagandhaShortlist,
+  // Title, description, date and length as YouTube shows them, because the
+  // VideoObject schema built from this must describe the video exactly.
+  video: {
+    youtubeId: '9x8uNby-ols',
+    title: 'Best Ashwagandha Brands You Can Try in 2026 (6 Brands Compared)',
+    description:
+      'Which ashwagandha brand is worth buying in 2026? We read six US labels line by line and compared the extract, the daily dose, the withanolides and the cost a day. Our pick is NOW KSM-66 Ashwagandha 600 mg at about 37 cents a day; Jarrow’s 300 mg capsules suit a split dose; NOW Ashwagandha 450 mg is the budget choice.',
+    uploadDate: '2026-10-06T05:29:27-07:00',
+    durationSeconds: 363,
+    heading: 'The six brands in six minutes',
+    lede: 'Our video walks through the same six labels as this guide — the extract, the dose, the withanolides and the cost a day — and why NOW’s 600 mg KSM-66 comes out on top. The narration is an AI voice; the figures are the ones on this page.',
+    chapters: [
+      { start: 0, title: 'Best ashwagandha brands 2026' },
+      { start: 11, title: 'The short answer' },
+      { start: 24, title: 'How we chose' },
+      { start: 45, title: 'What we read' },
+      { start: 61, title: 'Which extract' },
+      { start: 83, title: 'Best overall: NOW KSM-66' },
+      { start: 108, title: 'Best split dose: Jarrow' },
+      { start: 132, title: 'Best budget: NOW 450 mg' },
+      { start: 150, title: 'Best low dose: Life Extension' },
+      { start: 168, title: 'Whole root: Gaia Herbs' },
+      { start: 187, title: 'Gummy: Goli' },
+      { start: 207, title: 'Cost a day, side by side' },
+      { start: 223, title: 'Milligrams mislead' },
+      { start: 236, title: 'What to check on any label' },
+      { start: 261, title: 'Is organic better?' },
+      { start: 272, title: 'What to avoid' },
+      { start: 290, title: 'Claims to be wary of' },
+      { start: 307, title: 'Before you buy any brand' },
+      { start: 322, title: 'How long to take it' },
+      { start: 332, title: 'The bottom line' },
+    ],
+  },
   about: [
     { name: 'Ashwagandha', sameAs: 'https://en.wikipedia.org/wiki/Withania_somnifera' },
     { name: 'Dietary supplement', sameAs: 'https://en.wikipedia.org/wiki/Dietary_supplement' },
@@ -147,6 +181,10 @@ export const ashwagandhaBestBrand: Collection = {
     {
       date: '2026-10-01',
       note: 'First published. Six US products compared from the manufacturers’ own labels and list prices, read on 1 October 2026. No product is scored; none has been reviewed in full. Not yet reviewed by a clinician.',
+    },
+    {
+      date: '2026-10-06',
+      note: 'Added our video of this guide, “Best Ashwagandha Brands You Can Try in 2026 (6 Brands Compared)”. The picks, figures and prices are unchanged.',
     },
   ],
 };

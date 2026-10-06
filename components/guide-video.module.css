@@ -1,0 +1,302 @@
+/* The featured video: a pine panel, the player on the right and the chapters
+   as a strip beneath, so the panel reads as a break from the cream sections. */
+
+.video {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+  grid-template-areas:
+    'text player'
+    'chapters chapters';
+  align-items: center;
+  gap: 26px 40px;
+  padding: 36px;
+  border-radius: 26px;
+  background: var(--pine);
+  color: #f3efe6;
+  scroll-margin-top: 24px;
+}
+
+.text {
+  grid-area: text;
+  min-width: 0;
+}
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #ffffff1a;
+  color: #f1c98a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.video h2 {
+  margin: 14px 0 0;
+  color: #fff;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 300;
+  line-height: 1.15;
+}
+.lede {
+  margin: 12px 0 0;
+  color: #ffffffc4;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 18px 0 0;
+  color: #ffffff99;
+  font-size: 13px;
+}
+.meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1.5px solid #f1c98a;
+  color: #fff;
+  font-weight: 600;
+}
+.meta a:hover {
+  color: #f1c98a;
+}
+
+/* ---------- Player ---------- */
+
+.player {
+  grid-area: player;
+  min-width: 0;
+}
+.poster,
+.frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 18px;
+  background: #0d2622;
+}
+.poster {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 18px 40px -18px #000000a0;
+}
+.thumb {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, #00000059);
+}
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  padding-left: 4px;
+  border-radius: 999px;
+  background: var(--terracotta);
+  color: #fff;
+  box-shadow: 0 0 0 8px #ffffff40;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.poster:hover .play,
+.poster:focus-visible .play {
+  box-shadow: 0 0 0 12px #ffffff4d;
+  transform: translate(-50%, -50%) scale(1.06);
+}
+.poster:hover .thumb {
+  transform: scale(1.02);
+}
+.poster:focus-visible {
+  outline: 3px solid #f1c98a;
+  outline-offset: 3px;
+}
+.length {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #000000b3;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.privacy {
+  margin: 10px 2px 0;
+  color: #ffffff80;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ---------- Chapters ---------- */
+
+.chapters {
+  grid-area: chapters;
+  min-width: 0;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff26;
+}
+.chaptersHead {
+  display: block;
+  margin-bottom: 12px;
+  color: #f1c98a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.chaptersHead span {
+  margin-left: 6px;
+  color: #ffffff80;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+/* One swipeable row of chips; the edge fades say there is more. */
+.chapters ol {
+  display: flex;
+  gap: 8px;
+  margin: 0 -36px;
+  padding: 2px 36px 8px;
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff40 transparent;
+  mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent);
+}
+.chapters li {
+  flex: none;
+  scroll-snap-align: start;
+}
+.chapters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid #ffffff2e;
+  border-radius: 999px;
+  background: #ffffff0f;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.chapters button:hover {
+  border-color: #f1c98a;
+  background: #ffffff1f;
+}
+.chapters time {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #ffffff1f;
+  color: #f1c98a;
+  font-size: 11.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.chapters .chapterOn,
+.chapters .chapterOn:hover {
+  border-color: #f1c98a;
+  background: #f1c98a;
+  color: var(--pine);
+}
+.chapterOn time {
+  background: #ffffff8c;
+  color: var(--pine);
+}
+
+/* One column: the heading, then the video straight away, then the words. */
+@media (max-width: 900px) {
+  .video {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+    gap: 0;
+    padding: 28px 24px;
+  }
+  .text {
+    display: contents;
+  }
+  .kicker {
+    order: 1;
+    justify-self: start;
+  }
+  .video h2 {
+    order: 2;
+  }
+  .player {
+    grid-area: auto;
+    order: 3;
+    margin-top: 18px;
+  }
+  .lede {
+    order: 4;
+    margin-top: 18px;
+  }
+  .meta {
+    order: 5;
+  }
+  .chapters {
+    grid-area: auto;
+    order: 6;
+    margin-top: 22px;
+  }
+  .chapters ol {
+    margin: 0 -24px;
+    padding: 2px 24px 8px;
+    mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+  }
+}
+
+@media (max-width: 640px) {
+  .video {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+  .video h2 {
+    font-size: 25px;
+  }
+  .lede {
+    font-size: 14.5px;
+  }
+  .poster,
+  .frame {
+    border-radius: 14px;
+  }
+  .play {
+    width: 62px;
+    height: 62px;
+  }
+  .chapters ol {
+    margin: 0 -16px;
+    padding: 2px 16px 8px;
+    mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb,
+  .play {
+    transition: none;
+  }
+}
