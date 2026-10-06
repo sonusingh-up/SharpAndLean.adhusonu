@@ -1,0 +1,50 @@
+{
+  "voice": {
+    "af_heart": 0.6,
+    "af_nicole": 0.4
+  },
+  "lang": "en-us",
+  "speed": 0.94,
+  "lines": [
+    {
+      "id": "hook",
+      "text": "ColonBroom’s GLP-1 Booster is sold as a natural GLP-1 supplement for appetite control. We read the label. Here is what it actually says.",
+      "say": "Colon Broom's G L P one Booster is sold as a natural G L P one supplement, for appetite control. We read the label. Here is what it actually says."
+    },
+    {
+      "id": "label",
+      "text": "The headline ingredient is berberine. But the panel lists 200 milligrams of Berberis bark powder. That is the weight of the ground bark, not of the berberine inside it.",
+      "say": "The headline ingredient is berberine. But the panel lists two hundred milligrams of Berberis bark powder. That is the weight of the ground bark, not of the berberine inside it."
+    },
+    {
+      "id": "dose",
+      "text": "The weight research used more than 1,000 milligrams of berberine a day. Even if every milligram in this capsule were berberine, it would be a fifth of that.",
+      "say": "The weight research used more than one thousand milligrams of berberine a day. Even if every milligram in this capsule were berberine, it would be a fifth of that."
+    },
+    {
+      "id": "others",
+      "text": "The other two plant extracts, resveratrol and quercetin, showed no significant effect on body weight in their own meta-analyses.",
+      "say": "The other two plant extracts, resveratrol and quercetin, showed no significant effect on body weight in their own meta-analyses."
+    },
+    {
+      "id": "claim",
+      "text": "And the GLP-1 claim? There is no trial of the product. The two papers the brand cites are a pathway review and a cell study.",
+      "say": "And the G L P one claim? There is no trial of the product. The two papers the brand cites are a pathway review, and a cell study."
+    },
+    {
+      "id": "formulas",
+      "text": "Three different formulas have been sold under this name since April 2025, with four different sets of directions.",
+      "say": "Three different formulas have been sold under this name since April twenty twenty-five, with four different sets of directions."
+    },
+    {
+      "id": "score",
+      "text": "On our five criteria it scores 2 for evidence, 1 for dose, 3 for label transparency, 2 for value and 6 for safety. Overall: 2.8 out of 10.",
+      "say": "On our five criteria, it scores two for evidence, one for dose, three for label transparency, two for value, and six for safety. Overall: two point eight out of ten."
+    },
+    {
+      "id": "verdict",
+      "text": "If you want to try berberine, buy a product that states how much berberine you are getting. This is a desk review of the label and published research, not medical advice. The full review, with every source, is at sharpandlean.com.",
+      "say": "If you want to try berberine, buy a product that states how much berberine you are getting. This is a desk review of the label and published research, not medical advice. The full review, with every source, is at sharp and lean dot com."
+    }
+  ]
+}

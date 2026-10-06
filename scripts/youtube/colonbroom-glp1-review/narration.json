@@ -1,0 +1,115 @@
+{
+  "voice": {
+    "provider": "fish",
+    "id": "b347db033a6549378b48d00acb0d06cd",
+    "name": "Selene"
+  },
+  "draftVoice": {
+    "af_heart": 0.6,
+    "af_nicole": 0.4
+  },
+  "lang": "en-us",
+  "speed": 0.94,
+  "lines": [
+    {
+      "id": "hook",
+      "text": "ColonBroom’s GLP-1 Booster is sold as a natural GLP-1 supplement for appetite control. We read the label. Here is what it actually says.",
+      "say": "Colon Broom's G L P one Booster is sold as a natural G L P one supplement, for appetite control. We read the label. Here is what it actually says."
+    },
+    {
+      "id": "method",
+      "text": "This is a desk review. We read the labels, the listings and the published research. Nobody at SharpAndLean has taken the product. We score it on five things: evidence, dose, label transparency, value and safety.",
+      "say": "This is a desk review. We read the labels, the listings and the published research. Nobody at Sharp And Lean has taken the product. We score it on five things: evidence, dose, label transparency, value and safety."
+    },
+    {
+      "id": "versions",
+      "text": "First, which product are you buying? At least three have been sold under this name. The original from April 2025, a new formula from November 2025, and a one-a-day capsule on the brand’s own store. Reviews of one tell you little about the others.",
+      "say": "First, which product are you buying? At least three have been sold under this name. The original from April twenty twenty-five, a new formula from November twenty twenty-five, and a one a day capsule on the brand's own store. Reviews of one tell you little about the others."
+    },
+    {
+      "id": "label",
+      "text": "Here is the new formula’s panel. Two capsules give 200 milligrams of Berberis bark powder, 200 of Japanese knotweed extract, 200 of quercetin, and zinc. Every ingredient has an amount, and there is no proprietary blend. Credit where it is due.",
+      "say": "Here is the new formula's panel. Two capsules give two hundred milligrams of Berberis bark powder, two hundred of Japanese knotweed extract, two hundred of quercetin, and zinc. Every ingredient has an amount, and there is no proprietary blend. Credit where it is due."
+    },
+    {
+      "id": "bark",
+      "text": "But two of those amounts are the weight of a plant material, not of the compound the product is sold on. 200 milligrams of bark powder is not 200 milligrams of berberine. And the label never says how much berberine is inside.",
+      "say": "But two of those amounts are the weight of a plant material, not of the compound the product is sold on. Two hundred milligrams of bark powder is not two hundred milligrams of berberine. And the label never says how much berberine is inside."
+    },
+    {
+      "id": "zinc",
+      "text": "The zinc line cannot be right as printed. It says 15 micrograms, beside 136 per cent of the daily value. The daily value is 11 milligrams, so that percentage only fits 15 milligrams. Almost certainly a typo, on the one part of the pack that has to be accurate.",
+      "say": "The zinc line cannot be right as printed. It says fifteen micrograms, beside one hundred and thirty-six percent of the daily value. The daily value is eleven milligrams, so that percentage only fits fifteen milligrams. Almost certainly a typo, on the one part of the pack that has to be accurate."
+    },
+    {
+      "id": "directions",
+      "text": "How much should you take? It depends which page you read. The store says one pill before eating. The brand’s safety article says two capsules. The Amazon panel says two, and the Amazon infographic says one. Follow the panel on the bottle you actually receive.",
+      "say": "How much should you take? It depends which page you read. The store says one pill before eating. The brand's safety article says two capsules. The Amazon panel says two, and the Amazon infographic says one. Follow the panel on the bottle you actually receive."
+    },
+    {
+      "id": "claim",
+      "text": "Now the GLP-1 claim. The label says clinically tested actives. There is no trial of this product. That phrase means the ingredients have been studied somewhere, at some dose, for something.",
+      "say": "Now the G L P one claim. The label says, clinically tested actives. There is no trial of this product. That phrase means the ingredients have been studied somewhere, at some dose, for something."
+    },
+    {
+      "id": "papers",
+      "text": "The brand cites two GLP-1 papers. One is a 2024 review of the pathways by which berberine may raise GLP-1. The other is a 2025 study of quercetin on intestinal cells in a dish. Neither measured GLP-1, appetite or weight in people taking these ingredients.",
+      "say": "The brand cites two G L P one papers. One is a twenty twenty-four review of the pathways by which berberine may raise G L P one. The other is a twenty twenty-five study of quercetin on intestinal cells in a dish. Neither measured G L P one, appetite or weight in people taking these ingredients."
+    },
+    {
+      "id": "dose",
+      "text": "Berberine does have human research. The US government’s complementary health centre summarises a meta-analysis that found decreases in body weight. It also calls the evidence inconclusive, and says the effects were seen mainly at more than 1 gram a day, for more than 8 weeks.",
+      "say": "Berberine does have human research. The U S government's complementary health centre summarises a meta-analysis that found decreases in body weight. It also calls the evidence inconclusive, and says the effects were seen mainly at more than one gram a day, for more than eight weeks."
+    },
+    {
+      "id": "fifth",
+      "text": "This label gives 200 milligrams of bark powder. Even if every milligram were berberine, one serving would be a fifth of the lowest amount linked to a weight effect.",
+      "say": "This label gives two hundred milligrams of bark powder. Even if every milligram were berberine, one serving would be a fifth of the lowest amount linked to a weight effect."
+    },
+    {
+      "id": "others",
+      "text": "The other two ingredients do not help. A 2026 meta-analysis of 23 trials found resveratrol had no significant effect on body weight. A 2023 umbrella review found quercetin had no effect on body measurements.",
+      "say": "The other two ingredients do not help. A twenty twenty-six meta-analysis of twenty-three trials found resveratrol had no significant effect on body weight. A twenty twenty-three umbrella review found quercetin had no effect on body measurements."
+    },
+    {
+      "id": "promises",
+      "text": "The Amazon images promise more than that. One says, drop your first pound in 3 weeks. Another says, zero side effects. Yet the brand’s own safety article says berberine may cause mild nausea, stomach discomfort, gas, or changes in bowel habits.",
+      "say": "The Amazon images promise more than that. One says, drop your first pound in three weeks. Another says, zero side effects. Yet the brand's own safety article says berberine may cause mild nausea, stomach discomfort, gas, or changes in bowel habits."
+    },
+    {
+      "id": "ratings",
+      "text": "Both Amazon listings stood at 3.4 out of 5 when we checked, with around a quarter of ratings at one star. A star rating mixes delivery, price and expectation, and says little about effect.",
+      "say": "Both Amazon listings stood at three point four out of five when we checked, with around a quarter of ratings at one star. A star rating mixes delivery, price and expectation, and says little about effect."
+    },
+    {
+      "id": "price",
+      "text": "On price. Bought once, a bottle is $69.99, about $2.33 a day. On a monthly subscription it is $49.99.",
+      "say": "On price. Bought once, a bottle is sixty-nine dollars ninety-nine, about two dollars thirty-three a day. On a monthly subscription, it is forty-nine ninety-nine."
+    },
+    {
+      "id": "terms",
+      "text": "Read the terms before you subscribe. Cancel before the first renewal, and you pay back the discount. And refunds only cover faulty or wrongly described goods, returned unopened within 14 days. A bottle that simply did not work for you is not covered.",
+      "say": "Read the terms before you subscribe. Cancel before the first renewal, and you pay back the discount. And refunds only cover faulty or wrongly described goods, returned unopened within fourteen days. A bottle that simply did not work for you is not covered."
+    },
+    {
+      "id": "safety",
+      "text": "Some people should avoid it. Berberine may be unsafe in pregnancy and while breastfeeding, and children should not take it. It interacts with the transplant drug cyclosporine. If you take diabetes or blood pressure medicine, or any regular medicine, check with a clinician first.",
+      "say": "Some people should avoid it. Berberine may be unsafe in pregnancy and while breastfeeding, and children should not take it. It interacts with the transplant drug cyclosporine. If you take diabetes or blood pressure medicine, or any regular medicine, check with a clinician first."
+    },
+    {
+      "id": "score",
+      "text": "On our five criteria it scores 2 for evidence, 1 for dose, 3 for label transparency, 2 for value and 6 for safety. Overall: 2.8 out of 10.",
+      "say": "On our five criteria, it scores two for evidence, one for dose, three for label transparency, two for value, and six for safety. Overall: two point eight out of ten."
+    },
+    {
+      "id": "verdict",
+      "text": "Our verdict. It is named for GLP-1, dosed far below the berberine research, and sold with directions that do not agree with each other. If you want to try berberine, buy a product that states how much berberine you are getting.",
+      "say": "Our verdict. It is named for G L P one, dosed far below the berberine research, and sold with directions that do not agree with each other. If you want to try berberine, buy a product that states how much berberine you are getting."
+    },
+    {
+      "id": "outro",
+      "text": "This was a desk review, not medical advice. The full review, with every source, is at sharpandlean.com. If it helped, subscribe for the next label we read.",
+      "say": "This was a desk review, not medical advice. The full review, with every source, is at sharp and lean dot com. If it helped, subscribe for the next label we read."
+    }
+  ]
+}
