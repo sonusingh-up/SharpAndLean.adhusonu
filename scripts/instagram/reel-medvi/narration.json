@@ -1,0 +1,28 @@
+{
+ "voice": { "provider": "elevenlabs", "name": "Megan - Calm, Irish, Gentle", "id": "PvHGIJ8CrROdxsAp1TaQ", "model": "eleven_multilingual_v2" },
+ "source": "lib/articles/medvi-weight-loss-review.ts (prices and policies read from medvi.org on 25 September 2026)",
+ "sections": [],
+ "lines": [
+  { "id": "hook", "section": 0, "chapter": "Hook",
+    "text": "MEDVi weight loss, reviewed. Our score: 4.2 out of 10.",
+    "say": "Medvi weight loss, reviewed. Our score: four point two out of ten." },
+  { "id": "what", "section": 0, "chapter": "What it is",
+    "text": "MEDVi is a telehealth storefront for GLP-1 drugs. It is not a clinic or a pharmacy.",
+    "say": "Medvi is a telehealth storefront for G L P one drugs. It is not a clinic or a pharmacy." },
+  { "id": "good", "section": 0, "chapter": "What works",
+    "text": "The drugs themselves work. Branded semaglutide cut weight by about 15 percent in trials.",
+    "say": "The drugs themselves work. Branded semaglutide cut weight by about fifteen percent in trials." },
+  { "id": "comp", "section": 0, "chapter": "The catch",
+    "text": "But MEDVi leads with compounded versions, which the FDA does not review. And we found no human evidence for its tablets.",
+    "say": "But Medvi leads with compounded versions, which the F D A does not review. And we found no human evidence for its tablets." },
+  { "id": "fda", "section": 0, "chapter": "The record",
+    "text": "In February, the FDA sent a warning letter addressed to the company. MEDVi says it concerned an affiliate's website.",
+    "say": "In February, the F D A sent a warning letter addressed to the company. Medvi says it concerned an affiliate's website." },
+  { "id": "price", "section": 0, "chapter": "The price",
+    "text": "And the approved Wegovy pill now costs the same $299 a month, bought direct.",
+    "say": "And the approved Wegovy pill now costs the same two hundred and ninety-nine dollars a month, bought direct." },
+  { "id": "cta", "section": 0, "chapter": "CTA",
+    "text": "The full review is at sharpandlean.com. Like and follow for more.",
+    "say": "The full review is at sharp and lean dot com. Like and follow for more." }
+ ]
+}
