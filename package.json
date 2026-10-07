@@ -26,6 +26,7 @@
     "ig:reel:vitamin-d": "node scripts/instagram/reel-vitamin-d/use-recorded.mjs && node scripts/instagram/reel-vitamin-d/build.mjs && node scripts/instagram/reel-vitamin-d/render.mjs",
     "ig:reel:best-ashwagandha": "node scripts/instagram/reel-best-ashwagandha/use-recorded.mjs && node scripts/instagram/reel-best-ashwagandha/build.mjs && node scripts/instagram/reel-best-ashwagandha/render.mjs",
     "ig:reel:berberine": "node scripts/instagram/reel-berberine/use-recorded.mjs && node scripts/instagram/reel-berberine/build.mjs && node scripts/instagram/reel-berberine/render.mjs",
+    "ig:reel:fish-oil": "node scripts/instagram/reel-fish-oil/use-recorded.mjs && node scripts/instagram/reel-fish-oil/build.mjs && node scripts/instagram/reel-fish-oil/render.mjs",
     "ig:reel:sunscreen": "node scripts/instagram/reel-sunscreen-filters/render.mjs"
   },
   "dependencies": {

@@ -1,0 +1,25 @@
+{
+ "voice": { "provider": "elevenlabs", "name": "Megan - Calm, Irish, Gentle", "id": "PvHGIJ8CrROdxsAp1TaQ", "model": "eleven_multilingual_v2" },
+ "source": "lib/articles/now-omega-3-molecularly-distilled.ts and NCCIH, Omega-3 Supplements: What You Need To Know (read 7 October 2026)",
+ "sections": [],
+ "lines": [
+  { "id": "hook", "section": 0, "chapter": "Hook",
+    "text": "Fish oil benefits. What does the research actually show?",
+    "say": "Fish oil benefits. What does the research actually show?" },
+  { "id": "trig", "section": 0, "chapter": "Triglycerides",
+    "text": "It lowers triglycerides, by about 15 percent.",
+    "say": "It lowers triglycerides, by about fifteen percent." },
+  { "id": "heart", "section": 0, "chapter": "Heart",
+    "text": "For the heart, it may slightly reduce some events. But a trial of nearly 26,000 healthy adults found no significant drop in major heart events.",
+    "say": "For the heart, it may slightly reduce some events. But a trial of nearly twenty-six thousand healthy adults found no significant drop in major heart events." },
+  { "id": "label", "section": 0, "chapter": "Read the label",
+    "text": "Buying one? Compare the EPA and DHA, not the fish oil number on the front.",
+    "say": "Buying one? Compare the E P A and D H A, not the fish oil number on the front." },
+  { "id": "side", "section": 0, "chapter": "Side effects",
+    "text": "Side effects are usually mild: fishy burps and an upset stomach.",
+    "say": "Side effects are usually mild: fishy burps and an upset stomach." },
+  { "id": "cta", "section": 0, "chapter": "CTA",
+    "text": "We reviewed a fish oil at sharpandlean.com. Like and follow for more.",
+    "say": "We reviewed a fish oil at sharp and lean dot com. Like and follow for more." }
+ ]
+}
