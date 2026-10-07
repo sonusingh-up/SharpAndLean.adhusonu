@@ -25,6 +25,7 @@
     "yt:best-creatine": "node scripts/youtube/best-creatine/use-recorded.mjs && node scripts/youtube/best-creatine/build.mjs && node scripts/youtube/best-creatine/render.mjs",
     "ig:reel:vitamin-d": "node scripts/instagram/reel-vitamin-d/use-recorded.mjs && node scripts/instagram/reel-vitamin-d/build.mjs && node scripts/instagram/reel-vitamin-d/render.mjs",
     "ig:reel:best-ashwagandha": "node scripts/instagram/reel-best-ashwagandha/use-recorded.mjs && node scripts/instagram/reel-best-ashwagandha/build.mjs && node scripts/instagram/reel-best-ashwagandha/render.mjs",
+    "ig:reel:berberine": "node scripts/instagram/reel-berberine/use-recorded.mjs && node scripts/instagram/reel-berberine/build.mjs && node scripts/instagram/reel-berberine/render.mjs",
     "ig:reel:sunscreen": "node scripts/instagram/reel-sunscreen-filters/render.mjs"
   },
   "dependencies": {
