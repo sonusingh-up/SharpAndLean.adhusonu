@@ -5,7 +5,7 @@ import { pageMeta, BreadcrumbSchema, WebPageSchema, FaqSchema } from '@/componen
 import { gradeBands } from '@/lib/ingredients';
 import { scoreCriteria } from '@/lib/scoring';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const faqs = [
   {

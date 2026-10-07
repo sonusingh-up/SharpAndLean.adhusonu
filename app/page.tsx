@@ -17,7 +17,7 @@ import s from './home.module.css';
  * review and ingredient pages, so nothing here can drift from what they say.
  */
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 // The root segment does not inherit the title template from its own layout, so
 // the homepage has to carry the brand itself or it ships a title with no brand
 // and no category term in it.

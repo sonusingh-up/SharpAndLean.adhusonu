@@ -62,7 +62,7 @@ export async function rssResponse(feed: RssFeed) {
   return new Response(renderRss({ entries: selected, feed, siteUrl, now, imageLengths }), {
     headers: {
       'Content-Type': 'application/rss+xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=0, s-maxage=600, stale-while-revalidate=3600',
+      'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
       'X-Content-Type-Options': 'nosniff',
       ...(demoMode ? { 'X-Robots-Tag': 'noindex, nofollow' } : {}),
     },

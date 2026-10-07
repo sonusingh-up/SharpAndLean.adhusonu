@@ -52,7 +52,7 @@ import {
   isIndexableComparison,
 } from '@/lib/compare';
 import { canonicalCompareSlug } from '@/lib/compare-path';
-export const revalidate = 3600;
+export const revalidate = 86400;
 /** Custom article blocks placed with `<div data-tool="name"></div>`. */
 const articleTools = {
   'protein-calculator': <ProteinCalculator />,

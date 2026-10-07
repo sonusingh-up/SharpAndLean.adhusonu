@@ -15,7 +15,7 @@ export function publicClient() {
     auth: { persistSession: false },
     global: {
       fetch: (input, init) =>
-        fetch(input, { ...init, next: { revalidate: 3600, tags: ['content'] } }),
+        fetch(input, { ...init, next: { revalidate: 86400, tags: ['content'] } }),
     },
   });
 }

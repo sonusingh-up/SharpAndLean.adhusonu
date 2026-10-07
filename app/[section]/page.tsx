@@ -18,7 +18,7 @@ import { comparePath } from '@/lib/compare-path';
 import { CompareToggle } from '@/components/compare-tray';
 import { LearnHub } from '@/components/learn-hub';
 import { guides } from '@/lib/guides';
-export const revalidate = 3600;
+export const revalidate = 86400;
 // Plain-text titles get the same treatment as the hand-written headings: the
 // last word set in the italic serif.
 function accentLast(title: string) {

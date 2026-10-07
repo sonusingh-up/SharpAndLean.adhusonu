@@ -11,10 +11,10 @@ import { getReviews, getCollections } from '@/lib/data';
  * correct state for a site that does not publish daily — it is not a bug to be
  * fixed by widening the window.
  *
- * Revalidated every ten minutes so a newly published article becomes visible to
+ * Revalidated hourly so a newly published article becomes visible to
  * Google News well inside its own two-day window.
  */
-export const revalidate = 600;
+export const revalidate = 3600;
 
 const WINDOW_MS = 2 * 24 * 60 * 60 * 1000;
 /** Google's limit is 1,000 news entries per sitemap. */
@@ -52,7 +52,7 @@ function entry({ path, title, published }: NewsEntry) {
 export async function GET() {
   const headers = {
     'Content-Type': 'application/xml; charset=utf-8',
-    'Cache-Control': 'public, max-age=0, s-maxage=600, stale-while-revalidate=3600',
+    'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
   };
 
   const render = (entries: NewsEntry[]) =>
