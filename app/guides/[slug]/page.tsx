@@ -24,7 +24,7 @@ import { articles } from '@/lib/articles';
 import { ingredients } from '@/lib/ingredients';
 import s from './guide.module.css';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));

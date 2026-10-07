@@ -12,7 +12,7 @@ import type { Review } from '@/lib/types';
 import { supergut as brand } from '@/lib/brands/supergut';
 import s from './supergut-guide.module.css';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata = pageMeta(brand.seoTitle, brand.seoDescription, brand.path, brand.figure.src, {
   type: 'article',

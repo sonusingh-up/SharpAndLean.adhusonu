@@ -6,7 +6,7 @@ import { pageMeta, JsonLd, BreadcrumbSchema } from '@/components/seo';
 import { ingredients } from '@/lib/ingredients';
 import { siteUrl } from '@/lib/config';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata = pageMeta(
   'Ingredient evidence reference',

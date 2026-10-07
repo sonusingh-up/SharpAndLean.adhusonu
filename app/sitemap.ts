@@ -6,7 +6,7 @@ import { ingredients } from '@/lib/ingredients';
 import { guides } from '@/lib/guides';
 import { listedComparePairs } from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
-export const revalidate = 3600;
+export const revalidate = 86400;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (demoMode) return [];
   const [reviews, best, comparisons, articles] = await Promise.all([

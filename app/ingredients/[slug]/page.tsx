@@ -19,7 +19,7 @@ import { getReviews } from '@/lib/data';
 import { siteUrl } from '@/lib/config';
 import { teamProfile } from '@/lib/author';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 /** A prose field as paragraphs: a blank line in the source starts a new one. */
 function Paras({ text, lead }: { text: string; lead?: string }) {

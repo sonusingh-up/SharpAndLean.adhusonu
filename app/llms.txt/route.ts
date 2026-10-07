@@ -5,7 +5,7 @@ import { guides } from '@/lib/guides';
 import { buildComparison, listedComparePairs } from '@/lib/compare';
 import { comparePath } from '@/lib/compare-path';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 /**
  * llms.txt — an emerging convention that gives AI answer engines a plain-text
